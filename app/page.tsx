@@ -49,8 +49,8 @@ export default function LuminatePage() {
   // Enhanced Intersection Observer for all animation types
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -100px 0px",
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px",
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -569,9 +569,9 @@ export default function LuminatePage() {
           background-clip: text;
         }
 
-        /* Section Title Gradient - Dusty Rose to Gold */
+        /* Section Title Gradient - Deep Rose to Rich Gold */
         .section-title-gradient {
-          background: linear-gradient(135deg, #B85D6A 0%, #D4A574 100%);
+          background: linear-gradient(135deg, #8E2C42 0%, #B8883E 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -583,17 +583,29 @@ export default function LuminatePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="/" className="text-2xl font-normal text-[#2C2C2C] tracking-tight font-[family-name:var(--font-cormorant-garamond)] hover:opacity-80 transition-opacity">
-              Luminate with Mandy C
+            <a href="/" className="hover:opacity-80 transition-opacity flex items-center">
+              <Image
+                src="/Logo 2 black.png"
+                alt="Mandy C"
+                width={240}
+                height={80}
+                className="object-contain logo-tinted"
+                style={{ 
+                  backgroundColor: 'transparent',
+                  filter: 'brightness(0) saturate(100%) invert(46%) sepia(22%) saturate(890%) hue-rotate(308deg) brightness(92%) contrast(86%)',
+                  fontWeight: 'bold'
+                }}
+                unoptimized
+              />
             </a>
 
             {/* Desktop Navigation */}
             <nav className="desktop-nav hidden md:flex items-center space-x-8">
-              <a href="#about" className="text-sm font-light text-[#4A4A4A] hover:text-[#B85D6A] transition-colors relative group">
+              <a href="#about" className="text-sm font-medium text-[#4A4A4A] hover:text-[#B85D6A] transition-colors relative group uppercase font-[family-name:var(--font-poppins)]">
                 About
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
               </a>
-              <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-sm font-light text-[#4A4A4A] hover:text-[#B85D6A] transition-colors relative group">
+              <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[#4A4A4A] hover:text-[#B85D6A] transition-colors relative group uppercase font-[family-name:var(--font-poppins)]">
                 YouTube
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
               </a>
@@ -603,7 +615,13 @@ export default function LuminatePage() {
                   e.preventDefault()
                   scrollToSection("#opt-in")
                 }}
-                className="px-6 py-2 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                className="px-6 py-2 border-2 border-transparent bg-clip-text text-transparent bg-gradient-to-r from-[#B85D6A] to-[#D4A574] text-sm font-medium rounded-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 uppercase font-[family-name:var(--font-poppins)]"
+                style={{
+                  borderImage: 'linear-gradient(to right, #B85D6A, #D4A574) 1',
+                  WebkitTextFillColor: 'transparent',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text'
+                }}
               >
                 Get Audio
               </a>
@@ -657,7 +675,7 @@ export default function LuminatePage() {
                   handleMobileMenuClick()
                   scrollToSection("#opt-in")
                 }}
-                className="block text-center px-6 py-3 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm mt-4 transition-all duration-300 hover:shadow-lg"
+                className="block text-center px-6 py-3 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm mt-4 transition-all duration-300 hover:shadow-lg uppercase font-[family-name:var(--font-poppins)]"
               >
                 Get Audio
               </a>
@@ -674,7 +692,7 @@ export default function LuminatePage() {
             alt="Mandy Cheung"
             fill
             className="object-cover"
-            style={{ objectPosition: '35% center' }}
+            style={{ objectPosition: '35% 45%' }}
             priority
             quality={100}
             unoptimized={false}
@@ -706,7 +724,7 @@ export default function LuminatePage() {
                   e.preventDefault()
                   scrollToSection("#opt-in")
                 }}
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#B85D6A] text-sm font-medium tracking-wide rounded-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-xl"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#B85D6A] text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-xl uppercase font-[family-name:var(--font-poppins)]"
               >
                 Receive the Audio
               </a>
@@ -716,7 +734,7 @@ export default function LuminatePage() {
                   e.preventDefault()
                   scrollToSection("#about")
                 }}
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-white text-white text-sm font-medium tracking-wide rounded-sm transition-all duration-300 hover:bg-white/15 backdrop-blur-sm"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-white text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/15 backdrop-blur-sm uppercase font-[family-name:var(--font-poppins)]"
               >
                 Learn More
               </a>
@@ -833,9 +851,9 @@ export default function LuminatePage() {
                   <button
                     type="submit"
                     disabled={midSubmitting}
-                    className="btn-premium w-full px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-premium w-full px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)]"
                   >
-                    {midSubmitting ? "Sending..." : "Get Instant Access"}
+                    {midSubmitting ? "SENDING..." : "GET INSTANT ACCESS"}
                   </button>
                 </form>
               )}
@@ -1032,7 +1050,7 @@ export default function LuminatePage() {
             Enter Your Email to Receive the Audio
           </h2>
 
-          <div className="bg-white rounded-lg px-8 pt-8 pb-16 md:px-12 md:pt-12 md:pb-20 relative form-glow" style={{
+          <div className="bg-white rounded-lg px-6 pt-6 pb-8 md:px-10 md:pt-8 md:pb-10 relative form-glow" style={{
             boxShadow: '0 10px 40px rgba(184, 93, 106, 0.15), 0 0 60px rgba(212, 165, 116, 0.1), 0 4px 20px rgba(0, 0, 0, 0.05)'
           }}>
             {/* Animated gradient accent */}
@@ -1043,7 +1061,7 @@ export default function LuminatePage() {
                 animation: 'shimmer 3s linear infinite'
               }}
             ></div>
-            <form ref={formRef} onSubmit={handleSubmit} id="emailForm" className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} id="emailForm" className="space-y-5">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-normal text-[#4A4A4A] mb-2 tracking-wide">
                   First Name (optional)
@@ -1084,12 +1102,12 @@ export default function LuminatePage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn-premium w-full mt-8 px-8 py-5 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-lg font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-premium w-full mt-6 px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)]"
               >
-                {isSubmitting ? "Sending..." : "Receive the Audio"}
+                {isSubmitting ? "SENDING..." : "RECEIVE THE AUDIO"}
               </button>
 
-              <p className="text-sm text-[#4A4A4A] mt-6 leading-relaxed text-center font-light">
+              <p className="text-sm text-[#4A4A4A] mt-4 leading-relaxed text-center font-light">
                 You'll receive the 7-minute recalibration audio immediately, plus occasional transmissions from Luminate.
                 <br />
                 <br />
@@ -1123,13 +1141,13 @@ export default function LuminatePage() {
           onClick={() => {
             scrollToSection("#opt-in")
           }}
-          className="floating-cta btn-premium px-6 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium tracking-wide rounded-full flex items-center gap-2"
+          className="floating-cta btn-premium px-6 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium tracking-wide rounded-full flex items-center gap-2 uppercase font-[family-name:var(--font-poppins)]"
           aria-label="Get the audio"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
           </svg>
-          <span className="hidden sm:inline">Get Audio</span>
+          <span className="hidden sm:inline">GET AUDIO</span>
         </button>
       )}
 
