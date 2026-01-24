@@ -255,7 +255,7 @@ export default function LuminatePage() {
           --gold: #D4A574;
           --purple-accent: #9D8FC0;
           --text-primary: #3A3A3A;
-          --text-secondary: #5A5A5A;
+          --text-secondary: #4A4A4A;  /* Changed from #4A4A4A for better contrast */
         }
 
         body {
@@ -533,6 +533,10 @@ export default function LuminatePage() {
         }
 
         @media (max-width: 768px) {
+          .hero-section {
+            height: 450px !important;  /* Shorter on mobile */
+          }
+          
           .floating-cta {
             bottom: 16px;
             right: 16px;
@@ -548,13 +552,21 @@ export default function LuminatePage() {
           
           /* Hero section mobile adjustments */
           .hero-heading {
-            font-size: 2.5rem;
+            font-size: 2rem;  /* Slightly smaller on mobile */
             line-height: 1.1;
           }
           
           .hero-cta-buttons {
             flex-direction: column;
           }
+        }
+
+        /* Gradient text effect */
+        .gradient-text {
+          background: linear-gradient(135deg, #FFFFFF 0%, #F5E6D3 40%, #D4A574 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
       `}</style>
 
@@ -569,20 +581,12 @@ export default function LuminatePage() {
 
             {/* Desktop Navigation */}
             <nav className="desktop-nav hidden md:flex items-center space-x-8">
-              <a href="#about" className="text-sm font-light text-[#5A5A5A] hover:text-[#B85D6A] transition-colors relative group">
+              <a href="#about" className="text-sm font-light text-[#4A4A4A] hover:text-[#B85D6A] transition-colors relative group">
                 About
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
               </a>
-              <a href="#services" className="text-sm font-light text-[#5A5A5A] hover:text-[#B85D6A] transition-colors relative group">
-                Services
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-sm font-light text-[#5A5A5A] hover:text-[#B85D6A] transition-colors relative group">
+              <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-sm font-light text-[#4A4A4A] hover:text-[#B85D6A] transition-colors relative group">
                 YouTube
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a href="#contact" className="text-sm font-light text-[#5A5A5A] hover:text-[#B85D6A] transition-colors relative group">
-                Contact
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
               </a>
               <a 
@@ -625,40 +629,18 @@ export default function LuminatePage() {
                   handleMobileMenuClick()
                   scrollToSection("#about")
                 }}
-                className="block text-base text-[#5A5A5A] hover:text-[#B85D6A] py-2 transition-colors"
+                className="block text-base text-[#4A4A4A] hover:text-[#B85D6A] py-2 transition-colors"
               >
                 About
-              </a>
-              <a 
-                href="#services"
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleMobileMenuClick()
-                  scrollToSection("#services")
-                }}
-                className="block text-base text-[#5A5A5A] hover:text-[#B85D6A] py-2 transition-colors"
-              >
-                Services
               </a>
               <a 
                 href="https://www.youtube.com/@MandyC852" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={handleMobileMenuClick}
-                className="block text-base text-[#5A5A5A] hover:text-[#B85D6A] py-2 transition-colors"
+                className="block text-base text-[#4A4A4A] hover:text-[#B85D6A] py-2 transition-colors"
               >
                 YouTube
-              </a>
-              <a 
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleMobileMenuClick()
-                  scrollToSection("#contact")
-                }}
-                className="block text-base text-[#5A5A5A] hover:text-[#B85D6A] py-2 transition-colors"
-              >
-                Contact
               </a>
               <a 
                 href="#opt-in"
@@ -676,8 +658,8 @@ export default function LuminatePage() {
         )}
       </header>
 
-      {/* NEW: Full-Width Hero Section */}
-      <section className="hero-section relative w-full h-[550px] md:h-[600px] flex items-center overflow-hidden bg-[#4A4A4A]">
+      {/* Hero Section */}
+      <section className="hero-section relative w-full h-[550px] md:h-[600px] flex items-center overflow-hidden bg-gradient-to-r from-[#1A1A1A] via-[#2A2A2A] to-[#4A4A4A]">
         <div className="absolute right-0 top-0 bottom-0 w-full md:w-[50%] z-0">
           <Image
             src="/mandyc.jpg"
@@ -686,10 +668,11 @@ export default function LuminatePage() {
             className="object-cover"
             style={{ objectPosition: '35% center' }}
             priority
-            quality={90}
-            unoptimized
+            quality={100}
+            unoptimized={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#4A4A4A]/95 via-[#4A4A4A]/40 to-transparent" />
+          {/* Gradient overlay to blend with dark background */}
+          <div className="absolute left-0 top-0 bottom-0 w-[120px] md:w-[180px] bg-gradient-to-r from-[#2A2A2A] via-[#3A3A3A] to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full">
@@ -698,7 +681,7 @@ export default function LuminatePage() {
               Subconscious Reprogramming for Leaders
             </p>
 
-            <h1 className="hero-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-normal text-white mb-5 drop-shadow-2xl">
+            <h1 className="hero-heading gradient-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-normal mb-5">
               <span className="block">Recalibrate Your</span>
               <span className="block font-medium">Subconscious.</span>
               <span className="block">Lead From Alignment.</span>
@@ -732,17 +715,10 @@ export default function LuminatePage() {
             </div>
           </div>
         </div>
-
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-          <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
       </section>
 
-
       {/* Who This Is For Section - CREAM BACKGROUND WITH TEXTURE */}
-      <section id="about" className="relative py-16 md:py-24 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
+      <section id="about" className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
         {/* Subtle Texture Overlay */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -753,19 +729,19 @@ export default function LuminatePage() {
           }}
         />
         <div className="relative max-w-3xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up">
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-medium slide-up">
             Who This Is For
           </h2>
           <div className="space-y-6 mb-8 stagger-parent">
-            <p className="stagger-item text-lg leading-relaxed text-[#5A5A5A] font-light relative pl-8">
+            <p className="stagger-item text-lg leading-relaxed text-[#4A4A4A] font-light relative pl-8">
               <span className="absolute left-0 text-[#B85D6A] text-2xl">—</span>
               This work is for you if you're capable, driven, and already building — but something feels misaligned.
             </p>
-            <p className="stagger-item text-lg leading-relaxed text-[#5A5A5A] font-light relative pl-8">
+            <p className="stagger-item text-lg leading-relaxed text-[#4A4A4A] font-light relative pl-8">
               <span className="absolute left-0 text-[#B85D6A] text-2xl">—</span>
               You value clarity over chaos. You want power without force. You've outgrown hustle culture and empty manifestation.
             </p>
-            <p className="stagger-item text-lg leading-relaxed text-[#5A5A5A] font-light relative pl-8">
+            <p className="stagger-item text-lg leading-relaxed text-[#4A4A4A] font-light relative pl-8">
               <span className="absolute left-0 text-[#B85D6A] text-2xl">—</span>
               You're ready to lead from a nervous system that feels safe, a mind that trusts itself, and a business that reflects your truth.
             </p>
@@ -777,58 +753,58 @@ export default function LuminatePage() {
       </section>
 
 
-      {/* What You'll Receive Section - WHITE with SUBTLE ROSE TINT */}
-      <section id="services" className="py-16 md:py-24 px-6 bg-gradient-to-b from-white via-[#FBF6F4] to-white slide-up">
+      {/* What You'll Receive Section - WHITE */}
+      <section id="services" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
             What You'll Receive
           </h2>
           <div className="grid md:grid-cols-3 gap-8 stagger-parent">
             {/* Benefit 1 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8]">
+            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A]/10 to-[#D4A574]/10 flex items-center justify-center">
                 <svg className="w-8 h-8 text-[#B85D6A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                 </svg>
               </div>
               <h3 className="text-xl font-normal text-[#2C2C2C]">7-Minute Recalibration Audio</h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 Whispered affirmations layered with calming frequencies designed for subconscious reprogramming.
               </p>
             </div>
 
             {/* Benefit 2 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8]">
+            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A]/10 to-[#D4A574]/10 flex items-center justify-center">
                 <svg className="w-8 h-8 text-[#B85D6A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
               <h3 className="text-xl font-normal text-[#2C2C2C]">Instant Nervous System Reset</h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 A grounding practice to shift from overthinking and self-doubt into clarity and calm.
               </p>
             </div>
 
             {/* Benefit 3 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8]">
+            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A]/10 to-[#D4A574]/10 flex items-center justify-center">
                 <svg className="w-8 h-8 text-[#B85D6A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <h3 className="text-xl font-normal text-[#2C2C2C]">Occasional Transmissions</h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 Thoughtful insights on subconscious leadership, alignment, and sustainable success.
               </p>
             </div>
           </div>
 
           {/* Mid-Page Form Placement */}
-          <div className="mt-16 max-w-xl mx-auto">
-            <div className="bg-white border border-[#E8DFD8] rounded-lg p-8 shadow-lg">
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="bg-white border border-[#E8DFD8] rounded-lg px-8 pt-8 pb-16 md:px-8 md:pt-8 md:pb-20 shadow-lg">
               <h3 className="text-2xl font-normal text-[#2C2C2C] mb-3 text-center">Ready to Recalibrate?</h3>
-              <p className="text-sm text-[#5A5A5A] mb-6 text-center font-light">Get instant access to the 7-minute audio</p>
+              <p className="text-sm text-[#4A4A4A] mb-6 text-center font-light">Get instant access to the 7-minute audio</p>
               {midSuccess ? (
                 <div className="p-6 bg-gradient-to-br from-[rgba(201,122,122,0.1)] to-[rgba(184,148,95,0.1)] rounded-sm border border-[#E8DFD8] text-center">
                   <p className="text-base text-[#2C2C2C] font-light">✓ Check your email for the audio!</p>
@@ -861,30 +837,33 @@ export default function LuminatePage() {
       </section>
 
 
-      {/* The Audio Section - CREAM BACKGROUND */}
-      <section className="relative py-16 md:py-24 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
-        {/* Subtle Texture Overlay */}
+      {/* The Audio Section - PEONY BACKGROUND WITH GRADIENT */}
+      <section className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
+        {/* Peony Background Image */}
         <div 
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          className="absolute inset-0 opacity-60 pointer-events-none"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1920&q=80")',
-            backgroundSize: '400px',
-            backgroundRepeat: 'repeat',
+            backgroundImage: 'url("/peony-background.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }}
         />
+        {/* Gradient Overlay - Lighter to show background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/50 via-[#FAF8F5]/40 to-[#FAF8F5]/60 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up">
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-medium text-[#5A3A3A] slide-up">
             A 7-Minute Subconscious Recalibration
           </h2>
-          <div className="bg-white border border-[#E8DFD8] rounded-lg p-8 md:p-12 shadow-sm">
+          <div className="bg-white border border-[#E8DFD8] rounded-lg px-8 pt-8 pb-16 md:px-12 md:pt-12 md:pb-20 shadow-sm">
             <div className="space-y-6">
-              <p className="text-lg leading-relaxed text-[#5A5A5A] font-light">
+              <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
                 This audio is designed to rewire patterns of overthinking, self-doubt, and misalignment at the identity level.
               </p>
-              <p className="text-lg leading-relaxed text-[#5A5A5A] font-light">
+              <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
                 It combines whispered affirmations with calming frequencies to help you regulate your nervous system, recalibrate your decision-making, and embody confident leadership.
               </p>
-              <p className="text-lg leading-relaxed text-[#5A5A5A] font-light">
+              <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
                 This isn't a quick fix. It's a grounding reset you return to — a quiet recalibration for the leader you're becoming.
               </p>
             </div>
@@ -894,7 +873,7 @@ export default function LuminatePage() {
 
 
       {/* How It Works Section - WHITE */}
-      <section className="py-16 md:py-24 px-6 bg-white slide-up">
+      <section className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
             How to Use This Audio
@@ -906,7 +885,7 @@ export default function LuminatePage() {
                 1
               </div>
               <h3 className="text-xl font-normal text-[#2C2C2C]">Find a Quiet Space</h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 Set aside 7 minutes where you won't be interrupted. This is your time to recalibrate.
               </p>
             </div>
@@ -917,7 +896,7 @@ export default function LuminatePage() {
                 2
               </div>
               <h3 className="text-xl font-normal text-[#2C2C2C]">Use Headphones</h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 For optimal effect, listen with headphones to fully experience the layered frequencies.
               </p>
             </div>
@@ -928,7 +907,7 @@ export default function LuminatePage() {
                 3
               </div>
               <h3 className="text-xl font-normal text-[#2C2C2C]">Return Regularly</h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 Play it daily or whenever you need to shift out of overwhelm and back into alignment.
               </p>
             </div>
@@ -938,7 +917,7 @@ export default function LuminatePage() {
 
 
       {/* Authority Section with Photo - CREAM BACKGROUND */}
-      <section className="relative py-16 md:py-24 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
+      <section className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
         {/* Subtle Texture Overlay */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -966,7 +945,7 @@ export default function LuminatePage() {
 
             {/* Content */}
             <div className="md:col-span-2 space-y-6 slide-in-right">
-              <p className="text-lg leading-relaxed text-[#5A5A5A] font-light">
+              <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
                 I've worked in corporate finance and IPO advisory, advising executives on high-stakes decisions. I've also spent years practicing subconscious reprogramming, creating subliminals, and studying embodied leadership.
               </p>
               <p className="text-xl leading-relaxed text-[#3A3A3A] font-light italic">
@@ -979,7 +958,7 @@ export default function LuminatePage() {
 
 
       {/* FAQ Section - WHITE */}
-      <section id="contact" className="py-16 md:py-24 px-6 bg-white slide-up">
+      <section id="contact" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
             Common Questions
@@ -990,7 +969,7 @@ export default function LuminatePage() {
               <h3 className="text-xl font-normal text-[#2C2C2C] mb-3">
                 Do I need headphones to listen?
               </h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 Headphones are recommended for the full effect of the layered frequencies, but you can still benefit from the whispered affirmations without them.
               </p>
             </div>
@@ -1000,7 +979,7 @@ export default function LuminatePage() {
               <h3 className="text-xl font-normal text-[#2C2C2C] mb-3">
                 How quickly will I see results?
               </h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 This isn't about instant transformation. Some people feel calmer immediately. Others notice shifts in their thinking patterns over time. The key is consistent use — this is subconscious recalibration, not a quick fix.
               </p>
             </div>
@@ -1010,7 +989,7 @@ export default function LuminatePage() {
               <h3 className="text-xl font-normal text-[#2C2C2C] mb-3">
                 Is this just manifestation or "woo-woo" content?
               </h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 No. This is grounded work designed to address the subconscious patterns that create self-sabotage, overthinking, and misalignment. It's not about magical thinking — it's about rewiring the identity-level beliefs that drive your decisions and behavior.
               </p>
             </div>
@@ -1020,7 +999,7 @@ export default function LuminatePage() {
               <h3 className="text-xl font-normal text-[#2C2C2C] mb-3">
                 When is the best time to listen?
               </h3>
-              <p className="text-base text-[#5A5A5A] font-light leading-relaxed">
+              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
                 Morning, before making important decisions, or anytime you feel disconnected from your centered self. Many people use it as a daily practice to start their day aligned.
               </p>
             </div>
@@ -1030,7 +1009,7 @@ export default function LuminatePage() {
 
 
       {/* Opt-In Form Section - CREAM BACKGROUND WITH TEXTURE */}
-      <section id="opt-in" className="relative py-16 md:py-24 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
+      <section id="opt-in" className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
         {/* Subtle Texture Overlay */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -1041,11 +1020,11 @@ export default function LuminatePage() {
           }}
         />
         <div className="relative max-w-2xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal slide-up">
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
             Enter Your Email to Receive the Audio
           </h2>
 
-          <div className="mt-12 bg-white rounded-lg p-8 md:p-12 relative form-glow" style={{
+          <div className="bg-white rounded-lg px-8 pt-8 pb-16 md:px-12 md:pt-12 md:pb-20 relative form-glow" style={{
             boxShadow: '0 10px 40px rgba(184, 93, 106, 0.15), 0 0 60px rgba(212, 165, 116, 0.1), 0 4px 20px rgba(0, 0, 0, 0.05)'
           }}>
             {/* Animated gradient accent */}
@@ -1058,7 +1037,7 @@ export default function LuminatePage() {
             ></div>
             <form ref={formRef} onSubmit={handleSubmit} id="emailForm" className="space-y-6">
               <div>
-                <label htmlFor="firstName" className="block text-sm font-normal text-[#5A5A5A] mb-2 tracking-wide">
+                <label htmlFor="firstName" className="block text-sm font-normal text-[#4A4A4A] mb-2 tracking-wide">
                   First Name (optional)
                 </label>
                 <input
@@ -1073,7 +1052,7 @@ export default function LuminatePage() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-normal text-[#5A5A5A] mb-2 tracking-wide">
+                <label htmlFor="email" className="block text-sm font-normal text-[#4A4A4A] mb-2 tracking-wide">
                   Email *
                 </label>
                 <input
@@ -1102,7 +1081,7 @@ export default function LuminatePage() {
                 {isSubmitting ? "Sending..." : "Receive the Audio"}
               </button>
 
-              <p className="text-sm text-[#5A5A5A] mt-6 leading-relaxed text-center font-light">
+              <p className="text-sm text-[#4A4A4A] mt-6 leading-relaxed text-center font-light">
                 You'll receive the 7-minute recalibration audio immediately, plus occasional transmissions from Luminate.
                 <br />
                 <br />
@@ -1121,7 +1100,7 @@ export default function LuminatePage() {
                   </svg>
                 </div>
                 <h3 className="text-3xl text-[#2C2C2C] mb-3 font-normal">Thank You</h3>
-                <p className="text-[#5A5A5A] mb-0 text-lg font-light">
+                <p className="text-[#4A4A4A] mb-0 text-lg font-light">
                   The audio is on its way to your inbox. Check your email in the next few minutes.
                 </p>
               </div>
@@ -1149,21 +1128,14 @@ export default function LuminatePage() {
       {/* Footer with Social Links - WHITE */}
       <footer className="py-12 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Brand */}
-            <div className="text-center md:text-left">
-              <p className="text-sm text-[#5A5A5A] font-light">
-                © 2025 Luminate with Mandy C. All rights reserved.
-              </p>
-            </div>
-
+          <div className="flex flex-col items-center gap-6">
             {/* Social Links */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center justify-center gap-6">
               <a
                 href="https://www.youtube.com/@MandyC852"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#5A5A5A] hover:text-[#B85D6A] transition-colors duration-300"
+                className="text-[#4A4A4A] hover:text-[#B85D6A] transition-colors duration-300"
                 aria-label="YouTube"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -1171,27 +1143,23 @@ export default function LuminatePage() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/luminatewithmandyc"
+                href="https://www.linkedin.com/in/mandyc852/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#5A5A5A] hover:text-[#B85D6A] transition-colors duration-300"
-                aria-label="Instagram"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mandycheung"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#5A5A5A] hover:text-[#B85D6A] transition-colors duration-300"
+                className="text-[#4A4A4A] hover:text-[#B85D6A] transition-colors duration-300"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
               </a>
+            </div>
+
+            {/* Brand */}
+            <div className="text-center">
+              <p className="text-sm text-[#4A4A4A] font-light">
+                © 2025 Luminate with Mandy C. All rights reserved.
+              </p>
             </div>
           </div>
         </div>
