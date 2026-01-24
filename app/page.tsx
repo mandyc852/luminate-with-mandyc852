@@ -546,11 +546,7 @@ export default function LuminatePage() {
             display: block; 
           }
           
-          /* Make hero shorter, stack buttons on mobile */
-          .hero-section {
-            min-height: 70vh;
-          }
-          
+          /* Hero section mobile adjustments */
           .hero-heading {
             font-size: 2.5rem;
             line-height: 1.1;
@@ -681,69 +677,55 @@ export default function LuminatePage() {
       </header>
 
       {/* NEW: Full-Width Hero Section */}
-      <section className="hero-section relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image Layer with Parallax */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            transform: `translateY(${scrollY * 0.3}px)`,
-            willChange: 'transform'
-          }}
-        >
+      <section className="hero-section relative w-full h-[550px] md:h-[600px] flex items-center overflow-hidden bg-[#4A4A4A]">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[50%] z-0">
           <Image
-            src="/mandy-profile-new.JPG"
-            alt="Mandy Cheung - Luminate with Mandy C"
+            src="/mandyc.jpg"
+            alt="Mandy Cheung"
             fill
-            className="object-cover object-center"
+            className="object-cover"
+            style={{ objectPosition: '35% center' }}
             priority
             quality={90}
             unoptimized
           />
-          {/* Dark Gradient Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent md:from-black/50 md:via-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#4A4A4A]/95 via-[#4A4A4A]/40 to-transparent" />
         </div>
 
-        {/* Content Container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-32 w-full">
-          <div className="max-w-2xl slide-in-left">
-            {/* Eyebrow Text */}
-            <p className="text-white/80 text-sm md:text-base font-light mb-4 tracking-wider uppercase text-reveal" style={{animationDelay: '0.2s'}}>
+        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full">
+          <div className="max-w-lg">
+            <p className="text-white text-xs md:text-sm font-light tracking-[0.25em] uppercase mb-4">
               Subconscious Reprogramming for Leaders
             </p>
 
-            {/* Main Headline */}
-            <h1 className="hero-heading text-4xl md:text-6xl lg:text-7xl leading-tight font-normal text-white mb-6">
-              <span className="inline-block text-reveal" style={{animationDelay: '0.3s'}}>Recalibrate Your</span>
-              <br />
-              <span className="inline-block font-medium text-reveal" style={{animationDelay: '0.5s'}}>Subconscious.</span>
-              <br />
-              <span className="inline-block text-reveal" style={{animationDelay: '0.7s'}}>Lead From Alignment.</span>
+            <h1 className="hero-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-normal text-white mb-5 drop-shadow-2xl">
+              <span className="block">Recalibrate Your</span>
+              <span className="block font-medium">Subconscious.</span>
+              <span className="block">Lead From Alignment.</span>
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed mb-8 max-w-xl fade-in" style={{animationDelay: '0.9s'}}>
+            <p className="text-base md:text-lg text-white/95 font-light leading-relaxed mb-7 max-w-md drop-shadow-xl">
               For conscious leaders who refuse to build wealth from burnout.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="hero-cta-buttons flex flex-col sm:flex-row gap-4 fade-in" style={{animationDelay: '1.1s'}}>
-              <a
-                href="#opt-in"
+            <div className="hero-cta-buttons flex flex-col sm:flex-row gap-3">
+              <a 
+                href="#opt-in" 
                 onClick={(e) => {
                   e.preventDefault()
                   scrollToSection("#opt-in")
                 }}
-                className="inline-block px-8 py-4 bg-white text-[#B85D6A] text-base font-medium tracking-wide rounded-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-lg text-center"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#B85D6A] text-sm font-medium tracking-wide rounded-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-xl"
               >
                 Receive the Audio
               </a>
-              <a
+              <a 
                 href="#about"
                 onClick={(e) => {
                   e.preventDefault()
                   scrollToSection("#about")
                 }}
-                className="inline-block px-8 py-4 bg-transparent border-2 border-white text-white text-base font-medium tracking-wide rounded-sm transition-all duration-300 hover:bg-white hover:text-[#B85D6A] text-center"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-white text-white text-sm font-medium tracking-wide rounded-sm transition-all duration-300 hover:bg-white/15 backdrop-blur-sm"
               >
                 Learn More
               </a>
@@ -751,9 +733,8 @@ export default function LuminatePage() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-          <svg className="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
