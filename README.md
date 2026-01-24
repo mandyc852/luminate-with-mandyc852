@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Luminate with Mandy C
 
-## Getting Started
+A landing page for the 7-minute subconscious recalibration audio offer.
 
-First, run the development server:
+## Setup
 
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Configure ConvertKit:
+   - Create a form in your ConvertKit dashboard: https://app.convertkit.com/forms
+   - Copy the form ID
+   - Create a `.env.local` file:
+   ```bash
+   CONVERTKIT_FORM_ID=your_form_id_here
+   CONVERTKIT_API_KEY=pODPwFSIDilb7gBuh2wERA
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The app will be available at `http://localhost:3001`
 
-## Learn More
+## ConvertKit Integration
 
-To learn more about Next.js, take a look at the following resources:
+The form submission is integrated with ConvertKit. When users submit their email:
+- They are added to your ConvertKit form
+- Custom fields are set (source_page, source_placement)
+- First name is included if provided
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/page.tsx` - Main landing page
+- `app/api/waitlist/route.ts` - ConvertKit API integration
+- `public/` - Images (Mandy's photos)
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This is a Next.js app that can be deployed to:
+- Vercel (recommended)
+- Netlify
+- Any Node.js hosting platform
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Make sure to set the environment variables in your hosting platform's dashboard.
