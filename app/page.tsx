@@ -576,6 +576,12 @@ export default function LuminatePage() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
+
+        /* Italic quote text with Cormorant Garamond */
+        .quote-text {
+          font-family: var(--font-cormorant-garamond);
+          font-style: italic;
+        }
       `}</style>
 
       {/* Header Navigation */}
@@ -729,14 +735,12 @@ export default function LuminatePage() {
                 Receive the Audio
               </a>
               <a 
-                href="#about"
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection("#about")
-                }}
+                href="https://www.youtube.com/@MandyC852"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-white text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/15 backdrop-blur-sm uppercase font-[family-name:var(--font-poppins)]"
               >
-                Learn More
+                My YouTube Channel
               </a>
             </div>
           </div>
@@ -772,7 +776,7 @@ export default function LuminatePage() {
               You're ready to lead from a nervous system that feels safe, a mind that trusts itself, and a business that reflects your truth.
             </p>
           </div>
-          <p className="italic text-[#3A3A3A] text-center text-xl font-normal mt-12 fade-in">
+          <p className="quote-text text-[#3A3A3A] text-center text-xl md:text-2xl font-normal mt-12 fade-in">
             This work is subtle — and powerful.
           </p>
         </div>
@@ -829,7 +833,7 @@ export default function LuminatePage() {
           {/* Mid-Page Form Placement */}
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="bg-white border border-[#E8DFD8] rounded-lg px-8 pt-8 pb-16 md:px-8 md:pt-8 md:pb-20 shadow-lg">
-              <h3 className="text-2xl font-normal text-[#2C2C2C] mb-3 text-center">Ready to Recalibrate?</h3>
+              <h3 className="text-2xl md:text-3xl font-normal mb-3 text-center section-title-gradient">Ready to Recalibrate?</h3>
               <p className="text-sm text-[#4A4A4A] mb-6 text-center font-light">Get instant access to the 7-minute audio</p>
               {midSuccess ? (
                 <div className="p-6 bg-gradient-to-br from-[rgba(201,122,122,0.1)] to-[rgba(184,148,95,0.1)] rounded-sm border border-[#E8DFD8] text-center">
