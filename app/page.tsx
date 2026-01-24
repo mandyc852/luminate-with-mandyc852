@@ -568,6 +568,14 @@ export default function LuminatePage() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
+
+        /* Section Title Gradient - Dusty Rose to Gold */
+        .section-title-gradient {
+          background: linear-gradient(135deg, #B85D6A 0%, #D4A574 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
       `}</style>
 
       {/* Header Navigation */}
@@ -729,7 +737,7 @@ export default function LuminatePage() {
           }}
         />
         <div className="relative max-w-3xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-medium slide-up">
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-medium slide-up section-title-gradient">
             Who This Is For
           </h2>
           <div className="space-y-6 mb-8 stagger-parent">
@@ -756,7 +764,7 @@ export default function LuminatePage() {
       {/* What You'll Receive Section - WHITE */}
       <section id="services" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up section-title-gradient">
             What You'll Receive
           </h2>
           <div className="grid md:grid-cols-3 gap-8 stagger-parent">
@@ -841,21 +849,21 @@ export default function LuminatePage() {
       <section className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
         {/* Peony Background Image */}
         <div 
-          className="absolute inset-0 opacity-60 pointer-events-none"
+          className="absolute inset-0 opacity-70 pointer-events-none"
           style={{
-            backgroundImage: 'url("/peony-background.jpg")',
+            backgroundImage: 'url("/peony-background-2.jpg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
         />
         {/* Gradient Overlay - Lighter to show background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/50 via-[#FAF8F5]/40 to-[#FAF8F5]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/40 via-[#FAF8F5]/30 to-[#FAF8F5]/50 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-medium text-[#5A3A3A] slide-up">
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-medium slide-up section-title-gradient">
             A 7-Minute Subconscious Recalibration
           </h2>
-          <div className="bg-white border border-[#E8DFD8] rounded-lg px-8 pt-8 pb-16 md:px-12 md:pt-12 md:pb-20 shadow-sm">
+          <div className="bg-white border border-[#E8DFD8] rounded-lg px-8 pt-8 pb-10 md:px-12 md:pt-12 md:pb-12 shadow-sm">
             <div className="space-y-6">
               <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
                 This audio is designed to rewire patterns of overthinking, self-doubt, and misalignment at the identity level.
@@ -875,7 +883,7 @@ export default function LuminatePage() {
       {/* How It Works Section - WHITE */}
       <section className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up section-title-gradient">
             How to Use This Audio
           </h2>
           <div className="grid md:grid-cols-3 gap-8 stagger-parent">
@@ -960,7 +968,7 @@ export default function LuminatePage() {
       {/* FAQ Section - WHITE */}
       <section id="contact" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up section-title-gradient">
             Common Questions
           </h2>
           <div className="space-y-8 stagger-parent">
@@ -1020,7 +1028,7 @@ export default function LuminatePage() {
           }}
         />
         <div className="relative max-w-2xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up section-title-gradient">
             Enter Your Email to Receive the Audio
           </h2>
 
