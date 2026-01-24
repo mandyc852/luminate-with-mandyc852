@@ -40,6 +40,9 @@ export default function LuminatePage() {
   // Floating button state
   const [showFloatingButton, setShowFloatingButton] = useState(false)
   
+  // Mobile menu state
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  
   // Scroll position for parallax effect
   const [scrollY, setScrollY] = useState(0)
 
@@ -97,7 +100,7 @@ export default function LuminatePage() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Smooth scroll for anchor links
+  // Smooth scroll for anchor links with header offset
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement
@@ -105,11 +108,16 @@ export default function LuminatePage() {
         e.preventDefault()
         const href = target.getAttribute("href")
         if (href) {
-          const targetElement = document.querySelector(href)
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
+          const element = document.querySelector(href)
+          if (element) {
+            // Account for fixed header height
+            const headerOffset = 80
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.scrollY - headerOffset
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
             })
           }
         }
@@ -133,6 +141,26 @@ export default function LuminatePage() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Helper function for smooth scroll with header offset
+  const scrollToSection = (selector: string) => {
+    const element = document.querySelector(selector)
+    if (element) {
+      const headerOffset = 80
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.scrollY - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    }
+  }
+
+  // Handler to close mobile menu
+  const handleMobileMenuClick = () => {
+    setMobileMenuOpen(false)
+  }
 
   // Reusable form submission handler
   const createSubmitHandler = (
@@ -235,6 +263,7 @@ export default function LuminatePage() {
           color: var(--text-primary);
           position: relative;
           overflow-x: hidden;
+          padding-top: 80px; /* Height of header */
         }
 
         body::before {
@@ -508,115 +537,231 @@ export default function LuminatePage() {
             bottom: 16px;
             right: 16px;
           }
+          
+          /* Hide desktop nav, show hamburger on mobile */
+          .desktop-nav { 
+            display: none; 
+          }
+          .mobile-menu-button { 
+            display: block; 
+          }
+          
+          /* Make hero shorter, stack buttons on mobile */
+          .hero-section {
+            min-height: 70vh;
+          }
+          
+          .hero-heading {
+            font-size: 2.5rem;
+            line-height: 1.1;
+          }
+          
+          .hero-cta-buttons {
+            flex-direction: column;
+          }
         }
       `}</style>
 
-      {/* Hero Section - WITH GRADIENT BACKGROUND & IMAGE */}
-      <section className="relative py-20 md:py-32 px-6 overflow-hidden" style={{
-        background: 'linear-gradient(135deg, #F8F5F2 0%, rgba(184, 93, 106, 0.08) 25%, rgba(212, 165, 116, 0.12) 50%, rgba(157, 143, 192, 0.06) 75%, #FDFBF9 100%)'
-      }}>
-        {/* Background Image Layer */}
+      {/* Header Navigation */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E8DFD8] shadow-sm">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <a href="/" className="text-2xl font-normal text-[#2C2C2C] tracking-tight font-[family-name:var(--font-cormorant-garamond)] hover:opacity-80 transition-opacity">
+              Luminate with Mandy C
+            </a>
+
+            {/* Desktop Navigation */}
+            <nav className="desktop-nav hidden md:flex items-center space-x-8">
+              <a href="#about" className="text-sm font-light text-[#5A5A5A] hover:text-[#B85D6A] transition-colors relative group">
+                About
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
+              </a>
+              <a href="#services" className="text-sm font-light text-[#5A5A5A] hover:text-[#B85D6A] transition-colors relative group">
+                Services
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
+              </a>
+              <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-sm font-light text-[#5A5A5A] hover:text-[#B85D6A] transition-colors relative group">
+                YouTube
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
+              </a>
+              <a href="#contact" className="text-sm font-light text-[#5A5A5A] hover:text-[#B85D6A] transition-colors relative group">
+                Contact
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B85D6A] group-hover:w-full transition-all duration-300"></span>
+              </a>
+              <a 
+                href="#opt-in"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection("#opt-in")
+                }}
+                className="px-6 py-2 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+              >
+                Get Audio
+              </a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="mobile-menu-button md:hidden p-2 hover:bg-[#FAF8F5] rounded transition-colors"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6 text-[#2C2C2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-[#E8DFD8] shadow-lg">
+            <nav className="px-6 py-4 space-y-3">
+              <a 
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleMobileMenuClick()
+                  scrollToSection("#about")
+                }}
+                className="block text-base text-[#5A5A5A] hover:text-[#B85D6A] py-2 transition-colors"
+              >
+                About
+              </a>
+              <a 
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleMobileMenuClick()
+                  scrollToSection("#services")
+                }}
+                className="block text-base text-[#5A5A5A] hover:text-[#B85D6A] py-2 transition-colors"
+              >
+                Services
+              </a>
+              <a 
+                href="https://www.youtube.com/@MandyC852" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={handleMobileMenuClick}
+                className="block text-base text-[#5A5A5A] hover:text-[#B85D6A] py-2 transition-colors"
+              >
+                YouTube
+              </a>
+              <a 
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleMobileMenuClick()
+                  scrollToSection("#contact")
+                }}
+                className="block text-base text-[#5A5A5A] hover:text-[#B85D6A] py-2 transition-colors"
+              >
+                Contact
+              </a>
+              <a 
+                href="#opt-in"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleMobileMenuClick()
+                  scrollToSection("#opt-in")
+                }}
+                className="block text-center px-6 py-3 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm mt-4 transition-all duration-300 hover:shadow-lg"
+              >
+                Get Audio
+              </a>
+            </nav>
+          </div>
+        )}
+      </header>
+
+      {/* NEW: Full-Width Hero Section */}
+      <section className="hero-section relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image Layer with Parallax */}
         <div 
-          className="absolute inset-0 opacity-[0.15] pointer-events-none"
+          className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&q=80")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
             transform: `translateY(${scrollY * 0.3}px)`,
             willChange: 'transform'
           }}
-        />
-        
-        {/* Gradient Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30 pointer-events-none" />
-        
-        <div className="relative max-w-5xl mx-auto z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Hero Image */}
-            <div className="order-2 md:order-1 slide-in-left">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/mandy-profile-new.JPG"
-                  alt="Mandy Cheung - Luminate with Mandy C"
-                  width={600}
-                  height={800}
-                  className="w-full h-auto object-cover"
-                  priority
-                  unoptimized
-                />
-              </div>
-            </div>
+        >
+          <Image
+            src="/mandy-profile-new.JPG"
+            alt="Mandy Cheung - Luminate with Mandy C"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={90}
+            unoptimized
+          />
+          {/* Dark Gradient Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent md:from-black/50 md:via-black/20" />
+        </div>
 
-            {/* Hero Content */}
-            <div className="order-1 md:order-2 space-y-8 slide-in-right">
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight font-normal">
-                  <span className="text-reveal inline-block">Recalibrate Your</span>
-                  <br />
-                  <span className="text-reveal inline-block font-medium" style={{ animationDelay: '0.2s' }}>Subconscious.</span>
-                  <br />
-                  <span className="text-reveal inline-block" style={{ animationDelay: '0.4s' }}>Lead From Alignment.</span>
-                </h1>
-                <p className="text-lg md:text-xl text-[#5A5A5A] font-light leading-relaxed max-w-lg fade-in">
-                  For conscious leaders who refuse to build wealth from burnout.
-                </p>
-              </div>
-              
-              <div className="space-y-4">
-                <a
-                  href="#opt-in"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const target = document.querySelector("#opt-in")
-                    if (target) {
-                      target.scrollIntoView({ behavior: "smooth", block: "start" })
-                    }
-                  }}
-                  className="btn-premium btn-cta-shimmer inline-block px-8 py-4 text-white text-base font-medium tracking-wide rounded-sm shadow-lg cursor-pointer"
-                >
-                  Receive the Audio
-                </a>
+        {/* Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-32 w-full">
+          <div className="max-w-2xl slide-in-left">
+            {/* Eyebrow Text */}
+            <p className="text-white/80 text-sm md:text-base font-light mb-4 tracking-wider uppercase text-reveal" style={{animationDelay: '0.2s'}}>
+              Subconscious Reprogramming for Leaders
+            </p>
 
-                {/* Hero Form Variant - Compact Email Only */}
-                <div className="mt-6 pt-6 border-t border-[#E8DFD8]">
-                  <p className="text-sm text-[#5A5A5A] mb-3 font-light">Or enter your email for instant access:</p>
-                  {heroSuccess ? (
-                    <div className="p-4 bg-gradient-to-br from-[rgba(201,122,122,0.1)] to-[rgba(184,148,95,0.1)] rounded-sm border border-[#E8DFD8]">
-                      <p className="text-sm text-[#2C2C2C] font-light">✓ Check your email!</p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleHeroSubmit} className="flex gap-2">
-                      <input
-                        type="email"
-                        value={heroEmail}
-                        onChange={(e) => setHeroEmail(e.target.value)}
-                        placeholder="your@email.com"
-                        required
-                        className="input-premium flex-1 px-4 py-3 text-sm font-sans border border-[#E8DFD8] rounded-sm bg-white text-[#3A3A3A] transition-all duration-300"
-                      />
-                      <button
-                        type="submit"
-                        disabled={heroSubmitting}
-                        className="btn-premium px-6 py-3 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
-                      >
-                        {heroSubmitting ? "..." : "Get It"}
-                      </button>
-                    </form>
-                  )}
-                  {heroError && (
-                    <p className="text-xs text-red-600 mt-2">{heroError}</p>
-                  )}
-                </div>
-              </div>
+            {/* Main Headline */}
+            <h1 className="hero-heading text-4xl md:text-6xl lg:text-7xl leading-tight font-normal text-white mb-6">
+              <span className="inline-block text-reveal" style={{animationDelay: '0.3s'}}>Recalibrate Your</span>
+              <br />
+              <span className="inline-block font-medium text-reveal" style={{animationDelay: '0.5s'}}>Subconscious.</span>
+              <br />
+              <span className="inline-block text-reveal" style={{animationDelay: '0.7s'}}>Lead From Alignment.</span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed mb-8 max-w-xl fade-in" style={{animationDelay: '0.9s'}}>
+              For conscious leaders who refuse to build wealth from burnout.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="hero-cta-buttons flex flex-col sm:flex-row gap-4 fade-in" style={{animationDelay: '1.1s'}}>
+              <a
+                href="#opt-in"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection("#opt-in")
+                }}
+                className="inline-block px-8 py-4 bg-white text-[#B85D6A] text-base font-medium tracking-wide rounded-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-lg text-center"
+              >
+                Receive the Audio
+              </a>
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection("#about")
+                }}
+                className="inline-block px-8 py-4 bg-transparent border-2 border-white text-white text-base font-medium tracking-wide rounded-sm transition-all duration-300 hover:bg-white hover:text-[#B85D6A] text-center"
+              >
+                Learn More
+              </a>
             </div>
           </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+          <svg className="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </div>
       </section>
 
 
       {/* Who This Is For Section - CREAM BACKGROUND WITH TEXTURE */}
-      <section className="relative py-16 md:py-24 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
+      <section id="about" className="relative py-16 md:py-24 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
         {/* Subtle Texture Overlay */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -652,7 +797,7 @@ export default function LuminatePage() {
 
 
       {/* What You'll Receive Section - WHITE with SUBTLE ROSE TINT */}
-      <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-white via-[#FBF6F4] to-white slide-up">
+      <section id="services" className="py-16 md:py-24 px-6 bg-gradient-to-b from-white via-[#FBF6F4] to-white slide-up">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
             What You'll Receive
@@ -853,7 +998,7 @@ export default function LuminatePage() {
 
 
       {/* FAQ Section - WHITE */}
-      <section className="py-16 md:py-24 px-6 bg-white slide-up">
+      <section id="contact" className="py-16 md:py-24 px-6 bg-white slide-up">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up">
             Common Questions
@@ -1008,10 +1153,7 @@ export default function LuminatePage() {
       {showFloatingButton && (
         <button
           onClick={() => {
-            const target = document.querySelector("#opt-in")
-            if (target) {
-              target.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
+            scrollToSection("#opt-in")
           }}
           className="floating-cta btn-premium px-6 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium tracking-wide rounded-full flex items-center gap-2"
           aria-label="Get the audio"
