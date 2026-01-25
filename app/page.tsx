@@ -61,26 +61,65 @@ export default function LuminatePage() {
       })
     }, observerOptions)
 
-    // Observe all elements with animation classes
-    const selectors = [
-      ".fade-in",
-      ".slide-up",
-      ".slide-in-left",
-      ".slide-in-right",
-      ".text-reveal",
-      ".stagger-parent",
-    ]
-    
-    selectors.forEach((selector) => {
-      const elements = document.querySelectorAll(selector)
-      elements.forEach((el) => observer.observe(el))
-    })
-
-    return () => {
+    // Function to observe elements
+    const observeElements = () => {
+      const selectors = [
+        ".fade-in",
+        ".slide-up",
+        ".slide-in-left",
+        ".slide-in-right",
+        ".text-reveal",
+        ".stagger-parent",
+      ]
+      
       selectors.forEach((selector) => {
         const elements = document.querySelectorAll(selector)
-        elements.forEach((el) => observer.unobserve(el))
+        elements.forEach((el) => {
+          // Check if element is already in viewport on mount
+          const rect = el.getBoundingClientRect()
+          const isInViewport = rect.top < window.innerHeight && rect.bottom > 0
+          
+          if (isInViewport && !el.classList.contains("animate-in")) {
+            // Immediately animate elements already visible
+            el.classList.add("animate-in")
+          }
+          
+          observer.observe(el)
+        })
       })
+    }
+
+    // Initial observation
+    observeElements()
+
+    // Re-observe after a short delay to catch any dynamically rendered elements
+    const timeoutId = setTimeout(observeElements, 100)
+
+    // Fallback: ensure all elements are visible after 1.5 seconds if observer fails
+    const fallbackTimeout = setTimeout(() => {
+      const selectors = [
+        ".fade-in",
+        ".slide-up",
+        ".slide-in-left",
+        ".slide-in-right",
+        ".text-reveal",
+        ".stagger-parent",
+      ]
+      
+      selectors.forEach((selector) => {
+        const elements = document.querySelectorAll(selector)
+        elements.forEach((el) => {
+          if (!el.classList.contains("animate-in")) {
+            el.classList.add("animate-in")
+          }
+        })
+      })
+    }, 1500)
+
+    return () => {
+      clearTimeout(timeoutId)
+      clearTimeout(fallbackTimeout)
+      observer.disconnect()
     }
   }, [])
 
@@ -266,6 +305,12 @@ export default function LuminatePage() {
           padding-top: 80px; /* Height of header */
         }
 
+        /* Ensure header is always visible */
+        header {
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
+
         body::before {
           content: '';
           position: fixed;
@@ -375,6 +420,18 @@ export default function LuminatePage() {
         .text-reveal {
           opacity: 0;
           will-change: transform, opacity;
+        }
+
+        /* Fallback: ensure elements become visible after 1 second if observer fails */
+        @media (prefers-reduced-motion: no-preference) {
+          .fade-in:not(.animate-in),
+          .slide-up:not(.animate-in),
+          .slide-in-left:not(.animate-in),
+          .slide-in-right:not(.animate-in),
+          .text-reveal:not(.animate-in) {
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 1s;
+          }
         }
 
         /* When Intersection Observer triggers */
@@ -1162,15 +1219,18 @@ export default function LuminatePage() {
 
       {/* Opt-In Form Section - CREAM BACKGROUND WITH TEXTURE */}
       <section id="opt-in" className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-[#FAF8F5] slide-up overflow-hidden">
-        {/* Subtle Texture Overlay */}
+        {/* Ethereal Background Image */}
         <div 
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          className="absolute inset-0 opacity-70 pointer-events-none"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1920&q=80")',
-            backgroundSize: '400px',
-            backgroundRepeat: 'repeat',
+            backgroundImage: 'url("/ethereal-background-2.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }}
         />
+        {/* Gradient Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/40 via-[#FAF8F5]/30 to-[#FAF8F5]/50 pointer-events-none" />
         <div className="relative max-w-2xl mx-auto z-10">
           <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up section-title-gradient">
             Enter Your Email to Receive the Audio
