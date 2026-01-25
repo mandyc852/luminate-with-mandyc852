@@ -629,7 +629,7 @@ export default function LuminatePage() {
                   backgroundClip: 'text'
                 }}
               >
-                Get Audio
+                Reset Your Mind Now
               </a>
             </nav>
 
@@ -683,7 +683,7 @@ export default function LuminatePage() {
                 }}
                 className="block text-center px-6 py-3 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm mt-4 transition-all duration-300 hover:shadow-lg uppercase font-[family-name:var(--font-poppins)]"
               >
-                Get Audio
+                Get Focus Audio
               </a>
             </nav>
           </div>
@@ -732,7 +732,7 @@ export default function LuminatePage() {
                 }}
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#B85D6A] text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-xl uppercase font-[family-name:var(--font-poppins)]"
               >
-                Receive the Audio
+                Reset Your Mind Now
               </a>
               <a 
                 href="https://www.youtube.com/@MandyC852"
@@ -857,7 +857,7 @@ export default function LuminatePage() {
                     disabled={midSubmitting}
                     className="btn-premium w-full px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)]"
                   >
-                    {midSubmitting ? "SENDING..." : "GET INSTANT ACCESS"}
+                    {midSubmitting ? "SENDING..." : "GET YOUR FOCUS RESET"}
                   </button>
                 </form>
               )}
@@ -978,7 +978,7 @@ export default function LuminatePage() {
               <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
                 I've worked in corporate finance and IPO advisory, advising executives on high-stakes decisions. I've also spent years practicing subconscious reprogramming, creating subliminals, and studying embodied leadership.
               </p>
-              <p className="text-xl leading-relaxed text-[#3A3A3A] font-light italic">
+              <p className="quote-text text-xl md:text-2xl leading-relaxed text-[#3A3A3A] font-normal">
                 I've been in boardrooms and meditation rooms. This work sits at the intersection.
               </p>
             </div>
@@ -1108,7 +1108,7 @@ export default function LuminatePage() {
                 disabled={isSubmitting}
                 className="btn-premium w-full mt-6 px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)]"
               >
-                {isSubmitting ? "SENDING..." : "RECEIVE THE AUDIO"}
+                {isSubmitting ? "SENDING..." : "RESET YOUR MIND NOW"}
               </button>
 
               <p className="text-sm text-[#4A4A4A] mt-4 leading-relaxed text-center font-light">
@@ -1151,7 +1151,7 @@ export default function LuminatePage() {
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
           </svg>
-          <span className="hidden sm:inline">GET AUDIO</span>
+          <span className="hidden sm:inline">RESET YOUR MIND NOW</span>
         </button>
       )}
 
