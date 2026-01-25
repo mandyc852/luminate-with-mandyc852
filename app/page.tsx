@@ -482,6 +482,22 @@ export default function LuminatePage() {
           animation: shimmer 3s linear infinite;
         }
 
+        /* Elegant shimmer effect for hero buttons */
+        .btn-elegant-shimmer {
+          background: linear-gradient(
+            135deg,
+            #B85D6A 0%,
+            #D4A574 50%,
+            #B85D6A 100%
+          );
+          background-size: 200% auto;
+          transition: background-position 0.8s ease;
+        }
+
+        .btn-elegant-shimmer:hover {
+          background-position: right center;
+        }
+
         /* Floating CTA button with glow */
         .floating-cta {
           position: fixed;
@@ -582,6 +598,112 @@ export default function LuminatePage() {
           font-family: var(--font-cormorant-garamond);
           font-style: italic;
         }
+
+        /* ============================================
+           PREMIUM PHOTO TREATMENTS
+           ============================================ */
+
+        /* Warm, premium photo filter */
+        .premium-photo {
+          position: relative;
+          overflow: hidden;
+          border-radius: 4px;
+        }
+
+        .premium-photo img {
+          filter: 
+            brightness(1.02) 
+            contrast(1.03) 
+            saturate(1.05)
+            sepia(0.03);
+          transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .premium-photo:hover img {
+          transform: scale(1.02);
+        }
+
+        /* Soft vignette overlay */
+        .premium-photo::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(
+            circle at center,
+            transparent 40%,
+            rgba(0, 0, 0, 0.08) 100%
+          );
+          pointer-events: none;
+        }
+
+        /* Elegant photo frame */
+        .photo-frame-elegant {
+          border: 6px solid #FAF8F5;
+          box-shadow: 
+            0 10px 40px rgba(0, 0, 0, 0.08),
+            0 2px 8px rgba(0, 0, 0, 0.04),
+            0 0 0 1px rgba(184, 93, 106, 0.1);
+          border-radius: 4px;
+        }
+
+        /* Authority section circular photo enhancement */
+        .circular-photo-premium {
+          position: relative;
+          box-shadow: 
+            0 15px 50px rgba(0, 0, 0, 0.12),
+            0 5px 15px rgba(0, 0, 0, 0.08),
+            0 0 0 8px #FAF8F5,
+            0 0 0 10px rgba(184, 93, 106, 0.15);
+        }
+
+        /* ============================================
+           ELEGANT MICRO-INTERACTIONS
+           ============================================ */
+
+        /* Elegant link underline animation */
+        .elegant-link {
+          position: relative;
+          transition: color 0.3s ease;
+          text-decoration: none;
+        }
+
+        .elegant-link::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: linear-gradient(to right, #B85D6A, #D4A574);
+          transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .elegant-link:hover::after {
+          width: 100%;
+        }
+
+        /* Smooth card lift on hover */
+        .card-elegant-hover {
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-elegant-hover:hover {
+          transform: translateY(-8px);
+          box-shadow: 
+            0 20px 60px rgba(184, 93, 106, 0.12),
+            0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Icon gentle scale on card hover */
+        .icon-parent:hover .icon-scale {
+          transform: scale(1.15) rotate(5deg);
+          transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .icon-scale {
+          transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
       `}</style>
 
       {/* Header Navigation */}
@@ -621,7 +743,7 @@ export default function LuminatePage() {
                   e.preventDefault()
                   scrollToSection("#opt-in")
                 }}
-                className="px-6 py-2 border-2 border-transparent bg-clip-text text-transparent bg-gradient-to-r from-[#B85D6A] to-[#D4A574] text-sm font-medium rounded-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 uppercase font-[family-name:var(--font-poppins)]"
+                className="px-6 py-2 border-2 border-transparent bg-clip-text text-transparent bg-gradient-to-r from-[#B85D6A] to-[#D4A574] text-sm font-medium rounded-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
                 style={{
                   borderImage: 'linear-gradient(to right, #B85D6A, #D4A574) 1',
                   WebkitTextFillColor: 'transparent',
@@ -681,7 +803,7 @@ export default function LuminatePage() {
                   handleMobileMenuClick()
                   scrollToSection("#opt-in")
                 }}
-                className="block text-center px-6 py-3 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm mt-4 transition-all duration-300 hover:shadow-lg uppercase font-[family-name:var(--font-poppins)]"
+                className="block text-center px-6 py-3 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm mt-4 transition-all duration-300 hover:shadow-lg uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
               >
                 Get Focus Audio
               </a>
@@ -730,7 +852,7 @@ export default function LuminatePage() {
                   e.preventDefault()
                   scrollToSection("#opt-in")
                 }}
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#B85D6A] text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-xl uppercase font-[family-name:var(--font-poppins)]"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-xl uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
               >
                 Reset Your Mind Now
               </a>
@@ -791,9 +913,9 @@ export default function LuminatePage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8 stagger-parent">
             {/* Benefit 1 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] card-elegant-hover icon-parent">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A]/10 to-[#D4A574]/10 flex items-center justify-center">
-                <svg className="w-8 h-8 text-[#B85D6A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-[#B85D6A] icon-scale" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                 </svg>
               </div>
@@ -804,9 +926,9 @@ export default function LuminatePage() {
             </div>
 
             {/* Benefit 2 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] card-elegant-hover icon-parent">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A]/10 to-[#D4A574]/10 flex items-center justify-center">
-                <svg className="w-8 h-8 text-[#B85D6A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-[#B85D6A] icon-scale" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
@@ -817,9 +939,9 @@ export default function LuminatePage() {
             </div>
 
             {/* Benefit 3 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] card-elegant-hover icon-parent">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A]/10 to-[#D4A574]/10 flex items-center justify-center">
-                <svg className="w-8 h-8 text-[#B85D6A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-[#B85D6A] icon-scale" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
@@ -855,7 +977,7 @@ export default function LuminatePage() {
                   <button
                     type="submit"
                     disabled={midSubmitting}
-                    className="btn-premium w-full px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)]"
+                    className="btn-premium w-full px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
                   >
                     {midSubmitting ? "SENDING..." : "GET YOUR FOCUS RESET"}
                   </button>
@@ -961,7 +1083,7 @@ export default function LuminatePage() {
           <div className="grid md:grid-cols-3 gap-12 items-center">
             {/* Photo */}
             <div className="md:col-span-1 slide-in-left">
-              <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-white">
+              <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden circular-photo-premium">
                 <Image
                   src="/IMG_2269.JPG"
                   alt="Mandy Cheung"
@@ -1106,7 +1228,7 @@ export default function LuminatePage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn-premium w-full mt-6 px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)]"
+                className="btn-premium w-full mt-6 px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
               >
                 {isSubmitting ? "SENDING..." : "RESET YOUR MIND NOW"}
               </button>
@@ -1145,7 +1267,7 @@ export default function LuminatePage() {
           onClick={() => {
             scrollToSection("#opt-in")
           }}
-          className="floating-cta btn-premium px-6 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium tracking-wide rounded-full flex items-center gap-2 uppercase font-[family-name:var(--font-poppins)]"
+          className="floating-cta btn-premium px-6 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium tracking-wide rounded-full flex items-center gap-2 uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
           aria-label="Get the audio"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
