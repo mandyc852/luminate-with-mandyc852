@@ -49,14 +49,16 @@ export default function LuminatePage() {
   // Enhanced Intersection Observer for all animation types
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px",
+      threshold: [0, 0.1, 0.2], // Multiple thresholds for better detection
+      rootMargin: "50px 0px 100px 0px", // More generous margins
     }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-in")
+          // Don't unobserve immediately - keep observing in case element scrolls back up
+          // observer.unobserve(entry.target)
         }
       })
     }, observerOptions)
@@ -77,26 +79,23 @@ export default function LuminatePage() {
         elements.forEach((el) => {
           // Check if element is already in viewport on mount
           const rect = el.getBoundingClientRect()
-          const isInViewport = rect.top < window.innerHeight && rect.bottom > 0
+          const isInViewport = rect.top < window.innerHeight + 200 && rect.bottom > -200
           
           if (isInViewport && !el.classList.contains("animate-in")) {
             // Immediately animate elements already visible
             el.classList.add("animate-in")
+          } else {
+            // Only observe if not already animated
+            if (!el.classList.contains("animate-in")) {
+              observer.observe(el)
+            }
           }
-          
-          observer.observe(el)
         })
       })
     }
 
-    // Initial observation
-    observeElements()
-
-    // Re-observe after a short delay to catch any dynamically rendered elements
-    const timeoutId = setTimeout(observeElements, 100)
-
-    // Fallback: ensure all elements are visible after 1.5 seconds if observer fails
-    const fallbackTimeout = setTimeout(() => {
+    // Function to force visibility for any missed elements
+    const forceVisibility = () => {
       const selectors = [
         ".fade-in",
         ".slide-up",
@@ -109,16 +108,65 @@ export default function LuminatePage() {
       selectors.forEach((selector) => {
         const elements = document.querySelectorAll(selector)
         elements.forEach((el) => {
-          if (!el.classList.contains("animate-in")) {
+          const rect = el.getBoundingClientRect()
+          const isVisible = rect.top < window.innerHeight + 300 && rect.bottom > -300
+          
+          if (isVisible && !el.classList.contains("animate-in")) {
             el.classList.add("animate-in")
           }
         })
       })
-    }, 1500)
+    }
+
+    // Initial observation
+    observeElements()
+
+    // Re-observe multiple times to catch dynamically rendered elements
+    const timeoutIds = [
+      setTimeout(observeElements, 100),
+      setTimeout(observeElements, 300),
+      setTimeout(observeElements, 600),
+    ]
+
+    // Fallback: ensure all elements are visible after delays
+    const fallbackTimeouts = [
+      setTimeout(forceVisibility, 1000),
+      setTimeout(forceVisibility, 2000),
+    ]
+
+    // Also check on scroll events as additional fallback (throttled)
+    let scrollTimeout: NodeJS.Timeout | null = null
+    const handleScroll = () => {
+      if (scrollTimeout) return
+      scrollTimeout = setTimeout(() => {
+        forceVisibility()
+        scrollTimeout = null
+      }, 100)
+    }
+    
+    // More frequent checks on scroll
+    const handleScrollImmediate = () => {
+      forceVisibility()
+    }
+    
+    window.addEventListener("scroll", handleScrollImmediate, { passive: true })
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    window.addEventListener("resize", forceVisibility, { passive: true })
+    
+    // Also check on load and after a delay
+    window.addEventListener("load", () => {
+      setTimeout(forceVisibility, 500)
+      setTimeout(forceVisibility, 1000)
+    })
 
     return () => {
-      clearTimeout(timeoutId)
-      clearTimeout(fallbackTimeout)
+      timeoutIds.forEach(id => clearTimeout(id))
+      fallbackTimeouts.forEach(id => clearTimeout(id))
+      if (scrollTimeout) clearTimeout(scrollTimeout)
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("scroll", handleScrollImmediate)
+      window.removeEventListener("resize", forceVisibility)
+      window.removeEventListener("load", forceVisibility)
       observer.disconnect()
     }
   }, [])
@@ -286,6 +334,63 @@ export default function LuminatePage() {
   return (
     <div className={`${cormorantGaramond.variable} ${poppins.variable} min-h-screen bg-white`}>
       <style jsx global>{`
+        /* 
+        ============================================
+        FONT SPECIFICATION GUIDE - UPDATED
+        ============================================
+
+        PRIMARY FONTS:
+        - Cormorant Garamond: Elegant serif for headings, quotes, affirmations
+          Weights: 300 (Light), 400 (Regular), 500 (Medium), 600 (Semi-Bold)
+
+        - Poppins: Modern sans-serif for body text, buttons, labels
+          Weights: 300 (Light), 400 (Regular), 500 (Medium), 600 (Semi-Bold)
+
+        USAGE MAP:
+
+        H1 (Hero Headlines):
+        - Font: Cormorant Garamond
+        - Weight: 600 (Semi-Bold)
+        - Size: 3xl-7xl (responsive)
+        - Line height: 1.05-1.1
+
+        H2 (Section Titles):
+        - Font: Cormorant Garamond
+        - Weight: 500 (Medium)
+        - Size: 3xl-4xl (responsive)
+        - Line height: 1.2
+
+        H3 (Card Titles):
+        - Font: Cormorant Garamond
+        - Weight: 400 (Regular)
+        - Size: lg-xl
+        - Line height: 1.3
+
+        Body Text (Paragraphs):
+        - Font: Poppins
+        - Weight: 300 (Light)
+        - Size: sm-base (was base-lg) ← REDUCED
+        - Line height: 1.7-1.8 (was relaxed/1.625)
+
+        Quotes/Affirmations:
+        - Font: Cormorant Garamond
+        - Weight: 400 (Regular)
+        - Style: italic
+        - Size: lg-xl (was lg-2xl) ← REDUCED
+        - Line height: 1.7-1.8
+
+        Buttons/CTAs:
+        - Font: Poppins
+        - Weight: 500 (Medium)
+        - Size: sm (was sm-base)
+        - Style: uppercase, tracking-wide
+
+        Labels/Small Text:
+        - Font: Poppins
+        - Weight: 400 (Regular)
+        - Size: xs-sm
+        */
+
         :root {
           --cream: #FAF8F5;
           --sand: #E8DFD8;
@@ -348,8 +453,31 @@ export default function LuminatePage() {
           letter-spacing: -0.02em;
         }
 
-        p, label, input, button {
+        p {
           font-family: var(--font-poppins), sans-serif;
+          font-weight: 300; /* Light for readability */
+        }
+
+        label, .label-text {
+          font-family: var(--font-poppins), sans-serif;
+          font-weight: 400; /* Regular for labels */
+        }
+
+        input {
+          font-family: var(--font-poppins), sans-serif;
+        }
+
+        button, .btn-text {
+          font-family: var(--font-poppins), sans-serif;
+          font-weight: 500; /* Medium for buttons */
+        }
+
+        /* Affirmations styling - now using serif italic */
+        .affirmation-text {
+          font-family: var(--font-cormorant-garamond), serif;
+          font-style: italic;
+          font-weight: 400;
+          line-height: 1.8;
         }
 
         /* ============================================
@@ -419,6 +547,7 @@ export default function LuminatePage() {
         .slide-in-right,
         .text-reveal {
           opacity: 0;
+          visibility: hidden;
           will-change: transform, opacity;
         }
 
@@ -431,28 +560,48 @@ export default function LuminatePage() {
           .text-reveal:not(.animate-in) {
             animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             animation-delay: 1s;
+            visibility: visible !important;
+          }
+        }
+        
+        /* Ultimate CSS fallback: force visibility after 2 seconds if JS fails */
+        @media (prefers-reduced-motion: no-preference) {
+          .fade-in:not(.animate-in),
+          .slide-up:not(.animate-in),
+          .slide-in-left:not(.animate-in),
+          .slide-in-right:not(.animate-in),
+          .text-reveal:not(.animate-in) {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 2s;
+            animation-fill-mode: both;
+            visibility: visible !important;
           }
         }
 
         /* When Intersection Observer triggers */
         .fade-in.animate-in {
           animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          visibility: visible !important;
         }
 
         .slide-up.animate-in {
           animation: slideUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          visibility: visible !important;
         }
 
         .slide-in-left.animate-in {
           animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          visibility: visible !important;
         }
 
         .slide-in-right.animate-in {
           animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          visibility: visible !important;
         }
 
         .text-reveal.animate-in {
           animation: textReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          visibility: visible !important;
         }
 
         /* Stagger animation for child elements */
@@ -463,6 +612,7 @@ export default function LuminatePage() {
         .stagger-parent.animate-in .stagger-item:nth-child(2) {
           animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           animation-delay: 0.1s;
+          opacity: 1 !important;
         }
         .stagger-parent.animate-in .stagger-item:nth-child(3) {
           animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -479,6 +629,44 @@ export default function LuminatePage() {
 
         .stagger-item {
           opacity: 0;
+          visibility: hidden;
+        }
+
+        /* Fallback: ensure stagger items become visible even if animation fails */
+        @media (prefers-reduced-motion: no-preference) {
+          .stagger-parent.animate-in .stagger-item {
+            opacity: 1 !important;
+            visibility: visible !important;
+          }
+        }
+        
+        /* Additional fallback: force visibility for all stagger items */
+        .stagger-parent.animate-in .stagger-item {
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+        
+        /* Ensure all animated elements are visible */
+        .animate-in {
+          visibility: visible !important;
+        }
+        
+        /* Ultimate fallback for stagger items - only if parent is animated */
+        @media (prefers-reduced-motion: no-preference) {
+          .stagger-parent.animate-in .stagger-item {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-fill-mode: both;
+            visibility: visible !important;
+            opacity: 1 !important;
+          }
+        }
+        
+        /* Fallback: if stagger parent gets animated but items don't */
+        @media (prefers-reduced-motion: no-preference) {
+          .stagger-parent.animate-in .stagger-item:not([style*="opacity: 1"]) {
+            opacity: 1 !important;
+            visibility: visible !important;
+          }
         }
 
         /* ============================================
@@ -808,7 +996,7 @@ export default function LuminatePage() {
                   backgroundClip: 'text'
                 }}
               >
-                Reset Your Mind Now
+                Quantum Leap Now
               </a>
             </nav>
 
@@ -818,11 +1006,17 @@ export default function LuminatePage() {
               className="mobile-menu-button md:hidden p-2 hover:bg-[#FAF8F5] rounded transition-colors"
               aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6 text-[#2C2C2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24">
+                <defs>
+                  <linearGradient id="menuGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#8E2C42" />
+                    <stop offset="100%" stopColor="#B8883E" />
+                  </linearGradient>
+                </defs>
                 {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} stroke="url(#menuGradient)" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} stroke="url(#menuGradient)" d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -862,7 +1056,7 @@ export default function LuminatePage() {
                 }}
                 className="block text-center px-6 py-3 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium rounded-sm mt-4 transition-all duration-300 hover:shadow-lg uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
               >
-                Get Focus Audio
+                Quantum Leap Now
               </a>
             </nav>
           </div>
@@ -889,17 +1083,18 @@ export default function LuminatePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full">
           <div className="max-w-lg">
             <p className="text-white text-xs md:text-sm font-light tracking-[0.25em] uppercase mb-4">
-              Subconscious Reprogramming for Leaders
+              Quantum Leap for Entrepreneurs
             </p>
 
             <h1 className="hero-heading gradient-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-normal mb-5">
-              <span className="block">Recalibrate Your</span>
-              <span className="block font-medium">Subconscious.</span>
-              <span className="block">Lead From Alignment.</span>
+              <span className="block">Embody Your</span>
+              <span className="block font-medium">Next-Level Identity.</span>
+              <span className="block">Build From There.</span>
             </h1>
 
             <p className="text-base md:text-lg text-white/95 font-light leading-relaxed mb-7 max-w-md drop-shadow-xl">
-              For conscious leaders who refuse to build wealth from burnout.
+              Five minutes. One identity shift.<br />
+              A different way of building.
             </p>
 
             <div className="hero-cta-buttons flex flex-col sm:flex-row gap-3">
@@ -911,7 +1106,7 @@ export default function LuminatePage() {
                 }}
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-xl uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
               >
-                Reset Your Mind Now
+                Become Your Next Level
               </a>
               <a 
                 href="https://www.youtube.com/@MandyC852"
@@ -938,25 +1133,26 @@ export default function LuminatePage() {
           }}
         />
         <div className="relative max-w-3xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-medium slide-up section-title-gradient">
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
             Who This Is For
           </h2>
           <div className="space-y-6 mb-8 stagger-parent">
-            <p className="stagger-item text-lg leading-relaxed text-[#4A4A4A] font-light relative pl-8">
+            <p className="stagger-item text-base leading-[1.8] text-[#4A4A4A] font-light relative pl-8">
               <span className="absolute left-0 text-[#B85D6A] text-2xl">—</span>
-              This work is for you if you're capable, driven, and already building — but something feels misaligned.
+              This work is for you if you've already built something real — but you sense there's a next level you can't quite access yet.
             </p>
-            <p className="stagger-item text-lg leading-relaxed text-[#4A4A4A] font-light relative pl-8">
+            <p className="stagger-item text-base leading-[1.8] text-[#4A4A4A] font-light relative pl-8">
               <span className="absolute left-0 text-[#B85D6A] text-2xl">—</span>
-              You value clarity over chaos. You want power without force. You've outgrown hustle culture and empty manifestation.
+              You're not struggling to survive. You're ready to expand. But something at the identity level is keeping you playing at your current capacity.
             </p>
-            <p className="stagger-item text-lg leading-relaxed text-[#4A4A4A] font-light relative pl-8">
+            <p className="stagger-item text-base leading-[1.8] text-[#4A4A4A] font-light relative pl-8">
               <span className="absolute left-0 text-[#B85D6A] text-2xl">—</span>
-              You're ready to lead from a nervous system that feels safe, a mind that trusts itself, and a business that reflects your truth.
+              You're ready to embody the version of you who already scaled beyond this level. And lead from there.
             </p>
           </div>
-          <p className="quote-text text-[#3A3A3A] text-center text-xl md:text-2xl font-normal mt-12 fade-in">
-            This work is subtle — and powerful.
+          <p className="quote-text text-[#3A3A3A] text-center text-xl md:text-2xl font-semibold fade-in">
+            Your next level isn't something you achieve.<br />
+            It's someone you become.
           </p>
         </div>
       </section>
@@ -965,46 +1161,46 @@ export default function LuminatePage() {
       {/* What You'll Receive Section - WHITE */}
       <section id="services" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up section-title-gradient">
-            What You'll Receive
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
+            What You'll Get
           </h2>
           <div className="grid md:grid-cols-3 gap-8 stagger-parent">
             {/* Benefit 1 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] card-elegant-hover icon-parent">
+            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-sm shadow-sm border border-[#E8DFD8] card-elegant-hover icon-parent">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A]/10 to-[#D4A574]/10 flex items-center justify-center">
                 <svg className="w-8 h-8 text-[#B85D6A] icon-scale" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                 </svg>
               </div>
-              <h3 className="text-xl font-normal text-[#2C2C2C]">7-Minute Recalibration Audio</h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                Whispered affirmations layered with calming frequencies designed for subconscious reprogramming.
+              <h3 className="text-xl font-normal text-[#2C2C2C]">5-Minute Quantum Identity Reset</h3>
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                A daily audio practice to embody the identity of your next-level self before the evidence shows up. Binaural beats + whispered affirmations designed for subconscious identity shifts.
               </p>
             </div>
 
             {/* Benefit 2 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] card-elegant-hover icon-parent">
+            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-sm shadow-sm border border-[#E8DFD8] card-elegant-hover icon-parent">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A]/10 to-[#D4A574]/10 flex items-center justify-center">
                 <svg className="w-8 h-8 text-[#B85D6A] icon-scale" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-normal text-[#2C2C2C]">Instant Nervous System Reset</h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                A grounding practice to shift from overthinking and self-doubt into clarity and calm.
+              <h3 className="text-xl font-normal text-[#2C2C2C]">Nervous System Expansion</h3>
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                Affirmations specifically designed to help your nervous system feel safe holding your next level of success, wealth, and visibility.
               </p>
             </div>
 
             {/* Benefit 3 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-lg shadow-sm border border-[#E8DFD8] card-elegant-hover icon-parent">
+            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-sm shadow-sm border border-[#E8DFD8] card-elegant-hover icon-parent">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A]/10 to-[#D4A574]/10 flex items-center justify-center">
                 <svg className="w-8 h-8 text-[#B85D6A] icon-scale" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <h3 className="text-xl font-normal text-[#2C2C2C]">Occasional Transmissions</h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                Thoughtful insights on subconscious leadership, alignment, and sustainable success.
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                Insights on quantum identity work, subconscious reprogramming, and building businesses from alignment — not exhaustion.
               </p>
             </div>
           </div>
@@ -1012,8 +1208,8 @@ export default function LuminatePage() {
           {/* Mid-Page Form Placement */}
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="bg-white border border-[#E8DFD8] rounded-lg px-8 pt-8 pb-16 md:px-8 md:pt-8 md:pb-20 shadow-lg">
-              <h3 className="text-2xl md:text-3xl font-normal mb-3 text-center section-title-gradient">Ready to Recalibrate?</h3>
-              <p className="text-sm text-[#4A4A4A] mb-6 text-center font-light">Get instant access to the 7-minute audio</p>
+              <h3 className="text-2xl md:text-2xl font-normal mb-3 text-center section-title-gradient">Ready to Embody Your Next Level?</h3>
+              <p className="text-sm text-[#4A4A4A] mb-6 text-center font-light">Get the 5-minute Quantum Identity Reset</p>
               {midSuccess ? (
                 <div className="p-6 bg-gradient-to-br from-[rgba(201,122,122,0.1)] to-[rgba(184,148,95,0.1)] rounded-sm border border-[#E8DFD8] text-center">
                   <p className="text-base text-[#2C2C2C] font-light">✓ Check your email for the audio!</p>
@@ -1036,7 +1232,7 @@ export default function LuminatePage() {
                     disabled={midSubmitting}
                     className="btn-premium w-full px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
                   >
-                    {midSubmitting ? "SENDING..." : "GET YOUR FOCUS RESET"}
+                    {midSubmitting ? "SENDING..." : "QUANTUM LEAP NOW"}
                   </button>
                 </form>
               )}
@@ -1061,19 +1257,36 @@ export default function LuminatePage() {
         {/* Gradient Overlay - Lighter to show background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/40 via-[#FAF8F5]/30 to-[#FAF8F5]/50 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-medium slide-up section-title-gradient">
-            A 7-Minute Subconscious Recalibration
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
+            The 5-Minute Quantum Identity Reset
           </h2>
-          <div className="bg-white border border-[#E8DFD8] rounded-lg px-8 pt-8 pb-10 md:px-12 md:pt-12 md:pb-12 shadow-sm">
+          <div className="bg-white border border-[#E8DFD8] rounded-sm px-8 pt-8 pb-10 md:px-12 md:pt-12 md:pb-12 shadow-sm">
             <div className="space-y-6">
-              <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
-                This audio is designed to rewire patterns of overthinking, self-doubt, and misalignment at the identity level.
+              <p className="text-base leading-[1.8] text-[#4A4A4A] font-light">
+                This isn't a meditation. It's an identity practice.
               </p>
-              <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
-                It combines whispered affirmations with calming frequencies to help you regulate your nervous system, recalibrate your decision-making, and embody confident leadership.
+              <p className="text-base leading-[1.8] text-[#4A4A4A] font-light">
+                Every morning, you'll spend 5 minutes embodying the version of you who already scaled beyond your current level — before checking email, before reacting to your environment, before your old patterns take over.
               </p>
-              <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
-                This isn't a quick fix. It's a grounding reset you return to — a quiet recalibration for the leader you're becoming.
+              <p className="text-base leading-[1.8] text-[#4A4A4A] font-light">
+                The audio combines 7.83 Hz binaural beats (Schumann Resonance) with whispered affirmations designed to shift your identity at the subconscious level.
+              </p>
+              <p className="text-base leading-[1.8] text-[#4A4A4A] font-light">
+                You'll hear affirmations like:
+              </p>
+              <ul className="space-y-3 ml-4">
+                <li className="affirmation-text text-xl md:text-xl text-[#3A3A3A] font-semibold">
+                  "I embody the version of me who expanded with ease and alignment"
+                </li>
+                <li className="affirmation-text text-xl md:text-xl text-[#3A3A3A] font-semibold">
+                  "My certainty creates evidence, not the other way around"
+                </li>
+                <li className="affirmation-text text-xl md:text-xl text-[#3A3A3A] font-semibold">
+                  "My nervous system is safe to hold my next level of success"
+                </li>
+              </ul>
+              <p className="text-base leading-[1.8] text-[#4A4A4A] font-light">
+                This is quantum identity work — collapsing time between who you are now and who you're becoming.
               </p>
             </div>
           </div>
@@ -1084,8 +1297,8 @@ export default function LuminatePage() {
       {/* How It Works Section - WHITE */}
       <section className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up section-title-gradient">
-            How to Use This Audio
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
+            How to Use This Practice
           </h2>
           <div className="grid md:grid-cols-3 gap-8 stagger-parent">
             {/* Step 1 */}
@@ -1093,9 +1306,9 @@ export default function LuminatePage() {
               <div className="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A] to-[#D4A574] flex items-center justify-center text-white font-medium text-lg">
                 1
               </div>
-              <h3 className="text-xl font-normal text-[#2C2C2C]">Find a Quiet Space</h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                Set aside 7 minutes where you won't be interrupted. This is your time to recalibrate.
+              <h3 className="text-xl font-normal text-[#2C2C2C]">First Thing in the Morning</h3>
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                Listen before you check your phone, before you react to your environment. This is when your subconscious is most receptive to identity-level shifts.
               </p>
             </div>
 
@@ -1105,8 +1318,8 @@ export default function LuminatePage() {
                 2
               </div>
               <h3 className="text-xl font-normal text-[#2C2C2C]">Use Headphones</h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                For optimal effect, listen with headphones to fully experience the layered frequencies.
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                The binaural beats require stereo headphones to create the 7.83 Hz frequency that activates quantum awareness and identity shifting.
               </p>
             </div>
 
@@ -1115,9 +1328,9 @@ export default function LuminatePage() {
               <div className="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-[#B85D6A] to-[#D4A574] flex items-center justify-center text-white font-medium text-lg">
                 3
               </div>
-              <h3 className="text-xl font-normal text-[#2C2C2C]">Return Regularly</h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                Play it daily or whenever you need to shift out of overwhelm and back into alignment.
+              <h3 className="text-xl font-normal text-[#2C2C2C]">Embody, Don't Just Listen</h3>
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                This isn't passive. As you listen, feel yourself AS the version who already succeeded. Let your body learn what that identity feels like.
               </p>
             </div>
           </div>
@@ -1154,11 +1367,14 @@ export default function LuminatePage() {
 
             {/* Content */}
             <div className="md:col-span-2 space-y-6 slide-in-right">
-              <p className="text-lg leading-relaxed text-[#4A4A4A] font-light">
-                I've worked in corporate finance and IPO advisory, advising executives on high-stakes decisions. I've also spent years practicing subconscious reprogramming, creating subliminals, and studying embodied leadership.
+              <p className="text-base leading-[1.8] text-[#4A4A4A] font-light">
+                I'm a corporate finance and IPO advisor — which means I live in a world where outcomes are measured, pressure is normal, and clarity matters.
               </p>
-              <p className="quote-text text-xl md:text-2xl leading-relaxed text-[#3A3A3A] font-normal">
-                I've been in boardrooms and meditation rooms. This work sits at the intersection.
+              <p className="text-base leading-[1.8] text-[#4A4A4A] font-light">
+                Luminate is where I bring the other half of performance: identity and nervous-system regulation. Because the higher you go, the less your results depend on more effort — and the more they depend on who you're being under pressure.
+              </p>
+              <p className="quote-text text-xl md:text-2xl leading-[1.8] text-[#3A3A3A] font-semibold">
+                This is for entrepreneurs who are ready to take the leap, again.
               </p>
             </div>
           </div>
@@ -1169,7 +1385,7 @@ export default function LuminatePage() {
       {/* FAQ Section - WHITE */}
       <section id="contact" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up section-title-gradient">
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
             Common Questions
           </h2>
           <div className="space-y-8 stagger-parent">
@@ -1178,18 +1394,18 @@ export default function LuminatePage() {
               <h3 className="text-xl font-normal text-[#2C2C2C] mb-3">
                 Do I need headphones to listen?
               </h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                Headphones are recommended for the full effect of the layered frequencies, but you can still benefit from the whispered affirmations without them.
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                Yes. The binaural beats require stereo headphones to work properly. Without them, you'll miss the 7.83 Hz frequency that activates the quantum awareness state.
               </p>
             </div>
 
             {/* Question 2 */}
             <div className="stagger-item border-b border-[#E8DFD8] pb-8">
               <h3 className="text-xl font-normal text-[#2C2C2C] mb-3">
-                How quickly will I see results?
+                How is this different from regular affirmations or meditation?
               </h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                This isn't about instant transformation. Some people feel calmer immediately. Others notice shifts in their thinking patterns over time. The key is consistent use — this is subconscious recalibration, not a quick fix.
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                This is identity work, not motivation. Regular affirmations try to convince your conscious mind. This audio works at the subconscious level — where your actual identity and beliefs live. The binaural beats put your brain in a receptive state, and the whispered affirmations bypass conscious resistance to create real identity shifts.
               </p>
             </div>
 
@@ -1198,18 +1414,28 @@ export default function LuminatePage() {
               <h3 className="text-xl font-normal text-[#2C2C2C] mb-3">
                 Is this just manifestation or "woo-woo" content?
               </h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                No. This is grounded work designed to address the subconscious patterns that create self-sabotage, overthinking, and misalignment. It's not about magical thinking — it's about rewiring the identity-level beliefs that drive your decisions and behavior.
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                No. This is grounded in how the subconscious mind actually works. The approach is inspired by neuroscience and quantum physics principles — specifically the idea that your identity (who you're BEING) creates your reality before your actions do. If you've already built success through strategy and hard work, this adds the identity layer most entrepreneurs miss.
               </p>
             </div>
 
             {/* Question 4 */}
+            <div className="stagger-item border-b border-[#E8DFD8] pb-8">
+              <h3 className="text-xl font-normal text-[#2C2C2C] mb-3">
+                When will I see results?
+              </h3>
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                Many people feel a shift in their state immediately — more grounded, more certain, more "locked in" to their next-level identity. The deeper identity shifts happen over time with consistent daily use. This isn't about instant transformation — it's about becoming the person who naturally creates your next level of results.
+              </p>
+            </div>
+
+            {/* Question 5 */}
             <div className="stagger-item pb-8">
               <h3 className="text-xl font-normal text-[#2C2C2C] mb-3">
-                When is the best time to listen?
+                I'm already successful. Is this for me?
               </h3>
-              <p className="text-base text-[#4A4A4A] font-light leading-relaxed">
-                Morning, before making important decisions, or anytime you feel disconnected from your centered self. Many people use it as a daily practice to start their day aligned.
+              <p className="text-[15px] text-[#4A4A4A] font-light leading-[1.7]">
+                This is specifically designed for you. If you're a beginner trying to "make it," this might feel too advanced. But if you've already proven you can build something and you're ready to quantum leap to your next level — this is exactly the tool for that expansion.
               </p>
             </div>
           </div>
@@ -1232,8 +1458,8 @@ export default function LuminatePage() {
         {/* Gradient Overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/40 via-[#FAF8F5]/30 to-[#FAF8F5]/50 pointer-events-none" />
         <div className="relative max-w-2xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal slide-up section-title-gradient">
-            Enter Your Email to Receive the Audio
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
+            Get the 5-Minute Quantum Identity Reset
           </h2>
 
           <div className="bg-white rounded-lg px-6 pt-6 pb-8 md:px-10 md:pt-8 md:pb-10 relative form-glow" style={{
@@ -1290,14 +1516,13 @@ export default function LuminatePage() {
                 disabled={isSubmitting}
                 className="btn-premium w-full mt-6 px-8 py-4 bg-gradient-to-br from-[#B85D6A] to-[#D4A574] text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
               >
-                {isSubmitting ? "SENDING..." : "RESET YOUR MIND NOW"}
+                {isSubmitting ? "SENDING..." : "QUANTUM LEAP NOW"}
               </button>
 
               <p className="text-sm text-[#4A4A4A] mt-4 leading-relaxed text-center font-light">
-                You'll receive the 7-minute recalibration audio immediately, plus occasional transmissions from Luminate.
+                You'll receive the audio immediately, plus occasional insights on quantum identity work and building businesses from alignment.<br />
                 <br />
-                <br />
-                No hype. No pressure. Unsubscribe anytime.
+                No hype. Unsubscribe anytime.
               </p>
             </form>
 
@@ -1331,9 +1556,9 @@ export default function LuminatePage() {
           aria-label="Get the audio"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-          <span className="hidden sm:inline">RESET YOUR MIND NOW</span>
+          <span className="hidden sm:inline">QUANTUM LEAP</span>
         </button>
       )}
 
@@ -1370,7 +1595,7 @@ export default function LuminatePage() {
             {/* Brand */}
             <div className="text-center">
               <p className="text-sm text-[#4A4A4A] font-light">
-                © 2025 Luminate with Mandy C. All rights reserved.
+                © 2026 Luminate with Mandy C.
               </p>
             </div>
           </div>
