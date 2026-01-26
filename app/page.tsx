@@ -1383,7 +1383,7 @@ export default function LuminatePage() {
 
 
       {/* FAQ Section - WHITE */}
-      <section id="contact" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
+      <section id="contact" className="pt-12 pb-6 md:pt-16 md:pb-8 px-6 bg-white slide-up">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
             Common Questions
