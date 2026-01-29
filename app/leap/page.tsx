@@ -113,14 +113,14 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-5 mb-3 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-5 mb-0 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Sending…" : "QUANTUM LEAP NOW"}
             </button>
           </form>
 
           <p
-            className="text-center text-stone-600 text-sm leading-relaxed"
+            className="text-center text-stone-600 text-sm leading-relaxed mt-0.5"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             You&apos;ll receive the audio immediately, plus occasional insights on
@@ -362,13 +362,13 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               EMBODY YOUR
             </span>
             <span
-              className="block text-5xl font-bold text-neutral-900 leading-tight mb-1.5"
+              className="block text-6xl font-bold text-neutral-900 leading-tight mb-1.5 tracking-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               NEXT-LEVEL
             </span>
             <span
-              className="block text-5xl font-bold text-neutral-900 leading-tight"
+              className="block text-6xl font-bold text-neutral-900 leading-tight tracking-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               IDENTITY
@@ -416,14 +416,14 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 mb-3 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 mb-0 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Sending…" : "QUANTUM LEAP NOW"}
             </button>
           </form>
 
           <p
-            className="text-center text-stone-600 text-sm leading-relaxed px-2"
+            className="text-center text-stone-600 text-sm leading-relaxed px-2 mt-0.5"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             You&apos;ll receive the audio immediately.
