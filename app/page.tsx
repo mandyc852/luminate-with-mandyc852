@@ -1368,10 +1368,17 @@ export default function LuminatePage() {
             {/* Content */}
             <div className="md:col-span-2 space-y-6 slide-in-right">
               <p className="text-base leading-[1.8] text-[#4A4A4A] font-light">
-                I'm a corporate finance and IPO advisor — which means I live in a world where outcomes are measured, pressure is normal, and clarity matters.
-              </p>
-              <p className="text-base leading-[1.8] text-[#4A4A4A] font-light">
-                Luminate is where I bring the other half of performance: identity and nervous-system regulation. Because the higher you go, the less your results depend on more effort — and the more they depend on who you're being under pressure.
+                Mandy is a corporate finance and IPO advisor — which means she lives in a world where outcomes are measured, pressure is normal, and clarity matters.{" "}
+                On{" "}
+                <a
+                  href="https://www.youtube.com/@MandyC852"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline text-amber-600 decoration-amber-500/80 hover:text-amber-700 hover:decoration-amber-600 transition-colors"
+                >
+                  Luminate with MandyC
+                </a>
+                , she brings the other half of performance: identity and nervous system regulation. Because success happens in your mind first — and when your internal state doesn&apos;t match your vision, no amount of pushing will make it sustainable.
               </p>
               <p className="quote-text text-xl md:text-2xl leading-[1.8] text-[#3A3A3A] font-semibold">
                 This is for entrepreneurs who are ready to take the leap, again.

@@ -8,11 +8,12 @@ export default function LeapPage() {
   const [email, setEmail] = useState("")
 
   const DesktopView = () => (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex flex-col">
+      <div className="flex flex-1 min-h-0">
       {/* Left Panel - Cream/Form Side */}
-      <div className="w-1/2 bg-gradient-to-br from-stone-50 via-amber-50/30 to-rose-50/20 flex flex-col justify-center items-center p-16">
+      <div className="w-1/2 bg-gradient-to-br from-stone-50 via-white to-stone-50/80 flex flex-col justify-center items-center px-16 py-20">
         <div className="max-w-lg w-full">
-          <div className="mb-10 text-center flex justify-center items-center">
+          <div className="mb-12 text-center flex justify-center items-center">
             <div
               className="flex-shrink-0"
               style={{
@@ -35,21 +36,21 @@ export default function LeapPage() {
           </div>
 
           <p
-            className="text-center text-stone-500 text-lg tracking-wide mb-5"
+            className="text-center text-stone-700 text-lg tracking-wide mb-8 font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The 5-Minute Quantum Identity Reset
           </p>
 
-          <h1 className="text-center mb-8">
+          <h1 className="text-center mb-12">
             <span
-              className="block text-4xl md:text-5xl font-light text-stone-800 leading-tight tracking-tight"
+              className="block text-5xl md:text-6xl font-light text-stone-900 leading-tight tracking-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               EMBODY YOUR
             </span>
             <span
-              className="block text-4xl md:text-5xl font-semibold text-stone-900 leading-tight"
+              className="block text-5xl md:text-7xl font-bold text-neutral-900 leading-tight mt-2"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               NEXT-LEVEL IDENTITY
@@ -57,23 +58,23 @@ export default function LeapPage() {
           </h1>
 
           <p
-            className="text-center text-stone-600 mb-12 leading-relaxed text-xl"
+            className="text-center text-stone-700 mb-16 leading-loose text-xl"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Use this daily audio practice to shift your{" "}
-            <span className="text-amber-600 font-medium">subconscious identity</span>,
+            <span className="text-amber-600 font-bold">subconscious identity</span>,
             expand your nervous system&apos;s capacity for success, and build your
             business from{" "}
-            <span className="text-amber-600 font-medium">alignment — not exhaustion</span>.
+            <span className="text-amber-600 font-bold">alignment — not exhaustion</span>.
           </p>
 
-          <div className="space-y-4 mb-6">
+          <div className="space-y-5 mb-8">
             <input
               type="text"
               placeholder="First Name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="w-full px-6 py-5 border border-stone-300 bg-white/80 text-stone-700 placeholder-stone-400 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-lg"
+              className="w-full px-6 py-5 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-lg"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             <input
@@ -81,174 +82,208 @@ export default function LeapPage() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-6 py-5 border border-stone-300 bg-white/80 text-stone-700 placeholder-stone-400 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-lg"
+              className="w-full px-6 py-5 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-lg"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
           </div>
 
-          <button className="w-full py-5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-medium tracking-[0.15em] text-base hover:from-amber-700 hover:via-amber-600 hover:to-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+          <button className="w-full py-5 mb-10 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5">
             QUANTUM LEAP NOW
           </button>
 
           <p
-            className="text-center text-stone-400 text-sm mt-8 leading-relaxed"
+            className="text-center text-stone-600 text-sm leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            You&apos;ll receive the audio immediately, plus occasional insights on{" "}
-            <span className="text-amber-600 font-medium">quantum identity work</span>.
+            You&apos;ll receive the audio immediately, plus occasional insights on
+            quantum identity work.
+            <br />
             No hype. <span className="whitespace-nowrap">Unsubscribe anytime.</span>
           </p>
         </div>
       </div>
 
       {/* Right Panel - Rich Dark/Content Side */}
-      <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col justify-center items-center p-16">
+      <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col justify-center items-center px-16 py-20">
         <div className="max-w-xl w-full pb-8">
           <h2
-            className="text-3xl md:text-4xl text-amber-200/90 font-light tracking-[0.15em] mb-12 text-center"
-            style={{ fontFamily: "Cormorant Garamond, serif" }}
+            className="text-3xl md:text-4xl font-medium tracking-[0.15em] mb-12 text-center bg-clip-text text-transparent"
+            style={{
+              fontFamily: "Cormorant Garamond, serif",
+              backgroundImage:
+                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
+            }}
           >
             WHAT YOU&apos;LL RECEIVE:
           </h2>
 
-          <div className="flex items-start gap-10 mb-14">
+          <div className="flex items-start gap-12 mb-20">
             <div className="flex-shrink-0 flex flex-col items-center">
-              <div
-                className="w-[90px] h-[90px] rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
-                style={{
-                  boxShadow:
-                    "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
-                }}
-              >
+              <div className="relative w-[200px] h-[200px] flex items-center justify-center">
                 <svg
-                  className="w-10 h-10 text-amber-400 ml-1"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 200 200"
+                  style={{ animation: "rotate-slow 25s linear infinite" }}
+                  aria-hidden="true"
                 >
-                  <path d="M8 5v14l11-7z" />
+                  <defs>
+                    <path
+                      id="circlePathDesktop"
+                      d="M 100 35 A 65 65 0 1 1 99.99 35"
+                      fill="none"
+                    />
+                  </defs>
+                  <text
+                    fill="rgba(253, 230, 138, 0.75)"
+                    style={{
+                      fontFamily: "Cormorant Garamond, serif",
+                      fontSize: "14px",
+                      fontWeight: "bold",
+                      letterSpacing: "0.35em",
+                    }}
+                  >
+                    <textPath href="#circlePathDesktop" startOffset="0%">
+                      5-MINUTE · QUANTUM · IDENTITY · RESET ·
+                    </textPath>
+                  </text>
                 </svg>
-              </div>
-              <div className="mt-4 text-center">
-                <p
-                  className="text-amber-200/80 text-sm tracking-wider"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
+                <div
+                  className="relative w-[110px] h-[110px] rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
+                  style={{
+                    boxShadow:
+                      "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
+                  }}
                 >
-                  5-MINUTE
-                </p>
-                <p
-                  className="text-white text-base font-medium mt-1"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  QUANTUM
-                </p>
-                <p
-                  className="text-white text-base font-medium"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  IDENTITY
-                </p>
-                <p
-                  className="text-white text-base font-medium"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  RESET
-                </p>
+                  <svg
+                    className="w-12 h-12 text-amber-500 ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            <div className="space-y-6 pt-2">
+            <div className="space-y-8 pt-2">
               <div className="flex items-start gap-4">
-                <span className="text-amber-400 mt-1 flex-shrink-0 text-lg">
+                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">
                   ✦
                 </span>
                 <p
-                  className="text-stone-200 text-lg leading-relaxed"
+                  className="text-stone-200 text-xl leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
-                  Daily audio practice with 7.83 Hz binaural beats for
-                  subconscious identity shifts.
+                  <span className="font-bold">Daily audio practice with 7.83 Hz</span>{" "}
+                  binaural beats for subconscious identity shifts.
                 </p>
               </div>
               <div className="flex items-start gap-4">
-                <span className="text-amber-400 mt-1 flex-shrink-0 text-lg">
+                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">
                   ✦
                 </span>
                 <p
-                  className="text-stone-200 text-lg leading-relaxed"
+                  className="text-stone-200 text-xl leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
-                  Whispered affirmations that bypass conscious resistance.
+                  <span className="font-bold">Whispered affirmations</span>{" "}
+                  that bypass conscious resistance.
                 </p>
               </div>
               <div className="flex items-start gap-4">
-                <span className="text-amber-400 mt-1 flex-shrink-0 text-lg">
+                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">
                   ✦
                 </span>
                 <p
-                  className="text-stone-200 text-lg leading-relaxed"
+                  className="text-stone-200 text-xl leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
-                  Nervous system expansion for holding your next level of
-                  success.
+                  <span className="font-bold">Nervous system expansion</span>{" "}
+                  for holding your next level of success.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-16" />
+          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-24" />
 
-          <div className="flex items-start gap-10">
+          <div className="flex items-start gap-12">
             <div className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-xl relative">
               <Image
                 src="/mandyc.jpg"
                 alt="Mandy Cheung"
                 fill
                 className="object-cover"
-                style={{ objectPosition: "36% 48%" }}
+                style={{ objectPosition: "30% 48%" }}
                 sizes="192px"
               />
             </div>
 
             <div className="flex-1 min-w-0">
               <h3
-                className="text-xl text-amber-200/90 tracking-[0.1em] mb-6"
-                style={{ fontFamily: "Cormorant Garamond, serif" }}
+                className="text-xl tracking-[0.1em] mb-6 bg-clip-text text-transparent"
+                style={{
+                  fontFamily: "Cormorant Garamond, serif",
+                  backgroundImage:
+                    "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
+                }}
               >
                 ABOUT MANDY
               </h3>
 
               <p
-                className="text-stone-300 text-lg leading-relaxed"
+                className="text-stone-300 text-[1.1875rem] leading-relaxed"
                 style={{ fontFamily: "Cormorant Garamond, serif" }}
               >
-                Mandy is a corporate finance and IPO advisor who understands
-                that at the highest levels, performance isn&apos;t about doing
-                more — it&apos;s about{" "}
-                <span className="text-amber-300 font-medium">becoming more</span>.
-                She helps conscious entrepreneurs{" "}
-                <span className="text-amber-300 font-medium">rewire their identity</span>,
-                regulate their nervous system, and scale their businesses from{" "}
-                <span className="text-amber-300 font-medium">alignment, not exhaustion</span>.
+                Mandy is a corporate finance and IPO advisor — which means she
+                lives in a world where outcomes are measured, pressure is
+                normal, and clarity matters.{" "}
+                On{" "}
+                <a
+                  href="https://www.youtube.com/@MandyC852"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-amber-300 font-bold underline decoration-amber-400/80 hover:text-amber-200 hover:decoration-amber-300 transition-colors"
+                >
+                  Luminate with MandyC
+                </a>
+                , she brings the other half of performance:{" "}
+                <span className="text-amber-400 font-medium">identity and nervous system regulation</span>.
+                Because{" "}
+                <span className="text-amber-400 font-medium">success happens in your mind first</span>{" "}
+                — and when your internal state doesn&apos;t match your vision,
+                no amount of pushing will make it sustainable.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-0 right-0 text-center">
+      </div>
+      </div>
+
+      {/* Desktop footer */}
+      <footer
+        className="footer-desktop w-full bg-stone-950 border-t border-stone-900 py-6"
+        aria-label="Site footer"
+      >
+        <div className="max-w-7xl mx-auto px-6 text-center">
           <p
-            className="text-stone-500 text-sm"
+            className="text-stone-400 text-sm md:text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            © 2026 Luminate with Mandy C.
+            © 2026 Luminate with Mandy C. | All Rights Reserved |{" "}
+            <a href="/terms" className="hover:text-amber-300 transition-colors mx-1">Terms &amp; Conditions</a>{" "}
+            |{" "}
+            <a href="/privacy" className="hover:text-amber-300 transition-colors mx-1">Privacy Policy</a>
           </p>
         </div>
-      </div>
+      </footer>
     </div>
   )
 
   const MobileView = () => (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 via-amber-50/20 to-stone-50">
+    <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-stone-50/80">
       <div className="px-6 pt-12 pb-14">
         <div className="max-w-sm mx-auto">
           <div className="mb-10 text-center flex justify-center items-center">
@@ -274,7 +309,7 @@ export default function LeapPage() {
           </div>
 
           <p
-            className="text-center text-stone-500 text-base tracking-wide mb-4"
+            className="text-center text-stone-700 text-lg tracking-wide mb-4 font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The 5-Minute Quantum Identity Reset
@@ -282,13 +317,13 @@ export default function LeapPage() {
 
           <h1 className="text-center mb-6">
             <span
-              className="block text-3xl font-light text-stone-800 leading-tight tracking-tight"
+              className="block text-5xl font-light text-stone-900 leading-tight tracking-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               EMBODY YOUR
             </span>
             <span
-              className="block text-3xl font-semibold text-stone-900 leading-tight"
+              className="block text-5xl font-bold text-neutral-900 leading-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               NEXT-LEVEL IDENTITY
@@ -296,22 +331,22 @@ export default function LeapPage() {
           </h1>
 
           <p
-            className="text-center text-stone-600 mb-10 leading-relaxed text-lg"
+            className="text-center text-stone-700 mb-10 leading-loose text-xl"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Use this daily audio practice to shift your{" "}
-            <span className="text-amber-600 font-medium">subconscious identity</span>{" "}
+            <span className="text-amber-600 font-bold">subconscious identity</span>{" "}
             and build your business from{" "}
-            <span className="text-amber-600 font-medium">alignment</span>.
+            <span className="text-amber-600 font-bold">alignment</span>.
           </p>
 
-          <div className="space-y-4 mb-5">
+          <div className="space-y-4 mb-6">
             <input
               type="text"
               placeholder="First Name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="w-full px-5 py-4 border border-stone-300 bg-white/80 text-stone-700 placeholder-stone-400 focus:outline-none focus:border-amber-600/50 text-base"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 text-lg"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             <input
@@ -319,20 +354,22 @@ export default function LeapPage() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-5 py-4 border border-stone-300 bg-white/80 text-stone-700 placeholder-stone-400 focus:outline-none focus:border-amber-600/50 text-base"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 text-lg"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
           </div>
 
-          <button className="w-full py-4 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-medium tracking-[0.15em] text-sm hover:from-amber-700 hover:via-amber-600 hover:to-amber-700 transition-all duration-300 shadow-lg">
+          <button className="w-full py-4 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50">
             QUANTUM LEAP NOW
           </button>
 
           <p
-            className="text-center text-stone-400 text-sm mt-6 leading-relaxed px-2"
+            className="text-center text-stone-600 text-sm mt-8 leading-relaxed px-2"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            You&apos;ll receive the audio immediately. No hype. <span className="whitespace-nowrap">Unsubscribe anytime.</span>
+            You&apos;ll receive the audio immediately.
+            <br />
+            No hype. <span className="whitespace-nowrap">Unsubscribe anytime.</span>
           </p>
         </div>
       </div>
@@ -340,91 +377,100 @@ export default function LeapPage() {
       <div className="bg-gradient-to-b from-stone-800 via-stone-900 to-stone-950 px-6 py-14">
         <div className="max-w-sm mx-auto">
           <h2
-            className="text-2xl text-amber-200/90 font-light tracking-[0.15em] mb-10 text-center"
-            style={{ fontFamily: "Cormorant Garamond, serif" }}
+            className="text-3xl font-medium tracking-[0.15em] mb-12 text-center bg-clip-text text-transparent"
+            style={{
+              fontFamily: "Cormorant Garamond, serif",
+              backgroundImage:
+                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
+            }}
           >
             WHAT YOU&apos;LL RECEIVE:
           </h2>
 
-          <div className="flex items-start gap-8 mb-10">
-            <div className="flex-shrink-0 flex flex-col items-center">
-              <div
-                className="w-[70px] h-[70px] rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
-                style={{
-                  boxShadow:
-                    "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
-                }}
-              >
+          <div className="flex flex-col items-center mb-12">
+            <div className="flex-shrink-0 flex flex-col items-center mb-10">
+              <div className="relative w-[160px] h-[160px] flex items-center justify-center">
                 <svg
-                  className="w-8 h-8 text-amber-400 ml-0.5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 160 160"
+                  style={{ animation: "rotate-slow 25s linear infinite" }}
+                  aria-hidden="true"
                 >
-                  <path d="M8 5v14l11-7z" />
+                  <defs>
+                    <path
+                      id="circlePathMobile"
+                      d="M 80 28 A 52 52 0 1 1 79.99 28"
+                      fill="none"
+                    />
+                  </defs>
+                  <text
+                    fill="rgba(253, 230, 138, 0.75)"
+                    style={{
+                      fontFamily: "Cormorant Garamond, serif",
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      letterSpacing: "0.35em",
+                    }}
+                  >
+                    <textPath href="#circlePathMobile" startOffset="0%">
+                      5-MINUTE · QUANTUM · IDENTITY · RESET ·
+                    </textPath>
+                  </text>
                 </svg>
-              </div>
-              <div className="mt-3 text-center">
-                <p
-                  className="text-amber-200/80 text-xs tracking-wider"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
+                <div
+                  className="relative w-[88px] h-[88px] rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
+                  style={{
+                    boxShadow:
+                      "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
+                  }}
                 >
-                  5-MINUTE
-                </p>
-                <p
-                  className="text-white text-sm font-medium mt-0.5"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  QUANTUM
-                </p>
-                <p
-                  className="text-white text-sm font-medium"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  IDENTITY
-                </p>
-                <p
-                  className="text-white text-sm font-medium"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  RESET
-                </p>
+                  <svg
+                    className="w-10 h-10 text-amber-500 ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            <div className="space-y-6 flex-1 min-w-0">
+            <div className="space-y-8 w-full">
               <div className="flex items-start gap-4">
-                <span className="text-amber-400 mt-0.5 flex-shrink-0 text-base">
-                  ✦
-                </span>
-                <p
-                  className="text-stone-200 text-base leading-relaxed"
+              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">
+                ✦
+              </span>
+              <p
+                className="text-stone-200 text-xl leading-relaxed"
+                style={{ fontFamily: "Cormorant Garamond, serif" }}
+              >
+                <span className="font-bold">Daily audio practice with 7.83 Hz</span>{" "}
+                binaural beats for subconscious identity shifts.
+              </p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">
+                ✦
+              </span>
+              <p
+                className="text-stone-200 text-xl leading-relaxed"
+                style={{ fontFamily: "Cormorant Garamond, serif" }}
+              >
+                <span className="font-bold">Whispered affirmations</span>{" "}
+                that bypass conscious resistance.
+              </p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">
+                ✦
+              </span>
+              <p
+                className="text-stone-200 text-xl leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
-                  Daily audio practice with 7.83 Hz binaural beats for
-                  subconscious identity shifts.
-                </p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="text-amber-400 mt-0.5 flex-shrink-0 text-base">
-                  ✦
-                </span>
-                <p
-                  className="text-stone-200 text-base leading-relaxed"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  Whispered affirmations that bypass conscious resistance.
-                </p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="text-amber-400 mt-0.5 flex-shrink-0 text-base">
-                  ✦
-                </span>
-                <p
-                  className="text-stone-200 text-base leading-relaxed"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  Nervous system expansion for holding your next level of success.
+                  <span className="font-bold">Nervous system expansion</span>{" "}
+                  for holding your next level of success.
                 </p>
               </div>
             </div>
@@ -434,59 +480,95 @@ export default function LeapPage() {
 
       <div className="px-6 py-14 bg-gradient-to-b from-stone-100 to-stone-50 relative">
         <div className="max-w-sm mx-auto text-center">
-          <div className="w-20 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-12" />
-
           <h3
-            className="text-xl text-stone-700 tracking-[0.1em] mb-6"
-            style={{ fontFamily: "Cormorant Garamond, serif" }}
+            className="text-2xl tracking-[0.1em] mb-6 bg-clip-text text-transparent"
+            style={{
+              fontFamily: "Cormorant Garamond, serif",
+              backgroundImage:
+                "linear-gradient(to right, #d97706, #f59e0b, #d97706)",
+            }}
           >
             ABOUT MANDY
           </h3>
 
-          <div className="w-36 h-36 mx-auto rounded-full overflow-hidden border-2 border-amber-500/30 shadow-lg mb-8 relative">
+          <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-amber-500/30 shadow-lg mb-8 relative">
             <Image
               src="/mandyc.jpg"
               alt="Mandy Cheung"
               fill
               className="object-cover"
-              style={{ objectPosition: "36% 48%" }}
-              sizes="144px"
+              style={{ objectPosition: "30% 48%" }}
+              sizes="160px"
             />
           </div>
 
           <p
-            className="text-stone-600 text-lg leading-relaxed"
+            className="text-stone-600 text-base leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Mandy is a corporate finance and IPO advisor who understands that
-            at the highest levels, performance isn&apos;t about doing more —
-            it&apos;s about{" "}
-            <span className="text-amber-600 font-medium">becoming more</span>.
-            She helps conscious entrepreneurs{" "}
-            <span className="text-amber-600 font-medium">rewire their identity</span>,
-            regulate their nervous system, and scale their businesses from{" "}
-            <span className="text-amber-600 font-medium">alignment, not exhaustion</span>.
+            Mandy is a corporate finance and IPO advisor — which means she
+            lives in a world where outcomes are measured, pressure is normal,
+            and clarity matters.{" "}
+            On{" "}
+            <a
+              href="https://www.youtube.com/@MandyC852"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-500 font-bold underline decoration-amber-500/80 hover:text-amber-600 hover:decoration-amber-600 transition-colors"
+            >
+              Luminate with MandyC
+            </a>
+            , she brings the other half of performance:{" "}
+            <span className="text-amber-600 font-medium">identity and nervous system regulation</span>.
+            Because{" "}
+            <span className="text-amber-600 font-medium">success happens in your mind first</span>{" "}
+            — and when your internal state doesn&apos;t match your vision,
+            no amount of pushing will make it sustainable.
           </p>
         </div>
       </div>
 
-      <div className="py-8 bg-stone-50">
-        <p
-          className="text-center text-stone-400 text-sm"
-          style={{ fontFamily: "Cormorant Garamond, serif" }}
-        >
-          © 2026 Luminate with Mandy C.
-        </p>
-      </div>
+      {/* Mobile/Tablet footer - compact 2-line design */}
+      <footer
+        className="w-full bg-stone-950 border-t border-stone-900 py-6"
+        aria-label="Site footer"
+      >
+        <div className="max-w-sm mx-auto px-6 text-center">
+          <p
+            className="text-stone-400 text-sm leading-relaxed mb-2"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            © 2026 Luminate with Mandy C. | All Rights Reserved
+          </p>
+          <div
+            className="text-stone-400 text-sm"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            <a
+              href="/terms"
+              className="hover:text-amber-300 transition-colors"
+            >
+              Terms &amp; Conditions
+            </a>
+            <span className="mx-2 text-stone-500">|</span>
+            <a
+              href="/privacy"
+              className="hover:text-amber-300 transition-colors"
+            >
+              Privacy Policy
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 
   return (
     <div className="relative">
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <DesktopView />
       </div>
-      <div className="block md:hidden">
+      <div className="block lg:hidden">
         <MobileView />
       </div>
     </div>
