@@ -11,9 +11,9 @@ export default function LeapPage() {
     <div className="min-h-screen flex flex-col">
       <div className="flex flex-1 min-h-0">
       {/* Left Panel - Cream/Form Side */}
-      <div className="w-1/2 bg-gradient-to-br from-stone-50 via-white to-stone-50/80 flex flex-col justify-center items-center px-16 py-20">
+      <div className="w-1/2 bg-gradient-to-br from-stone-50 via-white to-stone-50/80 flex flex-col justify-center items-center px-16 py-12">
         <div className="max-w-lg w-full">
-          <div className="mb-10 text-center flex justify-center items-center">
+          <div className="mb-6 text-center flex justify-center items-center">
             <div
               className="flex-shrink-0"
               style={{
@@ -36,15 +36,15 @@ export default function LeapPage() {
           </div>
 
           <p
-            className="text-center text-stone-700 text-lg tracking-wide mb-8 font-medium"
+            className="text-center text-stone-700 text-lg tracking-wide mb-6 font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The 5-Minute Quantum Identity Reset
           </p>
 
-          <h1 className="text-center mb-10">
+          <h1 className="text-center mb-6">
             <span
-              className="block text-5xl md:text-6xl font-light text-stone-900 leading-tight tracking-tight mb-2"
+              className="block text-5xl md:text-6xl font-light text-stone-900 leading-tight tracking-tight mb-6"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               EMBODY YOUR
@@ -58,7 +58,7 @@ export default function LeapPage() {
           </h1>
 
           <p
-            className="text-center text-stone-700 mb-10 leading-loose text-xl"
+            className="text-center text-stone-700 mb-6 leading-loose text-xl"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Use this daily audio practice to shift your{" "}
@@ -68,7 +68,7 @@ export default function LeapPage() {
             <span className="text-amber-600 font-bold">alignment — not exhaustion</span>.
           </p>
 
-          <div className="space-y-5 mb-8">
+          <div className="space-y-4 mb-6">
             <input
               type="text"
               placeholder="First Name"
@@ -87,7 +87,7 @@ export default function LeapPage() {
             />
           </div>
 
-          <button className="w-full py-5 mb-10 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5">
+          <button className="w-full py-5 mb-6 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5">
             QUANTUM LEAP NOW
           </button>
 
@@ -104,10 +104,10 @@ export default function LeapPage() {
       </div>
 
       {/* Right Panel - Rich Dark/Content Side */}
-      <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col justify-center items-center px-16 py-20">
-        <div className="max-w-xl w-full pb-8">
+      <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col justify-center items-center px-16 py-12">
+        <div className="max-w-xl w-full pb-4">
           <h2
-            className="text-3xl md:text-4xl font-medium tracking-[0.15em] mb-16 text-center bg-clip-text text-transparent"
+            className="text-3xl md:text-4xl font-medium tracking-[0.15em] mb-8 text-center bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
@@ -117,7 +117,7 @@ export default function LeapPage() {
             WHAT YOU&apos;LL RECEIVE:
           </h2>
 
-          <div className="flex items-start gap-12 mb-20">
+          <div className="flex items-start gap-8 mb-10">
             <div className="flex-shrink-0 flex flex-col items-center" style={{ minWidth: 200, minHeight: 200 }}>
               <div
                 className="relative flex items-center justify-center"
@@ -176,11 +176,9 @@ export default function LeapPage() {
               </div>
             </div>
 
-            <div className="space-y-8 pt-2">
-              <div className="flex items-start gap-4">
-                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">
-                  ✦
-                </span>
+            <div className="space-y-6 pt-2 flex-1">
+              <div className="flex items-start gap-3">
+                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">✦</span>
                 <p
                   className="text-stone-200 text-xl leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
@@ -189,10 +187,8 @@ export default function LeapPage() {
                   binaural beats for subconscious identity shifts.
                 </p>
               </div>
-              <div className="flex items-start gap-4">
-                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">
-                  ✦
-                </span>
+              <div className="flex items-start gap-3">
+                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">✦</span>
                 <p
                   className="text-stone-200 text-xl leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
@@ -201,10 +197,8 @@ export default function LeapPage() {
                   that bypass conscious resistance.
                 </p>
               </div>
-              <div className="flex items-start gap-4">
-                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">
-                  ✦
-                </span>
+              <div className="flex items-start gap-3">
+                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">✦</span>
                 <p
                   className="text-stone-200 text-xl leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
@@ -216,9 +210,9 @@ export default function LeapPage() {
             </div>
           </div>
 
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-20" />
+          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-10" />
 
-          <div className="flex items-start gap-12">
+          <div className="flex items-start gap-8">
             <div className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-xl relative">
               <Image
                 src="/mandyc.jpg"
@@ -232,7 +226,7 @@ export default function LeapPage() {
 
             <div className="flex-1 min-w-0">
               <h3
-                className="text-xl tracking-[0.1em] mb-6 bg-clip-text text-transparent"
+                className="text-xl tracking-[0.1em] mb-5 bg-clip-text text-transparent"
                 style={{
                   fontFamily: "Cormorant Garamond, serif",
                   backgroundImage:
@@ -248,20 +242,25 @@ export default function LeapPage() {
               >
                 Mandy is a corporate finance and IPO advisor — which means she
                 lives in a world where outcomes are measured, pressure is
-                normal, and clarity matters.{" "}
+                normal, and clarity matters.
+              </p>
+              <p
+                className="text-stone-300 text-[1.1875rem] leading-relaxed mt-3"
+                style={{ fontFamily: "Cormorant Garamond, serif" }}
+              >
                 On{" "}
                 <a
                   href="https://www.youtube.com/@MandyC852"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-amber-300 font-bold underline decoration-amber-400/80 hover:text-amber-200 hover:decoration-amber-300 transition-colors"
+                  className="text-[1.1875rem] text-amber-300 font-bold underline decoration-amber-400/80 hover:text-amber-200 hover:decoration-amber-300 transition-colors"
                 >
                   Luminate with MandyC
                 </a>
                 , she brings the other half of performance:{" "}
-                <span className="text-amber-400 font-medium">identity and nervous system regulation</span>.
+                <span className="text-[1.1875rem] text-amber-400 font-medium">identity and nervous system regulation</span>.
                 Because{" "}
-                <span className="text-amber-400 font-medium">success happens in your mind first</span>{" "}
+                <span className="text-[1.1875rem] text-amber-400 font-medium">success happens in your mind first</span>{" "}
                 — and when your internal state doesn&apos;t match your vision,
                 no amount of pushing will make it sustainable.
               </p>
@@ -294,9 +293,9 @@ export default function LeapPage() {
 
   const MobileView = () => (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-stone-50/80">
-      <div className="px-6 pt-10 pb-12">
+      <div className="px-6 pt-8 pb-10">
         <div className="max-w-sm mx-auto">
-          <div className="mb-8 text-center flex justify-center items-center">
+          <div className="mb-6 text-center flex justify-center items-center">
             <div
               className="flex-shrink-0"
               style={{
@@ -319,13 +318,13 @@ export default function LeapPage() {
           </div>
 
           <p
-            className="text-center text-stone-700 text-lg tracking-wide mb-5 font-medium"
+            className="text-center text-stone-700 text-lg tracking-wide mb-4 font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The 5-Minute Quantum Identity Reset
           </p>
 
-          <h1 className="text-center mb-8">
+          <h1 className="text-center mb-6">
             <span
               className="block text-5xl font-light text-stone-900 leading-tight tracking-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
@@ -341,7 +340,7 @@ export default function LeapPage() {
           </h1>
 
           <p
-            className="text-center text-stone-700 mb-10 leading-loose text-xl"
+            className="text-center text-stone-700 mb-8 leading-loose text-xl"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Use this daily audio practice to shift your{" "}
@@ -350,7 +349,7 @@ export default function LeapPage() {
             <span className="text-amber-600 font-bold">alignment</span>.
           </p>
 
-          <div className="space-y-4 mb-7">
+          <div className="space-y-3.5 mb-6">
             <input
               type="text"
               placeholder="First Name"
@@ -369,7 +368,7 @@ export default function LeapPage() {
             />
           </div>
 
-          <button className="w-full py-4 mb-8 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50">
+          <button className="w-full py-4 mb-6 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50">
             QUANTUM LEAP NOW
           </button>
 
@@ -384,10 +383,10 @@ export default function LeapPage() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-b from-stone-800 via-stone-900 to-stone-950 px-6 py-14">
+      <div className="bg-gradient-to-b from-stone-800 via-stone-900 to-stone-950 px-6 py-12">
         <div className="max-w-sm mx-auto">
           <h2
-            className="text-3xl font-medium tracking-[0.15em] mb-10 text-center bg-clip-text text-transparent"
+            className="text-3xl font-medium tracking-[0.15em] mb-8 text-center bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
@@ -397,8 +396,7 @@ export default function LeapPage() {
             WHAT YOU&apos;LL RECEIVE:
           </h2>
 
-          <div className="flex flex-col items-center mb-0">
-            <div className="flex-shrink-0 flex flex-col items-center mb-8" style={{ minWidth: 200, minHeight: 200 }}>
+          <div className="flex-shrink-0 flex flex-col items-center mb-6" style={{ minWidth: 200, minHeight: 200 }}>
               <div
                 className="relative flex items-center justify-center"
                 style={{ width: 200, height: 200, minWidth: 200, minHeight: 200 }}
@@ -453,14 +451,12 @@ export default function LeapPage() {
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-              </div>
             </div>
+          </div>
 
-            <div className="space-y-8 w-full">
-              <div className="flex items-start gap-4">
-              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">
-                ✦
-              </span>
+          <div className="space-y-6 w-full">
+            <div className="flex items-start gap-3">
+              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
               <p
                 className="text-stone-200 text-xl leading-relaxed"
                 style={{ fontFamily: "Cormorant Garamond, serif" }}
@@ -469,10 +465,8 @@ export default function LeapPage() {
                 binaural beats for subconscious identity shifts.
               </p>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">
-                ✦
-              </span>
+            <div className="flex items-start gap-3">
+              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
               <p
                 className="text-stone-200 text-xl leading-relaxed"
                 style={{ fontFamily: "Cormorant Garamond, serif" }}
@@ -481,28 +475,24 @@ export default function LeapPage() {
                 that bypass conscious resistance.
               </p>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">
-                ✦
-              </span>
+            <div className="flex items-start gap-3">
+              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
               <p
                 className="text-stone-200 text-xl leading-relaxed"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  <span className="font-bold">Nervous system expansion</span>{" "}
-                  for holding your next level of success.
-                </p>
-              </div>
+                style={{ fontFamily: "Cormorant Garamond, serif" }}
+              >
+                <span className="font-bold">Nervous system expansion</span>{" "}
+                for holding your next level of success.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="px-6 py-14 bg-gradient-to-b from-stone-100 to-stone-50 relative">
+      <div className="px-6 py-12 bg-gradient-to-b from-stone-100 to-stone-50 relative">
         <div className="max-w-sm mx-auto text-center">
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-8" />
           <h3
-            className="text-2xl tracking-[0.1em] mb-8 bg-clip-text text-transparent"
+            className="text-2xl tracking-[0.1em] mb-4 bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
@@ -512,7 +502,7 @@ export default function LeapPage() {
             ABOUT MANDY
           </h3>
 
-          <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-amber-500/30 shadow-lg mb-8 relative">
+          <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-amber-500/30 shadow-lg mb-4 relative">
             <Image
               src="/mandyc.jpg"
               alt="Mandy Cheung"
@@ -529,29 +519,33 @@ export default function LeapPage() {
           >
             Mandy is a corporate finance and IPO advisor — which means she
             lives in a world where outcomes are measured, pressure is normal,
-            and clarity matters.{" "}
+            and clarity matters.
+          </p>
+          <p
+            className="text-stone-600 text-base leading-relaxed mt-4"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
             On{" "}
             <a
               href="https://www.youtube.com/@MandyC852"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-500 font-bold underline decoration-amber-500/80 hover:text-amber-600 hover:decoration-amber-600 transition-colors"
+              className="text-base text-amber-500 font-bold underline decoration-amber-500/80 hover:text-amber-600 hover:decoration-amber-600 transition-colors"
             >
               Luminate with MandyC
             </a>
             , she brings the other half of performance:{" "}
-            <span className="text-amber-600 font-medium">identity and nervous system regulation</span>.
+            <span className="text-base text-amber-600 font-medium">identity and nervous system regulation</span>.
             Because{" "}
-            <span className="text-amber-600 font-medium">success happens in your mind first</span>{" "}
+            <span className="text-base text-amber-600 font-medium">success happens in your mind first</span>{" "}
             — and when your internal state doesn&apos;t match your vision,
             no amount of pushing will make it sustainable.
           </p>
         </div>
       </div>
 
-      {/* Mobile/Tablet footer - compact 2-line design */}
       <footer
-        className="w-full bg-stone-950 border-t border-stone-900 py-6"
+        className="w-full bg-stone-950 border-t border-stone-900 py-5"
         aria-label="Site footer"
       >
         <div className="max-w-sm mx-auto px-6 text-center">
