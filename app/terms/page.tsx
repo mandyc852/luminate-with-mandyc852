@@ -9,7 +9,7 @@ export const metadata = {
 export default function TermsPage() {
   return (
     <div
-      className="h-screen bg-stone-50 flex flex-col overflow-hidden"
+      className="fixed inset-0 bg-stone-50 flex flex-col overflow-hidden"
       style={{ fontFamily: "Cormorant Garamond, serif" }}
     >
       {/* Main content - scrollable on mobile/tablet, fixed on desktop */}

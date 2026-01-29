@@ -13,12 +13,12 @@ export default function LeapPage() {
       {/* Left Panel - Cream/Form Side */}
       <div className="w-1/2 bg-gradient-to-br from-stone-50 via-white to-stone-50/80 flex flex-col justify-center items-center px-16 py-20">
         <div className="max-w-lg w-full">
-          <div className="mb-12 text-center flex justify-center items-center">
+          <div className="mb-10 text-center flex justify-center items-center">
             <div
               className="flex-shrink-0"
               style={{
-                width: 300,
-                height: 100,
+                width: 360,
+                height: 120,
                 background:
                   "linear-gradient(to right, #b45309, #d97706, #f59e0b, #d97706, #b45309)",
                 WebkitMaskImage: "url(/Logo%202%20black.png)",
@@ -42,15 +42,15 @@ export default function LeapPage() {
             The 5-Minute Quantum Identity Reset
           </p>
 
-          <h1 className="text-center mb-12">
+          <h1 className="text-center mb-10">
             <span
-              className="block text-5xl md:text-6xl font-light text-stone-900 leading-tight tracking-tight"
+              className="block text-5xl md:text-6xl font-light text-stone-900 leading-tight tracking-tight mb-2"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               EMBODY YOUR
             </span>
             <span
-              className="block text-5xl md:text-7xl font-bold text-neutral-900 leading-tight mt-2"
+              className="block text-5xl md:text-7xl font-bold text-neutral-900 leading-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               NEXT-LEVEL IDENTITY
@@ -58,7 +58,7 @@ export default function LeapPage() {
           </h1>
 
           <p
-            className="text-center text-stone-700 mb-16 leading-loose text-xl"
+            className="text-center text-stone-700 mb-10 leading-loose text-xl"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Use this daily audio practice to shift your{" "}
@@ -107,7 +107,7 @@ export default function LeapPage() {
       <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col justify-center items-center px-16 py-20">
         <div className="max-w-xl w-full pb-8">
           <h2
-            className="text-3xl md:text-4xl font-medium tracking-[0.15em] mb-12 text-center bg-clip-text text-transparent"
+            className="text-3xl md:text-4xl font-medium tracking-[0.15em] mb-16 text-center bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
@@ -140,7 +140,7 @@ export default function LeapPage() {
                   </defs>
                   <text
                     fill="rgba(253, 230, 138, 0.75)"
-                    textLength={408}
+                    textLength={398}
                     lengthAdjust="spacing"
                     style={{
                       fontFamily: "Cormorant Garamond, serif",
@@ -148,8 +148,8 @@ export default function LeapPage() {
                       fontWeight: "bold",
                     }}
                   >
-                    <textPath href="#circlePathDesktop" startOffset="0%">
-                      5-MINUTE  ·  QUANTUM  ·  IDENTITY  ·  RESET  ·          
+                    <textPath href="#circlePathDesktop" startOffset="2.5%">
+                      5-MIN · QUANTUM · IDENTITY · RESET ·
                     </textPath>
                   </text>
                 </svg>
@@ -216,7 +216,7 @@ export default function LeapPage() {
             </div>
           </div>
 
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-24" />
+          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-20" />
 
           <div className="flex items-start gap-12">
             <div className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-xl relative">
@@ -294,14 +294,14 @@ export default function LeapPage() {
 
   const MobileView = () => (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-stone-50/80">
-      <div className="px-6 pt-12 pb-14">
+      <div className="px-6 pt-10 pb-12">
         <div className="max-w-sm mx-auto">
-          <div className="mb-10 text-center flex justify-center items-center">
+          <div className="mb-8 text-center flex justify-center items-center">
             <div
               className="flex-shrink-0"
               style={{
-                width: 240,
-                height: 80,
+                width: 280,
+                height: 93,
                 background:
                   "linear-gradient(to right, #b45309, #d97706, #f59e0b, #d97706, #b45309)",
                 WebkitMaskImage: "url(/Logo%202%20black.png)",
@@ -319,13 +319,13 @@ export default function LeapPage() {
           </div>
 
           <p
-            className="text-center text-stone-700 text-lg tracking-wide mb-4 font-medium"
+            className="text-center text-stone-700 text-lg tracking-wide mb-5 font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The 5-Minute Quantum Identity Reset
           </p>
 
-          <h1 className="text-center mb-6">
+          <h1 className="text-center mb-8">
             <span
               className="block text-5xl font-light text-stone-900 leading-tight tracking-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
@@ -350,7 +350,7 @@ export default function LeapPage() {
             <span className="text-amber-600 font-bold">alignment</span>.
           </p>
 
-          <div className="space-y-4 mb-6">
+          <div className="space-y-4 mb-7">
             <input
               type="text"
               placeholder="First Name"
@@ -369,12 +369,12 @@ export default function LeapPage() {
             />
           </div>
 
-          <button className="w-full py-4 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50">
+          <button className="w-full py-4 mb-8 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50">
             QUANTUM LEAP NOW
           </button>
 
           <p
-            className="text-center text-stone-600 text-sm mt-8 leading-relaxed px-2"
+            className="text-center text-stone-600 text-sm leading-relaxed px-2"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             You&apos;ll receive the audio immediately.
@@ -387,7 +387,7 @@ export default function LeapPage() {
       <div className="bg-gradient-to-b from-stone-800 via-stone-900 to-stone-950 px-6 py-14">
         <div className="max-w-sm mx-auto">
           <h2
-            className="text-3xl font-medium tracking-[0.15em] mb-12 text-center bg-clip-text text-transparent"
+            className="text-3xl font-medium tracking-[0.15em] mb-10 text-center bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
@@ -397,8 +397,8 @@ export default function LeapPage() {
             WHAT YOU&apos;LL RECEIVE:
           </h2>
 
-          <div className="flex flex-col items-center mb-12">
-            <div className="flex-shrink-0 flex flex-col items-center mb-10" style={{ minWidth: 200, minHeight: 200 }}>
+          <div className="flex flex-col items-center mb-0">
+            <div className="flex-shrink-0 flex flex-col items-center mb-8" style={{ minWidth: 200, minHeight: 200 }}>
               <div
                 className="relative flex items-center justify-center"
                 style={{ width: 200, height: 200, minWidth: 200, minHeight: 200 }}
@@ -420,7 +420,7 @@ export default function LeapPage() {
                   </defs>
                   <text
                     fill="rgba(253, 230, 138, 0.75)"
-                    textLength={408}
+                    textLength={398}
                     lengthAdjust="spacing"
                     style={{
                       fontFamily: "Cormorant Garamond, serif",
@@ -428,8 +428,8 @@ export default function LeapPage() {
                       fontWeight: "bold",
                     }}
                   >
-                    <textPath href="#circlePathMobile" startOffset="0%">
-                      5-MINUTE  ·  QUANTUM  ·  IDENTITY  ·  RESET  ·          
+                    <textPath href="#circlePathMobile" startOffset="2.5%">
+                      5-MIN · QUANTUM · IDENTITY · RESET ·
                     </textPath>
                   </text>
                 </svg>
@@ -500,8 +500,9 @@ export default function LeapPage() {
 
       <div className="px-6 py-14 bg-gradient-to-b from-stone-100 to-stone-50 relative">
         <div className="max-w-sm mx-auto text-center">
+          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-8" />
           <h3
-            className="text-2xl tracking-[0.1em] mb-6 bg-clip-text text-transparent"
+            className="text-2xl tracking-[0.1em] mb-8 bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
