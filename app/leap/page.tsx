@@ -3,11 +3,19 @@
 import React, { useState } from "react"
 import Image from "next/image"
 
-export default function LeapPage() {
-  const [firstName, setFirstName] = useState("")
-  const [email, setEmail] = useState("")
+type FormProps = {
+  firstName: string
+  setFirstName: (v: string) => void
+  email: string
+  setEmail: (v: string) => void
+  onSubmit: (e: React.FormEvent) => void
+  isSubmitting: boolean
+  success: boolean
+  error: string
+}
 
-  const DesktopView = () => (
+function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSubmitting, success, error }: FormProps) {
+  return (
     <div className="min-h-screen flex flex-col">
       <div className="flex flex-1 min-h-0">
       {/* Left Panel - Cream/Form Side */}
@@ -44,21 +52,27 @@ export default function LeapPage() {
 
           <h1 className="text-center mb-6">
             <span
-              className="block text-5xl md:text-6xl font-light text-stone-900 leading-tight tracking-tight mb-6"
+              className="block text-4xl md:text-5xl font-light text-stone-900 leading-tight tracking-tight mb-1.5"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               EMBODY YOUR
             </span>
             <span
+              className="block text-5xl md:text-7xl font-bold text-neutral-900 leading-tight mb-1.5"
+              style={{ fontFamily: "Cormorant Garamond, serif" }}
+            >
+              NEXT-LEVEL
+            </span>
+            <span
               className="block text-5xl md:text-7xl font-bold text-neutral-900 leading-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
-              NEXT-LEVEL IDENTITY
+              IDENTITY
             </span>
           </h1>
 
           <p
-            className="text-center text-stone-700 mb-6 leading-loose text-xl"
+            className="text-center text-stone-700 mb-6 leading-relaxed text-xl"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Use this daily audio practice to shift your{" "}
@@ -68,7 +82,7 @@ export default function LeapPage() {
             <span className="text-amber-600 font-bold">alignment — not exhaustion</span>.
           </p>
 
-          <div className="space-y-4 mb-6">
+          <form onSubmit={onSubmit} className="space-y-4 mb-6">
             <input
               type="text"
               placeholder="First Name"
@@ -82,14 +96,28 @@ export default function LeapPage() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
               className="w-full px-6 py-5 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-lg"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
-          </div>
-
-          <button className="w-full py-5 mb-6 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5">
-            QUANTUM LEAP NOW
-          </button>
+            {error && (
+              <p className="text-center text-red-600 text-sm" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                {error}
+              </p>
+            )}
+            {success && (
+              <p className="text-center text-amber-700 font-medium text-sm" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                Thank you! Check your email for the audio.
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full py-5 mb-3 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Sending…" : "QUANTUM LEAP NOW"}
+            </button>
+          </form>
 
           <p
             className="text-center text-stone-600 text-sm leading-relaxed"
@@ -255,9 +283,9 @@ export default function LeapPage() {
                   rel="noopener noreferrer"
                   className="text-[1.1875rem] text-amber-300 font-bold underline decoration-amber-400/80 hover:text-amber-200 hover:decoration-amber-300 transition-colors"
                 >
-                  Luminate with MandyC
+                  Luminate with MandyC.
                 </a>
-                , she brings the other half of performance:{" "}
+                {" "}she brings the other half of performance:{" "}
                 <span className="text-[1.1875rem] text-amber-400 font-medium">identity and nervous system regulation</span>.
                 Because{" "}
                 <span className="text-[1.1875rem] text-amber-400 font-medium">success happens in your mind first</span>{" "}
@@ -290,8 +318,10 @@ export default function LeapPage() {
       </footer>
     </div>
   )
+}
 
-  const MobileView = () => (
+function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubmitting, success, error }: FormProps) {
+  return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-stone-50/80">
       <div className="px-6 pt-8 pb-10">
         <div className="max-w-sm mx-auto">
@@ -326,21 +356,27 @@ export default function LeapPage() {
 
           <h1 className="text-center mb-6">
             <span
-              className="block text-5xl font-light text-stone-900 leading-tight tracking-tight"
+              className="block text-4xl font-light text-stone-900 leading-tight tracking-tight mb-1.5"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               EMBODY YOUR
             </span>
             <span
+              className="block text-5xl font-bold text-neutral-900 leading-tight mb-1.5"
+              style={{ fontFamily: "Cormorant Garamond, serif" }}
+            >
+              NEXT-LEVEL
+            </span>
+            <span
               className="block text-5xl font-bold text-neutral-900 leading-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
-              NEXT-LEVEL IDENTITY
+              IDENTITY
             </span>
           </h1>
 
           <p
-            className="text-center text-stone-700 mb-8 leading-loose text-xl"
+            className="text-center text-stone-700 mb-8 leading-relaxed text-xl"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Use this daily audio practice to shift your{" "}
@@ -349,7 +385,7 @@ export default function LeapPage() {
             <span className="text-amber-600 font-bold">alignment</span>.
           </p>
 
-          <div className="space-y-3.5 mb-6">
+          <form onSubmit={onSubmit} className="space-y-3.5 mb-6">
             <input
               type="text"
               placeholder="First Name"
@@ -363,14 +399,28 @@ export default function LeapPage() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
               className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 text-lg"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
-          </div>
-
-          <button className="w-full py-4 mb-6 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50">
-            QUANTUM LEAP NOW
-          </button>
+            {error && (
+              <p className="text-center text-red-600 text-sm px-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                {error}
+              </p>
+            )}
+            {success && (
+              <p className="text-center text-amber-700 font-medium text-sm px-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                Thank you! Check your email for the audio.
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full py-4 mb-3 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Sending…" : "QUANTUM LEAP NOW"}
+            </button>
+          </form>
 
           <p
             className="text-center text-stone-600 text-sm leading-relaxed px-2"
@@ -532,9 +582,9 @@ export default function LeapPage() {
               rel="noopener noreferrer"
               className="text-base text-amber-500 font-bold underline decoration-amber-500/80 hover:text-amber-600 hover:decoration-amber-600 transition-colors"
             >
-              Luminate with MandyC
+              Luminate with MandyC.
             </a>
-            , she brings the other half of performance:{" "}
+            {" "}she brings the other half of performance:{" "}
             <span className="text-base text-amber-600 font-medium">identity and nervous system regulation</span>.
             Because{" "}
             <span className="text-base text-amber-600 font-medium">success happens in your mind first</span>{" "}
@@ -577,14 +627,69 @@ export default function LeapPage() {
       </footer>
     </div>
   )
+}
+
+export default function LeapPage() {
+  const [firstName, setFirstName] = useState("")
+  const [email, setEmail] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState("")
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setError("")
+    setIsSubmitting(true)
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          firstName: firstName || "",
+          sourcePage: "leap",
+          sourcePlacement: "hero",
+        }),
+      })
+      const data = await response.json()
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again.")
+      }
+      setSuccess(true)
+      setFirstName("")
+      setEmail("")
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className="relative">
-      <div className="hidden lg:block">
-        <DesktopView />
+      <div className="hidden md:block">
+        <DesktopView
+          firstName={firstName}
+          setFirstName={setFirstName}
+          email={email}
+          setEmail={setEmail}
+          onSubmit={handleSubmit}
+          isSubmitting={isSubmitting}
+          success={success}
+          error={error}
+        />
       </div>
-      <div className="block lg:hidden">
-        <MobileView />
+      <div className="block md:hidden">
+        <MobileView
+          firstName={firstName}
+          setFirstName={setFirstName}
+          email={email}
+          setEmail={setEmail}
+          onSubmit={handleSubmit}
+          isSubmitting={isSubmitting}
+          success={success}
+          error={error}
+        />
       </div>
     </div>
   )
