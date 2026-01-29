@@ -82,7 +82,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             <span className="text-amber-600 font-bold">alignment — not exhaustion</span>.
           </p>
 
-          <form onSubmit={onSubmit} className="space-y-4 mb-6">
+          <form onSubmit={onSubmit} className="space-y-4 mb-4">
             <input
               type="text"
               placeholder="First Name"
@@ -113,14 +113,14 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-5 mb-0 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-5 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Sending…" : "QUANTUM LEAP NOW"}
             </button>
           </form>
 
           <p
-            className="text-center text-stone-600 text-sm leading-relaxed mt-0.5"
+            className="text-center text-stone-600 text-sm leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             You&apos;ll receive the audio immediately, plus occasional insights on
@@ -348,7 +348,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           </div>
 
           <p
-            className="text-center text-stone-700 text-lg tracking-wide mb-4 font-medium"
+            className="text-center text-stone-700 text-base tracking-wide mb-4 font-medium leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The 5-Minute Quantum Identity Reset
@@ -356,27 +356,21 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
 
           <h1 className="text-center mb-6">
             <span
-              className="block text-4xl font-light text-stone-900 leading-tight tracking-tight mb-1.5"
+              className="block text-5xl font-light text-stone-900 leading-tight tracking-tight mb-1.5"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               EMBODY YOUR
             </span>
             <span
-              className="block text-6xl font-bold text-neutral-900 leading-tight mb-1.5 tracking-tight"
+              className="block text-5xl font-bold text-neutral-900 leading-tight tracking-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
-              NEXT-LEVEL
-            </span>
-            <span
-              className="block text-6xl font-bold text-neutral-900 leading-tight tracking-tight"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
-            >
-              IDENTITY
+              NEXT-LEVEL IDENTITY
             </span>
           </h1>
 
           <p
-            className="text-center text-stone-700 mb-8 leading-relaxed text-xl"
+            className="text-center text-stone-700 mb-8 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Use this daily audio practice to shift your{" "}
@@ -385,13 +379,13 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             <span className="text-amber-600 font-bold">alignment</span>.
           </p>
 
-          <form onSubmit={onSubmit} className="space-y-3.5 mb-6">
+          <form onSubmit={onSubmit} className="space-y-3.5 mb-2">
             <input
               type="text"
               placeholder="First Name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 text-lg"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 text-base"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             <input
@@ -400,7 +394,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 text-lg"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 text-base"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             {error && (
@@ -416,14 +410,14 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 mb-0 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Sending…" : "QUANTUM LEAP NOW"}
             </button>
           </form>
 
           <p
-            className="text-center text-stone-600 text-sm leading-relaxed px-2 mt-0.5"
+            className="text-center text-stone-600 text-sm leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             You&apos;ll receive the audio immediately.
@@ -667,7 +661,8 @@ export default function LeapPage() {
 
   return (
     <div className="relative">
-      <div className="hidden md:block">
+      {/* Desktop view - only on extra large screens (1280px+) */}
+      <div className="hidden xl:block">
         <DesktopView
           firstName={firstName}
           setFirstName={setFirstName}
@@ -679,7 +674,8 @@ export default function LeapPage() {
           error={error}
         />
       </div>
-      <div className="block md:hidden">
+      {/* Mobile/Tablet view - up to 1279px */}
+      <div className="block xl:hidden">
         <MobileView
           firstName={firstName}
           setFirstName={setFirstName}
