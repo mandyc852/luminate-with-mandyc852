@@ -118,12 +118,17 @@ export default function LeapPage() {
           </h2>
 
           <div className="flex items-start gap-12 mb-20">
-            <div className="flex-shrink-0 flex flex-col items-center">
-              <div className="relative w-[200px] h-[200px] flex items-center justify-center">
+            <div className="flex-shrink-0 flex flex-col items-center" style={{ minWidth: 200, minHeight: 200 }}>
+              <div
+                className="relative flex items-center justify-center"
+                style={{ width: 200, height: 200, minWidth: 200, minHeight: 200 }}
+              >
                 <svg
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0"
                   viewBox="0 0 200 200"
-                  style={{ animation: "rotate-slow 25s linear infinite" }}
+                  width={200}
+                  height={200}
+                  style={{ animation: "rotate-slow 25s linear infinite", flexShrink: 0 }}
                   aria-hidden="true"
                 >
                   <defs>
@@ -135,21 +140,26 @@ export default function LeapPage() {
                   </defs>
                   <text
                     fill="rgba(253, 230, 138, 0.75)"
+                    textLength={408}
+                    lengthAdjust="spacing"
                     style={{
                       fontFamily: "Cormorant Garamond, serif",
                       fontSize: "14px",
                       fontWeight: "bold",
-                      letterSpacing: "0.35em",
                     }}
                   >
                     <textPath href="#circlePathDesktop" startOffset="0%">
-                      5-MINUTE · QUANTUM · IDENTITY · RESET ·
+                      5-MINUTE  ·  QUANTUM  ·  IDENTITY  ·  RESET  ·          
                     </textPath>
                   </text>
                 </svg>
                 <div
-                  className="relative w-[110px] h-[110px] rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
+                  className="relative rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
                   style={{
+                    width: 110,
+                    height: 110,
+                    minWidth: 110,
+                    minHeight: 110,
                     boxShadow:
                       "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
                   }}
@@ -388,44 +398,54 @@ export default function LeapPage() {
           </h2>
 
           <div className="flex flex-col items-center mb-12">
-            <div className="flex-shrink-0 flex flex-col items-center mb-10">
-              <div className="relative w-[160px] h-[160px] flex items-center justify-center">
+            <div className="flex-shrink-0 flex flex-col items-center mb-10" style={{ minWidth: 200, minHeight: 200 }}>
+              <div
+                className="relative flex items-center justify-center"
+                style={{ width: 200, height: 200, minWidth: 200, minHeight: 200 }}
+              >
                 <svg
-                  className="absolute inset-0 w-full h-full"
-                  viewBox="0 0 160 160"
-                  style={{ animation: "rotate-slow 25s linear infinite" }}
+                  className="absolute inset-0"
+                  viewBox="0 0 200 200"
+                  width={200}
+                  height={200}
+                  style={{ animation: "rotate-slow 25s linear infinite", flexShrink: 0 }}
                   aria-hidden="true"
                 >
                   <defs>
                     <path
                       id="circlePathMobile"
-                      d="M 80 28 A 52 52 0 1 1 79.99 28"
+                      d="M 100 35 A 65 65 0 1 1 99.99 35"
                       fill="none"
                     />
                   </defs>
                   <text
                     fill="rgba(253, 230, 138, 0.75)"
+                    textLength={408}
+                    lengthAdjust="spacing"
                     style={{
                       fontFamily: "Cormorant Garamond, serif",
-                      fontSize: "12px",
+                      fontSize: "14px",
                       fontWeight: "bold",
-                      letterSpacing: "0.35em",
                     }}
                   >
                     <textPath href="#circlePathMobile" startOffset="0%">
-                      5-MINUTE · QUANTUM · IDENTITY · RESET ·
+                      5-MINUTE  ·  QUANTUM  ·  IDENTITY  ·  RESET  ·          
                     </textPath>
                   </text>
                 </svg>
                 <div
-                  className="relative w-[88px] h-[88px] rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
+                  className="relative rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
                   style={{
+                    width: 110,
+                    height: 110,
+                    minWidth: 110,
+                    minHeight: 110,
                     boxShadow:
                       "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
                   }}
                 >
                   <svg
-                    className="w-10 h-10 text-amber-500 ml-1"
+                    className="w-12 h-12 text-amber-500 ml-1"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
