@@ -450,13 +450,14 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   minHeight: 200,
                 }}
               >
-                {/* Static rotating image of circular text - 100% reliable on all browsers */}
+                {/* Static rotating image of circular text - 2x/3x for sharp on retina */}
                 <Image
                   src="/circular-text.png"
                   alt=""
-                  width={200}
-                  height={200}
-                  className="absolute inset-0"
+                  width={600}
+                  height={600}
+                  quality={100}
+                  className="absolute inset-0 w-full h-full object-contain"
                   style={{
                     animation: "rotate-slow 25s linear infinite",
                   }}
