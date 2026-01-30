@@ -450,46 +450,50 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   minHeight: 200,
                 }}
               >
-                <svg
+                {/* Rotating circular text as SVG - will be exported as static */}
+                <div
                   className="absolute inset-0"
-                  viewBox="0 0 200 200"
-                  width={200}
-                  height={200}
                   style={{
                     animation: "rotate-slow 25s linear infinite",
-                    flexShrink: 0,
-                    overflow: "visible",
-                    transform: "translateZ(0)",
-                    WebkitBackfaceVisibility: "hidden",
                   }}
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <defs>
-                    <path
-                      id="circlePathMobile"
-                      d="M 100 35 A 65 65 0 1 1 99.99 35"
-                      fill="none"
-                    />
-                  </defs>
-                  <text
-                    fill="rgba(253, 230, 138, 0.75)"
-                    textLength={398}
-                    lengthAdjust="spacing"
-                    xmlSpace="preserve"
+                  <svg
+                    viewBox="0 0 200 200"
+                    width={200}
+                    height={200}
+                    xmlns="http://www.w3.org/2000/svg"
                     style={{
-                      fontFamily: "Cormorant Garamond, serif",
-                      fontSize: "14px",
-                      fontWeight: "bold",
+                      width: "100%",
+                      height: "100%",
                     }}
                   >
-                    <textPath href="#circlePathMobile" startOffset="2.5%">
-                      5-MIN · QUANTUM · IDENTITY · RESET ·
-                    </textPath>
-                  </text>
-                </svg>
+                    <defs>
+                      <path
+                        id="circlePathMobileStatic"
+                        d="M 100 35 A 65 65 0 1 1 99.99 35"
+                        fill="none"
+                      />
+                    </defs>
+                    <text
+                      fill="rgba(253, 230, 138, 0.75)"
+                      textLength="398"
+                      lengthAdjust="spacing"
+                      style={{
+                        fontFamily: "Cormorant Garamond, serif",
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      <textPath href="#circlePathMobileStatic" startOffset="2.5%">
+                        5-MIN · QUANTUM · IDENTITY · RESET ·
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+
+                {/* Play button in center */}
                 <div
-                  className="relative rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
+                  className="relative rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl z-10"
                   style={{
                     width: 110,
                     height: 110,
@@ -508,7 +512,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-            </div>
+              </div>
           </div>
 
           <div className="space-y-6 w-full">
