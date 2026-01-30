@@ -1591,9 +1591,12 @@ export default function LuminatePage() {
         </button>
       )}
 
-      {/* Footer with Social Links - WHITE */}
-      <footer className="py-12 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
+      {/* Footer - same style as /leap: dark bar, Terms, Privacy */}
+      <footer
+        className="w-full bg-stone-950 border-t border-stone-900 py-6"
+        aria-label="Site footer"
+      >
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col items-center gap-6">
             {/* Social Links */}
             <div className="flex items-center justify-center gap-6">
@@ -1601,7 +1604,7 @@ export default function LuminatePage() {
                 href="https://www.youtube.com/@MandyC852"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-600 hover:text-amber-600 transition-colors duration-300"
+                className="text-stone-400 hover:text-amber-300 transition-colors duration-300"
                 aria-label="YouTube"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -1612,7 +1615,7 @@ export default function LuminatePage() {
                 href="https://www.linkedin.com/in/mandyc852/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-600 hover:text-amber-600 transition-colors duration-300"
+                className="text-stone-400 hover:text-amber-300 transition-colors duration-300"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -1621,11 +1624,24 @@ export default function LuminatePage() {
               </a>
             </div>
 
-            {/* Brand */}
-            <div className="text-center">
-              <p className="text-sm text-stone-600 font-light">
-                © 2026 Luminate with Mandy C.
+            {/* Copyright + Terms & Privacy - mobile: two lines (like /leap); desktop: single line */}
+            <div
+              className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-1 text-center"
+              style={{ fontFamily: "Cormorant Garamond, serif" }}
+            >
+              <p className="text-stone-400 text-sm leading-relaxed mb-2 md:mb-0">
+                © 2026 Luminate with Mandy C. | All Rights Reserved
               </p>
+              <span className="hidden md:inline text-stone-400 text-sm md:text-base">{" "}|{" "}</span>
+              <div className="text-stone-400 text-sm md:text-base flex items-center justify-center gap-2 md:gap-1">
+                <a href="/terms" className="hover:text-amber-300 transition-colors">
+                  Terms &amp; Conditions
+                </a>
+                <span className="text-stone-500">|</span>
+                <a href="/privacy" className="hover:text-amber-300 transition-colors">
+                  Privacy Policy
+                </a>
+              </div>
             </div>
           </div>
         </div>
