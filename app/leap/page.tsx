@@ -450,41 +450,18 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   minHeight: 200,
                 }}
               >
-                {/* Static circular text as SVG - no rotation on mobile */}
-                <div className="absolute inset-0">
-                  <svg
-                    viewBox="0 0 200 200"
-                    width={200}
-                    height={200}
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  >
-                    <defs>
-                      <path
-                        id="circlePathMobileStatic"
-                        d="M 100 35 A 65 65 0 1 1 99.99 35"
-                        fill="none"
-                      />
-                    </defs>
-                    <text
-                      fill="rgba(253, 230, 138, 0.75)"
-                      textLength="398"
-                      lengthAdjust="spacing"
-                      style={{
-                        fontFamily: "Cormorant Garamond, serif",
-                        fontSize: "14px",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      <textPath href="#circlePathMobileStatic" startOffset="2.5%">
-                        5-MIN · QUANTUM · IDENTITY · RESET ·
-                      </textPath>
-                    </text>
-                  </svg>
-                </div>
+                {/* Static rotating image of circular text - 100% reliable on all browsers */}
+                <Image
+                  src="/circular-text.png"
+                  alt=""
+                  width={200}
+                  height={200}
+                  className="absolute inset-0"
+                  style={{
+                    animation: "rotate-slow 25s linear infinite",
+                  }}
+                  priority
+                />
 
                 {/* Play button in center */}
                 <div
