@@ -323,6 +323,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
 function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubmitting, success, error }: FormProps) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-stone-50/80">
+      <div className="pb-24">
       <div className="px-6 pt-8 pb-10">
         <div className="max-w-sm mx-auto">
           <div className="mb-6 text-center flex justify-center items-center">
@@ -443,15 +444,24 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           <div className="flex-shrink-0 flex flex-col items-center mb-6" style={{ minWidth: 200, minHeight: 200 }}>
               <div
                 className="relative flex items-center justify-center"
-                style={{ width: 200, height: 200, minWidth: 200, minHeight: 200 }}
+                style={{
+                  width: 200,
+                  height: 200,
+                  minWidth: 200,
+                  minHeight: 200,
+                  animation: "rotate-slow 25s linear infinite",
+                  transform: "translateZ(0)",
+                  WebkitBackfaceVisibility: "hidden" as const,
+                }}
               >
                 <svg
                   className="absolute inset-0"
                   viewBox="0 0 200 200"
                   width={200}
                   height={200}
-                  style={{ animation: "rotate-slow 25s linear infinite", flexShrink: 0 }}
+                  style={{ flexShrink: 0, overflow: "visible" }}
                   aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
                     <path
@@ -587,9 +597,10 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           </p>
         </div>
       </div>
+      </div>
 
       <footer
-        className="w-full bg-stone-950 border-t border-stone-900 py-5"
+        className="fixed bottom-0 left-0 right-0 z-50 w-full bg-stone-950 border-t border-stone-900 py-5"
         aria-label="Site footer"
       >
         <div className="max-w-sm mx-auto px-6 text-center">
