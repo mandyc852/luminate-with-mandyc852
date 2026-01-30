@@ -323,7 +323,6 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
 function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubmitting, success, error }: FormProps) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-stone-50/80">
-      <div className="pb-24">
       <div className="px-6 pt-8 pb-10">
         <div className="max-w-sm mx-auto">
           <div className="mb-6 text-center flex justify-center items-center">
@@ -449,9 +448,6 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   height: 200,
                   minWidth: 200,
                   minHeight: 200,
-                  animation: "rotate-slow 25s linear infinite",
-                  transform: "translateZ(0)",
-                  WebkitBackfaceVisibility: "hidden" as const,
                 }}
               >
                 <svg
@@ -459,7 +455,13 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   viewBox="0 0 200 200"
                   width={200}
                   height={200}
-                  style={{ flexShrink: 0, overflow: "visible" }}
+                  style={{ 
+                    animation: "rotate-slow 25s linear infinite",
+                    flexShrink: 0, 
+                    overflow: "visible",
+                    transform: "translateZ(0)",
+                    WebkitBackfaceVisibility: "hidden",
+                  }}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -472,7 +474,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   </defs>
                   <text
                     fill="rgba(253, 230, 138, 0.75)"
-                    textLength={398}
+                    textLength={408}
                     lengthAdjust="spacing"
                     style={{
                       fontFamily: "Cormorant Garamond, serif",
@@ -480,7 +482,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                       fontWeight: "bold",
                     }}
                   >
-                    <textPath href="#circlePathMobile" startOffset="2.5%">
+                    <textPath href="#circlePathMobile" startOffset="0%">
                       5-MIN · QUANTUM · IDENTITY · RESET ·
                     </textPath>
                   </text>
@@ -597,10 +599,10 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           </p>
         </div>
       </div>
-      </div>
 
+      {/* Mobile footer - FIXED: Removed fixed positioning */}
       <footer
-        className="fixed bottom-0 left-0 right-0 z-50 w-full bg-stone-950 border-t border-stone-900 py-5"
+        className="w-full bg-stone-950 border-t border-stone-900 py-5"
         aria-label="Site footer"
       >
         <div className="max-w-sm mx-auto px-6 text-center">
