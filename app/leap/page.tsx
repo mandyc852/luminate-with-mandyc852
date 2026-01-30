@@ -348,7 +348,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           </div>
 
           <p
-            className="text-center text-stone-700 text-base tracking-wide mb-4 font-medium leading-relaxed"
+            className="text-center text-stone-700 text-base tracking-wide mb-6 font-medium leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The 5-Minute Quantum Identity Reset
@@ -356,13 +356,13 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
 
           <h1 className="text-center mb-6">
             <span
-              className="block text-5xl font-light text-stone-900 leading-tight tracking-tight mb-1.5"
+              className="block text-4xl font-light text-stone-900 leading-tight tracking-tight mb-1.5"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               EMBODY YOUR
             </span>
             <span
-              className="block text-5xl font-bold text-neutral-900 leading-tight tracking-tight"
+              className="block text-6xl font-bold text-neutral-900 leading-tight tracking-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               NEXT-LEVEL IDENTITY
@@ -455,9 +455,9 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   viewBox="0 0 200 200"
                   width={200}
                   height={200}
-                  style={{ 
+                  style={{
                     animation: "rotate-slow 25s linear infinite",
-                    flexShrink: 0, 
+                    flexShrink: 0,
                     overflow: "visible",
                     transform: "translateZ(0)",
                     WebkitBackfaceVisibility: "hidden",
@@ -474,7 +474,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   </defs>
                   <text
                     fill="rgba(253, 230, 138, 0.75)"
-                    textLength={408}
+                    textLength={398}
                     lengthAdjust="spacing"
                     style={{
                       fontFamily: "Cormorant Garamond, serif",
@@ -482,7 +482,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                       fontWeight: "bold",
                     }}
                   >
-                    <textPath href="#circlePathMobile" startOffset="0%">
+                    <textPath href="#circlePathMobile" startOffset="2.5%">
                       5-MIN · QUANTUM · IDENTITY · RESET ·
                     </textPath>
                   </text>
