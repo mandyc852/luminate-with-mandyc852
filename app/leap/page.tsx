@@ -450,13 +450,8 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   minHeight: 200,
                 }}
               >
-                {/* Rotating circular text as SVG - will be exported as static */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    animation: "rotate-slow 25s linear infinite",
-                  }}
-                >
+                {/* Static circular text as SVG - no rotation on mobile */}
+                <div className="absolute inset-0">
                   <svg
                     viewBox="0 0 200 200"
                     width={200}
