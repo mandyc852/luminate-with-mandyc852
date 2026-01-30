@@ -474,8 +474,8 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   </defs>
                   <text
                     fill="rgba(253, 230, 138, 0.75)"
-                    textLength={398}
-                    lengthAdjust="spacing"
+                    textLength={408}
+                    lengthAdjust="spacingAndGlyphs"
                     style={{
                       fontFamily: "Cormorant Garamond, serif",
                       fontSize: "14px",
