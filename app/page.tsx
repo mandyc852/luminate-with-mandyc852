@@ -263,32 +263,32 @@ export default function LuminatePage() {
           opacity: 1 !important;
         }
 
-        /* Card hover effects - Pop up animation */
+        /* Card hover effects - Pop up when mouse over */
         .card-hover-pop {
-          transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
         }
 
         .card-hover-pop:hover {
-          transform: translateY(-12px) scale(1.02);
-          box-shadow: 
-            0 20px 40px rgba(26, 42, 58, 0.15),
-            0 8px 16px rgba(26, 42, 58, 0.1);
+          transform: translateY(-14px) scale(1.03);
+          box-shadow:
+            0 24px 48px rgba(26, 42, 58, 0.18),
+            0 12px 24px rgba(26, 42, 58, 0.12);
         }
 
-        /* Featured card hover */
+        /* Featured card hover - same pop on hover */
         .card-featured-hover {
-          transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
         }
 
         .card-featured-hover:hover {
-          transform: translateY(-12px) scale(1.02);
-          box-shadow: 
-            0 20px 40px rgba(201, 162, 39, 0.2),
-            0 8px 16px rgba(26, 42, 58, 0.1);
+          transform: translateY(-14px) scale(1.03);
+          box-shadow:
+            0 24px 48px rgba(201, 162, 39, 0.25),
+            0 12px 24px rgba(26, 42, 58, 0.12);
         }
 
         /* Floating CTA */
@@ -402,9 +402,9 @@ export default function LuminatePage() {
         )}
       </header>
 
-      {/* HERO SECTION */}
-      <section className="relative w-full min-h-[520px] md:min-h-[580px] flex items-center overflow-hidden bg-gradient-to-r from-[#1a2a3a] via-[#2d4156] to-[#3d5a73]">
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[50%] z-0">
+      {/* HERO SECTION — navy background, photo on right, soft left-edge blend only (no blue over face) */}
+      <section className="relative w-full min-h-[520px] md:min-h-[580px] flex items-center overflow-hidden bg-[#1a2a3a]">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[55%] z-0">
           <Image
             src="/mandyc.jpg"
             alt="Mandy Cheung"
@@ -414,8 +414,8 @@ export default function LuminatePage() {
             priority
             quality={100}
           />
-          {/* Stronger overlay for professional feel */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1a2a3a] via-[#2d4156]/80 to-transparent pointer-events-none" />
+          {/* Left-edge blend only: soft gradient strip so no hard line and no color over face */}
+          <div className="absolute left-0 top-0 bottom-0 w-[120px] md:w-[200px] bg-gradient-to-r from-[#1a2a3a] via-[#1a2a3a]/60 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full py-12">

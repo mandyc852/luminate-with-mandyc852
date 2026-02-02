@@ -224,7 +224,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                       5-Minute Audio Practice
                     </p>
                     <p
-                      className="text-stone-300 text-[0.9375rem] leading-relaxed mt-1"
+                      className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
                       Binaural beats (7.83 Hz) + layered affirmations.
@@ -241,7 +241,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                       Subconscious Identity Shift
                     </p>
                     <p
-                      className="text-stone-300 text-[0.9375rem] leading-relaxed mt-1"
+                      className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
                       Embody your next-level self before the day starts.
@@ -258,7 +258,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                       Pre-Meeting Reset
                     </p>
                     <p
-                      className="text-stone-300 text-[0.9375rem] leading-relaxed mt-1"
+                      className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
                       Clarity and certainty before high-stakes moments.
