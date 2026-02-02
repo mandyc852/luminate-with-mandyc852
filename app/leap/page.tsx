@@ -288,7 +288,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
 
               <div className="flex-1 min-w-0 pt-1">
                 <h3
-                  className="text-lg tracking-[0.1em] mb-4 bg-clip-text text-transparent"
+                  className="text-lg font-bold tracking-[0.1em] mb-4 bg-clip-text text-transparent"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
                     backgroundImage:
@@ -299,13 +299,13 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                 </h3>
 
                 <p
-                  className="text-stone-300 text-[1rem] leading-relaxed"
+                  className="text-stone-300 text-[1.1875rem] leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
                   I&apos;ve spent 10+ years in corporate finance and IPO advisory, working with companies through high-stakes transactions and cross-border deals.
                 </p>
                 <p
-                  className="text-stone-300 text-[1rem] leading-relaxed mt-3"
+                  className="text-stone-300 text-[1.1875rem] leading-relaxed mt-3"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
                   The founders who scale successfully aren&apos;t just strategically sharp. They&apos;ve done the inner work to hold that level of success. On{" "}
@@ -320,7 +320,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   , I bring the other side: identity work and nervous system regulation.
                 </p>
                 <p
-                  className="text-stone-300 text-[1rem] leading-relaxed mt-3"
+                  className="text-stone-300 text-[1.1875rem] leading-relaxed mt-3"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
                   The strategy matters — but who you&apos;re BEING while you execute matters more.
@@ -526,31 +526,40 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               </div>
           </div>
 
-          {/* CENTERED bullet points on mobile */}
-          <div className="space-y-6 w-full max-w-xs mx-auto text-center">
-            <div>
-              <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                5-Minute Audio Practice
-              </p>
-              <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                Binaural beats (7.83 Hz) + layered affirmations.
-              </p>
+          {/* What you'll receive — bullet points on mobile */}
+          <div className="space-y-6 w-full">
+            <div className="flex items-start gap-3">
+              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-lg">✦</span>
+              <div>
+                <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                  5-Minute Audio Practice
+                </p>
+                <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                  Binaural beats (7.83 Hz) + layered affirmations.
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                Subconscious Identity Shift
-              </p>
-              <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                Embody your next-level self before the day starts.
-              </p>
+            <div className="flex items-start gap-3">
+              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-lg">✦</span>
+              <div>
+                <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                  Subconscious Identity Shift
+                </p>
+                <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                  Embody your next-level self before the day starts.
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                Pre-Meeting Reset
-              </p>
-              <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                Clarity and certainty before high-stakes moments.
-              </p>
+            <div className="flex items-start gap-3">
+              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-lg">✦</span>
+              <div>
+                <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                  Pre-Meeting Reset
+                </p>
+                <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                  Clarity and certainty before high-stakes moments.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -559,7 +568,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
       <div className="px-6 py-12 bg-gradient-to-b from-stone-100 to-stone-50 relative">
         <div className="max-w-sm mx-auto text-center">
           <h3
-            className="text-2xl tracking-[0.1em] mb-4 bg-clip-text text-transparent"
+            className="text-2xl font-bold tracking-[0.1em] mb-4 bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
