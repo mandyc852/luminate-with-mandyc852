@@ -139,10 +139,10 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
       </div>
 
       {/* Right Panel - Rich Dark/Content Side */}
-      <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col justify-center items-center px-12 py-8">
-        <div className="max-w-xl w-full space-y-8">
-          {/* WHAT YOU'LL RECEIVE Section */}
-          <div>
+      <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col items-center px-12 py-8 min-h-0">
+        <div className="max-w-xl w-full flex-1 flex flex-col min-h-0">
+          {/* WHAT YOU'LL RECEIVE Section — top half, content at bottom */}
+          <div className="flex-1 flex flex-col justify-end min-h-0">
             <h2
               className="text-3xl font-medium tracking-[0.15em] mb-7 text-center bg-clip-text text-transparent"
               style={{
@@ -218,7 +218,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
                   <div>
                     <p
-                      className="text-stone-200 text-lg leading-snug font-bold"
+                      className="text-stone-200 text-[1.1875rem] leading-snug font-bold"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
                       5-Minute Audio Practice
@@ -235,7 +235,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
                   <div>
                     <p
-                      className="text-stone-200 text-lg leading-snug font-bold"
+                      className="text-stone-200 text-[1.1875rem] leading-snug font-bold"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
                       Subconscious Identity Shift
@@ -252,7 +252,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
                   <div>
                     <p
-                      className="text-stone-200 text-lg leading-snug font-bold"
+                      className="text-stone-200 text-[1.1875rem] leading-snug font-bold"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
                       Pre-Meeting Reset
@@ -269,11 +269,11 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="w-28 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto" />
+          {/* Divider — centered between the two sections */}
+          <div className="flex-shrink-0 w-28 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto my-4" />
 
-          {/* ABOUT MANDY Section */}
-          <div>
+          {/* ABOUT MANDY Section — bottom half, more space above so divider sits between sections */}
+          <div className="flex-1 flex flex-col justify-start min-h-0 pt-10">
             <div className="flex items-start gap-7">
               <div className="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-xl relative">
                 <Image
@@ -288,7 +288,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
 
               <div className="flex-1 min-w-0 pt-1">
                 <h3
-                  className="text-lg font-bold tracking-[0.1em] mb-4 bg-clip-text text-transparent"
+                  className="text-lg tracking-[0.1em] mb-4 bg-clip-text text-transparent"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
                     backgroundImage:
@@ -299,13 +299,13 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                 </h3>
 
                 <p
-                  className="text-stone-300 text-[1.1875rem] leading-relaxed"
+                  className="text-stone-300 text-lg leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
                   I&apos;ve spent 10+ years in corporate finance and IPO advisory, working with companies through high-stakes transactions and cross-border deals.
                 </p>
                 <p
-                  className="text-stone-300 text-[1.1875rem] leading-relaxed mt-3"
+                  className="text-stone-300 text-lg leading-relaxed mt-3"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
                   The founders who scale successfully aren&apos;t just strategically sharp. They&apos;ve done the inner work to hold that level of success. On{" "}
@@ -320,7 +320,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   , I bring the other side: identity work and nervous system regulation.
                 </p>
                 <p
-                  className="text-stone-300 text-[1.1875rem] leading-relaxed mt-3"
+                  className="text-stone-300 text-lg leading-relaxed mt-3"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
                   The strategy matters — but who you&apos;re BEING while you execute matters more.
@@ -568,7 +568,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
       <div className="px-6 py-12 bg-gradient-to-b from-stone-100 to-stone-50 relative">
         <div className="max-w-sm mx-auto text-center">
           <h3
-            className="text-2xl font-bold tracking-[0.1em] mb-4 bg-clip-text text-transparent"
+            className="text-2xl tracking-[0.1em] mb-4 bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
