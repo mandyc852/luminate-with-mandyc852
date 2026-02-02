@@ -95,6 +95,9 @@ export default function LuminatePage() {
           --gold-primary: #c9a227;
           --gold-light: #d4b84a;
           --gold-dark: #a68a1f;
+          --teal-muted: #5a7d8a;
+          --teal-light: #7a9da8;
+          --teal-dark: #4a6d7a;
           --cream: #fafaf9;
           --charcoal: #1c1917;
           --text-primary: #3d4f5f;
@@ -126,41 +129,60 @@ export default function LuminatePage() {
           background-clip: text;
         }
 
-        /* Section title gradient - Navy to Gold */
+        /* Section title gradient - Navy to Gold (consistent) */
         .section-title-gradient {
-          background: linear-gradient(135deg, #1a2a3a 0%, #2d4156 50%, #c9a227 100%);
+          background: linear-gradient(135deg, #1a2a3a 0%, #2d4156 25%, #c9a227 65%, #d4b84a 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
 
-        /* Primary button - Gold gradient */
-        .btn-primary {
+        /* CTA title gradient - Gold on dark background */
+        .cta-title-gradient {
+          background: linear-gradient(135deg, #d4b84a 0%, #c9a227 50%, #f5e6b3 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        /* Gold button (primary) */
+        .btn-gold {
           background: linear-gradient(135deg, #a68a1f 0%, #c9a227 50%, #d4b84a 100%);
-          background-size: 200% auto;
           color: #1a2a3a;
+          box-shadow: 0 4px 14px rgba(26, 42, 58, 0.25);
           font-weight: 500;
-          transition: background-position 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .btn-primary:hover {
-          background-position: right center;
+        .btn-gold:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(201, 162, 39, 0.35);
+          box-shadow: 0 8px 25px rgba(26, 42, 58, 0.35), 0 0 20px rgba(201, 162, 39, 0.15);
         }
 
-        /* Secondary button - Navy outline */
-        .btn-secondary {
-          background: transparent;
-          border: 2px solid #1a2a3a;
-          color: #1a2a3a;
+        /* Navy button with gold shadow */
+        .btn-navy {
+          background: linear-gradient(135deg, #1a2a3a 0%, #2d4156 100%);
+          color: #ffffff;
           font-weight: 500;
+          box-shadow: 0 4px 14px rgba(26, 42, 58, 0.2), 0 2px 8px rgba(201, 162, 39, 0.15);
           transition: all 0.3s ease;
         }
+        .btn-navy:hover {
+          background: linear-gradient(135deg, #2d4156 0%, #3d5a73 100%);
+          box-shadow: 0 8px 20px rgba(26, 42, 58, 0.3), 0 4px 12px rgba(201, 162, 39, 0.25);
+          transform: translateY(-2px);
+        }
 
-        .btn-secondary:hover {
-          background: #1a2a3a;
+        /* Teal button for audio */
+        .btn-teal {
+          background: linear-gradient(135deg, #4a6d7a 0%, #5a7d8a 100%);
           color: #ffffff;
+          font-weight: 500;
+          box-shadow: 0 4px 14px rgba(90, 125, 138, 0.25);
+          transition: all 0.3s ease;
+        }
+        .btn-teal:hover {
+          background: linear-gradient(135deg, #5a7d8a 0%, #7a9da8 100%);
+          box-shadow: 0 8px 20px rgba(90, 125, 138, 0.35);
           transform: translateY(-2px);
         }
 
@@ -271,24 +293,73 @@ export default function LuminatePage() {
         }
 
         .card-hover-pop:hover {
-          transform: translateY(-14px) scale(1.03);
+          transform: translateY(-14px) scale(1.02);
           box-shadow:
             0 24px 48px rgba(26, 42, 58, 0.18),
             0 12px 24px rgba(26, 42, 58, 0.12);
         }
 
-        /* Featured card hover - same pop on hover */
-        .card-featured-hover {
+        /* Card with GOLD theme on hover */
+        .card-hover-gold {
+          position: relative;
+          background: #ffffff;
+          border: 2px solid #e2e8f0;
           transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                      background 0.35s ease,
+                      border-color 0.35s ease;
           cursor: pointer;
         }
 
-        .card-featured-hover:hover {
-          transform: translateY(-14px) scale(1.03);
+        .card-hover-gold:hover {
+          transform: translateY(-14px) scale(1.02);
+          background: linear-gradient(135deg, #fdfcf7 0%, #f8f4e8 100%);
+          border-color: #c9a227;
           box-shadow:
-            0 24px 48px rgba(201, 162, 39, 0.25),
+            0 24px 48px rgba(201, 162, 39, 0.2),
+            0 12px 24px rgba(26, 42, 58, 0.1);
+        }
+
+        /* Card with NAVY theme on hover */
+        .card-hover-navy {
+          position: relative;
+          background: #ffffff;
+          border: 2px solid #e2e8f0;
+          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                      background 0.35s ease,
+                      border-color 0.35s ease;
+          cursor: pointer;
+        }
+
+        .card-hover-navy:hover {
+          transform: translateY(-14px) scale(1.02);
+          background: linear-gradient(135deg, #f5f7f9 0%, #eef2f5 100%);
+          border-color: #1a2a3a;
+          box-shadow:
+            0 24px 48px rgba(26, 42, 58, 0.2),
             0 12px 24px rgba(26, 42, 58, 0.12);
+        }
+
+        /* Card with TEAL theme on hover */
+        .card-hover-teal {
+          position: relative;
+          background: #ffffff;
+          border: 2px solid #e2e8f0;
+          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                      background 0.35s ease,
+                      border-color 0.35s ease;
+          cursor: pointer;
+        }
+
+        .card-hover-teal:hover {
+          transform: translateY(-14px) scale(1.02);
+          background: linear-gradient(135deg, #f5f9fa 0%, #eef4f6 100%);
+          border-color: #5a7d8a;
+          box-shadow:
+            0 24px 48px rgba(90, 125, 138, 0.2),
+            0 12px 24px rgba(90, 125, 138, 0.12);
         }
 
         /* Floating CTA */
@@ -313,10 +384,10 @@ export default function LuminatePage() {
         .circular-photo-premium {
           position: relative;
           box-shadow: 
-            0 15px 50px rgba(26, 42, 58, 0.15),
-            0 5px 15px rgba(26, 42, 58, 0.1),
+            0 20px 60px rgba(26, 42, 58, 0.2),
+            0 8px 20px rgba(26, 42, 58, 0.15),
             0 0 0 6px #ffffff,
-            0 0 0 8px rgba(201, 162, 39, 0.3);
+            0 0 0 8px rgba(201, 162, 39, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -335,7 +406,7 @@ export default function LuminatePage() {
                 style={{
                   width: 240,
                   height: 80,
-                  background: "linear-gradient(to right, #1a2a3a, #2d4156, #c9a227, #2d4156, #1a2a3a)",
+                  background: "linear-gradient(to right, #c9a227, #d4b84a, #1a2a3a)",
                   WebkitMaskImage: "url(/Logo%202%20black.png)",
                   WebkitMaskSize: "contain",
                   WebkitMaskRepeat: "no-repeat",
@@ -365,7 +436,7 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2.5 rounded-sm uppercase tracking-wide text-sm btn-primary"
+                className="px-6 py-2.5 rounded-sm uppercase tracking-wide text-sm btn-gold"
               >
                 Book a Call
               </a>
@@ -394,7 +465,7 @@ export default function LuminatePage() {
               <a href="#advisory" onClick={(e) => { e.preventDefault(); scrollToSection("#advisory") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">Advisory</a>
               <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection("#about") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">About</a>
               <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">YouTube</a>
-              <a href="https://tidycal.com/mandyc852/30-minute-meeting" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-3 rounded-sm mt-4 uppercase btn-primary">
+              <a href="https://tidycal.com/mandyc852/30-minute-meeting" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-3 rounded-sm mt-4 uppercase btn-gold">
                 Book a Call
               </a>
             </nav>
@@ -402,9 +473,9 @@ export default function LuminatePage() {
         )}
       </header>
 
-      {/* HERO SECTION — navy background, photo on right, soft left-edge blend only (no blue over face) */}
+      {/* HERO SECTION */}
       <section className="relative w-full min-h-[520px] md:min-h-[580px] flex items-center overflow-hidden bg-[#1a2a3a]">
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[55%] z-0">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[48%] z-0">
           <Image
             src="/mandyc.jpg"
             alt="Mandy Cheung"
@@ -414,7 +485,6 @@ export default function LuminatePage() {
             priority
             quality={100}
           />
-          {/* Left-edge blend only: soft gradient strip so no hard line and no color over face */}
           <div className="absolute left-0 top-0 bottom-0 w-[120px] md:w-[200px] bg-gradient-to-r from-[#1a2a3a] via-[#1a2a3a]/60 to-transparent pointer-events-none" />
         </div>
 
@@ -441,7 +511,7 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-primary"
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold"
               >
                 Book Advisory Call
               </a>
@@ -454,6 +524,15 @@ export default function LuminatePage() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CREDENTIALS BAR */}
+      <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
+            Successfully completed 60+ corporate finance transactions and counting
+          </p>
         </div>
       </section>
 
@@ -491,7 +570,7 @@ export default function LuminatePage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 stagger-parent">
-            {/* Service 1: Pre-IPO Advisory */}
+            {/* Service 1: Pre-IPO Advisory - GOLD BUTTON */}
             <div className="stagger-item bg-white p-7 rounded-sm border border-slate-200 card-hover-pop flex flex-col">
               <p className="text-xs font-semibold text-[#c9a227] uppercase tracking-wider mb-2">Exploration &amp; Preparation</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-3">Pre-IPO Advisory</h3>
@@ -505,13 +584,13 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm shadow-md uppercase tracking-wide text-sm btn-primary"
+                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold"
               >
                 Inquire About Advisory
               </a>
             </div>
 
-            {/* Service 2: IPO Financial Advisory */}
+            {/* Service 2: IPO Financial Advisory - NAVY BUTTON */}
             <div className="stagger-item bg-white p-7 rounded-sm border border-slate-200 card-hover-pop flex flex-col">
               <p className="text-xs font-semibold text-[#c9a227] uppercase tracking-wider mb-2">Execution &amp; Listing</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-3">IPO Financial Advisory</h3>
@@ -525,7 +604,7 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-secondary"
+                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-navy"
               >
                 Discuss Your IPO
               </a>
@@ -545,8 +624,8 @@ export default function LuminatePage() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-5 stagger-parent">
-            {/* Resource 1: Book Call */}
-            <div className="stagger-item bg-gradient-to-br from-[#f8f6f0] to-[#f0ece0] p-6 rounded-sm border-2 border-[#c9a227]/30 card-featured-hover flex flex-col">
+            {/* Resource 1: Book Call - GOLD theme on hover */}
+            <div className="stagger-item p-6 rounded-sm card-hover-gold flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#c9a227] to-[#a68a1f] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -560,14 +639,14 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm shadow-md uppercase tracking-wide text-sm btn-primary"
+                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold"
               >
                 Schedule Call
               </a>
             </div>
 
-            {/* Resource 2: ExitPro */}
-            <div className="stagger-item bg-white p-6 rounded-sm border border-slate-200 card-hover-pop flex flex-col">
+            {/* Resource 2: ExitPro - NAVY theme on hover */}
+            <div className="stagger-item p-6 rounded-sm card-hover-navy flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -581,15 +660,15 @@ export default function LuminatePage() {
                 href="https://exitproai.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-secondary"
+                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-navy"
               >
                 Try ExitPro
               </a>
             </div>
 
-            {/* Resource 3: Audio */}
-            <div className="stagger-item bg-white p-6 rounded-sm border border-slate-200 card-hover-pop flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-slate-400 to-slate-500 flex items-center justify-center mb-4">
+            {/* Resource 3: Audio - TEAL theme on hover */}
+            <div className="stagger-item p-6 rounded-sm card-hover-teal flex flex-col">
+              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#5a7d8a] to-[#4a6d7a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                 </svg>
@@ -600,7 +679,7 @@ export default function LuminatePage() {
               </p>
               <a 
                 href="/leap"
-                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm border-2 border-slate-300 text-slate-600 text-sm font-medium uppercase tracking-wide hover:bg-slate-50 transition-all duration-300"
+                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-teal"
               >
                 Get The Audio
               </a>
@@ -615,7 +694,7 @@ export default function LuminatePage() {
           <div className="grid md:grid-cols-3 gap-10 items-center">
             {/* Photo */}
             <div className="md:col-span-1 slide-in-left">
-              <div className="relative w-44 h-44 mx-auto rounded-full overflow-hidden circular-photo-premium">
+              <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden circular-photo-premium">
                 <Image
                   src="/IMG_2269.JPG"
                   alt="Mandy Cheung"
@@ -630,13 +709,13 @@ export default function LuminatePage() {
             <div className="md:col-span-2 space-y-4 slide-in-right">
               <h2 className="text-3xl font-normal section-title-gradient">About Mandy</h2>
               <p className="text-[15px] text-slate-600 font-light leading-relaxed">
-                I&apos;m a corporate finance advisor with 10+ years of experience in capital markets. I hold a Type 6 Responsible Officer license in Hong Kong, and my expertise is Hong Kong Listing Rules — with experience advising on cross-border NASDAQ listings.
+                I&apos;m a corporate finance advisor with 10+ years of experience in capital markets. I hold a Type 6 Responsible Officer license in Hong Kong, specializing in Hong Kong Listing Rules with experience advising on cross-border NASDAQ listings.
               </p>
               <p className="text-[15px] text-slate-600 font-light leading-relaxed">
-                I&apos;m not a coach or a motivational speaker. I&apos;m an advisor who has seen enough IPO journeys to know that founder readiness matters as much as financial readiness. I understand that inner development and business success aren&apos;t separate — they&apos;re the same game.
+                What sets my approach apart is a deeper understanding: the companies that scale successfully aren&apos;t just financially ready — their founders have grown into the leaders their companies need them to be. I&apos;ve always believed that business success and personal development are two sides of the same coin.
               </p>
               <p className="text-[15px] text-slate-600 font-light leading-relaxed">
-                Integrity is my core value. What I offer is grounded expertise and honest guidance.
+                Integrity is my core value. I offer grounded expertise and honest guidance — nothing more, nothing less.
               </p>
               <div className="flex items-center gap-4 pt-2">
                 <a
@@ -662,20 +741,20 @@ export default function LuminatePage() {
         </div>
       </section>
 
-      {/* FINAL CTA - Shorter and cleaner */}
+      {/* FINAL CTA */}
       <section className="py-12 md:py-14 px-6 bg-[#1a2a3a]">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-normal mb-3 text-white">
-            Let&apos;s Talk About Your IPO Journey
+          <h2 className="text-2xl md:text-3xl font-normal mb-3 cta-title-gradient">
+            Let&apos;s Talk About Your Journey
           </h2>
           <p className="text-slate-300 font-light mb-6 text-base">
-            Whether you&apos;re exploring the possibility or ready to move forward, I&apos;m here to give you honest guidance on what it takes.
+            Whether you&apos;re exploring your next stage of growth or preparing for a major milestone, I&apos;m here to give you honest guidance on what it takes.
           </p>
           <a 
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-primary"
+            className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold"
           >
             Book Your Advisory Call
           </a>
