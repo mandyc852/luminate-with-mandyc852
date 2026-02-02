@@ -24,9 +24,9 @@ const baseUrl = siteUrl
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Recalibrate Your Subconscious | Luminate with Mandy C",
+  title: "The Inner Game of Scaling | Luminate with MandyC",
   description:
-    "A 7-minute subconscious recalibration for conscious leaders who refuse to build wealth from burnout. Spiritual entrepreneurship meets embodied leadership.",
+    "Where IPO-level strategy meets identity-level transformation. For scaling founders and CEOs — advisory, identity work, and the practice that closes the gap.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

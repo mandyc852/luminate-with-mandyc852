@@ -1000,15 +1000,19 @@ export default function LuminatePage() {
                 About
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-amber-600 group-hover:w-full transition-all duration-300"></span>
               </a>
+              <a href="#work-with-me" className="text-sm font-medium text-stone-600 hover:text-amber-600 transition-colors relative group uppercase font-[family-name:var(--font-poppins)]">
+                Work With Me
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-amber-600 group-hover:w-full transition-all duration-300"></span>
+              </a>
               <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-stone-600 hover:text-amber-600 transition-colors relative group uppercase font-[family-name:var(--font-poppins)]">
                 YouTube
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-amber-600 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a 
-                href="#opt-in"
+                href="#identity-reset"
                 onClick={(e) => {
                   e.preventDefault()
-                  scrollToSection("#opt-in")
+                  scrollToSection("#identity-reset")
                 }}
                 className="px-6 py-2 border-2 border-transparent bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-amber-500 text-sm font-medium rounded-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
                 style={{
@@ -1018,7 +1022,7 @@ export default function LuminatePage() {
                   backgroundClip: 'text'
                 }}
               >
-                Quantum Leap Now
+                Get The Audio
               </a>
             </nav>
 
@@ -1061,6 +1065,17 @@ export default function LuminatePage() {
                 About
               </a>
               <a 
+                href="#work-with-me"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleMobileMenuClick()
+                  scrollToSection("#work-with-me")
+                }}
+                className="block text-base text-stone-600 hover:text-amber-600 py-2 transition-colors"
+              >
+                Work With Me
+              </a>
+              <a 
                 href="https://www.youtube.com/@MandyC852" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -1070,15 +1085,15 @@ export default function LuminatePage() {
                 YouTube
               </a>
               <a 
-                href="#opt-in"
+                href="#identity-reset"
                 onClick={(e) => {
                   e.preventDefault()
                   handleMobileMenuClick()
-                  scrollToSection("#opt-in")
+                  scrollToSection("#identity-reset")
                 }}
                 className="block text-center px-6 py-3 bg-gradient-to-br from-amber-700 to-amber-500 text-white text-sm font-medium rounded-sm mt-4 transition-all duration-300 hover:shadow-lg uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
               >
-                Quantum Leap Now
+                Get The Audio
               </a>
             </nav>
           </div>
@@ -1104,39 +1119,40 @@ export default function LuminatePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full">
           <div className="max-w-lg">
-            <p className="text-white text-xs md:text-sm font-light tracking-[0.25em] uppercase mb-4">
-              Quantum Leap for Entrepreneurs
-            </p>
-
-            <h1 className="hero-heading gradient-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-normal mb-5">
-              <span className="block">Embody Your</span>
-              <span className="block font-medium">Next-Level Identity.</span>
-              <span className="block">Build From There.</span>
+            <h1 className="hero-heading gradient-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-normal mb-4">
+              The Inner Game of Scaling
             </h1>
 
-            <p className="text-base md:text-lg text-white/95 font-light leading-relaxed mb-7 max-w-md drop-shadow-xl">
-              Five minutes. One identity shift.<br />
-              A different way of building.
+            <p className="text-base md:text-lg text-white/95 font-light leading-relaxed mb-5 max-w-md drop-shadow-xl">
+              Where IPO-level strategy meets identity-level transformation.
+            </p>
+
+            <p className="text-base md:text-lg text-white/90 font-light leading-relaxed mb-7 max-w-md drop-shadow-xl">
+              I&apos;ve spent 10 years advising companies through NASDAQ listings. Here&apos;s what I&apos;ve learned: the founders who scale successfully aren&apos;t just strategically sharp — they&apos;ve done the inner work to hold that level of success.
+              <br /><br />
+              This is where both sides meet.
             </p>
 
             <div className="hero-cta-buttons flex flex-col sm:flex-row gap-3">
               <a 
-                href="#opt-in" 
+                href="#identity-reset" 
                 onClick={(e) => {
                   e.preventDefault()
-                  scrollToSection("#opt-in")
+                  scrollToSection("#identity-reset")
                 }}
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-br from-amber-700 to-amber-500 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-xl uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
               >
-                Become Your Next Level
+                Start With The Inner Work
               </a>
               <a 
-                href="https://www.youtube.com/@MandyC852"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#work-with-me"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection("#work-with-me")
+                }}
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-white text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/15 backdrop-blur-sm uppercase font-[family-name:var(--font-poppins)]"
               >
-                My YouTube Channel
+                Explore IPO Advisory
               </a>
             </div>
           </div>
@@ -1160,113 +1176,124 @@ export default function LuminatePage() {
           </h2>
           <div className="space-y-6 mb-8 stagger-parent">
             <p className="stagger-item text-base leading-[1.8] text-stone-600 font-light relative pl-8">
-              <span className="absolute left-0 text-amber-600 text-2xl">—</span>
-              This work is for you if you've already built something real — but you sense there's a next level you can't quite access yet.
+              <span className="absolute left-0 text-amber-600 text-2xl">→</span>
+              Founders building companies worth $10M+ who sense there&apos;s a next level they can&apos;t quite access yet
             </p>
             <p className="stagger-item text-base leading-[1.8] text-stone-600 font-light relative pl-8">
-              <span className="absolute left-0 text-amber-600 text-2xl">—</span>
-              You're not struggling to survive. You're ready to expand. But something at the identity level is keeping you playing at your current capacity.
+              <span className="absolute left-0 text-amber-600 text-2xl">→</span>
+              Entrepreneurs who are successful by external measures but feel their internal operating system needs an upgrade to match their ambition
             </p>
             <p className="stagger-item text-base leading-[1.8] text-stone-600 font-light relative pl-8">
-              <span className="absolute left-0 text-amber-600 text-2xl">—</span>
-              You're ready to embody the version of you who already scaled beyond this level. And lead from there.
+              <span className="absolute left-0 text-amber-600 text-2xl">→</span>
+              Leaders preparing for a major transition — Series A, acquisition, or IPO — who want both the strategy AND the identity work
+            </p>
+            <p className="stagger-item text-base leading-[1.8] text-stone-600 font-light relative pl-8">
+              <span className="absolute left-0 text-amber-600 text-2xl">→</span>
+              Anyone who&apos;s realized that scaling a company requires becoming someone new — someone who can hold more capital, more visibility, more responsibility
             </p>
           </div>
           <p className="quote-text text-stone-700 text-center text-xl md:text-2xl font-semibold fade-in">
-            Your next level isn't something you achieve.<br />
-            It's someone you become.
+            You don&apos;t need more tactics. You need your identity to catch up to your vision.
           </p>
         </div>
       </section>
 
 
-      {/* What You'll Receive Section - WHITE */}
-      <section id="services" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
+      {/* Two Ways to Begin - Lead Magnets */}
+      <section id="two-ways" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
-            What You'll Get
+          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal slide-up section-title-gradient">
+            Two Ways to Begin
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 stagger-parent">
-            {/* Benefit 1 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-sm shadow-sm border border-stone-200 card-elegant-hover icon-parent">
-              <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-amber-600/10 to-amber-500/10 flex items-center justify-center">
-                <svg className="w-8 h-8 text-amber-600 icon-scale" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-normal text-stone-900">5-Minute Quantum Identity Reset</h3>
-              <p className="text-[15px] text-stone-600 font-light leading-[1.7]">
-                A daily audio practice to embody the identity of your next-level self before the evidence shows up. Binaural beats + whispered affirmations designed for subconscious identity shifts.
+          <div className="grid md:grid-cols-2 gap-8 stagger-parent">
+            {/* Path 1: The Founder's Identity Reset */}
+            <div className="stagger-item bg-white p-8 rounded-sm shadow-sm border border-stone-200 card-elegant-hover">
+              <p className="text-sm font-medium text-amber-600 uppercase tracking-wider mb-2">The inner work</p>
+              <h3 className="text-2xl font-normal text-stone-900 mb-4">The Founder&apos;s Identity Reset</h3>
+              <p className="text-[15px] text-stone-600 font-light leading-[1.7] mb-4">
+                A 5-minute daily audio practice designed for founders and CEOs. Use it before high-stakes meetings, investor calls, or any moment that requires you to show up as your next-level self.
               </p>
+              <p className="text-[15px] text-stone-600 font-light leading-[1.7] mb-6">
+                Binaural beats + whispered affirmations to help your nervous system hold bigger outcomes.
+              </p>
+              <a 
+                href="/leap"
+                className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-gradient-to-br from-amber-600 to-amber-500 text-white text-sm font-medium tracking-wide rounded-sm shadow-lg hover:-translate-y-0.5 transition-all duration-300 uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
+              >
+                Get The Audio
+              </a>
             </div>
 
-            {/* Benefit 2 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-sm shadow-sm border border-stone-200 card-elegant-hover icon-parent">
-              <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-amber-600/10 to-amber-500/10 flex items-center justify-center">
-                <svg className="w-8 h-8 text-amber-600 icon-scale" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-normal text-stone-900">Nervous System Expansion</h3>
-              <p className="text-[15px] text-stone-600 font-light leading-[1.7]">
-                Affirmations specifically designed to help your nervous system feel safe holding your next level of success, wealth, and visibility.
+            {/* Path 2: IPO Readiness Assessment */}
+            <div className="stagger-item bg-white p-8 rounded-sm shadow-sm border border-stone-200 card-elegant-hover">
+              <p className="text-sm font-medium text-amber-600 uppercase tracking-wider mb-2">The strategic work</p>
+              <h3 className="text-2xl font-normal text-stone-900 mb-4">IPO Readiness Assessment</h3>
+              <p className="text-[15px] text-stone-600 font-light leading-[1.7] mb-4">
+                Are you 18 months from being NASDAQ-ready, or 5 years? This assessment helps founders understand where they stand on the path to going public — and what gaps to close first.
               </p>
-            </div>
-
-            {/* Benefit 3 */}
-            <div className="stagger-item text-center space-y-4 bg-white p-6 rounded-sm shadow-sm border border-stone-200 card-elegant-hover icon-parent">
-              <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-amber-600/10 to-amber-500/10 flex items-center justify-center">
-                <svg className="w-8 h-8 text-amber-600 icon-scale" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-normal text-stone-900">Occasional Transmissions</h3>
-              <p className="text-[15px] text-stone-600 font-light leading-[1.7]">
-                Insights on quantum identity work, subconscious reprogramming, and building businesses from alignment — not exhaustion.
+              <p className="text-[15px] text-stone-600 font-light leading-[1.7] mb-6">
+                Built from 10 years of advising companies through successful listings.
               </p>
-            </div>
-          </div>
-
-          {/* Mid-Page Form Placement */}
-          <div className="mt-16 max-w-4xl mx-auto">
-            <div className="bg-white border border-stone-200 rounded-lg px-8 pt-8 pb-16 md:px-8 md:pt-8 md:pb-20 shadow-lg">
-              <h3 className="text-2xl md:text-2xl font-normal mb-3 text-center section-title-gradient">Ready to Embody Your Next Level?</h3>
-              <p className="text-sm text-stone-600 mb-6 text-center font-light">Get the 5-minute Quantum Identity Reset</p>
-              {midSuccess ? (
-                <div className="p-6 bg-gradient-to-br from-amber-100/80 to-amber-50/80 rounded-sm border border-stone-200 text-center">
-                  <p className="text-base text-stone-900 font-light">✓ Check your email for the audio!</p>
-                </div>
-              ) : (
-                <form onSubmit={handleMidSubmit} className="space-y-4">
-                  <input
-                    type="email"
-                    value={midEmail}
-                    onChange={(e) => setMidEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    required
-                    className="input-premium w-full px-5 py-4 text-base font-sans border-2 border-stone-200 rounded-sm bg-stone-50 text-stone-700 transition-all duration-300"
-                  />
-                  {midError && (
-                    <p className="text-sm text-red-600">{midError}</p>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={midSubmitting}
-                    className="btn-premium w-full px-8 py-4 bg-gradient-to-br from-amber-600 to-amber-500 text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
-                  >
-                    {midSubmitting ? "SENDING..." : "QUANTUM LEAP NOW"}
-                  </button>
-                </form>
-              )}
+              <a 
+                href="/ipo-ready"
+                className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-transparent border-2 border-amber-600 text-amber-700 text-sm font-medium tracking-wide rounded-sm hover:bg-amber-50 transition-all duration-300 uppercase font-[family-name:var(--font-poppins)]"
+              >
+                Assess Your Readiness
+              </a>
             </div>
           </div>
         </div>
       </section>
 
 
-      {/* The Audio Section - PEONY BACKGROUND WITH GRADIENT */}
-      <section className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-stone-50 slide-up overflow-hidden">
-        {/* Peony Background Image - subdued to avoid rose tint; overlay matches leap stone */}
+      {/* Work With Me Section */}
+      <section id="work-with-me" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-stone-50 slide-up">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal slide-up section-title-gradient">
+            Work With Me
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 stagger-parent">
+            {/* Service 1: IPO & Capital Markets Advisory */}
+            <div className="stagger-item bg-white p-8 rounded-sm shadow-sm border border-stone-200 card-elegant-hover">
+              <h3 className="text-2xl font-normal text-stone-900 mb-4">IPO &amp; Capital Markets Advisory</h3>
+              <p className="text-[15px] text-stone-600 font-light leading-[1.7] mb-4">
+                For companies preparing for NASDAQ listing. I serve as a strategic advisor from pre-IPO preparation through successful listing — handling everything from regulatory positioning to investor narrative.
+              </p>
+              <p className="text-[15px] text-stone-600 font-light leading-[1.7] mb-6">
+                This is for companies with $20M+ revenue ready to access public markets.
+              </p>
+              <a 
+                href="mailto:hello@mandyc.me"
+                className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-gradient-to-br from-amber-600 to-amber-500 text-white text-sm font-medium tracking-wide rounded-sm shadow-lg hover:-translate-y-0.5 transition-all duration-300 uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
+              >
+                Inquire About Advisory
+              </a>
+            </div>
+
+            {/* Service 2: Scaling Strategy for Founders */}
+            <div className="stagger-item bg-white p-8 rounded-sm shadow-sm border border-stone-200 card-elegant-hover">
+              <h3 className="text-2xl font-normal text-stone-900 mb-4">Scaling Strategy for Founders</h3>
+              <p className="text-[15px] text-stone-600 font-light leading-[1.7] mb-4">
+                For founders building toward a significant exit — whether that&apos;s IPO, acquisition, or major fundraise. This combines business strategy with the identity work required to lead at the next level.
+              </p>
+              <p className="text-[15px] text-stone-600 font-light leading-[1.7] mb-6">
+                Not just what to do, but who to become while doing it.
+              </p>
+              <a 
+                href="mailto:hello@mandyc.me"
+                className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-transparent border-2 border-amber-600 text-amber-700 text-sm font-medium tracking-wide rounded-sm hover:bg-amber-50 transition-all duration-300 uppercase font-[family-name:var(--font-poppins)]"
+              >
+                Apply to Work Together
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* The Founder's Identity Reset - Detailed Section (id for anchor) */}
+      <section id="identity-reset" className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-white slide-up overflow-hidden">
+        {/* Peony Background Image - subdued; overlay matches leap stone */}
         <div 
           className="absolute inset-0 opacity-40 pointer-events-none"
           style={{
@@ -1276,40 +1303,55 @@ export default function LuminatePage() {
             backgroundRepeat: 'no-repeat',
           }}
         />
-        {/* Gradient Overlay - strong stone/cream (leap color guide) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-50/90 via-stone-50/85 to-stone-50/90 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/95 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto z-10">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
-            The 5-Minute Quantum Identity Reset
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal slide-up section-title-gradient">
+            The Founder&apos;s Identity Reset
           </h2>
+          <p className="text-xl text-stone-600 text-center font-light mb-8">
+            The 5-minute practice I use before high-stakes moments.
+          </p>
           <div className="bg-white border border-stone-200 rounded-sm px-8 pt-8 pb-10 md:px-12 md:pt-12 md:pb-12 shadow-sm">
             <div className="space-y-6">
               <p className="text-base leading-[1.8] text-stone-600 font-light">
-                This isn't a meditation. It's an identity practice.
+                Scaling a company requires you to become someone new — someone who can hold more capital, more visibility, more responsibility. But your nervous system doesn&apos;t automatically upgrade when your business does.
               </p>
               <p className="text-base leading-[1.8] text-stone-600 font-light">
-                Every morning, you'll spend 5 minutes embodying the version of you who already scaled beyond your current level — before checking email, before reacting to your environment, before your old patterns take over.
+                This audio is designed to close that gap.
               </p>
               <p className="text-base leading-[1.8] text-stone-600 font-light">
-                The audio combines 7.83 Hz binaural beats (Schumann Resonance) with whispered affirmations designed to shift your identity at the subconscious level.
+                Every morning, you&apos;ll spend 5 minutes embodying the version of you who already scaled beyond your current level — before checking email, before the meetings start, before your old patterns take over.
               </p>
               <p className="text-base leading-[1.8] text-stone-600 font-light">
-                You'll hear affirmations like:
+                The audio combines:
               </p>
-              <ul className="space-y-3 ml-4">
-                <li className="affirmation-text text-xl md:text-xl text-stone-700 font-semibold">
-                  "I embody the version of me who expanded with ease and alignment"
-                </li>
-                <li className="affirmation-text text-xl md:text-xl text-stone-700 font-semibold">
-                  "My certainty creates evidence, not the other way around"
-                </li>
-                <li className="affirmation-text text-xl md:text-xl text-stone-700 font-semibold">
-                  "My nervous system is safe to hold my next level of success"
-                </li>
+              <ul className="space-y-2 ml-4 list-disc text-stone-600 font-light text-[15px] leading-[1.7]">
+                <li>7.83 Hz binaural beats (Schumann Resonance) for subconscious receptivity</li>
+                <li>Whispered affirmations designed for identity-level shifts</li>
+                <li>Nervous system regulation to feel safe holding bigger outcomes</li>
               </ul>
               <p className="text-base leading-[1.8] text-stone-600 font-light">
-                This is quantum identity work — collapsing time between who you are now and who you're becoming.
+                You&apos;ll hear affirmations like:
               </p>
+              <ul className="space-y-3 ml-4">
+                <li className="affirmation-text text-lg text-stone-700 font-semibold">
+                  &quot;I lead with clarity and hold space for high-stakes decisions&quot;
+                </li>
+                <li className="affirmation-text text-lg text-stone-700 font-semibold">
+                  &quot;My nervous system is calibrated for the next level of success&quot;
+                </li>
+                <li className="affirmation-text text-lg text-stone-700 font-semibold">
+                  &quot;I am the founder who already built what I&apos;m building&quot;
+                </li>
+              </ul>
+              <p className="text-base leading-[1.8] text-stone-600 font-light font-medium mt-6">
+                How to Use:
+              </p>
+              <ol className="space-y-2 ml-4 list-decimal text-stone-600 font-light text-[15px] leading-[1.7]">
+                <li>First thing in the morning — before you check your phone or react to your environment</li>
+                <li>Use headphones — the binaural beats require stereo to work</li>
+                <li>Embody, don&apos;t just listen — feel yourself AS the version who already succeeded</li>
+              </ol>
             </div>
           </div>
         </div>
@@ -1390,20 +1432,35 @@ export default function LuminatePage() {
             {/* Content */}
             <div className="md:col-span-2 space-y-6 slide-in-right">
               <p className="text-base leading-[1.8] text-stone-600 font-light">
-                Mandy is a corporate finance and IPO advisor — which means she lives in a world where outcomes are measured, pressure is normal, and clarity matters.{" "}
-                On{" "}
+                I&apos;ve spent 10 years in corporate finance, advising companies through NASDAQ IPOs. I hold a Responsible Officer license in Hong Kong and am building my advisory practice from Dubai.
+              </p>
+              <p className="text-base leading-[1.8] text-stone-600 font-light">
+                But here&apos;s what most advisors won&apos;t tell you: the companies that scale successfully aren&apos;t just financially ready — their founders have done the identity work to hold that level of success. The ones who struggle? They hit their own internal ceiling before they hit a market ceiling.
+              </p>
+              <p className="text-base leading-[1.8] text-stone-600 font-light">
+                That&apos;s why I created Luminate — to bridge the gap between IPO-level strategy and the inner game most founders ignore.
+              </p>
+              <p className="text-base leading-[1.8] text-stone-600 font-light">
+                When I&apos;m not advising on listings, you&apos;ll find me creating content on the intersection of business performance and personal transformation.
+              </p>
+              <p className="text-base leading-[1.8] text-stone-600 font-light">
                 <a
                   href="https://www.youtube.com/@MandyC852"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-bold underline text-amber-600 decoration-amber-500/80 hover:text-amber-700 hover:decoration-amber-600 transition-colors"
                 >
-                  Luminate with MandyC
+                  YouTube: Luminate with MandyC
                 </a>
-                , she brings the other half of performance: identity and nervous system regulation. Because success happens in your mind first — and when your internal state doesn&apos;t match your vision, no amount of pushing will make it sustainable.
-              </p>
-              <p className="quote-text text-xl md:text-2xl leading-[1.8] text-stone-700 font-semibold">
-                This is for entrepreneurs who are ready to take the leap, again.
+                {" · "}
+                <a
+                  href="https://www.linkedin.com/in/mandyc852/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline text-amber-600 decoration-amber-500/80 hover:text-amber-700 hover:decoration-amber-600 transition-colors"
+                >
+                  LinkedIn
+                </a>
               </p>
             </div>
           </div>
@@ -1418,53 +1475,39 @@ export default function LuminatePage() {
             Common Questions
           </h2>
           <div className="space-y-8 stagger-parent">
-            {/* Question 1 */}
             <div className="stagger-item border-b border-stone-200 pb-8">
               <h3 className="text-xl font-normal text-stone-900 mb-3">
-                Do I need headphones to listen?
+                Is this just mindset content, or is there real business strategy?
               </h3>
               <p className="text-[15px] text-stone-600 font-light leading-[1.7]">
-                Yes. The binaural beats require stereo headphones to work properly. Without them, you'll miss the 7.83 Hz frequency that activates the quantum awareness state.
+                Both. I&apos;ve spent 10 years in corporate finance advising on NASDAQ IPOs — the strategy side is my foundation. But I&apos;ve seen too many founders hit internal ceilings that no amount of strategy can break through. This work addresses both.
               </p>
             </div>
 
-            {/* Question 2 */}
             <div className="stagger-item border-b border-stone-200 pb-8">
               <h3 className="text-xl font-normal text-stone-900 mb-3">
-                How is this different from regular affirmations or meditation?
+                I&apos;m not thinking about an IPO. Is this still for me?
               </h3>
               <p className="text-[15px] text-stone-600 font-light leading-[1.7]">
-                This is identity work, not motivation. Regular affirmations try to convince your conscious mind. This audio works at the subconscious level — where your actual identity and beliefs live. The binaural beats put your brain in a receptive state, and the whispered affirmations bypass conscious resistance to create real identity shifts.
+                Yes. The identity work applies to any significant scaling — whether you&apos;re going from $1M to $10M, raising your first round, or preparing for acquisition. IPO is just the most extreme version of the same transition.
               </p>
             </div>
 
-            {/* Question 3 */}
             <div className="stagger-item border-b border-stone-200 pb-8">
               <h3 className="text-xl font-normal text-stone-900 mb-3">
-                Is this just manifestation or "woo-woo" content?
+                How is the Identity Reset different from regular meditation?
               </h3>
               <p className="text-[15px] text-stone-600 font-light leading-[1.7]">
-                No. This is grounded in how the subconscious mind actually works. The approach is inspired by neuroscience and quantum physics principles — specifically the idea that your identity (who you're BEING) creates your reality before your actions do. If you've already built success through strategy and hard work, this adds the identity layer most entrepreneurs miss.
+                This isn&apos;t meditation — it&apos;s identity work. Regular meditation calms your mind. This practice actively rewires your subconscious identity and trains your nervous system to hold bigger outcomes. It&apos;s designed specifically for founders facing high-stakes growth.
               </p>
             </div>
 
-            {/* Question 4 */}
-            <div className="stagger-item border-b border-stone-200 pb-8">
-              <h3 className="text-xl font-normal text-stone-900 mb-3">
-                When will I see results?
-              </h3>
-              <p className="text-[15px] text-stone-600 font-light leading-[1.7]">
-                Many people feel a shift in their state immediately — more grounded, more certain, more "locked in" to their next-level identity. The deeper identity shifts happen over time with consistent daily use. This isn't about instant transformation — it's about becoming the person who naturally creates your next level of results.
-              </p>
-            </div>
-
-            {/* Question 5 */}
             <div className="stagger-item pb-8">
               <h3 className="text-xl font-normal text-stone-900 mb-3">
-                I'm already successful. Is this for me?
+                Do you work with companies outside of IPO advisory?
               </h3>
               <p className="text-[15px] text-stone-600 font-light leading-[1.7]">
-                This is specifically designed for you. If you're a beginner trying to "make it," this might feel too advanced. But if you've already proven you can build something and you're ready to quantum leap to your next level — this is exactly the tool for that expansion.
+                Yes. I work with founders on scaling strategy even if IPO isn&apos;t the immediate goal. The path to any significant exit — acquisition, major fundraise, or eventual IPO — requires similar preparation.
               </p>
             </div>
           </div>
@@ -1488,7 +1531,7 @@ export default function LuminatePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-stone-50/90 via-stone-50/85 to-stone-50/90 pointer-events-none" />
         <div className="relative max-w-2xl mx-auto z-10">
           <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal slide-up section-title-gradient">
-            Get the 5-Minute Quantum Identity Reset
+            Get The Founder&apos;s Identity Reset
           </h2>
 
           <div className="bg-white rounded-lg px-6 pt-6 pb-8 md:px-10 md:pt-8 md:pb-10 relative form-glow" style={{
@@ -1545,11 +1588,11 @@ export default function LuminatePage() {
                 disabled={isSubmitting}
                 className="btn-premium w-full mt-6 px-8 py-4 bg-gradient-to-br from-amber-600 to-amber-500 text-white text-base font-medium tracking-wide rounded-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
               >
-                {isSubmitting ? "SENDING..." : "QUANTUM LEAP NOW"}
+                {isSubmitting ? "SENDING..." : "GET THE AUDIO"}
               </button>
 
               <p className="text-sm text-stone-600 mt-4 leading-relaxed text-center font-light">
-                You'll receive the audio immediately, plus occasional insights on quantum identity work and building businesses from alignment.<br />
+                You&apos;ll receive the audio immediately, plus occasional insights on the inner game of scaling.<br />
                 <br />
                 No hype. Unsubscribe anytime.
               </p>
@@ -1575,11 +1618,42 @@ export default function LuminatePage() {
         </div>
       </section>
 
+      {/* Footer CTA Section */}
+      <section className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 bg-stone-50 slide-up">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-normal mb-6 text-stone-800 section-title-gradient">
+            Ready to scale from the inside out?
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a 
+              href="#identity-reset"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection("#identity-reset")
+              }}
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-br from-amber-600 to-amber-500 text-white text-sm font-medium tracking-wide rounded-sm shadow-lg hover:-translate-y-0.5 transition-all duration-300 uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
+            >
+              Get The Identity Reset
+            </a>
+            <a 
+              href="#work-with-me"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection("#work-with-me")
+              }}
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-amber-600 text-amber-700 text-sm font-medium tracking-wide rounded-sm hover:bg-amber-50 transition-all duration-300 uppercase font-[family-name:var(--font-poppins)]"
+            >
+              Explore Advisory Services
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Floating CTA Button */}
       {showFloatingButton && (
         <button
           onClick={() => {
-            scrollToSection("#opt-in")
+            scrollToSection("#identity-reset")
           }}
           className="floating-cta btn-premium px-6 py-4 bg-gradient-to-br from-amber-600 to-amber-500 text-white text-sm font-medium tracking-wide rounded-full flex items-center gap-2 uppercase font-[family-name:var(--font-poppins)] btn-elegant-shimmer"
           aria-label="Get the audio"
@@ -1587,7 +1661,7 @@ export default function LuminatePage() {
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-          <span className="hidden sm:inline">QUANTUM LEAP</span>
+          <span className="hidden sm:inline">GET THE AUDIO</span>
         </button>
       )}
 

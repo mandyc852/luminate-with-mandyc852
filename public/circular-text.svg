@@ -3,6 +3,6 @@
     <path id="circlePath" d="M 100 35 A 65 65 0 1 1 99.99 35" fill="none"/>
   </defs>
   <text fill="rgba(253, 230, 138, 0.75)" textLength="398" lengthAdjust="spacing" style="font-family: Cormorant Garamond, serif; font-size: 14px; font-weight: bold;">
-    <textPath href="#circlePath" startOffset="2.5%">5-MIN · QUANTUM · IDENTITY · RESET ·</textPath>
+    <textPath href="#circlePath" startOffset="2.5%">5-MIN · FOUNDER'S · IDENTITY · RESET ·</textPath>
   </text>
 </svg>
