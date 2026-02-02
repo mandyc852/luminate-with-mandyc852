@@ -95,9 +95,6 @@ export default function LuminatePage() {
           --gold-primary: #c9a227;
           --gold-light: #d4b84a;
           --gold-dark: #a68a1f;
-          --teal-muted: #5a7d8a;
-          --teal-light: #7a9da8;
-          --teal-dark: #4a6d7a;
           --cream: #fafaf9;
           --charcoal: #1c1917;
           --text-primary: #3d4f5f;
@@ -129,9 +126,17 @@ export default function LuminatePage() {
           background-clip: text;
         }
 
-        /* Section title gradient - Navy to Gold (consistent) */
+        /* Section title gradient - Navy to Gold (for longer titles) */
         .section-title-gradient {
           background: linear-gradient(135deg, #1a2a3a 0%, #2d4156 25%, #c9a227 65%, #d4b84a 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        /* Section title gradient - for SHORT titles like "About Mandy" */
+        .section-title-gradient-short {
+          background: linear-gradient(90deg, #1a2a3a 0%, #c9a227 60%, #d4b84a 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -145,45 +150,56 @@ export default function LuminatePage() {
           background-clip: text;
         }
 
-        /* Gold button (primary) */
-        .btn-gold {
-          background: linear-gradient(135deg, #a68a1f 0%, #c9a227 50%, #d4b84a 100%);
+        /* ============================================
+           ANIMATED GRADIENT BUTTONS
+           ============================================ */
+
+        /* Gold button with animated shimmer */
+        .btn-gold-animated {
+          position: relative;
+          background: linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%);
+          background-size: 200% 200%;
           color: #1a2a3a;
-          box-shadow: 0 4px 14px rgba(26, 42, 58, 0.25);
+          box-shadow: 0 4px 14px rgba(26, 42, 58, 0.25), 0 2px 8px rgba(201, 162, 39, 0.2);
           font-weight: 500;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
+          overflow: hidden;
         }
-        .btn-gold:hover {
+        .btn-gold-animated:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(26, 42, 58, 0.35), 0 0 20px rgba(201, 162, 39, 0.15);
+          box-shadow: 0 8px 25px rgba(26, 42, 58, 0.35), 0 4px 15px rgba(201, 162, 39, 0.3);
+          animation: shimmerGold 1.5s ease infinite;
         }
 
-        /* Navy button with gold shadow */
-        .btn-navy {
-          background: linear-gradient(135deg, #1a2a3a 0%, #2d4156 100%);
-          color: #ffffff;
-          font-weight: 500;
-          box-shadow: 0 4px 14px rgba(26, 42, 58, 0.2), 0 2px 8px rgba(201, 162, 39, 0.15);
-          transition: all 0.3s ease;
-        }
-        .btn-navy:hover {
-          background: linear-gradient(135deg, #2d4156 0%, #3d5a73 100%);
-          box-shadow: 0 8px 20px rgba(26, 42, 58, 0.3), 0 4px 12px rgba(201, 162, 39, 0.25);
-          transform: translateY(-2px);
+        @keyframes shimmerGold {
+          0% { background-position: 200% 0%; }
+          100% { background-position: -200% 0%; }
         }
 
-        /* Teal button for audio */
-        .btn-teal {
-          background: linear-gradient(135deg, #4a6d7a 0%, #5a7d8a 100%);
+        /* Navy button with gradient + animated shimmer */
+        .btn-navy-animated {
+          position: relative;
+          background: linear-gradient(135deg, #1a2a3a 0%, #2d4156 25%, #3d5a73 50%, #2d4156 75%, #1a2a3a 100%);
+          background-size: 200% 200%;
           color: #ffffff;
           font-weight: 500;
-          box-shadow: 0 4px 14px rgba(90, 125, 138, 0.25);
-          transition: all 0.3s ease;
+          box-shadow: 
+            0 4px 14px rgba(26, 42, 58, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          overflow: hidden;
         }
-        .btn-teal:hover {
-          background: linear-gradient(135deg, #5a7d8a 0%, #7a9da8 100%);
-          box-shadow: 0 8px 20px rgba(90, 125, 138, 0.35);
+        .btn-navy-animated:hover {
           transform: translateY(-2px);
+          box-shadow: 
+            0 8px 25px rgba(26, 42, 58, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+          animation: shimmerNavy 1.5s ease infinite;
+        }
+
+        @keyframes shimmerNavy {
+          0% { background-position: 200% 0%; }
+          100% { background-position: -200% 0%; }
         }
 
         /* Animation Keyframes */
@@ -341,27 +357,6 @@ export default function LuminatePage() {
             0 12px 24px rgba(26, 42, 58, 0.12);
         }
 
-        /* Card with TEAL theme on hover */
-        .card-hover-teal {
-          position: relative;
-          background: #ffffff;
-          border: 2px solid #e2e8f0;
-          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                      background 0.35s ease,
-                      border-color 0.35s ease;
-          cursor: pointer;
-        }
-
-        .card-hover-teal:hover {
-          transform: translateY(-14px) scale(1.02);
-          background: linear-gradient(135deg, #f5f9fa 0%, #eef4f6 100%);
-          border-color: #5a7d8a;
-          box-shadow:
-            0 24px 48px rgba(90, 125, 138, 0.2),
-            0 12px 24px rgba(90, 125, 138, 0.12);
-        }
-
         /* Floating CTA */
         .floating-cta {
           position: fixed;
@@ -436,7 +431,7 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2.5 rounded-sm uppercase tracking-wide text-sm btn-gold"
+                className="px-6 py-2.5 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
               >
                 Book a Call
               </a>
@@ -465,7 +460,7 @@ export default function LuminatePage() {
               <a href="#advisory" onClick={(e) => { e.preventDefault(); scrollToSection("#advisory") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">Advisory</a>
               <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection("#about") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">About</a>
               <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">YouTube</a>
-              <a href="https://tidycal.com/mandyc852/30-minute-meeting" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-3 rounded-sm mt-4 uppercase btn-gold">
+              <a href="https://tidycal.com/mandyc852/30-minute-meeting" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-3 rounded-sm mt-4 uppercase btn-gold-animated">
                 Book a Call
               </a>
             </nav>
@@ -481,7 +476,7 @@ export default function LuminatePage() {
             alt="Mandy Cheung"
             fill
             className="object-cover"
-            style={{ objectPosition: '35% 45%' }}
+            style={{ objectPosition: '35% 65%' }}
             priority
             quality={100}
           />
@@ -491,19 +486,19 @@ export default function LuminatePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full py-12">
           <div className="max-w-xl">
             <p className="text-[#c9a227] text-sm font-medium tracking-wider uppercase mb-4">
-              Corporate Finance Advisor · 10+ Years · Type 6 Licensed
+              Corporate Finance Advisor · 10+ Years · HK Type 6 Licensed
             </p>
             
             <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-[1.12] font-normal mb-5">
               IPO Advisory for the Whole Journey
             </h1>
 
-            <p className="text-lg md:text-xl text-white/95 font-light leading-relaxed mb-4 max-w-lg">
-              From early-stage preparation to successful listing. I advise founders and companies on what it truly takes to go public.
+            <p className="text-lg md:text-xl text-white font-light leading-relaxed mb-4 max-w-lg">
+              A company&apos;s success is a reflection of its founder.
             </p>
 
-            <p className="text-base text-white/75 font-light leading-relaxed mb-8 max-w-lg">
-              After 10+ years in corporate finance, I&apos;ve learned that IPO readiness isn&apos;t just about the numbers — it&apos;s about the founder too.
+            <p className="text-base text-white/70 font-light leading-relaxed mb-8 max-w-lg">
+              From early-stage preparation to successful listing, I help you prepare for both — the business and the leader behind it.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -511,7 +506,7 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold"
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
               >
                 Book Advisory Call
               </a>
@@ -527,11 +522,11 @@ export default function LuminatePage() {
         </div>
       </section>
 
-      {/* CREDENTIALS BAR */}
+      {/* CREDENTIALS BAR - Gold */}
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            Successfully completed 60+ corporate finance transactions and counting
+            60+ corporate finance transactions successfully completed and counting
           </p>
         </div>
       </section>
@@ -584,7 +579,7 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold"
+                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
               >
                 Inquire About Advisory
               </a>
@@ -604,7 +599,7 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-navy"
+                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-navy-animated"
               >
                 Discuss Your IPO
               </a>
@@ -624,7 +619,7 @@ export default function LuminatePage() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-5 stagger-parent">
-            {/* Resource 1: Book Call - GOLD theme on hover */}
+            {/* Resource 1: Book Call - GOLD theme */}
             <div className="stagger-item p-6 rounded-sm card-hover-gold flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#c9a227] to-[#a68a1f] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -639,13 +634,13 @@ export default function LuminatePage() {
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold"
+                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
               >
                 Schedule Call
               </a>
             </div>
 
-            {/* Resource 2: ExitPro - NAVY theme on hover */}
+            {/* Resource 2: ExitPro - NAVY theme */}
             <div className="stagger-item p-6 rounded-sm card-hover-navy flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -660,15 +655,15 @@ export default function LuminatePage() {
                 href="https://exitproai.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-navy"
+                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-navy-animated"
               >
                 Try ExitPro
               </a>
             </div>
 
-            {/* Resource 3: Audio - TEAL theme on hover */}
-            <div className="stagger-item p-6 rounded-sm card-hover-teal flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#5a7d8a] to-[#4a6d7a] flex items-center justify-center mb-4">
+            {/* Resource 3: Audio - GOLD theme (lead magnet deserves prominent treatment) */}
+            <div className="stagger-item p-6 rounded-sm card-hover-gold flex flex-col">
+              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#d4b84a] to-[#c9a227] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                 </svg>
@@ -679,7 +674,7 @@ export default function LuminatePage() {
               </p>
               <a 
                 href="/leap"
-                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-teal"
+                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
               >
                 Get The Audio
               </a>
@@ -707,7 +702,7 @@ export default function LuminatePage() {
 
             {/* Content */}
             <div className="md:col-span-2 space-y-4 slide-in-right">
-              <h2 className="text-3xl font-normal section-title-gradient">About Mandy</h2>
+              <h2 className="text-3xl font-normal section-title-gradient-short">About Mandy</h2>
               <p className="text-[15px] text-slate-600 font-light leading-relaxed">
                 I&apos;m a corporate finance advisor with 10+ years of experience in capital markets. I hold a Type 6 Responsible Officer license in Hong Kong, specializing in Hong Kong Listing Rules with experience advising on cross-border NASDAQ listings.
               </p>
@@ -754,7 +749,7 @@ export default function LuminatePage() {
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold"
+            className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
           >
             Book Your Advisory Call
           </a>
