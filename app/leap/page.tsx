@@ -16,17 +16,17 @@ type FormProps = {
 
 function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSubmitting, success, error }: FormProps) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-screen flex flex-col">
       <div className="flex flex-1 min-h-0">
       {/* Left Panel - Cream/Form Side */}
-      <div className="w-1/2 bg-gradient-to-br from-stone-50 via-white to-stone-50/80 flex flex-col justify-center items-center px-16 py-12">
+      <div className="w-1/2 bg-gradient-to-br from-stone-50 via-white to-stone-50/80 flex flex-col justify-center items-center px-14 py-8">
         <div className="max-w-lg w-full">
-          <div className="mb-6 text-center flex justify-center items-center">
+          <div className="mb-4 text-center flex justify-center items-center">
             <div
               className="flex-shrink-0"
               style={{
-                width: 360,
-                height: 120,
+                width: 320,
+                height: 106,
                 background:
                   "linear-gradient(to right, #b45309, #d97706, #f59e0b, #d97706, #b45309)",
                 WebkitMaskImage: "url(/Logo%202%20black.png)",
@@ -44,27 +44,27 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
           </div>
 
           <p
-            className="text-center text-stone-700 text-lg tracking-wide mb-6 font-medium"
+            className="text-center text-stone-700 text-base tracking-wide mb-4 font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The 5-minute practice for high-stakes leadership.
           </p>
 
-          <h1 className="text-center mb-6">
+          <h1 className="text-center mb-4">
             <span
-              className="block text-4xl md:text-5xl font-light text-stone-900 leading-tight tracking-tight mb-1.5"
+              className="block text-3xl md:text-4xl font-light text-stone-900 leading-tight tracking-tight mb-1"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               THE FOUNDER&apos;S
             </span>
             <span
-              className="block text-5xl md:text-7xl font-bold text-neutral-900 leading-tight mb-1.5"
+              className="block text-5xl md:text-6xl font-bold text-neutral-900 leading-tight mb-1"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               IDENTITY
             </span>
             <span
-              className="block text-5xl md:text-7xl font-bold text-neutral-900 leading-tight"
+              className="block text-5xl md:text-6xl font-bold text-neutral-900 leading-tight"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               RESET
@@ -72,31 +72,31 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
           </h1>
 
           <p
-            className="text-center text-stone-700 mb-6 leading-relaxed text-xl"
+            className="text-center text-stone-700 mb-4 leading-relaxed text-lg"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Scaling a company requires you to become someone new — someone who can hold more capital, more visibility, more responsibility.
+            What got you here won&apos;t get you to the next level.
           </p>
           <p
-            className="text-center text-stone-700 mb-6 leading-relaxed text-xl"
+            className="text-center text-stone-700 mb-4 leading-relaxed text-lg"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            But your nervous system doesn&apos;t automatically upgrade when your business does.
+            Scaling requires a new version of you — one who thinks, decides, and moves differently. When you embody your next-level identity, your actions become automatic and your reality shifts to match.
           </p>
           <p
-            className="text-center text-stone-700 mb-6 leading-relaxed text-xl"
+            className="text-center text-stone-700 mb-5 leading-relaxed text-lg"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            This daily audio practice closes that gap.
+            This 5-minute daily practice closes the gap.
           </p>
 
-          <form onSubmit={onSubmit} className="space-y-4 mb-4">
+          <form onSubmit={onSubmit} className="space-y-3 mb-3">
             <input
               type="text"
               placeholder="First Name (optional)"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="w-full px-6 py-5 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-lg"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-base"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             <input
@@ -105,7 +105,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-6 py-5 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-lg"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-base"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             {error && (
@@ -121,14 +121,14 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-5 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Sending…" : "GET THE AUDIO"}
             </button>
           </form>
 
           <p
-            className="text-center text-stone-600 text-sm leading-relaxed"
+            className="text-center text-stone-600 text-xs leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             You&apos;ll receive the audio immediately, plus occasional insights on the inner game of scaling.
@@ -139,284 +139,207 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
       </div>
 
       {/* Right Panel - Rich Dark/Content Side */}
-      <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col justify-center items-center px-16 py-12">
-        <div className="max-w-xl w-full pb-4">
-          <h2
-            className="text-3xl md:text-4xl font-medium tracking-[0.15em] mb-8 text-center bg-clip-text text-transparent"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-              backgroundImage:
-                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
-            }}
-          >
-            WHAT YOU&apos;LL RECEIVE
-          </h2>
+      <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col justify-center items-center px-12 py-8">
+        <div className="max-w-xl w-full space-y-8">
+          {/* WHAT YOU'LL RECEIVE Section */}
+          <div>
+            <h2
+              className="text-3xl font-medium tracking-[0.15em] mb-7 text-center bg-clip-text text-transparent"
+              style={{
+                fontFamily: "Cormorant Garamond, serif",
+                backgroundImage:
+                  "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
+              }}
+            >
+              WHAT YOU&apos;LL RECEIVE
+            </h2>
 
-          <div className="flex items-start gap-8 mb-10">
-            <div className="flex-shrink-0 flex flex-col items-center" style={{ minWidth: 200, minHeight: 200 }}>
-              <div
-                className="relative flex items-center justify-center"
-                style={{ width: 200, height: 200, minWidth: 200, minHeight: 200 }}
-              >
-                <svg
-                  className="absolute inset-0"
-                  viewBox="0 0 200 200"
-                  width={200}
-                  height={200}
-                  style={{ animation: "rotate-slow 25s linear infinite", flexShrink: 0 }}
-                  aria-hidden="true"
-                >
-                  <defs>
-                    <path
-                      id="circlePathDesktop"
-                      d="M 100 35 A 65 65 0 1 1 99.99 35"
-                      fill="none"
-                    />
-                  </defs>
-                  <text
-                    fill="rgba(253, 230, 138, 0.75)"
-                    textLength={398}
-                    lengthAdjust="spacing"
-                    style={{
-                      fontFamily: "Cormorant Garamond, serif",
-                      fontSize: "14px",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    <textPath href="#circlePathDesktop" startOffset="2.5%">
-                      5-MIN · FOUNDER&apos;S · IDENTITY · RESET ·
-                    </textPath>
-                  </text>
-                </svg>
+            <div className="flex items-start gap-8 mb-8">
+              <div className="flex-shrink-0 flex flex-col items-center" style={{ minWidth: 180, minHeight: 180 }}>
                 <div
-                  className="relative rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
-                  style={{
-                    width: 110,
-                    height: 110,
-                    minWidth: 110,
-                    minHeight: 110,
-                    boxShadow:
-                      "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
-                  }}
+                  className="relative flex items-center justify-center"
+                  style={{ width: 180, height: 180, minWidth: 180, minHeight: 180 }}
                 >
                   <svg
-                    className="w-12 h-12 text-amber-500 ml-1"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
+                    className="absolute inset-0"
+                    viewBox="0 0 200 200"
+                    width={180}
+                    height={180}
+                    style={{ animation: "rotate-slow 25s linear infinite", flexShrink: 0 }}
                     aria-hidden="true"
                   >
-                    <path d="M8 5v14l11-7z" />
+                    <defs>
+                      <path
+                        id="circlePathDesktop"
+                        d="M 100 35 A 65 65 0 1 1 99.99 35"
+                        fill="none"
+                      />
+                    </defs>
+                    <text
+                      fill="rgba(253, 230, 138, 0.75)"
+                      textLength={398}
+                      lengthAdjust="spacing"
+                      style={{
+                        fontFamily: "Cormorant Garamond, serif",
+                        fontSize: "13px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      <textPath href="#circlePathDesktop" startOffset="2.5%">
+                        5-MIN · FOUNDER&apos;S · IDENTITY · RESET ·
+                      </textPath>
+                    </text>
                   </svg>
+                  <div
+                    className="relative rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
+                    style={{
+                      width: 100,
+                      height: 100,
+                      minWidth: 100,
+                      minHeight: 100,
+                      boxShadow:
+                        "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
+                    }}
+                  >
+                    <svg
+                      className="w-11 h-11 text-amber-500 ml-1"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="space-y-6 pt-2 flex-1">
-              <div className="flex items-start gap-3">
-                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">✦</span>
-                <div>
-                  <p
-                    className="text-stone-200 text-xl leading-relaxed font-bold"
-                    style={{ fontFamily: "Cormorant Garamond, serif" }}
-                  >
-                    5-Minute Daily Audio Practice
-                  </p>
-                  <p
-                    className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
-                    style={{ fontFamily: "Cormorant Garamond, serif" }}
-                  >
-                    Binaural beats (7.83 Hz) combined with whispered affirmations — designed to shift your identity at the subconscious level before the day takes over.
-                  </p>
+              <div className="space-y-6 pt-1 flex-1">
+                <div className="flex items-start gap-2.5">
+                  <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
+                  <div>
+                    <p
+                      className="text-stone-200 text-lg leading-snug font-bold"
+                      style={{ fontFamily: "Cormorant Garamond, serif" }}
+                    >
+                      5-Minute Audio Practice
+                    </p>
+                    <p
+                      className="text-stone-300 text-[0.9375rem] leading-relaxed mt-1"
+                      style={{ fontFamily: "Cormorant Garamond, serif" }}
+                    >
+                      Binaural beats (7.83 Hz) + layered affirmations.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">✦</span>
-                <div>
-                  <p
-                    className="text-stone-200 text-xl leading-relaxed font-bold"
-                    style={{ fontFamily: "Cormorant Garamond, serif" }}
-                  >
-                    Nervous System Calibration
-                  </p>
-                  <p
-                    className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
-                    style={{ fontFamily: "Cormorant Garamond, serif" }}
-                  >
-                    Your nervous system was calibrated for your current level. This practice trains it to feel safe holding bigger outcomes — more capital, more visibility, more stakes.
-                  </p>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
+                  <div>
+                    <p
+                      className="text-stone-200 text-lg leading-snug font-bold"
+                      style={{ fontFamily: "Cormorant Garamond, serif" }}
+                    >
+                      Subconscious Identity Shift
+                    </p>
+                    <p
+                      className="text-stone-300 text-[0.9375rem] leading-relaxed mt-1"
+                      style={{ fontFamily: "Cormorant Garamond, serif" }}
+                    >
+                      Embody your next-level self before the day starts.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-amber-500 mt-1 flex-shrink-0 text-lg">✦</span>
-                <div>
-                  <p
-                    className="text-stone-200 text-xl leading-relaxed font-bold"
-                    style={{ fontFamily: "Cormorant Garamond, serif" }}
-                  >
-                    Pre-Meeting Reset Protocol
-                  </p>
-                  <p
-                    className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
-                    style={{ fontFamily: "Cormorant Garamond, serif" }}
-                  >
-                    Use it before investor calls, board meetings, or any high-stakes moment. Show up as the version of you who already succeeded.
-                  </p>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
+                  <div>
+                    <p
+                      className="text-stone-200 text-lg leading-snug font-bold"
+                      style={{ fontFamily: "Cormorant Garamond, serif" }}
+                    >
+                      Pre-Meeting Reset
+                    </p>
+                    <p
+                      className="text-stone-300 text-[0.9375rem] leading-relaxed mt-1"
+                      style={{ fontFamily: "Cormorant Garamond, serif" }}
+                    >
+                      Clarity and certainty before high-stakes moments.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-8" />
+          {/* Divider */}
+          <div className="w-28 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto" />
 
-          <h2
-            className="text-2xl md:text-3xl font-medium tracking-[0.12em] mb-6 text-center bg-clip-text text-transparent"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-              backgroundImage:
-                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
-            }}
-          >
-            WHEN TO USE THIS
-          </h2>
-          <ul className="space-y-3 mb-10 text-stone-300" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            <li className="flex items-start gap-2">
-              <span className="text-amber-500 flex-shrink-0 mt-0.5">→</span>
-              <span className="text-[1.0625rem] leading-relaxed">First thing in the morning — before email, before Slack, before your old patterns activate</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-amber-500 flex-shrink-0 mt-0.5">→</span>
-              <span className="text-[1.0625rem] leading-relaxed">Before investor meetings — to access clarity and groundedness under pressure</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-amber-500 flex-shrink-0 mt-0.5">→</span>
-              <span className="text-[1.0625rem] leading-relaxed">Before difficult conversations — when you need to lead from your next-level identity</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-amber-500 flex-shrink-0 mt-0.5">→</span>
-              <span className="text-[1.0625rem] leading-relaxed">When you&apos;re about to make a decision that scares you — and you need to trust yourself anyway</span>
-            </li>
-          </ul>
+          {/* ABOUT MANDY Section */}
+          <div>
+            <div className="flex items-start gap-7">
+              <div className="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-xl relative">
+                <Image
+                  src="/mandyc.jpg"
+                  alt="Mandy Cheung"
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: "30% 48%" }}
+                  sizes="160px"
+                />
+              </div>
 
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-8" />
+              <div className="flex-1 min-w-0 pt-1">
+                <h3
+                  className="text-lg tracking-[0.1em] mb-4 bg-clip-text text-transparent"
+                  style={{
+                    fontFamily: "Cormorant Garamond, serif",
+                    backgroundImage:
+                      "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
+                  }}
+                >
+                  ABOUT MANDY
+                </h3>
 
-          <div className="flex items-start gap-8">
-            <div className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-xl relative">
-              <Image
-                src="/mandyc.jpg"
-                alt="Mandy Cheung"
-                fill
-                className="object-cover"
-                style={{ objectPosition: "30% 48%" }}
-                sizes="192px"
-              />
-            </div>
-
-            <div className="flex-1 min-w-0">
-              <h3
-                className="text-xl tracking-[0.1em] mb-5 bg-clip-text text-transparent"
-                style={{
-                  fontFamily: "Cormorant Garamond, serif",
-                  backgroundImage:
-                    "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
-                }}
-              >
-                ABOUT MANDY
-              </h3>
-
-              <p
-                className="text-stone-300 text-[1.1875rem] leading-relaxed"
-                style={{ fontFamily: "Cormorant Garamond, serif" }}
-              >
-                I&apos;ve spent 10 years advising companies through NASDAQ IPOs — high-stakes environments where clarity, presence, and decision-making under pressure aren&apos;t optional.
-              </p>
-              <p
-                className="text-stone-300 text-[1.1875rem] leading-relaxed mt-3"
-                style={{ fontFamily: "Cormorant Garamond, serif" }}
-              >
-                But here&apos;s what I&apos;ve learned: the founders who scale successfully aren&apos;t just strategically sharp. They&apos;ve done the inner work to hold that level of success.
-              </p>
-              <p
-                className="text-stone-300 text-[1.1875rem] leading-relaxed mt-3"
-                style={{ fontFamily: "Cormorant Garamond, serif" }}
-              >
-                This audio is the practice I wish I could give every founder I work with. The strategy matters. But who you&apos;re BEING while you execute the strategy matters more.
-              </p>
-              <p className="mt-4">
-                <a
-                  href="https://www.youtube.com/@MandyC852"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[1.0625rem] text-amber-300 font-bold underline decoration-amber-400/80 hover:text-amber-200 hover:decoration-amber-300 transition-colors"
+                <p
+                  className="text-stone-300 text-[1rem] leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
-                  Watch more on YouTube: Luminate with MandyC
-                </a>
-              </p>
+                  I&apos;ve spent 10+ years in corporate finance and IPO advisory, working with companies through high-stakes transactions and cross-border deals.
+                </p>
+                <p
+                  className="text-stone-300 text-[1rem] leading-relaxed mt-3"
+                  style={{ fontFamily: "Cormorant Garamond, serif" }}
+                >
+                  The founders who scale successfully aren&apos;t just strategically sharp. They&apos;ve done the inner work to hold that level of success. On{" "}
+                  <a
+                    href="https://www.youtube.com/@MandyC852"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-300 font-bold underline decoration-amber-400/80 hover:text-amber-200 hover:decoration-amber-300 transition-colors"
+                  >
+                    Luminate with MandyC
+                  </a>
+                  , I bring the other side: identity work and nervous system regulation.
+                </p>
+                <p
+                  className="text-stone-300 text-[1rem] leading-relaxed mt-3"
+                  style={{ fontFamily: "Cormorant Garamond, serif" }}
+                >
+                  The strategy matters — but who you&apos;re BEING while you execute matters more.
+                </p>
+              </div>
             </div>
           </div>
-
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto my-8" />
-
-          <h2
-            className="text-2xl md:text-3xl font-medium tracking-[0.12em] mb-6 text-center bg-clip-text text-transparent"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-              backgroundImage:
-                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
-            }}
-          >
-            HOW IT WORKS
-          </h2>
-          <div className="space-y-4 mb-10">
-            <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-              <span className="text-amber-400 font-bold">01 — PUT ON HEADPHONES</span>
-              {" "}The binaural beats require stereo headphones to create the 7.83 Hz frequency that activates subconscious receptivity.
-            </p>
-            <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-              <span className="text-amber-400 font-bold">02 — LISTEN BEFORE YOUR DAY STARTS</span>
-              {" "}This works best before you check email, before meetings, before your environment activates your default patterns.
-            </p>
-            <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-              <span className="text-amber-400 font-bold">03 — EMBODY, DON&apos;T JUST LISTEN</span>
-              {" "}As you listen, feel yourself AS the founder who already scaled. Let your nervous system learn what that identity feels like.
-            </p>
-          </div>
-
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-6" />
-
-          <h2
-            className="text-2xl md:text-3xl font-medium tracking-[0.12em] mb-4 text-center bg-clip-text text-transparent"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-              backgroundImage:
-                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
-            }}
-          >
-            WHAT YOU&apos;LL HEAR
-          </h2>
-          <p className="text-stone-400 text-[1rem] leading-relaxed mb-4 text-center" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            The audio includes whispered affirmations like:
-          </p>
-          <ul className="space-y-2 text-stone-300 text-[1.0625rem] leading-relaxed list-none" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            <li>• &quot;I lead with clarity under pressure&quot;</li>
-            <li>• &quot;My nervous system is calibrated for the next level&quot;</li>
-            <li>• &quot;I make decisions from certainty, not anxiety&quot;</li>
-            <li>• &quot;I am the founder who already built what I&apos;m building&quot;</li>
-            <li>• &quot;High stakes feel like home&quot;</li>
-          </ul>
         </div>
-
       </div>
       </div>
 
       {/* Desktop footer */}
       <footer
-        className="footer-desktop w-full bg-stone-950 border-t border-stone-900 py-6"
+        className="footer-desktop w-full bg-stone-950 border-t border-stone-900 py-4"
         aria-label="Site footer"
       >
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p
-            className="text-stone-400 text-sm md:text-base"
+            className="text-stone-400 text-xs md:text-sm"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             © 2026 Luminate with Mandy C. | All Rights Reserved |{" "}
@@ -483,19 +406,19 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             className="text-center text-stone-700 mb-4 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Scaling a company requires you to become someone new — someone who can hold more capital, more visibility, more responsibility.
+            What got you here won&apos;t get you to the next level.
           </p>
           <p
             className="text-center text-stone-700 mb-4 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            But your nervous system doesn&apos;t automatically upgrade when your business does.
+            Scaling requires a new version of you — one who thinks, decides, and moves differently. When you embody your next-level identity, your actions become automatic and your reality shifts to match.
           </p>
           <p
             className="text-center text-stone-700 mb-8 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            This daily audio practice closes that gap.
+            This 5-minute daily practice closes the gap.
           </p>
 
           <form onSubmit={onSubmit} className="space-y-3.5 mb-2">
@@ -567,7 +490,6 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   minHeight: 200,
                 }}
               >
-                {/* Static rotating image of circular text - 2x/3x for sharp on retina */}
                 <Image
                   src="/circular-text.png"
                   alt=""
@@ -581,7 +503,6 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   priority
                 />
 
-                {/* Play button in center */}
                 <div
                   className="relative rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl z-10"
                   style={{
@@ -605,111 +526,33 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               </div>
           </div>
 
-          <div className="space-y-6 w-full">
-            <div className="flex items-start gap-3">
-              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
-              <div>
-                <p className="text-stone-200 text-lg leading-relaxed font-bold" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  5-Minute Daily Audio Practice
-                </p>
-                <p className="text-stone-300 text-[0.9375rem] leading-relaxed mt-1" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Binaural beats (7.83 Hz) combined with whispered affirmations — designed to shift your identity at the subconscious level before the day takes over.
-                </p>
-              </div>
+          {/* CENTERED bullet points on mobile */}
+          <div className="space-y-6 w-full max-w-xs mx-auto text-center">
+            <div>
+              <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                5-Minute Audio Practice
+              </p>
+              <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                Binaural beats (7.83 Hz) + layered affirmations.
+              </p>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
-              <div>
-                <p className="text-stone-200 text-lg leading-relaxed font-bold" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Nervous System Calibration
-                </p>
-                <p className="text-stone-300 text-[0.9375rem] leading-relaxed mt-1" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Your nervous system was calibrated for your current level. This practice trains it to feel safe holding bigger outcomes — more capital, more visibility, more stakes.
-                </p>
-              </div>
+            <div>
+              <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                Subconscious Identity Shift
+              </p>
+              <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                Embody your next-level self before the day starts.
+              </p>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
-              <div>
-                <p className="text-stone-200 text-lg leading-relaxed font-bold" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Pre-Meeting Reset Protocol
-                </p>
-                <p className="text-stone-300 text-[0.9375rem] leading-relaxed mt-1" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Use it before investor calls, board meetings, or any high-stakes moment. Show up as the version of you who already succeeded.
-                </p>
-              </div>
+            <div>
+              <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                Pre-Meeting Reset
+              </p>
+              <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                Clarity and certainty before high-stakes moments.
+              </p>
             </div>
           </div>
-
-          <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto my-8" />
-
-          <h2
-            className="text-2xl font-medium tracking-[0.12em] mb-5 text-center bg-clip-text text-transparent"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-              backgroundImage:
-                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
-            }}
-          >
-            WHEN TO USE THIS
-          </h2>
-          <ul className="space-y-3 mb-8 text-stone-300 text-[0.9375rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            <li className="flex items-start gap-2">
-              <span className="text-amber-500 flex-shrink-0 mt-0.5">→</span>
-              <span>First thing in the morning — before email, before Slack, before your old patterns activate</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-amber-500 flex-shrink-0 mt-0.5">→</span>
-              <span>Before investor meetings — to access clarity and groundedness under pressure</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-amber-500 flex-shrink-0 mt-0.5">→</span>
-              <span>Before difficult conversations — when you need to lead from your next-level identity</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-amber-500 flex-shrink-0 mt-0.5">→</span>
-              <span>When you&apos;re about to make a decision that scares you — and you need to trust yourself anyway</span>
-            </li>
-          </ul>
-
-          <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-8" />
-
-          <h2
-            className="text-2xl font-medium tracking-[0.12em] mb-4 text-center bg-clip-text text-transparent"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-              backgroundImage:
-                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
-            }}
-          >
-            HOW IT WORKS
-          </h2>
-          <div className="space-y-4 mb-8 text-stone-300 text-[0.9375rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            <p><span className="text-amber-400 font-bold">01 — PUT ON HEADPHONES</span> The binaural beats require stereo headphones to create the 7.83 Hz frequency that activates subconscious receptivity.</p>
-            <p><span className="text-amber-400 font-bold">02 — LISTEN BEFORE YOUR DAY STARTS</span> This works best before you check email, before meetings, before your environment activates your default patterns.</p>
-            <p><span className="text-amber-400 font-bold">03 — EMBODY, DON&apos;T JUST LISTEN</span> As you listen, feel yourself AS the founder who already scaled. Let your nervous system learn what that identity feels like.</p>
-          </div>
-
-          <h2
-            className="text-2xl font-medium tracking-[0.12em] mb-3 text-center bg-clip-text text-transparent"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-              backgroundImage:
-                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
-            }}
-          >
-            WHAT YOU&apos;LL HEAR
-          </h2>
-          <p className="text-stone-400 text-[0.9375rem] leading-relaxed mb-3 text-center" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            The audio includes whispered affirmations like:
-          </p>
-          <ul className="space-y-1.5 text-stone-300 text-[0.9375rem] leading-relaxed list-none mb-8" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            <li>• &quot;I lead with clarity under pressure&quot;</li>
-            <li>• &quot;My nervous system is calibrated for the next level&quot;</li>
-            <li>• &quot;I make decisions from certainty, not anxiety&quot;</li>
-            <li>• &quot;I am the founder who already built what I&apos;m building&quot;</li>
-            <li>• &quot;High stakes feel like home&quot;</li>
-          </ul>
         </div>
       </div>
 
@@ -738,38 +581,35 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           </div>
 
           <p
-            className="text-stone-600 text-base leading-relaxed"
+            className="text-stone-600 text-[1.0625rem] leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            I&apos;ve spent 10 years advising companies through NASDAQ IPOs — high-stakes environments where clarity, presence, and decision-making under pressure aren&apos;t optional.
+            I&apos;ve spent 10+ years in corporate finance and IPO advisory, working with companies through high-stakes transactions and cross-border deals.
           </p>
           <p
-            className="text-stone-600 text-base leading-relaxed mt-4"
+            className="text-stone-600 text-[1.0625rem] leading-relaxed mt-4"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            But here&apos;s what I&apos;ve learned: the founders who scale successfully aren&apos;t just strategically sharp. They&apos;ve done the inner work to hold that level of success.
-          </p>
-          <p
-            className="text-stone-600 text-base leading-relaxed mt-4"
-            style={{ fontFamily: "Cormorant Garamond, serif" }}
-          >
-            This audio is the practice I wish I could give every founder I work with. The strategy matters. But who you&apos;re BEING while you execute the strategy matters more.
-          </p>
-          <p className="mt-4">
+            The founders who scale successfully aren&apos;t just strategically sharp. They&apos;ve done the inner work to hold that level of success. On{" "}
             <a
               href="https://www.youtube.com/@MandyC852"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base text-amber-500 font-bold underline decoration-amber-500/80 hover:text-amber-600 hover:decoration-amber-600 transition-colors"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
+              className="text-amber-500 font-bold underline decoration-amber-500/80 hover:text-amber-600 hover:decoration-amber-600 transition-colors"
             >
-              Watch more on YouTube: Luminate with MandyC
+              Luminate with MandyC
             </a>
+            , I bring the other side: identity work and nervous system regulation.
+          </p>
+          <p
+            className="text-stone-600 text-[1.0625rem] leading-relaxed mt-4"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            The strategy matters — but who you&apos;re BEING while you execute matters more.
           </p>
         </div>
       </div>
 
-      {/* Mobile footer - FIXED: Removed fixed positioning */}
       <footer
         className="w-full bg-stone-950 border-t border-stone-900 py-5"
         aria-label="Site footer"
