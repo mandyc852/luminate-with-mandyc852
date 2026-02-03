@@ -440,13 +440,13 @@ export default function LuminatePage() {
 
       {/* HERO SECTION */}
       <section className="relative w-full min-h-[520px] md:min-h-[580px] flex items-center overflow-hidden bg-[#1a2a3a]">
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[48%] z-0">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[44%] z-0">
           <Image
             src="/mandyc.jpg"
             alt="Mandy Cheung"
             fill
             className="object-cover"
-            style={{ objectPosition: '35% 65%' }}
+            style={{ objectPosition: '38% 52%' }}
             priority
             quality={100}
           />
@@ -464,12 +464,8 @@ export default function LuminatePage() {
               <span className="italic">Worth Going Public</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-white font-light leading-relaxed mb-4 max-w-lg">
-              I help ambitious founders prepare their business — and themselves — for the milestones that matter most.
-            </p>
-
-            <p className="text-base text-white/70 font-light leading-relaxed mb-8 max-w-lg">
-              Strategic advisory on business structuring, capital markets readiness, and the leadership capacity to get there.
+            <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-6 max-w-lg">
+              Strategic advisory for founders preparing for capital markets — from business structuring to the leadership capacity it takes to get there.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -614,7 +610,7 @@ export default function LuminatePage() {
           <div className="grid md:grid-cols-3 gap-10 items-center">
             {/* Small circular photo with gold border */}
             <div className="md:col-span-1 slide-in-left">
-              <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden circular-photo-premium">
+              <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden circular-photo-premium">
                 <Image
                   src="/IMG_2269.JPG"
                   alt="Mandy Cheung"
@@ -661,41 +657,45 @@ export default function LuminatePage() {
         </div>
       </section>
 
-      {/* RESOURCES */}
-      <section className="py-14 md:py-16 px-6 bg-slate-50 slide-up">
-        <div className="max-w-5xl mx-auto">
-          <div className="fade-in">
-            <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
-              Resources
-            </h2>
-            <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
-              Tools and content to support your journey.
-            </p>
-          </div>
+      {/* LEAD MAGNET — Founder's Reset Audio */}
+      <section className="py-10 md:py-14 px-6 bg-[#1a2a3a] relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9a227] to-transparent opacity-40" />
 
-          <div className="grid md:grid-cols-3 gap-5 stagger-parent">
-            {/* Resource 1: Book Call - GOLD theme */}
-            <div className="stagger-item p-6 rounded-sm card-hover-gold flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#c9a227] to-[#a68a1f] flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-2 text-center">Book an Advisory Call</h3>
-              <p className="text-sm text-slate-600 font-light mb-5 text-center flex-grow">
-                30-minute conversation to discuss where you are and what you&apos;re working toward.
-              </p>
-              <a 
-                href="https://tidycal.com/mandyc852/30-minute-meeting"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
-              >
-                Schedule Call
-              </a>
-            </div>
+        <div className="max-w-3xl mx-auto text-center fade-in">
+          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-2">
+            Free Audio Guide
+          </p>
 
-            {/* Resource 2: ExitPro - NAVY theme */}
+          <h2 className="text-3xl md:text-4xl font-normal mb-2 cta-title-gradient" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+            Before Your Next High-Stakes Decision
+          </h2>
+
+          <p className="text-white/70 font-light text-base leading-relaxed mb-3 max-w-xl mx-auto">
+            A 5-minute daily reset designed for founders who operate under pressure. Grounded in neuroscience. No fluff.
+          </p>
+
+          <p className="text-white/40 text-sm font-light mb-8 max-w-md mx-auto">
+            Used by founders preparing for capital raises, board presentations, and the moments that define their trajectory.
+          </p>
+
+          <a
+            href="/leap"
+            className="inline-flex items-center justify-center px-10 py-4 rounded-sm uppercase tracking-wide text-sm btn-gold-animated shadow-lg"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            </svg>
+            Get the Free Audio
+          </a>
+        </div>
+      </section>
+
+      {/* TOOLS — 2-card row */}
+      <section className="py-12 md:py-14 px-6 bg-slate-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-5 stagger-parent">
+
+            {/* Card 1: ExitPro */}
             <div className="stagger-item p-6 rounded-sm card-hover-navy flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -706,7 +706,7 @@ export default function LuminatePage() {
               <p className="text-sm text-slate-600 font-light mb-5 text-center flex-grow">
                 Research IPO benchmarks and compare your metrics against successful listings.
               </p>
-              <a 
+              <a
                 href="https://exitproai.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -716,24 +716,27 @@ export default function LuminatePage() {
               </a>
             </div>
 
-            {/* Resource 3: Audio - GOLD theme (lead magnet deserves prominent treatment) */}
+            {/* Card 2: Book a Call */}
             <div className="stagger-item p-6 rounded-sm card-hover-gold flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#d4b84a] to-[#c9a227] flex items-center justify-center mb-4">
+              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#c9a227] to-[#a68a1f] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-2 text-center">Founder&apos;s Reset Audio</h3>
+              <h3 className="text-lg font-normal text-[#1a2a3a] mb-2 text-center">Book an Advisory Call</h3>
               <p className="text-sm text-slate-600 font-light mb-5 text-center flex-grow">
-                A 5-minute daily practice to prepare for high-stakes decisions.
+                30-minute conversation to discuss where you are and what you&apos;re working toward.
               </p>
-              <a 
-                href="/leap"
+              <a
+                href="https://tidycal.com/mandyc852/30-minute-meeting"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
               >
-                Get The Audio
+                Schedule Call
               </a>
             </div>
+
           </div>
         </div>
       </section>
