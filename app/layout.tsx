@@ -24,9 +24,9 @@ const baseUrl = siteUrl
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "The Inner Game of Scaling | Luminate with MandyC",
+  title: "Luminate with Mandy C | Founder & IPO Advisory",
   description:
-    "Where IPO-level strategy meets identity-level transformation. For scaling founders and CEOs — advisory, identity work, and the practice that closes the gap.",
+    "I help ambitious founders prepare their business — and themselves — for the milestones that matter most. Strategic advisory on capital markets, IPO readiness, and leadership.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
