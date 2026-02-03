@@ -32,8 +32,8 @@ export default function LuminatePage() {
   // Intersection Observer for scroll animations
   useEffect(() => {
     const observerOptions = {
-      threshold: [0, 0.1, 0.2],
-      rootMargin: "50px 0px 100px 0px",
+      threshold: [0, 0.15, 0.3],
+      rootMargin: "0px 0px -60px 0px",
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -61,13 +61,12 @@ export default function LuminatePage() {
     }
 
     observeElements()
-    const timeoutIds = [
-      setTimeout(observeElements, 100),
-      setTimeout(observeElements, 300),
-    ]
+    const raf = requestAnimationFrame(() => {
+      observeElements()
+    })
 
     return () => {
-      timeoutIds.forEach(id => clearTimeout(id))
+      cancelAnimationFrame(raf)
       observer.disconnect()
     }
   }, [])
@@ -121,22 +120,6 @@ export default function LuminatePage() {
         /* Hero gradient text - Gold on dark */
         .gradient-text-hero {
           background: linear-gradient(135deg, #FFFFFF 0%, #f5e6b3 40%, #c9a227 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        /* Section title gradient - Navy to Gold (for longer titles) */
-        .section-title-gradient {
-          background: linear-gradient(135deg, #1a2a3a 0%, #2d4156 25%, #c9a227 65%, #d4b84a 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        /* Section title gradient - for SHORT titles like "About Mandy" */
-        .section-title-gradient-short {
-          background: linear-gradient(90deg, #1a2a3a 0%, #c9a227 60%, #d4b84a 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -280,39 +263,26 @@ export default function LuminatePage() {
         /* Stagger animations for children */
         .stagger-parent.animate-in .stagger-item:nth-child(1) {
           animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 0s;
+          animation-delay: 0.1s;
         }
         .stagger-parent.animate-in .stagger-item:nth-child(2) {
           animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 0.15s;
+          animation-delay: 0.25s;
         }
         .stagger-parent.animate-in .stagger-item:nth-child(3) {
           animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 0.3s;
+          animation-delay: 0.4s;
         }
 
         .stagger-item {
           opacity: 0;
           visibility: hidden;
+          will-change: transform, opacity;
         }
 
         .stagger-parent.animate-in .stagger-item {
           visibility: visible !important;
           opacity: 1 !important;
-        }
-
-        /* Card hover effects - Pop up when mouse over */
-        .card-hover-pop {
-          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-          cursor: pointer;
-        }
-
-        .card-hover-pop:hover {
-          transform: translateY(-14px) scale(1.02);
-          box-shadow:
-            0 24px 48px rgba(26, 42, 58, 0.18),
-            0 12px 24px rgba(26, 42, 58, 0.12);
         }
 
         /* Card with GOLD theme on hover */
@@ -357,6 +327,16 @@ export default function LuminatePage() {
             0 12px 24px rgba(26, 42, 58, 0.12);
         }
 
+        /* Circular photo — About section gold ring */
+        .circular-photo-premium {
+          position: relative;
+          box-shadow:
+            0 20px 60px rgba(26, 42, 58, 0.2),
+            0 8px 20px rgba(26, 42, 58, 0.15),
+            0 0 0 6px #ffffff,
+            0 0 0 8px rgba(201, 162, 39, 0.4);
+        }
+
         /* Floating CTA */
         .floating-cta {
           position: fixed;
@@ -373,16 +353,6 @@ export default function LuminatePage() {
           50% {
             box-shadow: 0 0 30px rgba(201, 162, 39, 0.6), 0 0 60px rgba(201, 162, 39, 0.3);
           }
-        }
-
-        /* Circular photo enhancement */
-        .circular-photo-premium {
-          position: relative;
-          box-shadow: 
-            0 20px 60px rgba(26, 42, 58, 0.2),
-            0 8px 20px rgba(26, 42, 58, 0.15),
-            0 0 0 6px #ffffff,
-            0 0 0 8px rgba(201, 162, 39, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -418,8 +388,8 @@ export default function LuminatePage() {
 
             {/* Desktop Nav */}
             <nav className="desktop-nav hidden md:flex items-center space-x-8">
-              <a href="#advisory" onClick={(e) => { e.preventDefault(); scrollToSection("#advisory") }} className="text-sm font-medium text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
-                Advisory
+              <a href="#how-i-work" onClick={(e) => { e.preventDefault(); scrollToSection("#how-i-work") }} className="text-sm font-medium text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
+                How I Work
               </a>
               <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection("#about") }} className="text-sm font-medium text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
                 About
@@ -457,7 +427,7 @@ export default function LuminatePage() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-slate-200 shadow-lg">
             <nav className="px-6 py-4 space-y-3">
-              <a href="#advisory" onClick={(e) => { e.preventDefault(); scrollToSection("#advisory") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">Advisory</a>
+              <a href="#how-i-work" onClick={(e) => { e.preventDefault(); scrollToSection("#how-i-work") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">How I Work</a>
               <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection("#about") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">About</a>
               <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">YouTube</a>
               <a href="https://tidycal.com/mandyc852/30-minute-meeting" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-3 rounded-sm mt-4 uppercase btn-gold-animated">
@@ -490,15 +460,16 @@ export default function LuminatePage() {
             </p>
             
             <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-[1.12] font-normal mb-5">
-              IPO Advisory for the Whole Journey
+              For Founders Building Something<br className="hidden sm:block" />
+              <span className="italic">Worth Going Public</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white font-light leading-relaxed mb-4 max-w-lg">
-              A company&apos;s success is a reflection of its founder.
+              I help ambitious founders prepare their business — and themselves — for the milestones that matter most.
             </p>
 
             <p className="text-base text-white/70 font-light leading-relaxed mb-8 max-w-lg">
-              From early-stage preparation to successful listing, I help you prepare for both — the business and the leader behind it.
+              Strategic advisory on business structuring, capital markets readiness, and the leadership capacity to get there.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -511,8 +482,8 @@ export default function LuminatePage() {
                 Book Advisory Call
               </a>
               <a 
-                href="#advisory"
-                onClick={(e) => { e.preventDefault(); scrollToSection("#advisory") }}
+                href="#how-i-work"
+                onClick={(e) => { e.preventDefault(); scrollToSection("#how-i-work") }}
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-sm uppercase"
               >
                 Learn How I Work
@@ -526,80 +497,109 @@ export default function LuminatePage() {
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            60+ corporate finance transactions successfully completed and counting
+            60+ corporate finance transactions · Cross-border expertise across Hong Kong, NASDAQ &amp; global markets
           </p>
         </div>
       </section>
 
       {/* WHO I WORK WITH */}
-      <section className="py-14 md:py-16 px-6 bg-slate-50 slide-up">
+      <section className="py-14 md:py-16 px-6 bg-white slide-up">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal section-title-gradient">
+          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal">
             Who I Work With
           </h2>
           <div className="space-y-4 stagger-parent">
             <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
               <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              Founders exploring the path to IPO who want to understand what it takes — the timeline, the gaps, and the readiness required
+              <strong className="text-[#1a2a3a] font-medium">Founders building toward something big</strong> — who want honest guidance on what it takes to get there, whether that&apos;s raising capital, restructuring, or eventually going public.
             </p>
             <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
               <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              Companies preparing for HKEX or NASDAQ listing who need a Financial Advisor to guide them through the process
+              <strong className="text-[#1a2a3a] font-medium">Companies preparing for capital markets</strong> — who need a Financial Advisor with deep cross-border experience to guide them through the process.
             </p>
             <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
               <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              Leaders who understand that going public requires more than financial preparation — it requires becoming someone who can lead a public company
+              <strong className="text-[#1a2a3a] font-medium">Leaders who understand</strong> that scaling a company to its next level isn&apos;t only a financial exercise — it requires becoming someone who can hold that level.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ADVISORY SERVICES */}
-      <section id="advisory" className="py-14 md:py-16 px-6 bg-white slide-up">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal section-title-gradient">
-            How I Work With Clients
-          </h2>
-          <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
-            Whether you&apos;re exploring the possibility or ready to execute, I meet you where you are.
-          </p>
+      {/* HOW I WORK WITH CLIENTS — 3-tier offers */}
+      <section id="how-i-work" className="py-14 md:py-16 px-6 bg-slate-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="fade-in">
+            <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
+              How I Work With Clients
+            </h2>
+            <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
+              I meet you where you are. Whether you&apos;re laying the groundwork or ready to execute, here&apos;s how we can work together.
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-6 stagger-parent">
-            {/* Service 1: Pre-IPO Advisory - GOLD BUTTON */}
-            <div className="stagger-item bg-white p-7 rounded-sm border border-slate-200 card-hover-pop flex flex-col">
-              <p className="text-xs font-semibold text-[#c9a227] uppercase tracking-wider mb-2">Exploration &amp; Preparation</p>
-              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-3">Pre-IPO Advisory</h3>
-              <p className="text-[15px] text-slate-600 font-light leading-[1.7] mb-3">
-                For founders considering an IPO in the next 2-5 years. I help you understand the real requirements — market selection, timeline, financial thresholds, and regulatory pathway.
+          <div className="grid md:grid-cols-3 gap-8 stagger-parent">
+
+            {/* Tier 1: Founder Advisory */}
+            <div className="stagger-item bg-[#f8f7f4] rounded-sm p-8 border border-slate-200/60 hover:border-[#a68a1f]/40 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 flex flex-col">
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Foundation</p>
+              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                Founder Advisory
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
+                I help you clarify your business structure, identify the gaps, and prepare as a leader for what&apos;s next — whether that&apos;s growth, capital, or a major transition.
               </p>
-              <p className="text-[15px] text-slate-600 font-light leading-[1.7] mb-5 flex-grow">
-                This includes assessing founder readiness. Running a public company demands a different level of leadership.
+              <p className="text-slate-400 text-xs font-light italic mb-6">
+                This is where the inner work meets business strategy.
               </p>
-              <a 
+              <a
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
               >
-                Inquire About Advisory
+                Start Here
               </a>
             </div>
 
-            {/* Service 2: IPO Financial Advisory - NAVY BUTTON */}
-            <div className="stagger-item bg-white p-7 rounded-sm border border-slate-200 card-hover-pop flex flex-col">
-              <p className="text-xs font-semibold text-[#c9a227] uppercase tracking-wider mb-2">Execution &amp; Listing</p>
-              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-3">IPO Financial Advisory</h3>
-              <p className="text-[15px] text-slate-600 font-light leading-[1.7] mb-3">
-                For companies ready to execute. I serve as your Financial Advisor through the listing process — from preparation through successful IPO on HKEX or cross-border NASDAQ.
+            {/* Tier 2: Strategic Advisory */}
+            <div className="stagger-item bg-[#f8f7f4] rounded-sm p-8 border border-slate-200/60 hover:border-[#a68a1f]/40 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 flex flex-col">
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Growth</p>
+              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                Strategic Advisory
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
+                Business readiness for a capital markets milestone — market selection, financial structuring, regulatory pathway, and timeline. So you&apos;re executing with clarity, not guessing.
               </p>
-              <p className="text-[15px] text-slate-600 font-light leading-[1.7] mb-5 flex-grow">
-                My expertise is Hong Kong Listing Rules, with experience advising on complex structures and cross-border transactions.
+              <p className="text-slate-400 text-xs font-light italic mb-6">
+                Typically 12-24 months before a target milestone.
               </p>
-              <a 
+              <a
                 href="https://tidycal.com/mandyc852/30-minute-meeting"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-navy-animated"
+              >
+                Inquire About Advisory
+              </a>
+            </div>
+
+            {/* Tier 3: IPO & Capital Markets */}
+            <div className="stagger-item bg-[#f8f7f4] rounded-sm p-8 border border-slate-200/60 hover:border-[#a68a1f]/40 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 flex flex-col">
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Execution</p>
+              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                IPO &amp; Capital Markets
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
+                Your Financial Advisor through the listing process — from preparation through successful IPO. Deep cross-border expertise across Hong Kong, Listing Rules, and NASDAQ.
+              </p>
+              <p className="text-slate-400 text-xs font-light italic mb-6">
+                Full engagement as your appointed Financial Advisor.
+              </p>
+              <a
+                href="https://tidycal.com/mandyc852/30-minute-meeting"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
               >
                 Discuss Your IPO
               </a>
@@ -608,15 +608,70 @@ export default function LuminatePage() {
         </div>
       </section>
 
+      {/* ABOUT SECTION */}
+      <section id="about" className="py-14 md:py-16 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-10 items-center">
+            {/* Small circular photo with gold border */}
+            <div className="md:col-span-1 slide-in-left">
+              <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden circular-photo-premium">
+                <Image
+                  src="/IMG_2269.JPG"
+                  alt="Mandy Cheung"
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="md:col-span-2 space-y-4 slide-in-right">
+              <h2 className="text-3xl font-normal text-[#a68a1f]">About Mandy</h2>
+              <p className="text-[15px] text-slate-600 font-light leading-relaxed">
+                I&apos;m a corporate finance advisor with 10+ years of experience in capital markets and cross-border transactions. I hold a Type 6 Responsible Officer license in Hong Kong, and I&apos;ve helped guide over 60 deals to completion.
+              </p>
+              <p className="text-[15px] text-slate-600 font-light leading-relaxed">
+                That observation changed how I work. I still bring deep expertise in financial structuring, regulatory pathways, and market strategy. But I also bring an understanding of what it takes for a founder to grow into the leader their company needs — and I don&apos;t see any contradiction between the two.
+              </p>
+              <p className="text-[15px] text-[#1a2a3a] font-normal leading-relaxed">
+                Integrity is my core value. I offer grounded expertise and honest guidance — nothing more, nothing less.
+              </p>
+              <div className="flex items-center gap-4 pt-2">
+                <a
+                  href="https://www.youtube.com/@MandyC852"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors"
+                >
+                  YouTube
+                </a>
+                <span className="text-slate-300">·</span>
+                <a
+                  href="https://www.linkedin.com/in/mandyc852/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* RESOURCES */}
       <section className="py-14 md:py-16 px-6 bg-slate-50 slide-up">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal section-title-gradient">
-            Resources
-          </h2>
-          <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
-            Tools and content to support your journey.
-          </p>
+          <div className="fade-in">
+            <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
+              Resources
+            </h2>
+            <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
+              Tools and content to support your journey.
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-5 stagger-parent">
             {/* Resource 1: Book Call - GOLD theme */}
@@ -683,67 +738,14 @@ export default function LuminatePage() {
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
-      <section id="about" className="py-14 md:py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-10 items-center">
-            {/* Photo */}
-            <div className="md:col-span-1 slide-in-left">
-              <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden circular-photo-premium">
-                <Image
-                  src="/IMG_2269.JPG"
-                  alt="Mandy Cheung"
-                  width={300}
-                  height={300}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="md:col-span-2 space-y-4 slide-in-right">
-              <h2 className="text-3xl font-normal section-title-gradient-short">About Mandy</h2>
-              <p className="text-[15px] text-slate-600 font-light leading-relaxed">
-                I&apos;m a corporate finance advisor with 10+ years of experience in capital markets. I hold a Type 6 Responsible Officer license in Hong Kong, specializing in Hong Kong Listing Rules with experience advising on cross-border NASDAQ listings.
-              </p>
-              <p className="text-[15px] text-slate-600 font-light leading-relaxed">
-                What sets my approach apart is a deeper understanding: the companies that scale successfully aren&apos;t just financially ready — their founders have grown into the leaders their companies need them to be. I&apos;ve always believed that business success and personal development are two sides of the same coin.
-              </p>
-              <p className="text-[15px] text-slate-600 font-light leading-relaxed">
-                Integrity is my core value. I offer grounded expertise and honest guidance — nothing more, nothing less.
-              </p>
-              <div className="flex items-center gap-4 pt-2">
-                <a
-                  href="https://www.youtube.com/@MandyC852"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors"
-                >
-                  YouTube
-                </a>
-                <span className="text-slate-300">·</span>
-                <a
-                  href="https://www.linkedin.com/in/mandyc852/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors"
-                >
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FINAL CTA */}
       <section className="py-12 md:py-14 px-6 bg-[#1a2a3a]">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-normal mb-3 cta-title-gradient">
-            Let&apos;s Talk About Your Journey
+            Let&apos;s Talk About Where You&apos;re Heading
           </h2>
           <p className="text-slate-300 font-light mb-6 text-base">
-            Whether you&apos;re exploring your next stage of growth or preparing for a major milestone, I&apos;m here to give you honest guidance on what it takes.
+            Whether you&apos;re building the foundation or preparing for a defining moment, I&apos;m here to give you honest guidance on what it takes.
           </p>
           <a 
             href="https://tidycal.com/mandyc852/30-minute-meeting"
