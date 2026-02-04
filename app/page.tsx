@@ -388,8 +388,11 @@ export default function LuminatePage() {
 
             {/* Desktop Nav */}
             <nav className="desktop-nav hidden md:flex items-center space-x-8">
-              <a href="#how-i-work" onClick={(e) => { e.preventDefault(); scrollToSection("#how-i-work") }} className="text-sm font-medium text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
-                How I Work
+              <a href="#the-program" onClick={(e) => { e.preventDefault(); scrollToSection("#the-program") }} className="text-sm font-medium text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
+                The Program
+              </a>
+              <a href="#how-it-works" onClick={(e) => { e.preventDefault(); scrollToSection("#how-it-works") }} className="text-sm font-medium text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
+                How It Works
               </a>
               <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection("#about") }} className="text-sm font-medium text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
                 About
@@ -427,7 +430,8 @@ export default function LuminatePage() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-slate-200 shadow-lg">
             <nav className="px-6 py-4 space-y-3">
-              <a href="#how-i-work" onClick={(e) => { e.preventDefault(); scrollToSection("#how-i-work") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">How I Work</a>
+              <a href="#the-program" onClick={(e) => { e.preventDefault(); scrollToSection("#the-program") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">The Program</a>
+              <a href="#how-it-works" onClick={(e) => { e.preventDefault(); scrollToSection("#how-it-works") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">How It Works</a>
               <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection("#about") }} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">About</a>
               <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="block text-base text-slate-600 hover:text-[#1a2a3a] py-2">YouTube</a>
               <a href="https://tidycal.com/mandyc852/30-minute-meeting" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-3 rounded-sm mt-4 uppercase btn-gold-animated">
@@ -456,16 +460,15 @@ export default function LuminatePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full py-12">
           <div className="max-w-xl">
             <p className="text-[#c9a227] text-sm font-medium tracking-wider uppercase mb-4">
-              Corporate Finance Advisor · 10+ Years · HK Type 6 Licensed
+              IPO Advisory · 10+ Years · 60+ Transactions · HK Type 6 Licensed
             </p>
             
             <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-[1.15] font-normal mb-5">
-              For founders doing<br className="hidden sm:block" />
-              something <span className="italic font-bold">bigger</span> than them.
+              Get Your Company — and Yourself — Ready to Go Public
             </h1>
 
             <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-6 max-w-lg">
-              Strategic advisory for founders preparing for capital markets — from business structuring to the leadership capacity it takes to get there.
+              The 90-Day IPO Readiness Intensive for founders who are done preparing in isolation and ready to move with a trusted advisor who&apos;s guided 60+ transactions to completion.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -475,14 +478,14 @@ export default function LuminatePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
               >
-                Book Advisory Call
+                Book Your Strategy Call
               </a>
               <a 
-                href="#how-i-work"
-                onClick={(e) => { e.preventDefault(); scrollToSection("#how-i-work") }}
+                href="#the-program"
+                onClick={(e) => { e.preventDefault(); scrollToSection("#the-program") }}
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-sm uppercase"
               >
-                Learn How I Work
+                See What&apos;s Inside
               </a>
             </div>
           </div>
@@ -493,137 +496,202 @@ export default function LuminatePage() {
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            60+ corporate finance transactions · Cross-border expertise across Hong Kong, NASDAQ &amp; global markets
+            Cross-border expertise across Hong Kong, NASDAQ &amp; global markets · Specialist in growth-stage companies &amp; self-made founders
           </p>
         </div>
       </section>
 
-      {/* WHO I WORK WITH */}
-      <section className="py-20 md:py-28 px-6 bg-white slide-up">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal">
-            Who I Work With
-          </h2>
-          <div className="space-y-4 stagger-parent">
-            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
-              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              <strong className="text-[#1a2a3a] font-medium">Founders building toward something big</strong> — who want honest guidance on what it takes to get there, whether that&apos;s raising capital, restructuring, or eventually going public.
-            </p>
-            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
-              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              <strong className="text-[#1a2a3a] font-medium">Companies preparing for capital markets</strong> — who need a Financial Advisor with deep cross-border experience to guide them through the process.
-            </p>
-            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
-              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              <strong className="text-[#1a2a3a] font-medium">Leaders who understand</strong> that scaling a company to its next level isn&apos;t only a financial exercise — it requires becoming someone who can hold that level.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== WHAT I'VE LEARNED ==================== */}
-      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      {/* THE PROBLEM */}
+      <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="slide-up text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            What I&apos;ve Learned in 10+ Years of<br className="hidden sm:block" /> Corporate Finance
+            Most Founders Who Stumble Before IPO Don&apos;t Have a Business Problem
           </h2>
 
           <div className="slide-up space-y-5 text-slate-600 text-[15px] leading-[1.8] font-light">
             <p>
-              Every founder I&apos;ve worked with who successfully took their company through a major milestone — whether that was a restructuring, a capital raise, or a public listing — had one thing in common.
+              After 10 years and 60+ transactions, I&apos;ve watched it happen again and again. A founder builds a strong business — the revenue is there, the market is there, the opportunity is real. But when the pressure of going public hits, something breaks.
             </p>
             <p>
-              It wasn&apos;t just that the numbers were right. It was that <em>they</em> were ready.
+              Reactive decisions under pressure. Self-sabotage at the worst possible moment. A nervous system overwhelmed by complexity that no financial model accounts for.
             </p>
             <p>
-              The ones who stumbled? The financials were often fine. But the founder hadn&apos;t grown into the leader the next stage demanded. They made reactive decisions under pressure. They couldn&apos;t hold the complexity. They second-guessed themselves at the worst moments.
+              The founders who succeeded? They didn&apos;t just have the right numbers. They had grown into the leader the process demanded. They could hold the complexity. They made clean, confident decisions when everything was on the line.
             </p>
             <p className="text-[#1a2a3a] font-normal">
-              I don&apos;t just advise on the business. I work with the whole picture — because that&apos;s what actually determines the outcome.
+              That&apos;s why I built a program that prepares both the business and the founder — because that&apos;s what actually determines the outcome.
             </p>
           </div>
         </div>
       </section>
 
-      {/* HOW I WORK WITH CLIENTS — 3-tier offers */}
-      <section id="how-i-work" className="py-20 md:py-28 px-6 bg-slate-50">
+      {/* THE PROGRAM */}
+      <section id="the-program" className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
+            The Flagship Program
+          </p>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+            The 90-Day IPO Readiness Intensive
+          </h2>
+          <p className="text-center text-slate-600 font-light mb-12 max-w-3xl mx-auto">
+            In 90 days, you&apos;ll know exactly where your company stands, what needs to happen before you list, and whether you&apos;re ready to lead through it. No guesswork. No wasted time.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 stagger-parent">
+            <div className="stagger-item p-8 rounded-sm card-hover-navy flex flex-col">
+              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3v18h18M7 13v4m4-10v10m4-6v6" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-normal text-[#1a2a3a] mb-4 text-center">The Business Readiness Work</h3>
+              <ul className="space-y-3 text-slate-600 font-light text-sm">
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Corporate structure and compliance audit</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Financial readiness assessment</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Market and exchange strategy (NASDAQ, HKEX, or both)</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Regulatory pathway and timeline</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Investor story development</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Gap analysis with clear action steps</li>
+              </ul>
+            </div>
+
+            <div className="stagger-item p-8 rounded-sm card-hover-gold flex flex-col">
+              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#c9a227] to-[#a68a1f] flex items-center justify-center mb-4">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-normal text-[#1a2a3a] mb-4 text-center">The Leadership Transformation Work</h3>
+              <ul className="space-y-3 text-slate-600 font-light text-sm">
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Founder-to-CEO identity shift</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Decision-making under high-stakes pressure</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Nervous system regulation for complexity</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Identifying self-sabotage patterns before they surface</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Embodying the leader your company needs for the next stage</li>
+                <li className="flex gap-3"><span className="text-[#c9a227] font-medium shrink-0">→</span> Vision alignment — so the IPO serves your life, not the other way around</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-10 bg-[#1a2a3a] rounded-sm p-6 md:p-7">
+            <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-[#c9a227] mb-2">Duration</p>
+                <p className="text-white/90 font-light">90 Days</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-[#c9a227] mb-2">Investment</p>
+                <p className="text-white/90 font-light">$25K–$50K</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-[#c9a227] mb-2">Includes</p>
+                <p className="text-white/90 font-light">6× private sessions + ongoing support</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <a
+              href="https://tidycal.com/mandyc852/30-minute-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+            >
+              Book Your Strategy Call
+            </a>
+            <p className="text-slate-500 font-light text-sm mt-4">
+              A 30-minute conversation to explore whether this is the right fit. No pressure, no pitch.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* WHO THIS IS FOR */}
+      <section className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+            Who This Is For
+          </h2>
+          <div className="space-y-5 stagger-parent">
+            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
+              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
+              <strong className="text-[#1a2a3a] font-medium">Founders preparing for NASDAQ or HKEX listing in the next 12–36 months</strong> — who want a clear, honest assessment of what needs to happen before they file, not a sales pitch from someone trying to win the mandate.
+            </p>
+            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
+              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
+              <strong className="text-[#1a2a3a] font-medium">Self-made founders who built something real from scratch</strong> — and know the next stage demands more of them as a leader, not just better financials. Capital markets might feel far from where you started, but the ambition is there.
+            </p>
+            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
+              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
+              <strong className="text-[#1a2a3a] font-medium">Companies with $5M+ revenue considering a capital markets milestone</strong> — restructuring, strategic raise, or IPO — who need a cross-border advisor with deep experience in Greater China, Southeast Asia, and the Middle East.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS — 3 Phases */}
+      <section id="how-it-works" className="py-20 md:py-28 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <div className="fade-in">
             <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
-              How I Work With Clients
+              How the 90 Days Work
             </h2>
             <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
-              I meet you where you are. Whether you&apos;re laying the groundwork or ready to execute, here&apos;s how we can work together.
+              Three phases. Clear milestones. You&apos;ll know exactly where you are at every stage.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 stagger-parent">
-
-            {/* Tier 1: Founder Advisory */}
             <div className="stagger-item bg-[#f8f7f4] rounded-sm p-8 border border-slate-200/60 hover:border-[#a68a1f]/40 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Foundation</p>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Days 1–30</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                Founder Advisory
+                Diagnose
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                I help you clarify your business structure, identify the gaps, and prepare as a leader for what&apos;s next — whether that&apos;s growth, capital, or a major transition.
+                Full business readiness audit. Corporate structure, financials, compliance, governance — everything gets assessed against the listing requirements for your target exchange. At the same time, we identify where you as a leader are strong and where the gaps are.
               </p>
-              <p className="text-slate-400 text-xs font-light italic mb-6">
-                This is where the inner work meets business strategy.
+              <p className="text-slate-400 text-xs font-light italic">
+                Deliverable: A clear picture of where your company stands and an honest assessment of what needs to change.
               </p>
-              <a
-                href="https://tidycal.com/mandyc852/30-minute-meeting"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
-              >
-                Start Here
-              </a>
             </div>
 
-            {/* Tier 2: Strategic Advisory */}
             <div className="stagger-item bg-[#f8f7f4] rounded-sm p-8 border border-slate-200/60 hover:border-[#a68a1f]/40 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Growth</p>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Days 31–60</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                Strategic Advisory
+                Build
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                Business readiness for a capital markets milestone — market selection, financial structuring, regulatory pathway, and timeline. So you&apos;re executing with clarity, not guessing.
+                Strategic roadmap development. Regulatory pathway, investor narrative, financial restructuring plan, and timeline. We also work on the leadership capacity you need — how you make decisions under pressure, how you hold complexity, how you show up in the room.
               </p>
-              <p className="text-slate-400 text-xs font-light italic mb-6">
-                Typically 12-24 months before a target milestone.
+              <p className="text-slate-400 text-xs font-light italic">
+                Deliverable: A 12–24 month execution plan and the confidence to lead it.
               </p>
-              <a
-                href="https://tidycal.com/mandyc852/30-minute-meeting"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-navy-animated"
-              >
-                Inquire About Advisory
-              </a>
             </div>
 
-            {/* Tier 3: IPO & Capital Markets */}
             <div className="stagger-item bg-[#f8f7f4] rounded-sm p-8 border border-slate-200/60 hover:border-[#a68a1f]/40 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Execution</p>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Days 61–90</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                IPO &amp; Capital Markets
+                Activate
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                Your Financial Advisor through the listing process — from preparation through successful IPO. Deep cross-border expertise across Hong Kong, Listing Rules, and NASDAQ.
+                Put it into motion. Refine your investor story, pressure-test your readiness, prepare for the conversations that matter — with banks, sponsors, regulators. This is where preparation meets execution.
               </p>
-              <p className="text-slate-400 text-xs font-light italic mb-6">
-                Full engagement as your appointed Financial Advisor.
+              <p className="text-slate-400 text-xs font-light italic">
+                Deliverable: A company and a founder ready to begin the IPO process with clarity and conviction.
               </p>
-              <a
-                href="https://tidycal.com/mandyc852/30-minute-meeting"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
-              >
-                Discuss Your IPO
-              </a>
             </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href="https://tidycal.com/mandyc852/30-minute-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+            >
+              Book Your Strategy Call
+            </a>
           </div>
         </div>
       </section>
@@ -650,13 +718,16 @@ export default function LuminatePage() {
               </h2>
               <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
                 <p>
-                  I&apos;m a corporate finance advisor with 10+ years of experience in capital markets and cross-border transactions. I hold a Type 6 Responsible Officer license in Hong Kong, and I&apos;ve helped guide over 60 deals to completion.
+                  I&apos;m a corporate finance advisor with 10+ years of experience and 60+ completed transactions across Hong Kong, NASDAQ, and global markets. I hold a Type 6 Responsible Officer license in Hong Kong.
                 </p>
                 <p>
-                  That observation changed how I work. I still bring deep expertise in financial structuring, regulatory pathways, and market strategy. But I also bring an understanding of what it takes for a founder to grow into the leader their company needs — and I don&apos;t see any contradiction between the two.
+                  Most capital markets advisors serve companies that are already there. The founders who are still building — who started with no financial backing and figured it out as they went — get overlooked. I work with precisely those founders, because I&apos;m one of them.
+                </p>
+                <p>
+                  Over the years, I noticed something the textbooks don&apos;t cover: the founders who stumbled before IPO usually had fine financials. What they didn&apos;t have was the leadership capacity for what came next. That observation changed how I work. I bring deep technical expertise alongside something most advisors don&apos;t — a practitioner&apos;s understanding of what happens to a founder under pressure.
                 </p>
                 <p className="text-[#1a2a3a] font-normal">
-                  Integrity is my core value. I offer grounded expertise and honest guidance — nothing more, nothing less.
+                  Integrity is my core value. I&apos;m in a service industry, and I act like it. The client&apos;s success is the only metric that matters.
                 </p>
               </div>
 
@@ -684,53 +755,6 @@ export default function LuminatePage() {
         </div>
       </section>
 
-      {/* ==================== LEAD MAGNET — FREE AUDIO ==================== */}
-      <section className="py-16 md:py-20 px-6 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #faf8f3 0%, #f5f0e6 50%, #faf8f3 100%)" }}>
-        {/* Subtle decorative elements */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a227]/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a227]/30 to-transparent" />
-
-        <div className="max-w-2xl mx-auto fade-in">
-          {/* Wrapper so gold corners sit outside the card; hover applies to whole area */}
-          <div className="group relative p-3">
-            {/* Gold corner accents — outside the box; visible by default; hide on hover so only full gold border shows */}
-            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#c9a227]/40 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden />
-            <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-[#c9a227]/40 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden />
-            <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-[#c9a227]/40 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden />
-            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#c9a227]/40 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden />
-
-            {/* Card — sharp corners, same shop-box style as Tools cards */}
-            <div className="rounded-none card-hover-gold p-8 md:p-10 text-center">
-            <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-4">
-              Free Audio Guide
-            </p>
-
-            <h2 className="text-2xl md:text-3xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-              Before Your Next High-Stakes Decision
-            </h2>
-
-            <p className="text-slate-600 font-light text-base leading-relaxed mb-3 max-w-lg mx-auto">
-              A 5-minute daily reset designed for founders who operate under pressure. Grounded in neuroscience. No fluff.
-            </p>
-
-            <p className="text-slate-400 text-sm font-light mb-8 max-w-md mx-auto">
-              Used by founders preparing for capital raises, board presentations, and the moments that define their trajectory.
-            </p>
-
-            <a
-              href="/leap"
-              className="inline-flex items-center justify-center px-10 py-4 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
-            >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-              </svg>
-              Get the Free Audio
-            </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* TOOLS — 2-card row */}
       <section className="py-16 md:py-20 px-6 bg-slate-50">
         <div className="max-w-4xl mx-auto">
@@ -743,9 +767,9 @@ export default function LuminatePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-2 text-center">ExitPro IPO Research</h3>
+              <h3 className="text-lg font-normal text-[#1a2a3a] mb-2 text-center">ExitPro — IPO Benchmarking</h3>
               <p className="text-sm text-slate-600 font-light mb-5 text-center flex-grow">
-                Research IPO benchmarks and compare your metrics against successful listings.
+                See how your company compares against successful IPOs. Research benchmarks, explore comparable listings, and assess your readiness.
               </p>
               <a
                 href="https://exitproai.vercel.app/"
@@ -753,28 +777,26 @@ export default function LuminatePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-navy-animated"
               >
-                Try ExitPro
+                Try ExitPro Free
               </a>
             </div>
 
-            {/* Card 2: Book a Call */}
+            {/* Card 2: Free Audio */}
             <div className="stagger-item p-6 rounded-sm card-hover-gold flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#c9a227] to-[#a68a1f] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-2 text-center">Book an Advisory Call</h3>
+              <h3 className="text-lg font-normal text-[#1a2a3a] mb-2 text-center">The 5-Minute Founder&apos;s Reset</h3>
               <p className="text-sm text-slate-600 font-light mb-5 text-center flex-grow">
-                30-minute conversation to discuss where you are and what you&apos;re working toward.
+                A neuroscience-backed daily audio for founders who operate under pressure. Reset your nervous system before high-stakes decisions.
               </p>
               <a
-                href="https://tidycal.com/mandyc852/30-minute-meeting"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/leap"
                 className="inline-flex items-center justify-center w-full px-5 py-3 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
               >
-                Schedule Call
+                Get the Free Audio
               </a>
             </div>
 
@@ -786,10 +808,10 @@ export default function LuminatePage() {
       <section className="py-16 md:py-20 px-6 bg-[#1a2a3a]">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-normal mb-3 cta-title-gradient">
-            Let&apos;s Talk About Where You&apos;re Heading
+            Ready to Get IPO-Ready in 90 Days?
           </h2>
           <p className="text-slate-300 font-light mb-6 text-base">
-            Whether you&apos;re building the foundation or preparing for a defining moment, I&apos;m here to give you honest guidance on what it takes.
+            A 30-minute strategy call to discuss where your company stands, what needs to happen, and whether the IPO Readiness Intensive is the right next step for you.
           </p>
           <a 
             href="https://tidycal.com/mandyc852/30-minute-meeting"
@@ -797,10 +819,10 @@ export default function LuminatePage() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
           >
-            Book Your Advisory Call
+            Book Your Strategy Call
           </a>
           <p className="text-slate-400 text-xs mt-5 font-light tracking-wide">
-            Type 6 Licensed · Hong Kong
+            Type 6 Licensed · Hong Kong · Cross-Border Expertise
           </p>
         </div>
       </section>
@@ -816,7 +838,7 @@ export default function LuminatePage() {
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
-          <span className="hidden sm:inline">Book Call</span>
+          <span className="hidden sm:inline">Book a Call</span>
         </a>
       )}
 
