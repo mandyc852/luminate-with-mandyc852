@@ -461,7 +461,7 @@ export default function LuminatePage() {
             
             <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-[1.15] font-normal mb-5">
               For founders doing<br className="hidden sm:block" />
-              <span className="italic">something bigger than them.</span>
+              something <span className="italic">bigger</span> than them.
             </h1>
 
             <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-6 max-w-lg">
