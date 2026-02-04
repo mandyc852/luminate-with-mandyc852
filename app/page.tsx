@@ -475,7 +475,7 @@ export default function LuminatePage() {
             </h1>
 
             <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-6 max-w-lg">
-              The 90-Day IPO Readiness Intensive for founders who are done preparing in isolation and ready to move with a trusted advisor who&apos;s guided 60+ transactions to completion.
+              The 90-Day IPO Readiness Intensive — for founders ready to move with a trusted advisor, not prepare alone.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -517,7 +517,7 @@ export default function LuminatePage() {
 
           <div className="slide-up space-y-5 text-slate-600 text-[15px] leading-[1.8] font-light">
             <p>
-              After 10 years and 60+ transactions, I&apos;ve watched it happen again and again. A founder builds a strong business — the revenue is there, the market is there, the opportunity is real. But when the pressure of going public hits, something breaks.
+              I&apos;ve watched it happen again and again. A founder builds a strong business — the revenue is there, the market is there, the opportunity is real. But when the pressure of going public hits, something breaks.
             </p>
             <p>
               Reactive decisions under pressure. Self-sabotage at the worst possible moment. A nervous system overwhelmed by complexity that no financial model accounts for.
@@ -743,7 +743,7 @@ export default function LuminatePage() {
               </h2>
               <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
                 <p>
-                  I&apos;m a corporate finance advisor with 10+ years of experience and 60+ completed transactions across Hong Kong, NASDAQ, and global markets. I hold a Type 6 Responsible Officer license in Hong Kong.
+                  I&apos;m a Hong Kong Type 6 licensed corporate finance advisor. My practice spans HKEX, NASDAQ, and global markets — the kind of cross-border work where regulatory complexity is the norm, not the exception.
                 </p>
                 <p>
                   Most capital markets advisors serve companies that are already there. The founders who are still building — who started with no financial backing and figured it out as they went — get overlooked. I work with precisely those founders, because I&apos;m one of them.
@@ -842,7 +842,7 @@ export default function LuminatePage() {
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+            className="flex md:inline-flex items-center justify-center w-full md:w-auto px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
           >
             Book Your Strategy Call
           </a>
