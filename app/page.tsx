@@ -599,7 +599,7 @@ export default function LuminatePage() {
             </div>
           </div>
 
-          <div className="mt-10">
+          <div className="mt-5">
             <a
               href="https://tidycal.com/mandyc852/30-minute-meeting"
               target="_blank"
@@ -614,7 +614,7 @@ export default function LuminatePage() {
           </div>
 
           {/* Fee credit + standalone value messaging */}
-          <div className="mt-6 bg-[#f8f7f4] border border-slate-200/60 rounded-sm p-6 md:p-7">
+          <div className="mt-5 bg-[#f8f7f4] border border-slate-200/60 rounded-sm p-6 md:p-7">
             <p className="text-slate-600 text-sm leading-relaxed font-light">
               <strong className="text-[#1a2a3a] font-medium">If you proceed to a full IPO mandate,</strong> your Intensive fee is credited toward professional fees — including legal, audit, and sponsor coordination led by our team. You&apos;re not paying twice; you&apos;re starting the journey and having it count.
             </p>
@@ -705,7 +705,7 @@ export default function LuminatePage() {
             </div>
           </div>
 
-          <div className="mt-12">
+          <div className="mt-6">
             <a
               href="https://tidycal.com/mandyc852/30-minute-meeting"
               target="_blank"
