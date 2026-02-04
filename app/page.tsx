@@ -439,8 +439,8 @@ export default function LuminatePage() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative w-full min-h-[520px] md:min-h-[580px] flex items-center overflow-hidden bg-[#1a2a3a]">
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[44%] z-0">
+      <section className="relative w-full min-h-[540px] md:min-h-[620px] flex items-center overflow-hidden bg-[#1a2a3a]">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[47%] z-0">
           <Image
             src="/mandyc.jpg"
             alt="Mandy Cheung"
@@ -459,9 +459,9 @@ export default function LuminatePage() {
               Corporate Finance Advisor · 10+ Years · HK Type 6 Licensed
             </p>
             
-            <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-[1.12] font-normal mb-5">
-              For Founders Building Something<br className="hidden sm:block" />
-              <span className="italic">Worth Going Public</span>
+            <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-[1.15] font-normal mb-5">
+              For founders doing<br className="hidden sm:block" />
+              <span className="italic">something bigger than them.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-6 max-w-lg">
@@ -499,7 +499,7 @@ export default function LuminatePage() {
       </section>
 
       {/* WHO I WORK WITH */}
-      <section className="py-14 md:py-16 px-6 bg-white slide-up">
+      <section className="py-20 md:py-28 px-6 bg-white slide-up">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal">
             Who I Work With
@@ -521,8 +521,32 @@ export default function LuminatePage() {
         </div>
       </section>
 
+      {/* ==================== WHAT I'VE LEARNED ==================== */}
+      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="slide-up text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+            What I&apos;ve Learned in 10+ Years of<br className="hidden sm:block" /> Corporate Finance
+          </h2>
+
+          <div className="slide-up space-y-5 text-slate-600 text-[15px] leading-[1.8] font-light">
+            <p>
+              Every founder I&apos;ve worked with who successfully took their company through a major milestone — whether that was a restructuring, a capital raise, or a public listing — had one thing in common.
+            </p>
+            <p>
+              It wasn&apos;t just that the numbers were right. It was that <em>they</em> were ready.
+            </p>
+            <p>
+              The ones who stumbled? The financials were often fine. But the founder hadn&apos;t grown into the leader the next stage demanded. They made reactive decisions under pressure. They couldn&apos;t hold the complexity. They second-guessed themselves at the worst moments.
+            </p>
+            <p className="text-[#1a2a3a] font-normal">
+              I don&apos;t just advise on the business. I work with the whole picture — because that&apos;s what actually determines the outcome.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* HOW I WORK WITH CLIENTS — 3-tier offers */}
-      <section id="how-i-work" className="py-14 md:py-16 px-6 bg-slate-50">
+      <section id="how-i-work" className="py-20 md:py-28 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <div className="fade-in">
             <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
@@ -604,36 +628,39 @@ export default function LuminatePage() {
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
-      <section id="about" className="py-14 md:py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-10 items-center">
-            {/* Small circular photo with gold border */}
-            <div className="md:col-span-1 slide-in-left">
-              <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden circular-photo-premium">
-                <Image
-                  src="/IMG_2269.JPG"
-                  alt="Mandy Cheung"
-                  width={300}
-                  height={300}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+      {/* ABOUT SECTION — editorial layout */}
+      <section id="about" className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-[0.7fr_1.3fr] gap-12 md:gap-16 items-center">
+            {/* Photo — editorial size */}
+            <div className="slide-in-left relative aspect-[4/5] rounded-sm overflow-hidden shadow-lg max-w-[280px] md:max-w-none mx-auto md:mx-0">
+              <Image
+                src="/IMG_2269.JPG"
+                alt="Mandy Cheung"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
 
             {/* Content */}
-            <div className="md:col-span-2 space-y-4 slide-in-right">
-              <h2 className="text-3xl font-normal text-[#a68a1f]">About Mandy</h2>
-              <p className="text-[15px] text-slate-600 font-light leading-relaxed">
-                I&apos;m a corporate finance advisor with 10+ years of experience in capital markets and cross-border transactions. I hold a Type 6 Responsible Officer license in Hong Kong, and I&apos;ve helped guide over 60 deals to completion.
-              </p>
-              <p className="text-[15px] text-slate-600 font-light leading-relaxed">
-                That observation changed how I work. I still bring deep expertise in financial structuring, regulatory pathways, and market strategy. But I also bring an understanding of what it takes for a founder to grow into the leader their company needs — and I don&apos;t see any contradiction between the two.
-              </p>
-              <p className="text-[15px] text-[#1a2a3a] font-normal leading-relaxed">
-                Integrity is my core value. I offer grounded expertise and honest guidance — nothing more, nothing less.
-              </p>
-              <div className="flex items-center gap-4 pt-2">
+            <div className="slide-in-right">
+              <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-8" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                About Mandy
+              </h2>
+              <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
+                <p>
+                  I&apos;m a corporate finance advisor with 10+ years of experience in capital markets and cross-border transactions. I hold a Type 6 Responsible Officer license in Hong Kong, and I&apos;ve helped guide over 60 deals to completion.
+                </p>
+                <p>
+                  That observation changed how I work. I still bring deep expertise in financial structuring, regulatory pathways, and market strategy. But I also bring an understanding of what it takes for a founder to grow into the leader their company needs — and I don&apos;t see any contradiction between the two.
+                </p>
+                <p className="text-[#1a2a3a] font-normal">
+                  Integrity is my core value. I offer grounded expertise and honest guidance — nothing more, nothing less.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-4 mt-8">
                 <a
                   href="https://www.youtube.com/@MandyC852"
                   target="_blank"
@@ -657,41 +684,55 @@ export default function LuminatePage() {
         </div>
       </section>
 
-      {/* LEAD MAGNET — Founder's Reset Audio */}
-      <section className="py-10 md:py-14 px-6 bg-[#1a2a3a] relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9a227] to-transparent opacity-40" />
+      {/* ==================== LEAD MAGNET — FREE AUDIO ==================== */}
+      <section className="py-16 md:py-20 px-6 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #faf8f3 0%, #f5f0e6 50%, #faf8f3 100%)" }}>
+        {/* Subtle decorative elements */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a227]/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a227]/30 to-transparent" />
 
-        <div className="max-w-3xl mx-auto text-center fade-in">
-          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-2">
-            Free Audio Guide
-          </p>
+        <div className="max-w-2xl mx-auto fade-in">
+          {/* Wrapper so gold corners sit outside the card; hover applies to whole area */}
+          <div className="group relative p-3">
+            {/* Gold corner accents — outside the box; visible by default; hide on hover so only full gold border shows */}
+            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#c9a227]/40 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden />
+            <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-[#c9a227]/40 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden />
+            <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-[#c9a227]/40 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden />
+            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#c9a227]/40 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden />
 
-          <h2 className="text-3xl md:text-4xl font-normal mb-2 cta-title-gradient" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            Before Your Next High-Stakes Decision
-          </h2>
+            {/* Card — sharp corners, same shop-box style as Tools cards */}
+            <div className="rounded-none card-hover-gold p-8 md:p-10 text-center">
+            <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-4">
+              Free Audio Guide
+            </p>
 
-          <p className="text-white/70 font-light text-base leading-relaxed mb-3 max-w-xl mx-auto">
-            A 5-minute daily reset designed for founders who operate under pressure. Grounded in neuroscience. No fluff.
-          </p>
+            <h2 className="text-2xl md:text-3xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+              Before Your Next High-Stakes Decision
+            </h2>
 
-          <p className="text-white/40 text-sm font-light mb-8 max-w-md mx-auto">
-            Used by founders preparing for capital raises, board presentations, and the moments that define their trajectory.
-          </p>
+            <p className="text-slate-600 font-light text-base leading-relaxed mb-3 max-w-lg mx-auto">
+              A 5-minute daily reset designed for founders who operate under pressure. Grounded in neuroscience. No fluff.
+            </p>
 
-          <a
-            href="/leap"
-            className="inline-flex items-center justify-center px-10 py-4 rounded-sm uppercase tracking-wide text-sm btn-gold-animated shadow-lg"
-          >
-            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-            </svg>
-            Get the Free Audio
-          </a>
+            <p className="text-slate-400 text-sm font-light mb-8 max-w-md mx-auto">
+              Used by founders preparing for capital raises, board presentations, and the moments that define their trajectory.
+            </p>
+
+            <a
+              href="/leap"
+              className="inline-flex items-center justify-center px-10 py-4 rounded-sm uppercase tracking-wide text-sm btn-gold-animated"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+              </svg>
+              Get the Free Audio
+            </a>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* TOOLS — 2-card row */}
-      <section className="py-12 md:py-14 px-6 bg-slate-50">
+      <section className="py-16 md:py-20 px-6 bg-slate-50">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-5 stagger-parent">
 
@@ -742,7 +783,7 @@ export default function LuminatePage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-12 md:py-14 px-6 bg-[#1a2a3a]">
+      <section className="py-16 md:py-20 px-6 bg-[#1a2a3a]">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-normal mb-3 cta-title-gradient">
             Let&apos;s Talk About Where You&apos;re Heading
