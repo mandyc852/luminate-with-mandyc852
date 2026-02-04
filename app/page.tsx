@@ -458,7 +458,10 @@ export default function LuminatePage() {
             priority
             quality={100}
           />
+          {/* Desktop: left-edge gradient for text/image split */}
           <div className="absolute left-0 top-0 bottom-0 w-[120px] md:w-[200px] bg-gradient-to-r from-[#1a2a3a] via-[#1a2a3a]/60 to-transparent pointer-events-none" />
+          {/* Mobile only: full dark overlay for text legibility */}
+          <div className="absolute inset-0 bg-[#1a2a3a]/60 md:hidden pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full py-12">
@@ -471,7 +474,7 @@ export default function LuminatePage() {
               Get Your Company — and Yourself — Ready to Go Public
             </h1>
 
-            <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-6 max-w-lg">
+            <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-6 max-w-lg">
               The 90-Day IPO Readiness Intensive for founders who are done preparing in isolation and ready to move with a trusted advisor who&apos;s guided 60+ transactions to completion.
             </p>
 
