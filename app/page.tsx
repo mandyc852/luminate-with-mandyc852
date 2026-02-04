@@ -599,16 +599,6 @@ export default function LuminatePage() {
             </div>
           </div>
 
-          {/* Fee credit + standalone value messaging */}
-          <div className="mt-6 bg-[#f8f7f4] border border-slate-200/60 rounded-sm p-6 md:p-7">
-            <p className="text-slate-600 text-sm leading-relaxed font-light">
-              <strong className="text-[#1a2a3a] font-medium">If you proceed to a full IPO mandate,</strong> your Intensive fee is credited toward professional fees — including legal, audit, and sponsor coordination led by our team. You&apos;re not paying twice; you&apos;re starting the journey and having it count.
-            </p>
-            <p className="text-slate-500 text-sm leading-relaxed font-light mt-3">
-              And if you decide not to list? The corporate structure, compliance framework, and financial architecture we build together is directly valuable for M&amp;A, strategic fundraising, or simply running a better-governed company. Nothing is wasted.
-            </p>
-          </div>
-
           <div className="mt-10">
             <a
               href="https://tidycal.com/mandyc852/30-minute-meeting"
@@ -620,6 +610,16 @@ export default function LuminatePage() {
             </a>
             <p className="text-slate-500 font-light text-sm mt-4 text-center">
               A 30-minute conversation to explore where your company stands and what the path forward looks like. No pressure, no pitch.
+            </p>
+          </div>
+
+          {/* Fee credit + standalone value messaging */}
+          <div className="mt-6 bg-[#f8f7f4] border border-slate-200/60 rounded-sm p-6 md:p-7">
+            <p className="text-slate-600 text-sm leading-relaxed font-light">
+              <strong className="text-[#1a2a3a] font-medium">If you proceed to a full IPO mandate,</strong> your Intensive fee is credited toward professional fees — including legal, audit, and sponsor coordination led by our team. You&apos;re not paying twice; you&apos;re starting the journey and having it count.
+            </p>
+            <p className="text-slate-500 text-sm leading-relaxed font-light mt-3">
+              And if you decide not to list? The corporate structure, compliance framework, and financial architecture we build together is directly valuable for M&amp;A, strategic fundraising, or simply running a better-governed company. Nothing is wasted.
             </p>
           </div>
         </div>
