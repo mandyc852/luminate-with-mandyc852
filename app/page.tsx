@@ -273,6 +273,10 @@ export default function LuminatePage() {
           animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           animation-delay: 0.4s;
         }
+        .stagger-parent.animate-in .stagger-item:nth-child(4) {
+          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          animation-delay: 0.55s;
+        }
 
         .stagger-item {
           opacity: 0;
@@ -575,7 +579,7 @@ export default function LuminatePage() {
           </div>
 
           <div className="mt-10 bg-[#1a2a3a] rounded-sm p-6 md:p-7">
-            <div className="grid md:grid-cols-3 gap-6 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>
                 <p className="text-xs uppercase tracking-[0.25em] text-[#c9a227] mb-2">Duration</p>
                 <p className="text-white/90 font-light">90 Days</p>
@@ -588,20 +592,34 @@ export default function LuminatePage() {
                 <p className="text-xs uppercase tracking-[0.25em] text-[#c9a227] mb-2">Includes</p>
                 <p className="text-white/90 font-light">6× private sessions + ongoing support</p>
               </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-[#c9a227] mb-2">Proceed to IPO?</p>
+                <p className="text-white/90 font-light">Fee credited toward mandate</p>
+              </div>
             </div>
           </div>
 
-          <div className="text-center mt-10">
+          {/* Fee credit + standalone value messaging */}
+          <div className="mt-6 bg-[#f8f7f4] border border-slate-200/60 rounded-sm p-6 md:p-7">
+            <p className="text-slate-600 text-sm leading-relaxed font-light">
+              <strong className="text-[#1a2a3a] font-medium">If you proceed to a full IPO mandate,</strong> your Intensive fee is credited toward professional fees — including legal, audit, and sponsor coordination led by our team. You&apos;re not paying twice; you&apos;re starting the journey and having it count.
+            </p>
+            <p className="text-slate-500 text-sm leading-relaxed font-light mt-3">
+              And if you decide not to list? The corporate structure, compliance framework, and financial architecture we build together is directly valuable for M&amp;A, strategic fundraising, or simply running a better-governed company. Nothing is wasted.
+            </p>
+          </div>
+
+          <div className="mt-10">
             <a
               href="https://tidycal.com/mandyc852/30-minute-meeting"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+              className="flex items-center justify-center w-full py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
             >
               Book Your Strategy Call
             </a>
-            <p className="text-slate-500 font-light text-sm mt-4">
-              A 30-minute conversation to explore whether this is the right fit. No pressure, no pitch.
+            <p className="text-slate-500 font-light text-sm mt-4 text-center">
+              A 30-minute conversation to explore where your company stands and what the path forward looks like. No pressure, no pitch.
             </p>
           </div>
         </div>
@@ -625,6 +643,10 @@ export default function LuminatePage() {
             <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
               <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
               <strong className="text-[#1a2a3a] font-medium">Companies with $5M+ revenue considering a capital markets milestone</strong> — restructuring, strategic raise, or IPO — who need a cross-border advisor with deep experience in Greater China, Southeast Asia, and the Middle East.
+            </p>
+            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
+              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
+              <strong className="text-[#1a2a3a] font-medium">Founders who want to test the water before committing to a full mandate</strong> — the Intensive gives you a clear-eyed assessment and a ready-to-execute plan. If you move forward to listing, your fee is credited toward the professional costs. If you don&apos;t, you still walk away with a structure that serves you.
             </p>
           </div>
         </div>
@@ -683,12 +705,12 @@ export default function LuminatePage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="mt-12">
             <a
               href="https://tidycal.com/mandyc852/30-minute-meeting"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+              className="flex items-center justify-center w-full py-3.5 rounded-sm shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
             >
               Book Your Strategy Call
             </a>

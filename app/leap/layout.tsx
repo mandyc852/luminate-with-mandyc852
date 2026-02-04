@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "The Founder's Identity Reset | MandyC.",
+  title: "The Founder's Identity Reset | Free Audio for Founders | MandyC.",
   description:
-    "A 5-minute daily audio practice for founders and leaders. Calibrate your nervous system and reset before high-stakes decisions — free audio from MandyC.",
+    "A free 5-minute daily audio practice for founders building something great. Rewire how you think, decide, and lead under pressure — from MandyC.",
 }
 
 export default function LeapLayout({

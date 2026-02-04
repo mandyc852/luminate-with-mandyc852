@@ -47,7 +47,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             className="text-center text-stone-700 text-base tracking-wide mb-4 font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            The 5-minute practice for high-stakes leadership.
+            For founders who are building something great.
           </p>
 
           <h1 className="text-center mb-4">
@@ -75,19 +75,19 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             className="text-center text-stone-700 mb-4 leading-relaxed text-lg"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            What got you here won&apos;t get you to the next level.
+            The version of you that built this isn&apos;t the same one who takes it to the next level.
           </p>
           <p
             className="text-center text-stone-700 mb-4 leading-relaxed text-lg"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Scaling requires a new version of you — one who thinks, decides, and moves differently. When you embody your next-level identity, your actions become automatic and your reality shifts to match.
+            Scaling demands a different kind of leader — one who holds clarity, composure, and conviction when the stakes keep rising.
           </p>
           <p
             className="text-center text-stone-700 mb-5 leading-relaxed text-lg"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            This 5-minute daily practice closes the gap.
+            This 5-minute daily audio closes the gap.
           </p>
 
           <form onSubmit={onSubmit} className="space-y-3 mb-3">
@@ -115,7 +115,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             )}
             {success && (
               <p className="text-center text-amber-700 font-medium text-sm" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                Thank you! Check your email for the audio.
+                You&apos;re in. Check your email for the audio — and your first insight on the inner game of building at the next level.
               </p>
             )}
             <button
@@ -123,7 +123,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
               disabled={isSubmitting}
               className="w-full py-4 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? "Sending…" : "GET THE AUDIO"}
+              {isSubmitting ? "Sending…" : "GET THE FREE AUDIO"}
             </button>
           </form>
 
@@ -131,9 +131,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             className="text-center text-stone-600 text-xs leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            You&apos;ll receive the audio immediately, plus occasional insights on the inner game of scaling.
-            <br />
-            No hype. <span className="whitespace-nowrap">Unsubscribe anytime.</span>
+            Instant access. You&apos;ll also receive occasional insights on the inner game of building something that lasts. Unsubscribe anytime.
           </p>
         </div>
       </div>
@@ -227,7 +225,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                       className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
-                      Binaural beats (7.83 Hz) + layered affirmations.
+                      Binaural beats + layered affirmations designed for high-stakes founders.
                     </p>
                   </div>
                 </div>
@@ -238,13 +236,13 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                       className="text-stone-200 text-[1.1875rem] leading-snug font-bold"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
-                      Subconscious Identity Shift
+                      Founder Identity Shift
                     </p>
                     <p
                       className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
-                      Embody your next-level self before the day starts.
+                      Rewire your nervous system for the composure and clarity your next chapter demands.
                     </p>
                   </div>
                 </div>
@@ -261,7 +259,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                       className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
-                      Clarity and certainty before high-stakes moments.
+                      Use before any conversation where your presence matters more than your preparation.
                     </p>
                   </div>
                 </div>
@@ -302,13 +300,13 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   className="text-stone-300 text-lg leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
-                  I&apos;ve spent 10+ years in corporate finance and IPO advisory, working with companies through high-stakes transactions and cross-border deals.
+                  10+ years in corporate finance. 60+ transactions across Hong Kong, NASDAQ, and global markets — working alongside founders through the highest-stakes moments of their business.
                 </p>
                 <p
                   className="text-stone-300 text-lg leading-relaxed mt-3"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
-                  The founders who scale successfully aren&apos;t just strategically sharp. They&apos;ve done the inner work to hold that level of success. On{" "}
+                  What I&apos;ve learned: the founders who scale aren&apos;t just strategically sharp — they&apos;ve done the inner work. On{" "}
                   <a
                     href="https://www.youtube.com/@MandyC852"
                     target="_blank"
@@ -317,16 +315,30 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   >
                     MandyC.
                   </a>
-                  , I bring the other side: identity work and nervous system regulation.
+                  , I share the identity shifts and leadership transformation most business advice leaves out.
                 </p>
                 <p
                   className="text-stone-300 text-lg leading-relaxed mt-3"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
-                  The strategy matters — but who you&apos;re BEING while you execute matters more.
+                  Strategy matters — but who you&apos;re BEING while you execute it matters more.
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Soft CTA bridge (desktop) */}
+          <div className="flex-shrink-0 pt-6 pb-4 px-0">
+            <p className="text-stone-300 text-sm mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+              Already know your business is ready for what&apos;s next?
+            </p>
+            <a
+              href="/"
+              className="text-amber-300 hover:text-amber-200 underline decoration-amber-400/60 underline-offset-2 transition-colors text-sm"
+              style={{ fontFamily: "Cormorant Garamond, serif" }}
+            >
+              See how I work with founders →
+            </a>
           </div>
         </div>
       </div>
@@ -384,7 +396,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             className="text-center text-stone-700 text-base tracking-wide mb-6 font-medium leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            The 5-minute practice for high-stakes leadership.
+            For founders who are building something great.
           </p>
 
           <h1 className="text-center mb-6">
@@ -406,19 +418,19 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             className="text-center text-stone-700 mb-4 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            What got you here won&apos;t get you to the next level.
+            The version of you that built this isn&apos;t the same one who takes it to the next level.
           </p>
           <p
             className="text-center text-stone-700 mb-4 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Scaling requires a new version of you — one who thinks, decides, and moves differently. When you embody your next-level identity, your actions become automatic and your reality shifts to match.
+            Scaling demands a different kind of leader — one who holds clarity, composure, and conviction when the stakes keep rising.
           </p>
           <p
             className="text-center text-stone-700 mb-8 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            This 5-minute daily practice closes the gap.
+            This 5-minute daily audio closes the gap.
           </p>
 
           <form onSubmit={onSubmit} className="space-y-3.5 mb-2">
@@ -446,7 +458,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             )}
             {success && (
               <p className="text-center text-amber-700 font-medium text-sm px-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                Thank you! Check your email for the audio.
+                You&apos;re in. Check your email for the audio — and your first insight on the inner game of building at the next level.
               </p>
             )}
             <button
@@ -454,7 +466,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               disabled={isSubmitting}
               className="w-full py-4 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? "Sending…" : "GET THE AUDIO"}
+              {isSubmitting ? "Sending…" : "GET THE FREE AUDIO"}
             </button>
           </form>
 
@@ -462,7 +474,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             className="text-center text-stone-600 text-sm leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Instant access. Occasional insights on scaling. No hype.
+            Instant access. You&apos;ll also receive occasional insights on the inner game of building something that lasts. Unsubscribe anytime.
           </p>
         </div>
       </div>
@@ -535,7 +547,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   5-Minute Audio Practice
                 </p>
                 <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Binaural beats (7.83 Hz) + layered affirmations.
+                  Binaural beats + layered affirmations designed for high-stakes founders.
                 </p>
               </div>
             </div>
@@ -543,10 +555,10 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               <span className="text-amber-500 mt-0.5 flex-shrink-0 text-lg">✦</span>
               <div>
                 <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Subconscious Identity Shift
+                  Founder Identity Shift
                 </p>
                 <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Embody your next-level self before the day starts.
+                  Rewire your nervous system for the composure and clarity your next chapter demands.
                 </p>
               </div>
             </div>
@@ -557,7 +569,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                   Pre-Meeting Reset
                 </p>
                 <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Clarity and certainty before high-stakes moments.
+                  Use before any conversation where your presence matters more than your preparation.
                 </p>
               </div>
             </div>
@@ -593,13 +605,13 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             className="text-stone-600 text-[1.0625rem] leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            I&apos;ve spent 10+ years in corporate finance and IPO advisory, working with companies through high-stakes transactions and cross-border deals.
+            10+ years in corporate finance. 60+ transactions across Hong Kong, NASDAQ, and global markets — working alongside founders through the highest-stakes moments of their business.
           </p>
           <p
             className="text-stone-600 text-[1.0625rem] leading-relaxed mt-4"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            The founders who scale successfully aren&apos;t just strategically sharp. They&apos;ve done the inner work to hold that level of success. On{" "}
+            What I&apos;ve learned: the founders who scale aren&apos;t just strategically sharp — they&apos;ve done the inner work. On{" "}
             <a
               href="https://www.youtube.com/@MandyC852"
               target="_blank"
@@ -608,14 +620,30 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             >
               MandyC.
             </a>
-            , I bring the other side: identity work and nervous system regulation.
+            , I share the identity shifts and leadership transformation most business advice leaves out.
           </p>
           <p
             className="text-stone-600 text-[1.0625rem] leading-relaxed mt-4"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            The strategy matters — but who you&apos;re BEING while you execute matters more.
+            Strategy matters — but who you&apos;re BEING while you execute it matters more.
           </p>
+        </div>
+      </div>
+
+      {/* Soft CTA bridge (mobile) */}
+      <div className="bg-stone-900 px-6 py-6">
+        <div className="max-w-sm mx-auto">
+          <p className="text-stone-300 text-sm mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+            Already know your business is ready for what&apos;s next?
+          </p>
+          <a
+            href="/"
+            className="text-amber-300 hover:text-amber-200 underline decoration-amber-400/60 underline-offset-2 transition-colors text-sm"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            See how I work with founders →
+          </a>
         </div>
       </div>
 
