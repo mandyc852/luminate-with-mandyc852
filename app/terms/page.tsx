@@ -1,9 +1,9 @@
 import Link from "next/link"
 
 export const metadata = {
-  title: "Terms & Conditions | Luminate with Mandy C",
+  title: "Terms & Conditions | MandyC.",
   description:
-    "Terms and Conditions for Luminate with Mandy C. Please read these terms before using our services.",
+    "Terms and Conditions for MandyC. Please read these terms before using our services.",
 }
 
 export default function TermsPage() {
@@ -55,7 +55,7 @@ export default function TermsPage() {
                 maskPosition: "center",
               }}
               role="img"
-              aria-label="Luminate with Mandy C"
+              aria-label="MandyC."
             />
           </div>
 
@@ -78,7 +78,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">2. Description of Service</h2>
-              <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-2">Luminate with Mandy C. provides:</p>
+              <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-2">MandyC. provides:</p>
               <ul className="list-disc list-outside space-y-1 text-stone-600 text-xs lg:text-sm leading-relaxed mb-3 pl-5">
                 <li>A free 5-minute audio practice for subconscious identity shifts and nervous system regulation</li>
                 <li>Educational content about quantum identity work, subconscious reprogramming, and conscious entrepreneurship</li>
@@ -89,7 +89,7 @@ export default function TermsPage() {
             <section>
               <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">3. Disclaimer of Medical/Therapeutic Advice</h2>
               <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-2 font-medium text-stone-800">
-                IMPORTANT: The audio practice and content provided by Luminate with Mandy C. are for educational and informational purposes only.
+                IMPORTANT: The audio practice and content provided by MandyC. are for educational and informational purposes only.
               </p>
               <ul className="list-disc list-outside space-y-0.5 text-stone-600 text-xs lg:text-sm leading-relaxed mb-1.5 pl-5">
                 <li>This is not medical advice, therapy, or psychological treatment</li>
@@ -105,7 +105,7 @@ export default function TermsPage() {
             <section>
               <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">4. Disclaimer of Financial Advice</h2>
               <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-2">
-                While Mandy C. is a corporate finance and IPO advisor in her professional capacity, the content provided through Luminate with Mandy C. is:
+                While MandyC. is a corporate finance and IPO advisor in her professional capacity, the content provided through MandyC. is:
               </p>
               <ul className="list-disc list-outside space-y-0.5 text-stone-600 text-xs lg:text-sm leading-relaxed mb-1.5 pl-5">
                 <li>Not financial advice or investment recommendations</li>
@@ -136,7 +136,7 @@ export default function TermsPage() {
             <section>
               <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">6. Intellectual Property Rights</h2>
               <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-2">
-                All content provided by Luminate with Mandy C., including the audio practice, text, graphics, logos, and materials, are owned by or licensed to us and are protected by copyright and intellectual property laws.
+                All content provided by MandyC., including the audio practice, text, graphics, logos, and materials, are owned by or licensed to us and are protected by copyright and intellectual property laws.
               </p>
               <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-1 font-medium text-stone-800">You may:</p>
               <ul className="list-disc list-outside space-y-0.5 text-stone-600 text-xs lg:text-sm leading-relaxed mb-1.5 pl-5">
@@ -181,7 +181,7 @@ export default function TermsPage() {
               <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">9. Limitation of Liability</h2>
               <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-2">To the fullest extent permitted by law:</p>
               <ul className="list-disc list-outside space-y-1 text-stone-600 text-xs lg:text-sm leading-relaxed mb-3 pl-5">
-                <li>Luminate with Mandy C. is provided &quot;as is&quot; without warranties of any kind</li>
+                <li>MandyC. is provided &quot;as is&quot; without warranties of any kind</li>
                 <li>We are not liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of our services</li>
                 <li>We are not responsible for any decisions you make based on our content</li>
                 <li>Your use of the audio practice and content is at your own risk</li>
@@ -191,7 +191,7 @@ export default function TermsPage() {
             <section>
               <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">10. Indemnification</h2>
               <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-2">
-                You agree to indemnify and hold harmless Luminate with Mandy C. and Mandy Cheung from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from:
+                You agree to indemnify and hold harmless MandyC. and Mandy Cheung from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from:
               </p>
               <ul className="list-disc list-outside space-y-1 text-stone-600 text-xs lg:text-sm leading-relaxed mb-3 pl-5">
                 <li>Your use of our services</li>
@@ -264,7 +264,7 @@ export default function TermsPage() {
                 <Link href="/privacy" className="text-amber-700 hover:text-amber-600 underline transition-colors">
                   Privacy Policy
                 </Link>
-                , constitute the entire agreement between you and Luminate with Mandy C. regarding the use of our services.
+                , constitute the entire agreement between you and MandyC. regarding the use of our services.
               </p>
             </section>
 
@@ -293,7 +293,7 @@ export default function TermsPage() {
             className="text-stone-400 text-xs"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            © 2026 Luminate with Mandy C. | All Rights Reserved |{" "}
+            © 2026 MandyC. | All Rights Reserved |{" "}
             <Link href="/terms" className="hover:text-amber-300 transition-colors mx-1">
               Terms &amp; Conditions
             </Link>{" "}

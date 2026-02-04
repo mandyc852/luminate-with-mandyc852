@@ -1,9 +1,9 @@
 import Link from "next/link"
 
 export const metadata = {
-  title: "Privacy Policy | Luminate with Mandy C",
+  title: "Privacy Policy | MandyC.",
   description:
-    "Privacy Policy for Luminate with Mandy C. How we collect, use, and protect your information when you sign up for our free audio practice.",
+    "Privacy Policy for MandyC. How we collect, use, and protect your information when you sign up for our free audio practice.",
 }
 
 export default function PrivacyPage() {
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
                 maskPosition: "center",
               }}
               role="img"
-              aria-label="Luminate with Mandy C"
+              aria-label="MandyC."
             />
           </div>
 
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
               <section>
                 <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">Introduction</h2>
                 <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-3">
-                  Luminate with Mandy C. (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;)
+                  MandyC. (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;)
                   respects your privacy and is committed to protecting your personal
                   information. This Privacy Policy explains how we collect, use,
                   disclose, and safeguard your information when you visit our website
@@ -195,7 +195,7 @@ export default function PrivacyPage() {
             className="text-stone-400 text-xs"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            © 2026 Luminate with Mandy C. | All Rights Reserved |{" "}
+            © 2026 MandyC. | All Rights Reserved |{" "}
             <Link href="/terms" className="hover:text-amber-300 transition-colors mx-1">
               Terms &amp; Conditions
             </Link>{" "}

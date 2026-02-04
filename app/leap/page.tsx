@@ -39,7 +39,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                 maskPosition: "center",
               }}
               role="img"
-              aria-label="Luminate with Mandy C"
+              aria-label="MandyC."
             />
           </div>
 
@@ -315,7 +315,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                     rel="noopener noreferrer"
                     className="text-amber-300 font-bold underline decoration-amber-400/80 hover:text-amber-200 hover:decoration-amber-300 transition-colors"
                   >
-                    Luminate with MandyC
+                    MandyC.
                   </a>
                   , I bring the other side: identity work and nervous system regulation.
                 </p>
@@ -342,7 +342,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             className="text-stone-400 text-xs md:text-sm"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            © 2026 Luminate with Mandy C. | All Rights Reserved |{" "}
+            © 2026 MandyC. | All Rights Reserved |{" "}
             <a href="/terms" className="hover:text-amber-300 transition-colors mx-1">Terms &amp; Conditions</a>{" "}
             |{" "}
             <a href="/privacy" className="hover:text-amber-300 transition-colors mx-1">Privacy Policy</a>
@@ -376,7 +376,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                 maskPosition: "center",
               }}
               role="img"
-              aria-label="Luminate with Mandy C"
+              aria-label="MandyC."
             />
           </div>
 
@@ -606,7 +606,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               rel="noopener noreferrer"
               className="text-amber-500 font-bold underline decoration-amber-500/80 hover:text-amber-600 hover:decoration-amber-600 transition-colors"
             >
-              Luminate with MandyC
+              MandyC.
             </a>
             , I bring the other side: identity work and nervous system regulation.
           </p>
@@ -628,7 +628,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             className="text-stone-400 text-sm leading-relaxed mb-2"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            © 2026 Luminate with Mandy C. | All Rights Reserved
+            © 2026 MandyC. | All Rights Reserved
           </p>
           <div
             className="text-stone-400 text-sm"
