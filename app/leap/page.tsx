@@ -18,8 +18,11 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
   return (
     <div className="h-screen flex flex-col">
       <div className="flex flex-1 min-h-0">
-      {/* Left Panel - Cream/Form Side */}
-      <div className="w-1/2 bg-gradient-to-br from-stone-50 via-white to-stone-50/80 flex flex-col justify-center items-center px-14 py-8">
+      {/* Left Panel - Warm White / Form Side */}
+      <div
+        className="w-1/2 flex flex-col justify-center items-center px-14 py-8"
+        style={{ backgroundColor: "#FAF7F3" }}
+      >
         <div className="max-w-lg w-full">
           <div className="mb-4 text-center flex justify-center items-center">
             <div
@@ -28,7 +31,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                 width: 320,
                 height: 106,
                 background:
-                  "linear-gradient(to right, #b45309, #d97706, #f59e0b, #d97706, #b45309)",
+                  "linear-gradient(to right, #a68a1f, #C9A227, #F5E6B3, #C9A227, #a68a1f)",
                 WebkitMaskImage: "url(/Logo%202%20black.png)",
                 WebkitMaskSize: "contain",
                 WebkitMaskRepeat: "no-repeat",
@@ -44,7 +47,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
           </div>
 
           <p
-            className="text-center text-stone-700 text-base tracking-wide mb-4 font-medium"
+            className="text-center text-[#1A2A3A] text-base tracking-wide mb-4 font-medium"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             For founders who are building something great.
@@ -52,39 +55,45 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
 
           <h1 className="text-center mb-4">
             <span
-              className="block text-3xl md:text-4xl font-light text-stone-900 leading-tight tracking-tight mb-1"
+              className="block text-3xl md:text-4xl font-light text-[#1A2A3A] leading-tight tracking-tight mb-1"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               THE FOUNDER&apos;S
             </span>
             <span
-              className="block text-5xl md:text-6xl font-bold text-neutral-900 leading-tight mb-1"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
+              className="block text-5xl md:text-6xl font-bold leading-tight mb-1 bg-clip-text text-transparent"
+              style={{
+                fontFamily: "Cormorant Garamond, serif",
+                backgroundImage: "linear-gradient(to right, #8B6914, #B8860B, #D4AF37, #C9A227, #D4AF37, #B8860B, #8B6914)",
+              }}
             >
               IDENTITY
             </span>
             <span
-              className="block text-5xl md:text-6xl font-bold text-neutral-900 leading-tight"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
+              className="block text-5xl md:text-6xl font-bold leading-tight bg-clip-text text-transparent"
+              style={{
+                fontFamily: "Cormorant Garamond, serif",
+                backgroundImage: "linear-gradient(to right, #8B6914, #B8860B, #D4AF37, #C9A227, #D4AF37, #B8860B, #8B6914)",
+              }}
             >
               RESET
             </span>
           </h1>
 
           <p
-            className="text-center text-stone-700 mb-4 leading-relaxed text-lg"
+            className="text-center text-[#1A2A3A] mb-4 leading-relaxed text-lg"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The version of you that built this isn&apos;t the same one who takes it to the next level.
           </p>
           <p
-            className="text-center text-stone-700 mb-4 leading-relaxed text-lg"
+            className="text-center text-[#1A2A3A] mb-4 leading-relaxed text-lg"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Scaling demands a different kind of leader — one who holds clarity, composure, and conviction when the stakes keep rising.
           </p>
           <p
-            className="text-center text-stone-700 mb-5 leading-relaxed text-lg"
+            className="text-center text-[#1A2A3A] mb-5 leading-relaxed text-lg"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             This 5-minute daily audio closes the gap.
@@ -96,7 +105,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
               placeholder="First Name (optional)"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-base"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-[#1A2A3A] placeholder-stone-500 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227]/50 transition-all text-base"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             <input
@@ -105,7 +114,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 focus:ring-1 focus:ring-amber-600/30 transition-all text-base"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-[#1A2A3A] placeholder-stone-500 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227]/50 transition-all text-base"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             {error && (
@@ -114,21 +123,21 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
               </p>
             )}
             {success && (
-              <p className="text-center text-amber-700 font-medium text-sm" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+              <p className="text-center text-[#1A2A3A] font-medium text-sm" style={{ fontFamily: "Cormorant Garamond, serif" }}>
                 You&apos;re in. Check your email for the audio — and your first insight on the inner game of building at the next level.
               </p>
             )}
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 rounded-sm bg-[#C9A227] text-white font-medium tracking-[0.15em] text-base hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
             >
               {isSubmitting ? "Sending…" : "GET THE FREE AUDIO"}
             </button>
           </form>
 
           <p
-            className="text-center text-stone-600 text-xs leading-relaxed"
+            className="text-center text-[#1A2A3A]/60 text-xs leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Instant access. You&apos;ll also receive occasional insights on the inner game of building something that lasts. Unsubscribe anytime.
@@ -136,8 +145,13 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
         </div>
       </div>
 
-      {/* Right Panel - Rich Dark/Content Side */}
-      <div className="w-1/2 relative bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 flex flex-col items-center px-12 py-8 min-h-0">
+      {/* Right Panel - Navy / Content Side */}
+      <div
+        className="w-1/2 relative flex flex-col items-center px-12 py-8 min-h-0"
+        style={{
+          background: "linear-gradient(135deg, #1A2A3A 0%, #0F1A24 50%, #1A2A3A 100%)",
+        }}
+      >
         <div className="max-w-xl w-full flex-1 flex flex-col min-h-0">
           {/* WHAT YOU'LL RECEIVE Section — top half, content at bottom */}
           <div className="flex-1 flex flex-col justify-end min-h-0">
@@ -146,7 +160,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
               style={{
                 fontFamily: "Cormorant Garamond, serif",
                 backgroundImage:
-                  "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
+                  "linear-gradient(to right, #C9A227, #F5E6B3, #C9A227)",
               }}
             >
               WHAT YOU&apos;LL RECEIVE
@@ -174,7 +188,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                       />
                     </defs>
                     <text
-                      fill="rgba(253, 230, 138, 0.75)"
+                      fill="rgba(245, 230, 179, 0.75)"
                       textLength={398}
                       lengthAdjust="spacing"
                       style={{
@@ -189,18 +203,20 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                     </text>
                   </svg>
                   <div
-                    className="relative rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl"
+                    className="relative rounded-full flex items-center justify-center shadow-xl"
                     style={{
                       width: 100,
                       height: 100,
                       minWidth: 100,
                       minHeight: 100,
+                      background: "linear-gradient(135deg, rgba(201,162,39,0.6) 0%, rgba(166,138,31,0.8) 100%)",
+                      border: "2px solid rgba(201,162,39,0.4)",
                       boxShadow:
-                        "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
+                        "0 25px 50px -12px rgba(26,42,58,0.5), 0 0 0 1px rgba(201,162,39,0.1)",
                     }}
                   >
                     <svg
-                      className="w-11 h-11 text-amber-500 ml-1"
+                      className="w-11 h-11 text-[#F5E6B3] ml-1"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -213,16 +229,16 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
 
               <div className="space-y-6 pt-1 flex-1">
                 <div className="flex items-start gap-2.5">
-                  <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
+                  <span className="text-[#C9A227] mt-0.5 flex-shrink-0 text-base">✦</span>
                   <div>
                     <p
-                      className="text-stone-200 text-[1.1875rem] leading-snug font-bold"
+                      className="text-white text-[1.1875rem] leading-snug uppercase"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
-                      5-Minute Audio Practice
+                      5-MINUTE AUDIO PRACTICE
                     </p>
                     <p
-                      className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
+                      className="text-white/80 text-[1.0625rem] leading-relaxed mt-1"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
                       Binaural beats + layered affirmations designed for high-stakes founders.
@@ -230,16 +246,16 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
+                  <span className="text-[#C9A227] mt-0.5 flex-shrink-0 text-base">✦</span>
                   <div>
                     <p
-                      className="text-stone-200 text-[1.1875rem] leading-snug font-bold"
+                      className="text-white text-[1.1875rem] leading-snug uppercase"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
-                      Founder Identity Shift
+                      FOUNDER IDENTITY SHIFT
                     </p>
                     <p
-                      className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
+                      className="text-white/80 text-[1.0625rem] leading-relaxed mt-1"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
                       Rewire your nervous system for the composure and clarity your next chapter demands.
@@ -247,16 +263,16 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">✦</span>
+                  <span className="text-[#C9A227] mt-0.5 flex-shrink-0 text-base">✦</span>
                   <div>
                     <p
-                      className="text-stone-200 text-[1.1875rem] leading-snug font-bold"
+                      className="text-white text-[1.1875rem] leading-snug uppercase"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
-                      Pre-Meeting Reset
+                      PRE-MEETING RESET
                     </p>
                     <p
-                      className="text-stone-300 text-[1.0625rem] leading-relaxed mt-1"
+                      className="text-white/80 text-[1.0625rem] leading-relaxed mt-1"
                       style={{ fontFamily: "Cormorant Garamond, serif" }}
                     >
                       Use before any conversation where your presence matters more than your preparation.
@@ -268,12 +284,15 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
           </div>
 
           {/* Divider — centered between the two sections */}
-          <div className="flex-shrink-0 w-28 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto my-4" />
+          <div className="flex-shrink-0 w-28 h-px bg-gradient-to-r from-transparent via-[#C9A227]/50 to-transparent mx-auto my-4" />
 
           {/* ABOUT MANDY Section — bottom half, more space above so divider sits between sections */}
           <div className="flex-1 flex flex-col justify-start min-h-0 pt-10">
             <div className="flex items-start gap-7">
-              <div className="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-xl relative">
+              <div
+                className="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden border-2 shadow-xl relative"
+                style={{ borderColor: "rgba(201,162,39,0.3)" }}
+              >
                 <Image
                   src="/mandyc.jpg"
                   alt="Mandy Cheung"
@@ -290,20 +309,20 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
                     backgroundImage:
-                      "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
+                      "linear-gradient(to right, #a68a1f, #C9A227, #a68a1f)",
                   }}
                 >
                   ABOUT MANDY
                 </h3>
 
                 <p
-                  className="text-stone-300 text-lg leading-relaxed"
+                  className="text-white/90 text-lg leading-relaxed"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
-                  10+ years in corporate finance. 60+ transactions across Hong Kong, NASDAQ, and global markets — working alongside founders through the highest-stakes moments of their business.
+                  10+ years in corporate finance. 60+ transactions across Hong Kong, U.S. markets, and global markets — working alongside founders through the highest-stakes moments of their business.
                 </p>
                 <p
-                  className="text-stone-300 text-lg leading-relaxed mt-3"
+                  className="text-white/90 text-lg leading-relaxed mt-3"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
                   What I&apos;ve learned: the founders who scale aren&apos;t just strategically sharp — they&apos;ve done the inner work. On{" "}
@@ -311,14 +330,14 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                     href="https://www.youtube.com/@MandyC852"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-amber-300 font-bold underline decoration-amber-400/80 hover:text-amber-200 hover:decoration-amber-300 transition-colors"
+                    className="text-[#F5E6B3] font-bold underline decoration-[#C9A227]/60 hover:text-[#C9A227] hover:decoration-[#C9A227] transition-colors"
                   >
                     MandyC.
                   </a>
                   , I share the identity shifts and leadership transformation most business advice leaves out.
                 </p>
                 <p
-                  className="text-stone-300 text-lg leading-relaxed mt-3"
+                  className="text-white/90 text-lg leading-relaxed mt-3"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
                 >
                   Strategy matters — but who you&apos;re BEING while you execute it matters more.
@@ -327,37 +346,46 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             </div>
           </div>
 
-          {/* Soft CTA bridge (desktop) */}
-          <div className="flex-shrink-0 pt-6 pb-4 px-0">
-            <p className="text-stone-300 text-sm mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-              Already know your business is ready for what&apos;s next?
-            </p>
-            <a
-              href="/"
-              className="text-amber-300 hover:text-amber-200 underline decoration-amber-400/60 underline-offset-2 transition-colors text-sm"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
-            >
-              See how I work with founders →
-            </a>
-          </div>
         </div>
       </div>
       </div>
 
+      {/* CTA Bridge */}
+      <div className="w-full bg-[#0F1A24] border-t border-[#C9A227]/20 py-6">
+        <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <h3
+            className="text-white text-xl md:text-2xl text-center md:text-left"
+            style={{ fontFamily: "Cormorant Garamond, serif" }}
+          >
+            Ready to have the conversation?
+          </h3>
+          <a
+            href="https://tidycal.com/mandyc852/30-minute-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-sm bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#d4b84a] transition-all duration-300 whitespace-nowrap"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            Book a Free Strategy Call
+          </a>
+        </div>
+      </div>
+
       {/* Desktop footer */}
       <footer
-        className="footer-desktop w-full bg-stone-950 border-t border-stone-900 py-4"
+        className="footer-desktop w-full py-4 border-t"
+        style={{ backgroundColor: "#0a0a0a", borderColor: "rgba(201,162,39,0.2)" }}
         aria-label="Site footer"
       >
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p
-            className="text-stone-400 text-xs md:text-sm"
+            className="text-white/70 text-xs md:text-sm"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             © 2026 MandyC. | All Rights Reserved |{" "}
-            <a href="/terms" className="hover:text-amber-300 transition-colors mx-1">Terms &amp; Conditions</a>{" "}
+            <a href="/terms" className="hover:text-[#C9A227] transition-colors mx-1">Terms &amp; Conditions</a>{" "}
             |{" "}
-            <a href="/privacy" className="hover:text-amber-300 transition-colors mx-1">Privacy Policy</a>
+            <a href="/privacy" className="hover:text-[#C9A227] transition-colors mx-1">Privacy Policy</a>
           </p>
         </div>
       </footer>
@@ -367,7 +395,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
 
 function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubmitting, success, error }: FormProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-stone-50/80">
+    <div className="min-h-screen" style={{ backgroundColor: "#FAF7F3" }}>
       <div className="px-6 pt-8 pb-10">
         <div className="max-w-sm mx-auto">
           <div className="mb-6 text-center flex justify-center items-center">
@@ -377,7 +405,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                 width: 280,
                 height: 93,
                 background:
-                  "linear-gradient(to right, #b45309, #d97706, #f59e0b, #d97706, #b45309)",
+                  "linear-gradient(to right, #a68a1f, #C9A227, #F5E6B3, #C9A227, #a68a1f)",
                 WebkitMaskImage: "url(/Logo%202%20black.png)",
                 WebkitMaskSize: "contain",
                 WebkitMaskRepeat: "no-repeat",
@@ -393,7 +421,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           </div>
 
           <p
-            className="text-center text-stone-700 text-base tracking-wide mb-6 font-medium leading-relaxed"
+            className="text-center text-[#1A2A3A] text-base tracking-wide mb-6 font-medium leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             For founders who are building something great.
@@ -401,33 +429,36 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
 
           <h1 className="text-center mb-6">
             <span
-              className="block text-4xl font-light text-stone-900 leading-tight tracking-tight mb-1.5"
+              className="block text-4xl font-light text-[#1A2A3A] leading-tight tracking-tight mb-1.5"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               THE FOUNDER&apos;S
             </span>
             <span
-              className="block text-6xl font-bold text-neutral-900 leading-tight tracking-tight"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
+              className="block text-6xl font-bold leading-tight tracking-tight bg-clip-text text-transparent"
+              style={{
+                fontFamily: "Cormorant Garamond, serif",
+                backgroundImage: "linear-gradient(to right, #8B6914, #B8860B, #D4AF37, #C9A227, #D4AF37, #B8860B, #8B6914)",
+              }}
             >
               IDENTITY RESET
             </span>
           </h1>
 
           <p
-            className="text-center text-stone-700 mb-4 leading-relaxed text-base"
+            className="text-center text-[#1A2A3A] mb-4 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             The version of you that built this isn&apos;t the same one who takes it to the next level.
           </p>
           <p
-            className="text-center text-stone-700 mb-4 leading-relaxed text-base"
+            className="text-center text-[#1A2A3A] mb-4 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Scaling demands a different kind of leader — one who holds clarity, composure, and conviction when the stakes keep rising.
           </p>
           <p
-            className="text-center text-stone-700 mb-8 leading-relaxed text-base"
+            className="text-center text-[#1A2A3A] mb-8 leading-relaxed text-base"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             This 5-minute daily audio closes the gap.
@@ -439,7 +470,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               placeholder="First Name (optional)"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 text-base"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-[#1A2A3A] placeholder-stone-500 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227]/50 text-base"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             <input
@@ -448,7 +479,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-5 py-4 border border-stone-300 bg-white text-stone-800 placeholder-stone-500 focus:outline-none focus:border-amber-600/50 text-base"
+              className="w-full px-5 py-4 border border-stone-300 bg-white text-[#1A2A3A] placeholder-stone-500 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227]/50 text-base"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             />
             {error && (
@@ -457,21 +488,21 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               </p>
             )}
             {success && (
-              <p className="text-center text-amber-700 font-medium text-sm px-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+              <p className="text-center text-[#1A2A3A] font-medium text-sm px-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>
                 You&apos;re in. Check your email for the audio — and your first insight on the inner game of building at the next level.
               </p>
             )}
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white font-medium tracking-[0.15em] text-base hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/50 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#C9A227] text-white font-medium tracking-[0.15em] text-base hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
             >
               {isSubmitting ? "Sending…" : "GET THE FREE AUDIO"}
             </button>
           </form>
 
           <p
-            className="text-center text-stone-600 text-sm leading-relaxed"
+            className="text-center text-[#1A2A3A]/60 text-sm leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Instant access. You&apos;ll also receive occasional insights on the inner game of building something that lasts. Unsubscribe anytime.
@@ -479,14 +510,19 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
         </div>
       </div>
 
-      <div className="bg-gradient-to-b from-stone-800 via-stone-900 to-stone-950 px-6 py-12">
+      <div
+        className="px-6 py-12"
+        style={{
+          background: "linear-gradient(135deg, #1A2A3A 0%, #0F1A24 100%)",
+        }}
+      >
         <div className="max-w-sm mx-auto">
           <h2
             className="text-3xl font-medium tracking-[0.15em] mb-8 text-center bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
-                "linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b)",
+                "linear-gradient(to right, #C9A227, #F5E6B3, #C9A227)",
             }}
           >
             WHAT YOU&apos;LL RECEIVE
@@ -516,18 +552,20 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
                 />
 
                 <div
-                  className="relative rounded-full bg-gradient-to-br from-amber-900/60 to-amber-800 border-2 border-amber-500/40 flex items-center justify-center shadow-xl z-10"
+                  className="relative rounded-full flex items-center justify-center shadow-xl z-10"
                   style={{
                     width: 110,
                     height: 110,
                     minWidth: 110,
                     minHeight: 110,
+                    background: "linear-gradient(135deg, rgba(201,162,39,0.6) 0%, rgba(166,138,31,0.8) 100%)",
+                    border: "2px solid rgba(201,162,39,0.4)",
                     boxShadow:
-                      "0 25px 50px -12px rgba(120, 53, 15, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.1)",
+                      "0 25px 50px -12px rgba(26,42,58,0.5), 0 0 0 1px rgba(201,162,39,0.1)",
                   }}
                 >
                   <svg
-                    className="w-12 h-12 text-amber-500 ml-1"
+                    className="w-12 h-12 text-[#F5E6B3] ml-1"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -541,34 +579,34 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           {/* What you'll receive — bullet points on mobile */}
           <div className="space-y-6 w-full">
             <div className="flex items-start gap-3">
-              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-lg">✦</span>
+              <span className="text-[#C9A227] mt-0.5 flex-shrink-0 text-lg">✦</span>
               <div>
-                <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  5-Minute Audio Practice
+                <p className="text-white text-xl leading-relaxed uppercase mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                  5-MINUTE AUDIO PRACTICE
                 </p>
-                <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                <p className="text-white/80 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
                   Binaural beats + layered affirmations designed for high-stakes founders.
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-lg">✦</span>
+              <span className="text-[#C9A227] mt-0.5 flex-shrink-0 text-lg">✦</span>
               <div>
-                <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Founder Identity Shift
+                <p className="text-white text-xl leading-relaxed uppercase mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                  FOUNDER IDENTITY SHIFT
                 </p>
-                <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                <p className="text-white/80 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
                   Rewire your nervous system for the composure and clarity your next chapter demands.
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-amber-500 mt-0.5 flex-shrink-0 text-lg">✦</span>
+              <span className="text-[#C9A227] mt-0.5 flex-shrink-0 text-lg">✦</span>
               <div>
-                <p className="text-stone-200 text-xl leading-relaxed font-bold mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                  Pre-Meeting Reset
+                <p className="text-white text-xl leading-relaxed uppercase mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                  PRE-MEETING RESET
                 </p>
-                <p className="text-stone-300 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+                <p className="text-white/80 text-[1.0625rem] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
                   Use before any conversation where your presence matters more than your preparation.
                 </p>
               </div>
@@ -577,20 +615,23 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
         </div>
       </div>
 
-      <div className="px-6 py-12 bg-gradient-to-b from-stone-100 to-stone-50 relative">
+      <div className="px-6 py-12 relative" style={{ backgroundColor: "#FAF7F3" }}>
         <div className="max-w-sm mx-auto text-center">
           <h3
             className="text-2xl tracking-[0.1em] mb-4 bg-clip-text text-transparent"
             style={{
               fontFamily: "Cormorant Garamond, serif",
               backgroundImage:
-                "linear-gradient(to right, #d97706, #f59e0b, #d97706)",
+                "linear-gradient(to right, #a68a1f, #C9A227, #a68a1f)",
             }}
           >
             ABOUT MANDY
           </h3>
 
-          <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 border-amber-500/30 shadow-lg mb-4 relative">
+          <div
+            className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 shadow-lg mb-4 relative"
+            style={{ borderColor: "rgba(201,162,39,0.3)" }}
+          >
             <Image
               src="/mandyc.jpg"
               alt="Mandy Cheung"
@@ -602,13 +643,13 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           </div>
 
           <p
-            className="text-stone-600 text-[1.0625rem] leading-relaxed"
+            className="text-[#1A2A3A]/90 text-[1.0625rem] leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            10+ years in corporate finance. 60+ transactions across Hong Kong, NASDAQ, and global markets — working alongside founders through the highest-stakes moments of their business.
+            10+ years in corporate finance. 60+ transactions across Hong Kong, U.S. markets, and global markets — working alongside founders through the highest-stakes moments of their business.
           </p>
           <p
-            className="text-stone-600 text-[1.0625rem] leading-relaxed mt-4"
+            className="text-[#1A2A3A]/90 text-[1.0625rem] leading-relaxed mt-4"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             What I&apos;ve learned: the founders who scale aren&apos;t just strategically sharp — they&apos;ve done the inner work. On{" "}
@@ -616,14 +657,14 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               href="https://www.youtube.com/@MandyC852"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-500 font-bold underline decoration-amber-500/80 hover:text-amber-600 hover:decoration-amber-600 transition-colors"
+              className="text-[#C9A227] font-bold underline decoration-[#C9A227]/60 hover:text-[#a68a1f] transition-colors"
             >
               MandyC.
             </a>
             , I share the identity shifts and leadership transformation most business advice leaves out.
           </p>
           <p
-            className="text-stone-600 text-[1.0625rem] leading-relaxed mt-4"
+            className="text-[#1A2A3A]/90 text-[1.0625rem] leading-relaxed mt-4"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Strategy matters — but who you&apos;re BEING while you execute it matters more.
@@ -631,47 +672,53 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
         </div>
       </div>
 
-      {/* Soft CTA bridge (mobile) */}
-      <div className="bg-stone-900 px-6 py-6">
-        <div className="max-w-sm mx-auto">
-          <p className="text-stone-300 text-sm mb-1.5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            Already know your business is ready for what&apos;s next?
-          </p>
-          <a
-            href="/"
-            className="text-amber-300 hover:text-amber-200 underline decoration-amber-400/60 underline-offset-2 transition-colors text-sm"
+      {/* CTA Bridge (mobile) */}
+      <div className="w-full bg-[#0F1A24] py-8 px-6">
+        <div className="max-w-sm mx-auto text-center">
+          <h3
+            className="text-white text-xl mb-4"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            See how I work with founders →
+            Ready to have the conversation?
+          </h3>
+          <a
+            href="https://tidycal.com/mandyc852/30-minute-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#d4b84a] transition-all duration-300"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            Book a Free Strategy Call
           </a>
         </div>
       </div>
 
       <footer
-        className="w-full bg-stone-950 border-t border-stone-900 py-5"
+        className="w-full py-5 border-t"
+        style={{ backgroundColor: "#0a0a0a", borderColor: "rgba(201,162,39,0.2)" }}
         aria-label="Site footer"
       >
         <div className="max-w-sm mx-auto px-6 text-center">
           <p
-            className="text-stone-400 text-sm leading-relaxed mb-2"
+            className="text-white/70 text-sm leading-relaxed mb-2"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             © 2026 MandyC. | All Rights Reserved
           </p>
           <div
-            className="text-stone-400 text-sm"
+            className="text-white/70 text-sm"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             <a
               href="/terms"
-              className="hover:text-amber-300 transition-colors"
+              className="hover:text-[#C9A227] transition-colors"
             >
               Terms &amp; Conditions
             </a>
-            <span className="mx-2 text-stone-500">|</span>
+            <span className="mx-2 text-white/50">|</span>
             <a
               href="/privacy"
-              className="hover:text-amber-300 transition-colors"
+              className="hover:text-[#C9A227] transition-colors"
             >
               Privacy Policy
             </a>
@@ -711,6 +758,11 @@ export default function LeapPage() {
       setSuccess(true)
       setFirstName("")
       setEmail("")
+      // Redirect to thank-you page after brief delay
+      const redirectUrl = data.redirect || "/leap/thank-you"
+      setTimeout(() => {
+        window.location.href = redirectUrl
+      }, 1500)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
     } finally {

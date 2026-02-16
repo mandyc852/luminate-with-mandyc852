@@ -37,3 +37,24 @@ body {
 .animate-rotate-slow {
   animation: rotate-slow 25s linear infinite;
 }
+
+/* Gold button with animated shimmer - used site-wide */
+.btn-gold-animated {
+  position: relative;
+  background: linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%);
+  background-size: 200% 200%;
+  color: #1a2a3a;
+  box-shadow: 0 4px 14px rgba(26, 42, 58, 0.25), 0 2px 8px rgba(201, 162, 39, 0.2);
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.btn-gold-animated:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 42, 58, 0.35), 0 4px 15px rgba(201, 162, 39, 0.3);
+  animation: shimmerGold 1.5s ease infinite;
+}
+@keyframes shimmerGold {
+  0% { background-position: 200% 0%; }
+  100% { background-position: -200% 0%; }
+}
