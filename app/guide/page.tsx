@@ -49,7 +49,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                 style={{
                   width: 320,
                   height: 106,
-                  background: "linear-gradient(to right, #a68a1f, #C9A227, #F5E6B3, #C9A227, #a68a1f)",
+                  background: "linear-gradient(to right, #c9a227, #d4b84a, #1a2a3a)",
                   WebkitMaskImage: "url(/Logo%202%20black.png)",
                   WebkitMaskSize: "contain",
                   WebkitMaskRepeat: "no-repeat",
@@ -302,7 +302,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               style={{
                 width: 280,
                 height: 93,
-                background: "linear-gradient(to right, #a68a1f, #C9A227, #F5E6B3, #C9A227, #a68a1f)",
+                background: "linear-gradient(to right, #c9a227, #d4b84a, #1a2a3a)",
                 WebkitMaskImage: "url(/Logo%202%20black.png)",
                 WebkitMaskSize: "contain",
                 WebkitMaskRepeat: "no-repeat",
