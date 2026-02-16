@@ -191,13 +191,13 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             </div>
 
             {/* Divider */}
-            <div className="w-28 h-px bg-gradient-to-r from-transparent via-[#C9A227]/50 to-transparent mx-auto mb-8" />
+            <div className="w-28 h-px bg-gradient-to-r from-transparent via-[#C9A227] to-transparent mx-auto mb-8" />
 
             {/* ABOUT MANDY Section */}
             <div className="flex items-start gap-7 mb-8">
               <div
                 className="flex-shrink-0 w-32 h-32 rounded-full overflow-hidden border-2 shadow-xl relative"
-                style={{ borderColor: "rgba(201,162,39,0.3)" }}
+                style={{ borderColor: "rgba(201,162,39,0.5)" }}
               >
                 <Image
                   src="/mandyc.jpg"
@@ -211,23 +211,23 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
 
               <div className="flex-1 min-w-0 pt-1">
                 <h3
-                  className="text-lg tracking-[0.1em] mb-4 bg-clip-text text-transparent"
+                  className="text-xl font-semibold tracking-[0.1em] mb-4 bg-clip-text text-transparent"
                   style={{
                     fontFamily: "var(--font-cormorant-garamond), serif",
-                    backgroundImage: "linear-gradient(to right, #a68a1f, #C9A227, #a68a1f)",
+                    backgroundImage: "linear-gradient(to right, #C9A227, #F5E6B3, #C9A227)",
                   }}
                 >
                   ABOUT MANDY
                 </h3>
 
                 <p
-                  className="text-white/90 text-lg leading-relaxed"
+                  className="text-white text-lg leading-relaxed"
                   style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
                 >
                   10+ years in corporate finance. 60+ transactions across Hong Kong, U.S. markets, and global markets — working with founders through IPO, capital raises, and the defining moments of their business.
                 </p>
                 <p
-                  className="text-white/90 text-lg leading-relaxed mt-3"
+                  className="text-white text-lg leading-relaxed mt-3"
                   style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
                 >
                   On{" "}
@@ -235,7 +235,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                     href="https://www.youtube.com/@MandyC852"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#F5E6B3] font-medium underline decoration-[#C9A227]/60 hover:text-[#C9A227] hover:decoration-[#C9A227] transition-colors"
+                    className="text-[#F5E6B3] font-bold underline decoration-[#C9A227] hover:text-[#C9A227] hover:decoration-[#F5E6B3] transition-colors"
                   >
                     MandyC.
                   </a>
@@ -448,10 +448,10 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
       <div className="px-6 py-12" style={{ backgroundColor: "#FAF7F3" }}>
         <div className="max-w-sm mx-auto text-center">
           <h3
-            className="text-2xl tracking-[0.1em] mb-4 bg-clip-text text-transparent"
+            className="text-2xl font-semibold tracking-[0.1em] mb-4 bg-clip-text text-transparent"
             style={{
               fontFamily: "var(--font-cormorant-garamond), serif",
-              backgroundImage: "linear-gradient(to right, #a68a1f, #C9A227, #a68a1f)",
+              backgroundImage: "linear-gradient(to right, #8B6914, #C9A227, #8B6914)",
             }}
           >
             ABOUT MANDY
@@ -459,7 +459,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
 
           <div
             className="w-40 h-40 mx-auto rounded-full overflow-hidden border-2 shadow-lg mb-4 relative"
-            style={{ borderColor: "rgba(201,162,39,0.3)" }}
+            style={{ borderColor: "rgba(201,162,39,0.5)" }}
           >
             <Image
               src="/mandyc.jpg"
@@ -472,13 +472,13 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
           </div>
 
           <p
-            className="text-[#1A2A3A]/90 text-[1.0625rem] leading-relaxed"
+            className="text-[#1A2A3A] text-[1.0625rem] leading-relaxed"
             style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
           >
             10+ years in corporate finance. 60+ transactions across Hong Kong, U.S. markets, and global markets — working with founders through IPO, capital raises, and the defining moments of their business.
           </p>
           <p
-            className="text-[#1A2A3A]/90 text-[1.0625rem] leading-relaxed mt-4"
+            className="text-[#1A2A3A] text-[1.0625rem] leading-relaxed mt-4"
             style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
           >
             On{" "}
@@ -486,7 +486,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               href="https://www.youtube.com/@MandyC852"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#C9A227] font-medium underline decoration-[#C9A227]/60 hover:text-[#a68a1f] transition-colors"
+              className="text-[#C9A227] font-bold underline decoration-[#C9A227] hover:text-[#a68a1f] transition-colors"
             >
               MandyC.
             </a>
