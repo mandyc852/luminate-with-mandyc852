@@ -29,48 +29,6 @@ export default function IPOServicePage() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observerOptions = {
-      threshold: [0, 0.15, 0.3],
-      rootMargin: "0px 0px -60px 0px",
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-in")
-        }
-      })
-    }, observerOptions)
-
-    const observeElements = () => {
-      const selectors = [".fade-in", ".slide-up", ".slide-in-left", ".slide-in-right", ".stagger-parent"]
-      selectors.forEach((selector) => {
-        const elements = document.querySelectorAll(selector)
-        elements.forEach((el) => {
-          const rect = el.getBoundingClientRect()
-          const isInViewport = rect.top < window.innerHeight + 200 && rect.bottom > -200
-          if (isInViewport && !el.classList.contains("animate-in")) {
-            el.classList.add("animate-in")
-          } else if (!el.classList.contains("animate-in")) {
-            observer.observe(el)
-          }
-        })
-      })
-    }
-
-    observeElements()
-    const raf = requestAnimationFrame(() => {
-      observeElements()
-    })
-
-    return () => {
-      cancelAnimationFrame(raf)
-      observer.disconnect()
-    }
-  }, [])
-
   return (
     <div className={`${cormorantGaramond.variable} ${poppins.variable} min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/80`}>
       <style jsx global>{`
@@ -147,196 +105,6 @@ export default function IPOServicePage() {
         @keyframes shimmerGold {
           0% { background-position: 200% 0%; }
           100% { background-position: -200% 0%; }
-        }
-
-        /* Navy button with gradient + animated shimmer */
-        .btn-navy-animated {
-          position: relative;
-          background: linear-gradient(135deg, #1a2a3a 0%, #2d4156 25%, #3d5a73 50%, #2d4156 75%, #1a2a3a 100%);
-          background-size: 200% 200%;
-          color: #ffffff;
-          font-weight: 500;
-          box-shadow: 
-            0 4px 14px rgba(26, 42, 58, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          overflow: hidden;
-        }
-        .btn-navy-animated:hover {
-          transform: translateY(-2px);
-          box-shadow: 
-            0 8px 25px rgba(26, 42, 58, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15);
-          animation: shimmerNavy 1.5s ease infinite;
-        }
-
-        @keyframes shimmerNavy {
-          0% { background-position: 200% 0%; }
-          100% { background-position: -200% 0%; }
-        }
-
-        /* Animation Keyframes */
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(60px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-60px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(60px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        /* Animation Classes */
-        .fade-in,
-        .slide-up,
-        .slide-in-left,
-        .slide-in-right {
-          opacity: 0;
-          visibility: hidden;
-          will-change: transform, opacity;
-        }
-
-        .fade-in.animate-in {
-          animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          visibility: visible !important;
-        }
-
-        .slide-up.animate-in {
-          animation: slideUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          visibility: visible !important;
-        }
-
-        .slide-in-left.animate-in {
-          animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          visibility: visible !important;
-        }
-
-        .slide-in-right.animate-in {
-          animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          visibility: visible !important;
-        }
-
-        /* Stagger animations for children */
-        .stagger-parent.animate-in .stagger-item:nth-child(1) {
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 0.1s;
-        }
-        .stagger-parent.animate-in .stagger-item:nth-child(2) {
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 0.25s;
-        }
-        .stagger-parent.animate-in .stagger-item:nth-child(3) {
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 0.4s;
-        }
-        .stagger-parent.animate-in .stagger-item:nth-child(4) {
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 0.55s;
-        }
-        .stagger-parent.animate-in .stagger-item:nth-child(5) {
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 0.7s;
-        }
-        .stagger-parent.animate-in .stagger-item:nth-child(6) {
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 0.85s;
-        }
-
-        .stagger-item {
-          opacity: 0;
-          visibility: hidden;
-          will-change: transform, opacity;
-        }
-
-        .stagger-parent.animate-in .stagger-item {
-          visibility: visible !important;
-          opacity: 1 !important;
-        }
-
-        /* Card with GOLD theme on hover */
-        .card-hover-gold {
-          position: relative;
-          background: #ffffff;
-          border: 2px solid #e2e8f0;
-          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                      background 0.35s ease,
-                      border-color 0.35s ease;
-          cursor: pointer;
-        }
-
-        .card-hover-gold:hover {
-          transform: translateY(-14px) scale(1.02);
-          background: linear-gradient(135deg, #fdfcf7 0%, #f8f4e8 100%);
-          border-color: #c9a227;
-          box-shadow:
-            0 24px 48px rgba(201, 162, 39, 0.2),
-            0 12px 24px rgba(26, 42, 58, 0.1);
-        }
-
-        /* Card with NAVY theme on hover */
-        .card-hover-navy {
-          position: relative;
-          background: #ffffff;
-          border: 2px solid #e2e8f0;
-          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                      background 0.35s ease,
-                      border-color 0.35s ease;
-          cursor: pointer;
-        }
-
-        .card-hover-navy:hover {
-          transform: translateY(-14px) scale(1.02);
-          background: linear-gradient(135deg, #f5f7f9 0%, #eef2f5 100%);
-          border-color: #1a2a3a;
-          box-shadow:
-            0 24px 48px rgba(26, 42, 58, 0.2),
-            0 12px 24px rgba(26, 42, 58, 0.12);
-        }
-
-        /* Circular photo — About section gold ring */
-        .circular-photo-premium {
-          position: relative;
-          box-shadow:
-            0 20px 60px rgba(26, 42, 58, 0.2),
-            0 8px 20px rgba(26, 42, 58, 0.15),
-            0 0 0 6px #ffffff,
-            0 0 0 8px rgba(201, 162, 39, 0.4);
         }
 
         /* Floating CTA */
@@ -433,11 +201,11 @@ export default function IPOServicePage() {
       {/* THE PROBLEM */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="slide-up text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
             Most founders who dismiss going public are making that decision based on assumptions that aren&apos;t accurate
           </h2>
 
-          <div className="slide-up space-y-5 text-slate-600 text-[15px] leading-[1.8] font-light">
+          <div className="space-y-5 text-slate-600 text-[15px] leading-[1.8] font-light">
             <p>
               They assume their company is too small. They assume it costs more than it does. They assume the whole company has to be listed. Most of the time, they&apos;re wrong on all three counts.
             </p>
@@ -469,8 +237,8 @@ export default function IPOServicePage() {
             Milestone-based fees aligned with your success.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 stagger-parent">
-            <div className="stagger-item p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -482,7 +250,7 @@ export default function IPOServicePage() {
               </p>
             </div>
 
-            <div className="stagger-item p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
+            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -494,7 +262,7 @@ export default function IPOServicePage() {
               </p>
             </div>
 
-            <div className="stagger-item p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
+            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -506,7 +274,7 @@ export default function IPOServicePage() {
               </p>
             </div>
 
-            <div className="stagger-item p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
+            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
@@ -518,7 +286,7 @@ export default function IPOServicePage() {
               </p>
             </div>
 
-            <div className="stagger-item p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
+            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -530,7 +298,7 @@ export default function IPOServicePage() {
               </p>
             </div>
 
-            <div className="stagger-item p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
+            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
               <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
@@ -561,20 +329,20 @@ export default function IPOServicePage() {
           <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
             Who this is for
           </h2>
-          <div className="space-y-5 stagger-parent">
-            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
+          <div className="space-y-5">
+            <p className="text-base leading-[1.8] text-slate-600 font-light relative pl-8">
               <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
               <strong className="text-[#1a2a3a] font-medium">Founder-operators with profitable businesses ($2M+ net profit)</strong> — You built this yourself. No silver spoon, no corporate backing. Capital markets might feel far from where you started, but the ambition is there — and the numbers might be closer to qualifying than you think.
             </p>
-            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
+            <p className="text-base leading-[1.8] text-slate-600 font-light relative pl-8">
               <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
               <strong className="text-[#1a2a3a] font-medium">Self-made founders exploring whether listing is right</strong> — You haven&apos;t decided yet. You&apos;re exploring. You want an honest conversation about what&apos;s possible, not a sales pitch from someone who needs your mandate fee.
             </p>
-            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
+            <p className="text-base leading-[1.8] text-slate-600 font-light relative pl-8">
               <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
               <strong className="text-[#1a2a3a] font-medium">Companies considering NASDAQ or HKEX listing in the next 12–36 months</strong> — You&apos;re thinking ahead, not scrambling. The founders who engage an advisor early — before they think they&apos;re ready — almost always have a smoother, faster, and less expensive process.
             </p>
-            <p className="stagger-item text-base leading-[1.8] text-slate-600 font-light relative pl-8">
+            <p className="text-base leading-[1.8] text-slate-600 font-light relative pl-8">
               <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
               <strong className="text-[#1a2a3a] font-medium">Businesses that may qualify through a carve-out or roll-up</strong> — Your parent company might seem too small for an IPO. But a single profitable business unit generating $750K+ in net income could qualify on its own. That&apos;s the conversation most founders have never had.
             </p>
@@ -585,7 +353,7 @@ export default function IPOServicePage() {
       {/* HOW IT WORKS */}
       <section id="how-it-works" className="scroll-anchor py-20 md:py-28 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto">
-          <div className="fade-in">
+          <div className="">
             <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
               How it works
             </h2>
@@ -594,8 +362,8 @@ export default function IPOServicePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 stagger-parent">
-            <div className="stagger-item bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
               <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 01</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                 Strategy call
@@ -608,7 +376,7 @@ export default function IPOServicePage() {
               </p>
             </div>
 
-            <div className="stagger-item bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
+            <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
               <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 02</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                 Assessment call
@@ -621,7 +389,7 @@ export default function IPOServicePage() {
               </p>
             </div>
 
-            <div className="stagger-item bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
+            <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
               <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 03</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                 Advisory mandate
