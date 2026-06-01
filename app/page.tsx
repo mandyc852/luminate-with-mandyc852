@@ -180,7 +180,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
               <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free download</p>
-              <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15]">
+              <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15]" style={{ textWrap: "balance" }}>
                 The 3 assumptions that keep builders smaller than they should be
               </h2>
               <p className="text-slate-600 font-light leading-relaxed mb-4">
