@@ -181,9 +181,7 @@ export default function HomePage() {
             <div>
               <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free download</p>
               <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15]">
-                The 3 assumptions that keep builders
-                <br />
-                smaller than they should be
+                The 3 assumptions that keep builders smaller than they should be
               </h2>
               <p className="text-slate-600 font-light leading-relaxed mb-4">
                 A short, sharp read on the beliefs that quietly cap capable operators — about size, cost, and what&apos;s actually within reach — and what shifts the moment you stop accepting them.
