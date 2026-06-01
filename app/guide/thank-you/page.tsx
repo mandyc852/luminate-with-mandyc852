@@ -46,7 +46,7 @@ export default function GuideThankYou() {
           <a
             href="/downloads/Should-you-go-public-guide.pdf"
             download
-            className="inline-flex items-center justify-center w-full max-w-sm px-8 py-4 rounded-sm bg-[#C9A227] text-[#0F1A24] font-medium tracking-[0.12em] uppercase text-base hover:bg-[#d4b84a] transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center justify-center w-full max-w-sm px-8 py-4 rounded-none bg-[#C9A227] text-[#0F1A24] font-medium tracking-[0.12em] uppercase text-base hover:bg-[#d4b84a] transition-all duration-300 shadow-lg hover:shadow-xl"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Download the Guide (PDF)
@@ -73,7 +73,7 @@ export default function GuideThankYou() {
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-sm bg-[#0F1A24] text-white text-base tracking-[0.1em] uppercase px-10 py-4 hover:bg-[#1A2A3A] transition-all duration-300 shadow-lg"
+            className="inline-flex items-center justify-center rounded-none bg-[#0F1A24] text-white text-base tracking-[0.1em] uppercase px-10 py-4 hover:bg-[#1A2A3A] transition-all duration-300 shadow-lg"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Book a Free Strategy Call

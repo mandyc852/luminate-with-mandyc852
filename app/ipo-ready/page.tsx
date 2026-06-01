@@ -19,13 +19,13 @@ export default function IPOReadyPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="mailto:hello@mandyc.me?subject=IPO%20Readiness%20Inquiry"
-            className="inline-flex items-center justify-center px-6 py-3.5 bg-gradient-to-br from-amber-600 to-amber-500 text-white text-sm font-medium tracking-wide rounded-sm hover:-translate-y-0.5 transition-all duration-300 uppercase"
+            className="inline-flex items-center justify-center px-6 py-3.5 bg-gradient-to-br from-amber-600 to-amber-500 text-white text-sm font-medium tracking-wide rounded-none hover:-translate-y-0.5 transition-all duration-300 uppercase"
           >
             Inquire About Advisory
           </a>
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-6 py-3.5 border-2 border-stone-300 text-stone-700 text-sm font-medium tracking-wide rounded-sm hover:bg-stone-50 transition-all duration-300 uppercase"
+            className="inline-flex items-center justify-center px-6 py-3.5 border-2 border-stone-300 text-stone-700 text-sm font-medium tracking-wide rounded-none hover:bg-stone-50 transition-all duration-300 uppercase"
           >
             Back to Home
           </Link>

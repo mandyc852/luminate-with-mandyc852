@@ -58,3 +58,24 @@ body {
   0% { background-position: 200% 0%; }
   100% { background-position: -200% 0%; }
 }
+
+/* Gold-on-navy CTA title gradient - used site-wide */
+.cta-title-gradient {
+  background: linear-gradient(135deg, #d4b84a 0%, #c9a227 50%, #f5e6b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Solid gold button - used site-wide (header, homepage, fund) */
+.btn-gold-home {
+  background: linear-gradient(135deg, #a68a1f 0%, #c9a227 50%, #d4b84a 100%);
+  color: #1a2a3a;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(26, 42, 58, 0.25), 0 2px 8px rgba(201, 162, 39, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-gold-home:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 42, 58, 0.35), 0 4px 15px rgba(201, 162, 39, 0.3);
+}

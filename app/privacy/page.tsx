@@ -3,7 +3,7 @@ import Link from "next/link"
 export const metadata = {
   title: "Privacy Policy | MandyC.",
   description:
-    "Privacy Policy for MandyC. How we collect, use, and protect your information when you sign up for our free audio practice.",
+    "Privacy Policy for MandyC. How we collect, use, and protect your information when you sign up for a free resource or book a call.",
 }
 
 export default function PrivacyPage() {
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           {/* Logo + Back button row */}
           <div className="flex items-center justify-between mb-6 flex-shrink-0">
             <Link
-              href="/leap"
+              href="/"
               className="inline-flex items-center gap-2 text-amber-700 hover:text-amber-600 text-sm lg:text-base font-medium transition-colors"
             >
               <svg
@@ -75,15 +75,15 @@ export default function PrivacyPage() {
                   MandyC. (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;)
                   respects your privacy and is committed to protecting your personal
                   information. This Privacy Policy explains how we collect, use,
-                  disclose, and safeguard your information when you visit our website
-                  and sign up for our free audio practice.
+                  disclose, and safeguard your information when you visit our website,
+                  sign up for a free resource, or book a call.
                 </p>
               </section>
 
               <section>
                 <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">Information We Collect</h2>
                 <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-1.5">
-                  When you sign up for our 5-Minute Quantum Identity Reset audio, we collect:
+                  When you sign up for a free resource or book a call, we collect:
                 </p>
                 <ul className="list-disc list-outside space-y-0.5 text-stone-600 text-xs lg:text-sm leading-relaxed mb-3 pl-5">
                   <li><strong className="text-stone-800">Personal Information:</strong> Your first name and email address</li>
@@ -96,9 +96,9 @@ export default function PrivacyPage() {
                 <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">How We Use Your Information</h2>
                 <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-1.5">We use the information we collect to:</p>
                 <ul className="list-disc list-outside space-y-0.5 text-stone-600 text-xs lg:text-sm leading-relaxed mb-3 pl-5">
-                  <li>Deliver your free audio practice immediately upon signup</li>
-                  <li>Send you the 5-Minute Quantum Identity Reset audio file</li>
-                  <li>Provide occasional insights on quantum identity work</li>
+                  <li>Deliver the free resource you requested</li>
+                  <li>Confirm and follow up on calls you book with us</li>
+                  <li>Provide occasional insights on capital markets and building at scale</li>
                   <li>Communicate updates and new offerings</li>
                   <li>Improve our services and user experience</li>
                 </ul>
@@ -108,8 +108,8 @@ export default function PrivacyPage() {
                 <h2 className="font-medium text-stone-900 text-base lg:text-lg mb-1.5">Email Communications</h2>
                 <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-1.5">When you sign up, you&apos;ll receive:</p>
                 <ul className="list-disc list-outside space-y-0.5 text-stone-600 text-xs lg:text-sm leading-relaxed mb-1.5 pl-5">
-                  <li><strong className="text-stone-800">Immediate delivery:</strong> Your free audio practice</li>
-                  <li><strong className="text-stone-800">Occasional emails:</strong> Insights on identity work</li>
+                  <li><strong className="text-stone-800">Immediate delivery:</strong> The free resource you requested</li>
+                  <li><strong className="text-stone-800">Occasional emails:</strong> Insights on capital markets and building at scale</li>
                   <li><strong className="text-stone-800">No spam:</strong> We respect your inbox</li>
                 </ul>
                 <p className="text-stone-600 text-xs lg:text-sm leading-relaxed mb-3">

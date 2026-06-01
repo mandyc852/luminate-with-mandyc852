@@ -133,7 +133,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-sm bg-[#C9A227] text-white font-medium text-base hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
+                className="w-full py-4 rounded-none bg-[#C9A227] text-white font-medium text-base hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
                 style={{ fontFamily: "var(--font-poppins), sans-serif", letterSpacing: "0.15em" }}
               >
                 {isSubmitting ? "Sending…" : "GET THE FREE GUIDE"}
@@ -261,7 +261,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-sm bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#d4b84a] transition-all duration-300 whitespace-nowrap"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-none bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#d4b84a] transition-all duration-300 whitespace-nowrap"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Book a Free Strategy Call
@@ -386,7 +386,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 rounded-sm bg-[#C9A227] text-white font-medium text-base hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
+              className="w-full py-4 rounded-none bg-[#C9A227] text-white font-medium text-base hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
               style={{ fontFamily: "var(--font-poppins), sans-serif", letterSpacing: "0.15em" }}
             >
               {isSubmitting ? "Sending…" : "GET THE FREE GUIDE"}
@@ -508,7 +508,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full px-6 py-3 rounded-sm bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#d4b84a] transition-all duration-300"
+            className="inline-flex items-center justify-center w-full px-6 py-3 rounded-none bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#d4b84a] transition-all duration-300"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Book a Free Strategy Call
