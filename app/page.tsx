@@ -272,7 +272,7 @@ export default function HomePage() {
           </p>
           <BookCallButton
             label="Book a call"
-            className="flex md:inline-flex w-full md:min-w-[280px] items-center justify-center px-12 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+            className="flex md:inline-flex w-full md:w-auto md:min-w-[320px] items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
           />
           <p className="text-slate-400 text-xs mt-5 font-light tracking-wide">
             SFC Type 6 Licensed · For Builders &amp; Operators · Cross-Border Expertise
