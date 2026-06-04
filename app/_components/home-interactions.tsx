@@ -87,7 +87,7 @@ export function LeadMagnetForm() {
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-0.5 accent-[#c9a227] w-4 h-4 flex-shrink-0"
         />
-        <span>Send me occasional insights from Mandy on capital markets and building at scale. Unsubscribe anytime.</span>
+        <span>Send me occasional insights from Mandy on capital markets and capital readiness. Unsubscribe anytime.</span>
       </label>
       {error && <p className="text-red-600 text-sm text-center">{error}</p>}
       <button
@@ -95,7 +95,7 @@ export function LeadMagnetForm() {
         disabled={isSubmitting}
         className="w-full py-3.5 rounded-none uppercase tracking-wide text-sm btn-gold-home disabled:opacity-70 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? "Sending…" : "Send me the download"}
+        {isSubmitting ? "Sending…" : "Send me the diagnostic"}
       </button>
     </form>
   )

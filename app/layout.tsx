@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "MandyC. | Capital Markets & IPO Advisory for Founders",
   description:
-    "I help ambitious founders prepare their business — and themselves — for the milestones that matter most. Strategic advisory on capital markets, IPO readiness, and leadership.",
+    "I help ambitious companies prepare their business for the milestones that matter most. Strategic advisory on capital markets, IPO readiness, and leadership.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

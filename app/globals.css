@@ -67,6 +67,14 @@ body {
   background-clip: text;
 }
 
+/* Gold/white gradient text for hero headlines - used site-wide */
+.gradient-text-hero {
+  background: linear-gradient(135deg, #FFFFFF 0%, #f5e6b3 40%, #c9a227 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Solid gold button - used site-wide (header, homepage, fund) */
 .btn-gold-home {
   background: linear-gradient(135deg, #a68a1f 0%, #c9a227 50%, #d4b84a 100%);

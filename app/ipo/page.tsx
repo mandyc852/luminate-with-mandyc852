@@ -358,7 +358,7 @@ export default function IPOServicePage() {
               How it works
             </h2>
             <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
-              Two conversations. Then a decision. No elaborate funnel. No paid diagnostic step.
+              Two conversations. Then a decision. No elaborate funnel.
             </p>
           </div>
 

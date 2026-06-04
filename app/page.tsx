@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
-import { LeadMagnetForm, BookCallButton } from "./_components/home-interactions"
+import { BookCallButton } from "./_components/home-interactions"
 import { SiteHeader } from "./_components/site-header"
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -83,6 +83,7 @@ export default function HomePage() {
       {/* Header */}
       <SiteHeader
         links={[
+          { label: "Diagnostic", href: "/executive-readiness" },
           { label: "Talk to Me", href: "#work" },
           { label: "About", href: "#about" },
           { label: "Track Record", href: "#track-record" },
@@ -122,7 +123,7 @@ export default function HomePage() {
                 className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
               />
               <a
-                href="#download"
+                href="/executive-readiness"
                 className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
               >
                 Get the free download
@@ -176,24 +177,23 @@ export default function HomePage() {
 
       {/* LEAD MAGNET */}
       <section id="download" className="py-20 md:py-28 px-6 bg-slate-50 scroll-mt-24">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            <div>
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free download</p>
-              <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15]" style={{ textWrap: "balance" }}>
-                The 3 assumptions that keep builders smaller than they should be
-              </h2>
-              <p className="text-slate-600 font-light leading-relaxed mb-4">
-                A short, sharp read on the beliefs that quietly cap capable operators — about size, cost, and what&apos;s actually within reach — and what shifts the moment you stop accepting them.
-              </p>
-              <p className="text-slate-500 font-light text-sm">
-                No fluff. One focused read, plus the occasional insight if you want it.
-              </p>
-            </div>
-            <div className="bg-white rounded-none border border-slate-200 p-7 md:p-8 shadow-sm">
-              <LeadMagnetForm />
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free diagnostic</p>
+          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15]" style={{ textWrap: "balance" }}>
+            The Executive Readiness Diagnostic
+          </h2>
+          <p className="text-slate-600 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+            Five dimensions. Five questions. A diagnostic that measures whether you, the person in the chair, are ready to lead a capital event — not whether your cap table is.
+          </p>
+          <a
+            href="/executive-readiness"
+            className="inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+          >
+            Begin Diagnostic →
+          </a>
+          <p className="text-slate-500 font-light text-sm mt-5">
+            10 minutes. Self-scored. Honest scoring is the point.
+          </p>
         </div>
       </section>
 
