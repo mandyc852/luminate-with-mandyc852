@@ -36,7 +36,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       message: "Success!",
       success: true,
-      redirect: sourcePage === "guide" ? "/guide/thank-you" : null,
+      redirect:
+        sourcePage === "guide"
+          ? "/guide/thank-you"
+          : sourcePage === "five-questions"
+            ? "/the-five-questions/thank-you"
+            : null,
     })
   } catch (error) {
     console.error("API error:", error)

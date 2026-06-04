@@ -204,6 +204,15 @@ export default function HomePage() {
           <p className="text-white/50 font-light text-sm mt-5">
             10 minutes. Self-scored. Honest scoring is the point.
           </p>
+          <p className="text-white/60 font-light text-sm mt-8">
+            Don&apos;t have 10 minutes?{" "}
+            <a
+              href="/the-five-questions"
+              className="text-[#c9a227] hover:text-[#d4b84a] underline decoration-[#c9a227]/40 hover:decoration-[#d4b84a] transition-colors"
+            >
+              Just send me the 5 questions →
+            </a>
+          </p>
         </div>
       </section>
 
