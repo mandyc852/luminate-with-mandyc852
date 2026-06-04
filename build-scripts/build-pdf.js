@@ -39,6 +39,13 @@ async function renderOne(browser, { htmlPath, outPath, label }) {
     throw new Error(`HTML template not found: ${htmlPath}`)
   }
 
+  // Copy the mandala image next to the HTML so relative <img src> resolves.
+  const imgSrc = path.join(PROJECT_ROOT, "public", "lead-magnet", "Lead magnet.png")
+  const imgDest = path.join(path.dirname(htmlPath), "Lead magnet.png")
+  if (fs.existsSync(imgSrc) && !fs.existsSync(imgDest)) {
+    fs.copyFileSync(imgSrc, imgDest)
+  }
+
   const page = await browser.newPage()
   const fileUrl = `file://${htmlPath}`
   await page.goto(fileUrl, { waitUntil: "networkidle0", timeout: 60000 })

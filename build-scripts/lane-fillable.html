@@ -11,8 +11,8 @@
   * { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0;
-    background: #0F1A24;
-    color: #FAF9F7;
+    background: #ffffff;
+    color: #1A2A3A;
     font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -20,7 +20,6 @@
   .page {
     width: 210mm;
     height: 297mm;
-    background: #0F1A24;
     position: relative;
     padding: 20mm 22mm 14mm 22mm;
     page-break-after: always;
@@ -31,7 +30,7 @@
   }
   .page:last-child { page-break-after: auto; }
 
-  /* ===== Shared ===== */
+  /* ===== SHARED ===== */
   .eyebrow {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
@@ -63,12 +62,16 @@
     left: 22mm;
     font-family: 'Poppins', sans-serif;
     font-size: 8.5pt;
-    color: #B8B5A8;
     letter-spacing: 0.22em;
     text-transform: uppercase;
   }
 
-  /* ===== Page 1 — Cover ===== */
+  /* ===== PAGE 1 — NAVY COVER ===== */
+  .page.cover {
+    background: #0F1A24;
+    color: #FAF9F7;
+  }
+  .page.cover .footer-brand { color: #B8B5A8; }
   .cover-stack {
     flex: 1;
     display: flex;
@@ -151,7 +154,12 @@
     text-align: center;
   }
 
-  /* ===== Section pages 2-5 ===== */
+  /* ===== PAGES 2-5 — WHITE QUESTION PAGES ===== */
+  .page.light {
+    background: #ffffff;
+    color: #1A2A3A;
+  }
+  .page.light .footer-brand { color: #8a96a3; }
   .section-head {
     display: flex;
     align-items: baseline;
@@ -170,7 +178,7 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 400;
     font-size: 26pt;
-    color: #FAF9F7;
+    color: #1A2A3A;
     letter-spacing: 0.04em;
     line-height: 1;
   }
@@ -200,7 +208,7 @@
     font-weight: 400;
     font-size: 9.5pt;
     line-height: 1.35;
-    color: #FAF9F7;
+    color: #1A2A3A;
     margin: 0;
     padding-left: 9pt;
     position: relative;
@@ -215,26 +223,29 @@
     font-size: 14pt;
     line-height: 1;
   }
-  /* The input field below each question. Styled as a subtle outlined area. */
+  /* White input fields with subtle border */
   .qa-input {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(201, 162, 39, 0.22);
+    background: #ffffff;
+    border: 1px solid #d8dde3;
     border-radius: 2px;
-    color: #FAF9F7;
+    color: #1A2A3A;
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
     font-size: 11pt;
     line-height: 1.45;
-    padding: 4mm 5mm;
-    width: 100%;
-    height: 14mm; /* ~2 lines of writing space */
+    padding: 3.5mm 5mm;
+    width: calc(100% - 9pt);
+    height: 14mm;
     outline: none;
     resize: none;
-    margin-left: 9pt; /* aligns with question text after bullet */
+    margin-left: 9pt;
     box-sizing: border-box;
-    width: calc(100% - 9pt);
   }
-  /* Larger input for Envision page since it has 7 questions — keep tight */
+  .qa-input:focus {
+    border-color: #C9A227;
+    box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.2);
+  }
+  /* Tighter for Envision (7 questions) */
   .page.envision .qa-input { height: 11mm; }
   .page.envision .qa-list { gap: 3.5mm; }
 </style>
@@ -244,9 +255,9 @@
 <form id="lane-form" autocomplete="off">
 
 <!-- ============================================================ -->
-<!-- PAGE 1 — COVER                                               -->
+<!-- PAGE 1 — NAVY COVER                                          -->
 <!-- ============================================================ -->
-<section class="page">
+<section class="page cover">
   <div class="cover-stack">
     <p class="cover-eyebrow">A WEEKLY INQUIRY · INTERACTIVE</p>
     <h1 class="title-lane">LANE</h1>
@@ -268,9 +279,9 @@
 </section>
 
 <!-- ============================================================ -->
-<!-- PAGE 2 — L: LOOKBACK                                         -->
+<!-- PAGE 2 — L: LOOKBACK (WHITE)                                 -->
 <!-- ============================================================ -->
-<section class="page">
+<section class="page light">
   <p class="eyebrow">DIMENSION 01 · LOOKBACK</p>
   <hr class="gold-rule" />
   <div class="section-head">
@@ -311,9 +322,9 @@
 </section>
 
 <!-- ============================================================ -->
-<!-- PAGE 3 — A: ANCHOR                                           -->
+<!-- PAGE 3 — A: ANCHOR (WHITE)                                   -->
 <!-- ============================================================ -->
-<section class="page">
+<section class="page light">
   <p class="eyebrow">DIMENSION 02 · ANCHOR</p>
   <hr class="gold-rule" />
   <div class="section-head">
@@ -354,9 +365,9 @@
 </section>
 
 <!-- ============================================================ -->
-<!-- PAGE 4 — E: ENVISION (7 questions, tighter spacing)           -->
+<!-- PAGE 4 — E: ENVISION (WHITE, 7 Qs, tighter)                  -->
 <!-- ============================================================ -->
-<section class="page envision">
+<section class="page light envision">
   <p class="eyebrow">DIMENSION 03 · ENVISION</p>
   <hr class="gold-rule" />
   <div class="section-head">
@@ -401,9 +412,9 @@
 </section>
 
 <!-- ============================================================ -->
-<!-- PAGE 5 — N: NEXT                                             -->
+<!-- PAGE 5 — N: NEXT (WHITE)                                     -->
 <!-- ============================================================ -->
-<section class="page">
+<section class="page light">
   <p class="eyebrow">DIMENSION 04 · NEXT</p>
   <hr class="gold-rule" />
   <div class="section-head">
