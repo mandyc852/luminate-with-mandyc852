@@ -32,19 +32,19 @@ export default function FiveQuestionsThankYou() {
             className="text-3xl md:text-4xl text-white mb-4"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Your 5 Questions are ready.
+            Your PDF is ready.
           </h1>
 
           <p
             className="text-white/70 text-lg mb-8 leading-relaxed"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            Five questions worth sitting with. Print them, annotate them, bring them to your next
-            board meeting. The honest answers are the entry point.
+            The Executive Readiness Diagnostic. Five questions, the scoring framework, and what
+            each readiness band means. Print it, annotate it, bring it to your next board meeting.
           </p>
 
           <a
-            href="/downloads/the-five-questions.pdf"
+            href="/downloads/executive-readiness-diagnostic.pdf"
             download
             className="inline-flex items-center justify-center w-full max-w-sm px-8 py-4 rounded-none bg-[#C9A227] text-[#0F1A24] font-medium tracking-[0.12em] uppercase text-base hover:bg-[#d4b84a] transition-all duration-300 shadow-lg hover:shadow-xl"
             style={{ fontFamily: "Poppins, sans-serif" }}

@@ -61,8 +61,9 @@ export default function FiveQuestionsPage() {
             </p>
             <p>
               These are the five questions I&apos;d ask any executive sitting in front of me, six
-              months out from a capital event. No scoring. No software. Just questions worth
-              sitting with.
+              months out from a capital event. The PDF includes the questions, the scoring
+              framework, and what each readiness band means for the work ahead — whether you
+              choose to self-score or just sit with the prompts.
             </p>
             <p className="text-white/90">Print it. Annotate it. Bring it to your next board meeting.</p>
           </div>

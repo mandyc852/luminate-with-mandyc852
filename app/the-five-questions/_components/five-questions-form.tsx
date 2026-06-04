@@ -41,10 +41,10 @@ export function FiveQuestionsForm() {
         className="text-white text-xl font-normal mb-1"
         style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
       >
-        Send the 5 Questions to my inbox
+        Send the PDF to my inbox
       </p>
       <p className="text-white/60 font-light text-sm mb-4">
-        One PDF. Instant. No follow-up sequence unless you ask for it.
+        Instant download. No follow-up sequence unless you ask for it.
       </p>
       <input
         type="email"
