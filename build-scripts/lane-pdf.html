@@ -5,7 +5,7 @@
 <title>LANE — a weekly inquiry</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   @page {
     size: A4 portrait;
@@ -25,55 +25,65 @@
     height: 297mm;
     background: #0F1A24;
     position: relative;
-    padding: 25mm 22mm 18mm 22mm;
+    padding: 22mm 22mm 14mm 22mm;
     page-break-after: always;
     page-break-inside: avoid;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   .page:last-child { page-break-after: auto; }
 
+  /* ===== PAGE 1 ===== */
+  .p1-stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
   .eyebrow {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 9pt;
     color: #C9A227;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     text-align: center;
-    margin: 0 0 18pt 0;
+    margin: 0 0 14pt 0;
   }
   .title-lane {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 500;
-    font-size: 78pt;
+    font-size: 72pt;
     color: #C9A227;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     text-align: center;
     line-height: 1;
-    margin: 0 0 16pt 0;
-    padding-left: 0.2em; /* visual balance for letter-spacing */
+    margin: 0 0 12pt 0;
+    padding-left: 0.22em;
   }
   .title-rule {
-    width: 60mm;
+    width: 56mm;
     height: 1px;
     background: #C9A227;
-    margin: 0 auto 22pt auto;
+    margin: 0 auto 18pt auto;
     border: 0;
   }
   .lede {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 400;
     font-style: italic;
-    font-size: 15pt;
+    font-size: 13.5pt;
     line-height: 1.45;
     color: #FAF9F7;
     text-align: center;
     margin: 0 auto;
-    max-width: 140mm;
+    max-width: 130mm;
   }
   .diagram-wrap {
-    margin: 12mm auto 6mm auto;
-    width: 150mm;
+    margin: 10mm auto 4mm auto;
+    width: 105mm;
     display: block;
     text-align: center;
   }
@@ -85,92 +95,82 @@
   .diagram-caption {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 10.5pt;
+    font-size: 10pt;
     color: #B8B5A8;
     text-align: center;
-    margin: 6pt 0 0 0;
-    letter-spacing: 0.02em;
-  }
-  .page-number {
-    position: absolute;
-    bottom: 12mm;
-    right: 22mm;
-    font-family: 'Poppins', sans-serif;
-    font-size: 9pt;
-    color: #C9A227;
-    letter-spacing: 0.18em;
-  }
-  .footer-brand {
-    position: absolute;
-    bottom: 12mm;
-    left: 22mm;
-    font-family: 'Poppins', sans-serif;
-    font-size: 9pt;
-    color: #B8B5A8;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    margin: 4mm 0 0 0;
+    letter-spacing: 0.05em;
   }
 
-  /* Page 2 — questions grid */
+  /* ===== PAGE 2 ===== */
+  .grid-eyebrow {
+    text-align: left;
+    margin: 0 0 5mm 0;
+  }
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 8mm 9mm;
-    margin-top: 8mm;
-    height: 220mm;
+    gap: 6mm 7mm;
+    flex: 1;
+    min-height: 0;
   }
   .cell {
     border: 1px solid rgba(201, 162, 39, 0.25);
     background: #1A2A3A;
-    padding: 8mm 8mm 7mm 8mm;
+    padding: 6mm 6.5mm 5mm 6.5mm;
     display: flex;
     flex-direction: column;
     border-radius: 2px;
+    min-height: 0;
+    overflow: hidden;
   }
   .cell-head {
     display: flex;
     align-items: baseline;
-    gap: 5mm;
-    margin: 0 0 2mm 0;
+    gap: 4mm;
+    margin: 0 0 1mm 0;
   }
   .cell-letter {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 500;
-    font-size: 42pt;
+    font-style: italic;
+    font-size: 34pt;
     color: #C9A227;
     line-height: 0.9;
   }
   .cell-name {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 400;
-    font-size: 18pt;
+    font-size: 16pt;
     color: #FAF9F7;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     line-height: 1;
   }
   .cell-sub {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 8.5pt;
+    font-size: 7.5pt;
     color: #C9A227;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    margin: 0 0 5mm 0;
+    margin: 0 0 4mm 0;
   }
   .q-list {
     list-style: none;
     margin: 0;
     padding: 0;
+    flex: 1;
+    min-height: 0;
   }
   .q-list li {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    font-size: 9.5pt;
-    line-height: 1.55;
+    font-size: 8.5pt;
+    line-height: 1.4;
     color: #FAF9F7;
-    margin: 0 0 5pt 0;
-    padding-left: 11pt;
+    margin: 0 0 3.5pt 0;
+    padding-left: 9pt;
     position: relative;
   }
   .q-list li::before {
@@ -179,32 +179,55 @@
     font-weight: 700;
     position: absolute;
     left: 0;
-    top: 0;
-    font-size: 14pt;
+    top: -1pt;
+    font-size: 13pt;
     line-height: 1;
   }
 
-  .grid-eyebrow {
-    text-align: left;
-    margin: 0 0 4mm 0;
+  /* Reserved closing block */
+  .closing {
+    flex-shrink: 0;
+    margin-top: 5mm;
+    text-align: center;
   }
   .closing-rule {
-    width: 60mm;
+    width: 56mm;
     height: 1px;
     background: #C9A227;
-    margin: 6mm auto 4mm auto;
+    margin: 0 auto 3.5mm auto;
     border: 0;
   }
   .tagline {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 400;
     font-style: italic;
-    font-size: 12pt;
+    font-size: 11pt;
     color: #FAF9F7;
     text-align: center;
     margin: 0 auto;
     max-width: 150mm;
-    line-height: 1.45;
+    line-height: 1.4;
+  }
+
+  /* Footer (absolute, both pages) */
+  .page-number {
+    position: absolute;
+    bottom: 8mm;
+    right: 22mm;
+    font-family: 'Poppins', sans-serif;
+    font-size: 8.5pt;
+    color: #C9A227;
+    letter-spacing: 0.2em;
+  }
+  .footer-brand {
+    position: absolute;
+    bottom: 8mm;
+    left: 22mm;
+    font-family: 'Poppins', sans-serif;
+    font-size: 8.5pt;
+    color: #B8B5A8;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
   }
 </style>
 </head>
@@ -214,54 +237,69 @@
 <!-- PAGE 1                                                       -->
 <!-- ============================================================ -->
 <section class="page">
-  <p class="eyebrow">A WEEKLY INQUIRY</p>
-  <h1 class="title-lane">LANE</h1>
-  <hr class="title-rule" />
-  <p class="lede">
-    The loop runs whether you watch it or not. Most weeks look like last week. LANE is the inquiry that makes the loop visible enough to choose, this week, what to repeat and what to change.
-  </p>
+  <div class="p1-stack">
+    <p class="eyebrow">A WEEKLY INQUIRY</p>
+    <h1 class="title-lane">LANE</h1>
+    <hr class="title-rule" />
+    <p class="lede">
+      The loop runs whether you watch it or not. Most weeks look like last week. LANE is the inquiry that makes the loop visible enough to choose, this week, what to repeat and what to change.
+    </p>
 
-  <div class="diagram-wrap">
-    <!-- INLINE LANE FRAMEWORK SVG (mirrors public/lead-magnet/lane-framework.svg) -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 640">
-      <defs>
-        <marker id="lane-arrow-pdf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#FAF9F7" />
-        </marker>
-      </defs>
-      <text x="340" y="44" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" fill="#C9A227" letter-spacing="0.3em">LANE</text>
-      <text x="340" y="72" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="11" fill="#B8B5A8" letter-spacing="0.15em">A WEEKLY CYCLE</text>
-      <circle cx="340" cy="370" r="190" fill="none" stroke="#FAF9F7" stroke-opacity="0.10" stroke-width="0.5" />
-      <path d="M 405 200 C 480 200, 510 230, 510 305" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" />
-      <path d="M 510 435 C 510 510, 480 540, 405 540" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" />
-      <path d="M 275 540 C 200 540, 170 510, 170 435" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" />
-      <path d="M 170 305 C 170 230, 200 200, 275 200" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" />
-      <g>
-        <rect x="275" y="135" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
-        <text x="340" y="180" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="500" font-size="36" fill="#C9A227">L</text>
-        <text x="340" y="212" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" fill="#FAF9F7" letter-spacing="0.08em">LOOKBACK</text>
-        <text x="340" y="246" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="10" fill="#B8B5A8">what happened</text>
-      </g>
-      <g>
-        <rect x="445" y="305" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
-        <text x="510" y="350" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="500" font-size="36" fill="#C9A227">A</text>
-        <text x="510" y="382" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" fill="#FAF9F7" letter-spacing="0.08em">ANCHOR</text>
-        <text x="510" y="416" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="10" fill="#B8B5A8">what I'm holding</text>
-      </g>
-      <g>
-        <rect x="275" y="475" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
-        <text x="340" y="520" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="500" font-size="36" fill="#C9A227">N</text>
-        <text x="340" y="552" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" fill="#FAF9F7" letter-spacing="0.08em">NEXT</text>
-        <text x="340" y="586" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="10" fill="#B8B5A8">what's coming</text>
-      </g>
-      <g>
-        <rect x="105" y="305" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
-        <text x="170" y="350" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="500" font-size="36" fill="#C9A227">E</text>
-        <text x="170" y="382" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" fill="#FAF9F7" letter-spacing="0.08em">ENVISION</text>
-        <text x="170" y="416" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="10" fill="#B8B5A8">the bigger picture</text>
-      </g>
-    </svg>
-    <p class="diagram-caption">Once a week. Forty-five minutes. Pen and paper.</p>
+    <div class="diagram-wrap">
+      <!-- LANE MANDALA SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+        <defs>
+          <marker id="lane-arrow-pdf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#C9A227" />
+          </marker>
+        </defs>
+
+        <!-- Decorative cardinal spokes -->
+        <g stroke="#FAF9F7" stroke-opacity="0.05" stroke-width="0.5">
+          <line x1="300" y1="150" x2="300" y2="450" />
+          <line x1="150" y1="300" x2="450" y2="300" />
+        </g>
+        <!-- Inner decorative circle -->
+        <circle cx="300" cy="300" r="140" fill="none" stroke="#FAF9F7" stroke-opacity="0.06" stroke-width="0.5" />
+        <!-- Main ring -->
+        <circle cx="300" cy="300" r="200" fill="none" stroke="#C9A227" stroke-opacity="0.55" stroke-width="1" />
+
+        <!-- Quarter-arc flow indicators (clockwise) -->
+        <path d="M 410 132 A 200 200 0 0 1 468 190" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" stroke-linecap="round" />
+        <path d="M 468 410 A 200 200 0 0 1 410 468" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" stroke-linecap="round" />
+        <path d="M 190 468 A 200 200 0 0 1 132 410" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" stroke-linecap="round" />
+        <path d="M 132 190 A 200 200 0 0 1 190 132" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" stroke-linecap="round" />
+
+        <!-- Center dot -->
+        <circle cx="300" cy="300" r="2.5" fill="#C9A227" />
+
+        <!-- L Top -->
+        <g>
+          <text x="300" y="120" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-weight="500" font-size="64" fill="#C9A227">L</text>
+          <text x="300" y="158" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="500" font-size="9" fill="#FAF9F7" letter-spacing="0.3em">LOOKBACK</text>
+          <text x="300" y="174" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="8" fill="#B8B5A8">what happened</text>
+        </g>
+        <!-- A Right -->
+        <g>
+          <text x="500" y="318" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-weight="500" font-size="64" fill="#C9A227">A</text>
+          <text x="500" y="354" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="500" font-size="9" fill="#FAF9F7" letter-spacing="0.3em">ANCHOR</text>
+          <text x="500" y="370" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="8" fill="#B8B5A8">what I'm holding</text>
+        </g>
+        <!-- N Bottom -->
+        <g>
+          <text x="300" y="520" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-weight="500" font-size="64" fill="#C9A227">N</text>
+          <text x="300" y="558" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="500" font-size="9" fill="#FAF9F7" letter-spacing="0.3em">NEXT</text>
+          <text x="300" y="574" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="8" fill="#B8B5A8">what's coming</text>
+        </g>
+        <!-- E Left -->
+        <g>
+          <text x="100" y="318" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-weight="500" font-size="64" fill="#C9A227">E</text>
+          <text x="100" y="354" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="500" font-size="9" fill="#FAF9F7" letter-spacing="0.3em">ENVISION</text>
+          <text x="100" y="370" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="8" fill="#B8B5A8">the bigger picture</text>
+        </g>
+      </svg>
+      <p class="diagram-caption">Once a week. Forty-five minutes. Pen and paper.</p>
+    </div>
   </div>
 
   <div class="footer-brand">MANDYC.</div>
@@ -285,7 +323,7 @@
       <ul class="q-list">
         <li>Did I complete what I set out to do?</li>
         <li>Does my calendar match my values?</li>
-        <li>What was my split this week between $10/hour work and $10,000/hour work?</li>
+        <li>What was my split between $10/hour work and $10,000/hour work?</li>
         <li>Which tasks gave me leverage, and which were noise?</li>
         <li>What past pattern showed up this week?</li>
         <li>Where did I spend time on autopilot?</li>
@@ -309,7 +347,7 @@
       </ul>
     </div>
 
-    <!-- E: bottom-left (matches circular flow: L top, A right, N bottom, E left) -->
+    <!-- E: bottom-left -->
     <div class="cell">
       <div class="cell-head">
         <span class="cell-letter">E</span>
@@ -317,7 +355,7 @@
       </div>
       <p class="cell-sub">The bigger picture</p>
       <ul class="q-list">
-        <li>If I could only work two hours a week on this business, what would I do?</li>
+        <li>If I could only work two hours a week on this, what would I do?</li>
         <li>What decisions could I let go of up to $100? $500? $1,000?</li>
         <li>What can I subtract instead of add to solve this?</li>
         <li>Am I working on the lever or the noise?</li>
@@ -345,10 +383,12 @@
     </div>
   </div>
 
-  <hr class="closing-rule" />
-  <p class="tagline">The framework is the discipline. The questions are the prompts. The answers are between you and the page.</p>
+  <div class="closing">
+    <hr class="closing-rule" />
+    <p class="tagline">The framework is the discipline. The questions are the prompts. The answers are between you and the page.</p>
+  </div>
 
-  <div class="footer-brand">MANDYC. &nbsp;&nbsp;·&nbsp;&nbsp; mandyc.me</div>
+  <div class="footer-brand">MANDYC. &nbsp;·&nbsp; mandyc.me</div>
   <div class="page-number">02 / 02</div>
 </section>
 

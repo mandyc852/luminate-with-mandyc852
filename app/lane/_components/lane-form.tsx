@@ -43,8 +43,8 @@ export function LaneForm() {
         Send LANE to my inbox
       </p>
       <p className="text-white/60 font-light text-sm mb-4">
-        Instant download. The PDF, plus phone and desktop wallpapers of the question that does the
-        most work.
+        Instant download. The print PDF, an interactive fillable version, plus phone and desktop
+        wallpapers of the question that does the most work.
       </p>
       <input
         type="email"

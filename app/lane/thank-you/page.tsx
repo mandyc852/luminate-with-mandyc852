@@ -42,22 +42,44 @@ export default function LaneThankYou() {
             The loop runs whether you watch it or not.
           </p>
 
-          {/* Primary: PDF */}
+          {/* Primary: PDF (print, pen and paper) */}
           <a
             href="/lead-magnet/lane.pdf"
             download
-            className="inline-flex items-center justify-center w-full max-w-sm px-8 py-4 rounded-none bg-[#C9A227] text-[#0F1A24] font-medium tracking-[0.12em] uppercase text-base hover:bg-[#D4B84A] transition-all duration-300 shadow-lg hover:shadow-xl mb-3"
+            className="inline-flex items-center justify-center w-full max-w-sm px-8 py-4 rounded-none bg-[#C9A227] text-[#0F1A24] font-medium tracking-[0.12em] uppercase text-base hover:bg-[#D4B84A] transition-all duration-300 shadow-lg hover:shadow-xl mb-2"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Download the LANE PDF
           </a>
+          <p
+            className="text-white/45 text-xs mb-5 max-w-sm mx-auto"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            Pen-and-paper version. For Sunday evenings.
+          </p>
 
-          {/* Secondary: wallpapers */}
+          {/* Secondary: Interactive PDF */}
+          <a
+            href="/lead-magnet/lane-fillable.pdf"
+            download
+            className="inline-flex items-center justify-center w-full max-w-sm px-8 py-3.5 rounded-none border border-[#C9A227]/50 text-[#C9A227] font-medium tracking-[0.12em] uppercase text-sm hover:bg-[#C9A227]/10 transition-all duration-300 mb-2"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            Or the interactive version →
+          </a>
+          <p
+            className="text-white/45 text-xs mb-7 max-w-sm mx-auto"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            Fillable PDF. Type your answers. Save and reopen weekly.
+          </p>
+
+          {/* Tertiary: wallpapers */}
           <div className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
             <a
               href="/lead-magnet/wallpaper-phone.png"
               download
-              className="flex-1 inline-flex items-center justify-center px-5 py-3 rounded-none border border-[#C9A227]/40 text-[#C9A227] font-medium tracking-[0.12em] uppercase text-xs hover:bg-[#C9A227]/10 transition-all duration-300"
+              className="flex-1 inline-flex items-center justify-center px-5 py-3 rounded-none border border-[#C9A227]/30 text-[#C9A227]/80 font-medium tracking-[0.12em] uppercase text-xs hover:bg-[#C9A227]/5 transition-all duration-300"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Phone wallpaper
@@ -65,7 +87,7 @@ export default function LaneThankYou() {
             <a
               href="/lead-magnet/wallpaper-desktop.png"
               download
-              className="flex-1 inline-flex items-center justify-center px-5 py-3 rounded-none border border-[#C9A227]/40 text-[#C9A227] font-medium tracking-[0.12em] uppercase text-xs hover:bg-[#C9A227]/10 transition-all duration-300"
+              className="flex-1 inline-flex items-center justify-center px-5 py-3 rounded-none border border-[#C9A227]/30 text-[#C9A227]/80 font-medium tracking-[0.12em] uppercase text-xs hover:bg-[#C9A227]/5 transition-all duration-300"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Desktop wallpaper
@@ -76,7 +98,7 @@ export default function LaneThankYou() {
             className="text-white/40 text-xs mt-8"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            All three sent to your inbox. Check spam if you don&apos;t see it.
+            All four files sent to your inbox. Check spam if you don&apos;t see it.
           </p>
         </div>
       </div>
