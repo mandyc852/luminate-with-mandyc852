@@ -6,7 +6,10 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start -p 3001",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:pdf": "node build-scripts/build-pdf.js",
+    "build:wallpapers": "node build-scripts/build-wallpapers.js",
+    "build:lead-magnet": "npm run build:pdf && npm run build:wallpapers"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.95.3",
@@ -21,6 +24,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.4",
+    "puppeteer": "^24.43.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

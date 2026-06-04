@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 640" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Poppins:wght@300;400;500&amp;display=swap');
+      .lane-title { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; fill: #C9A227; letter-spacing: 0.3em; }
+      .lane-subtitle { font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif; font-weight: 300; fill: #B8B5A8; letter-spacing: 0.15em; }
+      .box-letter { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; fill: #C9A227; }
+      .box-name { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; fill: #FAF9F7; letter-spacing: 0.08em; }
+      .box-desc { font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif; font-weight: 300; fill: #B8B5A8; }
+    </style>
+    <marker id="lane-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FAF9F7" />
+    </marker>
+  </defs>
+
+  <!-- Title block -->
+  <text x="340" y="44" text-anchor="middle" class="lane-title" font-size="24">LANE</text>
+  <text x="340" y="72" text-anchor="middle" class="lane-subtitle" font-size="11" style="text-transform: uppercase;">A WEEKLY CYCLE</text>
+
+  <!-- Faint guide circle -->
+  <circle cx="340" cy="370" r="190" fill="none" stroke="#FAF9F7" stroke-opacity="0.10" stroke-width="0.5" />
+
+  <!-- Clockwise arcs between boxes (drawn before boxes so arrowheads sit cleanly at box edges) -->
+  <!-- L (top) -> A (right): upper-right gap -->
+  <path d="M 405 200 C 480 200, 510 230, 510 305" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow)" />
+  <!-- A (right) -> N (bottom): lower-right gap -->
+  <path d="M 510 435 C 510 510, 480 540, 405 540" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow)" />
+  <!-- N (bottom) -> E (left): lower-left gap -->
+  <path d="M 275 540 C 200 540, 170 510, 170 435" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow)" />
+  <!-- E (left) -> L (top): upper-left gap -->
+  <path d="M 170 305 C 170 230, 200 200, 275 200" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow)" />
+
+  <!-- L box (top / 12 o'clock) -->
+  <g>
+    <rect x="275" y="135" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
+    <text x="340" y="180" text-anchor="middle" class="box-letter" font-size="36">L</text>
+    <text x="340" y="212" text-anchor="middle" class="box-name" font-size="14">LOOKBACK</text>
+    <text x="340" y="246" text-anchor="middle" class="box-desc" font-size="10">what happened</text>
+  </g>
+
+  <!-- A box (right / 3 o'clock) -->
+  <g>
+    <rect x="445" y="305" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
+    <text x="510" y="350" text-anchor="middle" class="box-letter" font-size="36">A</text>
+    <text x="510" y="382" text-anchor="middle" class="box-name" font-size="14">ANCHOR</text>
+    <text x="510" y="416" text-anchor="middle" class="box-desc" font-size="10">what I'm holding</text>
+  </g>
+
+  <!-- N box (bottom / 6 o'clock) -->
+  <g>
+    <rect x="275" y="475" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
+    <text x="340" y="520" text-anchor="middle" class="box-letter" font-size="36">N</text>
+    <text x="340" y="552" text-anchor="middle" class="box-name" font-size="14">NEXT</text>
+    <text x="340" y="586" text-anchor="middle" class="box-desc" font-size="10">what's coming</text>
+  </g>
+
+  <!-- E box (left / 9 o'clock) -->
+  <g>
+    <rect x="105" y="305" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
+    <text x="170" y="350" text-anchor="middle" class="box-letter" font-size="36">E</text>
+    <text x="170" y="382" text-anchor="middle" class="box-name" font-size="14">ENVISION</text>
+    <text x="170" y="416" text-anchor="middle" class="box-desc" font-size="10">the bigger picture</text>
+  </g>
+</svg>

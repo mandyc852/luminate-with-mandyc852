@@ -41,7 +41,9 @@ export async function POST(request: NextRequest) {
           ? "/guide/thank-you"
           : sourcePage === "five-questions"
             ? "/the-five-questions/thank-you"
-            : null,
+            : sourcePage === "lane"
+              ? "/lane/thank-you"
+              : null,
     })
   } catch (error) {
     console.error("API error:", error)

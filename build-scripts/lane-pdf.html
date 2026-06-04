@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LANE — a weekly inquiry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #0F1A24;
+    color: #FAF9F7;
+    font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: #0F1A24;
+    position: relative;
+    padding: 25mm 22mm 18mm 22mm;
+    page-break-after: always;
+    page-break-inside: avoid;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  .eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 9pt;
+    color: #C9A227;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 18pt 0;
+  }
+  .title-lane {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: 78pt;
+    color: #C9A227;
+    letter-spacing: 0.2em;
+    text-align: center;
+    line-height: 1;
+    margin: 0 0 16pt 0;
+    padding-left: 0.2em; /* visual balance for letter-spacing */
+  }
+  .title-rule {
+    width: 60mm;
+    height: 1px;
+    background: #C9A227;
+    margin: 0 auto 22pt auto;
+    border: 0;
+  }
+  .lede {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15pt;
+    line-height: 1.45;
+    color: #FAF9F7;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 140mm;
+  }
+  .diagram-wrap {
+    margin: 12mm auto 6mm auto;
+    width: 150mm;
+    display: block;
+    text-align: center;
+  }
+  .diagram-wrap svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .diagram-caption {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 10.5pt;
+    color: #B8B5A8;
+    text-align: center;
+    margin: 6pt 0 0 0;
+    letter-spacing: 0.02em;
+  }
+  .page-number {
+    position: absolute;
+    bottom: 12mm;
+    right: 22mm;
+    font-family: 'Poppins', sans-serif;
+    font-size: 9pt;
+    color: #C9A227;
+    letter-spacing: 0.18em;
+  }
+  .footer-brand {
+    position: absolute;
+    bottom: 12mm;
+    left: 22mm;
+    font-family: 'Poppins', sans-serif;
+    font-size: 9pt;
+    color: #B8B5A8;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Page 2 — questions grid */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8mm 9mm;
+    margin-top: 8mm;
+    height: 220mm;
+  }
+  .cell {
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    background: #1A2A3A;
+    padding: 8mm 8mm 7mm 8mm;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2px;
+  }
+  .cell-head {
+    display: flex;
+    align-items: baseline;
+    gap: 5mm;
+    margin: 0 0 2mm 0;
+  }
+  .cell-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: 42pt;
+    color: #C9A227;
+    line-height: 0.9;
+  }
+  .cell-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-size: 18pt;
+    color: #FAF9F7;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .cell-sub {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 8.5pt;
+    color: #C9A227;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 0 0 5mm 0;
+  }
+  .q-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .q-list li {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 9.5pt;
+    line-height: 1.55;
+    color: #FAF9F7;
+    margin: 0 0 5pt 0;
+    padding-left: 11pt;
+    position: relative;
+  }
+  .q-list li::before {
+    content: '·';
+    color: #C9A227;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 14pt;
+    line-height: 1;
+  }
+
+  .grid-eyebrow {
+    text-align: left;
+    margin: 0 0 4mm 0;
+  }
+  .closing-rule {
+    width: 60mm;
+    height: 1px;
+    background: #C9A227;
+    margin: 6mm auto 4mm auto;
+    border: 0;
+  }
+  .tagline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 12pt;
+    color: #FAF9F7;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 150mm;
+    line-height: 1.45;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAGE 1                                                       -->
+<!-- ============================================================ -->
+<section class="page">
+  <p class="eyebrow">A WEEKLY INQUIRY</p>
+  <h1 class="title-lane">LANE</h1>
+  <hr class="title-rule" />
+  <p class="lede">
+    The loop runs whether you watch it or not. Most weeks look like last week. LANE is the inquiry that makes the loop visible enough to choose, this week, what to repeat and what to change.
+  </p>
+
+  <div class="diagram-wrap">
+    <!-- INLINE LANE FRAMEWORK SVG (mirrors public/lead-magnet/lane-framework.svg) -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 640">
+      <defs>
+        <marker id="lane-arrow-pdf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#FAF9F7" />
+        </marker>
+      </defs>
+      <text x="340" y="44" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" fill="#C9A227" letter-spacing="0.3em">LANE</text>
+      <text x="340" y="72" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="11" fill="#B8B5A8" letter-spacing="0.15em">A WEEKLY CYCLE</text>
+      <circle cx="340" cy="370" r="190" fill="none" stroke="#FAF9F7" stroke-opacity="0.10" stroke-width="0.5" />
+      <path d="M 405 200 C 480 200, 510 230, 510 305" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" />
+      <path d="M 510 435 C 510 510, 480 540, 405 540" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" />
+      <path d="M 275 540 C 200 540, 170 510, 170 435" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" />
+      <path d="M 170 305 C 170 230, 200 200, 275 200" stroke="#C9A227" stroke-width="1.5" fill="none" marker-end="url(#lane-arrow-pdf)" />
+      <g>
+        <rect x="275" y="135" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
+        <text x="340" y="180" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="500" font-size="36" fill="#C9A227">L</text>
+        <text x="340" y="212" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" fill="#FAF9F7" letter-spacing="0.08em">LOOKBACK</text>
+        <text x="340" y="246" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="10" fill="#B8B5A8">what happened</text>
+      </g>
+      <g>
+        <rect x="445" y="305" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
+        <text x="510" y="350" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="500" font-size="36" fill="#C9A227">A</text>
+        <text x="510" y="382" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" fill="#FAF9F7" letter-spacing="0.08em">ANCHOR</text>
+        <text x="510" y="416" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="10" fill="#B8B5A8">what I'm holding</text>
+      </g>
+      <g>
+        <rect x="275" y="475" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
+        <text x="340" y="520" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="500" font-size="36" fill="#C9A227">N</text>
+        <text x="340" y="552" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" fill="#FAF9F7" letter-spacing="0.08em">NEXT</text>
+        <text x="340" y="586" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="10" fill="#B8B5A8">what's coming</text>
+      </g>
+      <g>
+        <rect x="105" y="305" width="130" height="130" rx="4" fill="#1A2A3A" stroke="#C9A227" stroke-width="1" />
+        <text x="170" y="350" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="500" font-size="36" fill="#C9A227">E</text>
+        <text x="170" y="382" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" fill="#FAF9F7" letter-spacing="0.08em">ENVISION</text>
+        <text x="170" y="416" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="300" font-size="10" fill="#B8B5A8">the bigger picture</text>
+      </g>
+    </svg>
+    <p class="diagram-caption">Once a week. Forty-five minutes. Pen and paper.</p>
+  </div>
+
+  <div class="footer-brand">MANDYC.</div>
+  <div class="page-number">01 / 02</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 2                                                       -->
+<!-- ============================================================ -->
+<section class="page">
+  <p class="eyebrow grid-eyebrow">THE QUESTIONS</p>
+
+  <div class="grid">
+    <!-- L: top-left -->
+    <div class="cell">
+      <div class="cell-head">
+        <span class="cell-letter">L</span>
+        <span class="cell-name">Lookback</span>
+      </div>
+      <p class="cell-sub">What happened this week</p>
+      <ul class="q-list">
+        <li>Did I complete what I set out to do?</li>
+        <li>Does my calendar match my values?</li>
+        <li>What was my split this week between $10/hour work and $10,000/hour work?</li>
+        <li>Which tasks gave me leverage, and which were noise?</li>
+        <li>What past pattern showed up this week?</li>
+        <li>Where did I spend time on autopilot?</li>
+      </ul>
+    </div>
+
+    <!-- A: top-right -->
+    <div class="cell">
+      <div class="cell-head">
+        <span class="cell-letter">A</span>
+        <span class="cell-name">Anchor</span>
+      </div>
+      <p class="cell-sub">What I'm holding now</p>
+      <ul class="q-list">
+        <li>What worked well?</li>
+        <li>Where did I get stuck?</li>
+        <li>What did I learn?</li>
+        <li>Did I show up for the people who matter to me?</li>
+        <li>When did I feel most energized this week?</li>
+        <li>What's on my Not-Do list?</li>
+      </ul>
+    </div>
+
+    <!-- E: bottom-left (matches circular flow: L top, A right, N bottom, E left) -->
+    <div class="cell">
+      <div class="cell-head">
+        <span class="cell-letter">E</span>
+        <span class="cell-name">Envision</span>
+      </div>
+      <p class="cell-sub">The bigger picture</p>
+      <ul class="q-list">
+        <li>If I could only work two hours a week on this business, what would I do?</li>
+        <li>What decisions could I let go of up to $100? $500? $1,000?</li>
+        <li>What can I subtract instead of add to solve this?</li>
+        <li>Am I working on the lever or the noise?</li>
+        <li>What's the easy version of this I'm not seeing?</li>
+        <li>Who would I have to become to make my next chapter real?</li>
+        <li>If I were already that person, what would I do this week?</li>
+      </ul>
+    </div>
+
+    <!-- N: bottom-right -->
+    <div class="cell">
+      <div class="cell-head">
+        <span class="cell-letter">N</span>
+        <span class="cell-name">Next</span>
+      </div>
+      <p class="cell-sub">What's coming</p>
+      <ul class="q-list">
+        <li>What's in my head that should be on paper?</li>
+        <li>Which projects don't have a next action?</li>
+        <li>What am I waiting on that needs a follow-up?</li>
+        <li>What's on my calendar this week that needs preparation?</li>
+        <li>What's in my Someday pile that's actually now?</li>
+        <li>What old tasks need to be killed, delegated, or finally done?</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="closing-rule" />
+  <p class="tagline">The framework is the discipline. The questions are the prompts. The answers are between you and the page.</p>
+
+  <div class="footer-brand">MANDYC. &nbsp;&nbsp;·&nbsp;&nbsp; mandyc.me</div>
+  <div class="page-number">02 / 02</div>
+</section>
+
+</body>
+</html>
