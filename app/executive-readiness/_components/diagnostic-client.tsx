@@ -517,13 +517,19 @@ function ResultsEmailForm({
           className="text-[#1a2a3a] text-xl font-normal mb-2"
           style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
         >
-          You&apos;re on the list.
+          Your PDF is ready.
         </p>
-        <p className="text-slate-600 font-light text-sm mb-3">
-          The full PDF write-up is being finalized. You&apos;ll be the first to receive it.
-          In the meantime, screenshot your results above.
+        <p className="text-slate-600 font-light text-sm mb-5">
+          A copy is on the way to your inbox. Or grab it now:
         </p>
-        <p className="text-slate-500 font-light text-xs italic">
+        <a
+          href="/downloads/executive-readiness-diagnostic.pdf"
+          download
+          className="w-full inline-flex items-center justify-center py-3.5 rounded-none uppercase tracking-[0.15em] text-sm btn-gold-home mb-4"
+        >
+          Download the PDF
+        </a>
+        <p className="text-slate-500 font-light text-xs italic mt-3">
           Most people in {bandName} have 2–3 specific questions after seeing their scores.
           That&apos;s usually a good time for a call.
         </p>
