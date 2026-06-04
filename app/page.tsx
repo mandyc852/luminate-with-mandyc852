@@ -126,7 +126,7 @@ export default function HomePage() {
                 href="/executive-readiness"
                 className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
               >
-                Get the free download
+                Take the free diagnostic
               </a>
             </div>
           </div>
@@ -176,22 +176,32 @@ export default function HomePage() {
       </section>
 
       {/* LEAD MAGNET */}
-      <section id="download" className="py-20 md:py-28 px-6 bg-slate-50 scroll-mt-24">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free diagnostic</p>
-          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15]" style={{ textWrap: "balance" }}>
+      <section id="download" className="relative py-20 md:py-28 px-6 bg-[#1a2a3a] scroll-mt-24 overflow-hidden">
+        {/* Subtle skyline texture to distinguish from the final CTA */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/Hong Kong 1.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-[0.06]"
+            sizes="100vw"
+          />
+        </div>
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free diagnostic</p>
+          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] text-white" style={{ textWrap: "balance" }}>
             The Executive Readiness Diagnostic
           </h2>
-          <p className="text-slate-600 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+          <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
             Five dimensions. Five questions. A diagnostic that measures whether you, the person in the chair, are ready to lead a capital event — not whether your cap table is.
           </p>
           <a
             href="/executive-readiness"
-            className="inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+            className="w-full md:w-auto md:min-w-[420px] inline-flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
           >
             Begin Diagnostic →
           </a>
-          <p className="text-slate-500 font-light text-sm mt-5">
+          <p className="text-white/50 font-light text-sm mt-5">
             10 minutes. Self-scored. Honest scoring is the point.
           </p>
         </div>

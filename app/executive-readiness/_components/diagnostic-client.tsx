@@ -91,9 +91,12 @@ function LandingScreen({ onBegin }: { onBegin: () => void }) {
         <h1 className="gradient-text-hero text-4xl md:text-6xl font-normal leading-[1.05] mb-5">
           The Executive Readiness Diagnostic
         </h1>
-        <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-8 max-w-2xl">
+        <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-4 max-w-2xl">
           A 10-minute self-assessment for executives whose companies are preparing to raise,
           restructure, or list.
+        </p>
+        <p className="text-white/50 text-xs font-medium tracking-[0.15em] uppercase mb-8">
+          Built from patterns across 60+ capital-market transactions · HKEX &amp; NASDAQ
         </p>
 
         <div className="space-y-4 text-white/80 font-light leading-relaxed mb-10 max-w-2xl">
@@ -151,9 +154,11 @@ function DimensionScreen({ dimension, index, total, score, setScore, onNext, onB
       if (e.key === "Enter") {
         e.preventDefault()
         handleNext()
-      } else if (e.key >= "0" && e.key <= "3") {
-        // Number keys 0–3 also select
-        setScore(parseInt(e.key, 10))
+      } else {
+        // A/B/C/D keys select options (mapped to scores 0–3)
+        const keyMap: Record<string, number> = { a: 0, b: 1, c: 2, d: 3 }
+        const mapped = keyMap[e.key.toLowerCase()]
+        if (typeof mapped === "number") setScore(mapped)
       }
     }
     window.addEventListener("keydown", onKey)
@@ -197,9 +202,10 @@ function DimensionScreen({ dimension, index, total, score, setScore, onNext, onB
         {dimension.question}
       </h3>
 
-      {/* Options */}
+      {/* Options — letters A/B/C/D hide numeric bias; scores stay internal */}
       <div className="space-y-2 mb-5">
-        {dimension.options.map((opt) => {
+        {dimension.options.map((opt, i) => {
+          const letter = String.fromCharCode(65 + i) // A, B, C, D
           const selected = score === opt.score
           return (
             <button
@@ -221,7 +227,7 @@ function DimensionScreen({ dimension, index, total, score, setScore, onNext, onB
                     : "bg-slate-50 text-slate-500 border-slate-200",
                 ].join(" ")}
               >
-                {opt.score}
+                {letter}
               </span>
               <span className="text-slate-700 font-light leading-snug text-sm pt-0.5">
                 {opt.label}
@@ -279,6 +285,21 @@ function DimensionScreen({ dimension, index, total, score, setScore, onNext, onB
 function ResultsScreen({ scores, onRestart }: { scores: (number | null)[]; onRestart: () => void }) {
   const total = totalOf(scores)
   const band = bandFor(total)
+  const [copied, setCopied] = useState(false)
+
+  // Find the lowest-scoring dimension index to auto-expand
+  const lowestIdx = scores.reduce<number>(
+    (minI, s, i) => ((s ?? 0) < (scores[minI] ?? 0) ? i : minI),
+    0
+  )
+
+  const copyShareLink = () => {
+    const url = window.location.origin + "/executive-readiness"
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
+    })
+  }
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
@@ -297,21 +318,20 @@ function ResultsScreen({ scores, onRestart }: { scores: (number | null)[]; onRes
 
       <p className="text-slate-600 font-light leading-relaxed mb-12">{band.paragraph}</p>
 
+      {/* Per-dimension breakdown — lowest auto-expanded, rest collapsed */}
       <div className="border-t border-slate-200 pt-10 mb-12">
-        <h2 className="text-2xl md:text-3xl font-normal text-[#1a2a3a] mb-8">By dimension</h2>
-        <div className="space-y-8">
+        <h2 className="text-2xl md:text-3xl font-normal text-[#1a2a3a] mb-6">By dimension</h2>
+        <div className="space-y-3">
           {DIMENSIONS.map((dim, idx) => {
             const s = scores[idx] ?? 0
             return (
-              <div key={dim.id}>
-                <div className="flex items-baseline justify-between mb-3 gap-4">
-                  <h3 className="text-lg font-medium text-[#1a2a3a]">
-                    Dimension {dim.id}: {dim.name}
-                  </h3>
-                  <span className="text-[#a68a1f] font-medium whitespace-nowrap">{s} / 3</span>
-                </div>
-                <p className="text-slate-600 font-light leading-relaxed">{insightFor(dim.id, s)}</p>
-              </div>
+              <DimensionAccordion
+                key={dim.id}
+                dim={dim}
+                score={s}
+                defaultOpen={idx === lowestIdx}
+                isLowest={idx === lowestIdx}
+              />
             )
           })}
         </div>
@@ -335,7 +355,7 @@ function ResultsScreen({ scores, onRestart }: { scores: (number | null)[]; onRes
       </div>
 
       {/* CTA — compact, full-width button */}
-      <div className="bg-[#1a2a3a] text-white p-6 md:p-8 mb-10">
+      <div className="bg-[#1a2a3a] text-white p-6 md:p-8 mb-8">
         <p
           className="text-xl md:text-2xl font-normal mb-2 text-white"
           style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
@@ -351,13 +371,89 @@ function ResultsScreen({ scores, onRestart }: { scores: (number | null)[]; onRes
         />
       </div>
 
+      {/* Share + retake */}
+      <div className="flex items-center justify-between gap-4">
+        <button
+          type="button"
+          onClick={onRestart}
+          className="text-slate-500 hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors"
+        >
+          ← Retake
+        </button>
+        <button
+          type="button"
+          onClick={copyShareLink}
+          className="text-slate-500 hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors flex items-center gap-1.5"
+        >
+          {copied ? (
+            <>
+              <svg className="w-4 h-4 text-[#c9a227]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+              Link copied
+            </>
+          ) : (
+            <>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+              Send to a colleague
+            </>
+          )}
+        </button>
+      </div>
+    </div>
+  )
+}
+
+/* ============================================================ */
+/* DIMENSION ACCORDION — collapsible insight per dimension       */
+/* ============================================================ */
+function DimensionAccordion({
+  dim,
+  score,
+  defaultOpen,
+  isLowest,
+}: {
+  dim: (typeof DIMENSIONS)[number]
+  score: number
+  defaultOpen: boolean
+  isLowest: boolean
+}) {
+  const [open, setOpen] = useState(defaultOpen)
+
+  return (
+    <div className={`border ${open ? "border-slate-300" : "border-slate-200"} transition-colors`}>
       <button
         type="button"
-        onClick={onRestart}
-        className="text-slate-500 hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors"
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50/50 transition-colors"
       >
-        ← Retake the diagnostic
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-medium text-[#1a2a3a]">
+            {dim.name}
+          </span>
+          {isLowest && (
+            <span className="text-[9px] font-medium tracking-[0.15em] uppercase text-[#a68a1f] bg-[#c9a227]/10 px-2 py-0.5">
+              Tested first
+            </span>
+          )}
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="text-[#a68a1f] font-medium text-sm">{score} / 3</span>
+          <svg
+            className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
       </button>
+      {open && (
+        <div className="px-4 pb-4 pt-0">
+          <p className="text-slate-600 font-light leading-relaxed text-sm">
+            {insightFor(dim.id, score)}
+          </p>
+        </div>
+      )}
     </div>
   )
 }
@@ -421,11 +517,15 @@ function ResultsEmailForm({
           className="text-[#1a2a3a] text-xl font-normal mb-2"
           style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
         >
-          Check your inbox.
+          You&apos;re on the list.
         </p>
-        <p className="text-slate-600 font-light text-sm">
-          A detailed write-up of your results is on its way. If it doesn&apos;t arrive in a few
-          minutes, check your spam folder.
+        <p className="text-slate-600 font-light text-sm mb-3">
+          The full PDF write-up is being finalized. You&apos;ll be the first to receive it.
+          In the meantime, screenshot your results above.
+        </p>
+        <p className="text-slate-500 font-light text-xs italic">
+          Most people in {bandName} have 2–3 specific questions after seeing their scores.
+          That&apos;s usually a good time for a call.
         </p>
       </div>
     )
