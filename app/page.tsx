@@ -207,16 +207,54 @@ export default function HomePage() {
           <p className="text-white/50 font-light text-sm mt-5">
             10 minutes. Self-scored. Honest scoring is the point.
           </p>
+        </div>
+      </section>
 
-          {/* OR divider */}
-          <div className="flex items-center gap-4 max-w-md mx-auto my-10">
-            <div className="flex-1 h-px bg-white/20"></div>
-            <span className="text-white/40 text-xs tracking-[0.25em] uppercase">or</span>
-            <div className="flex-1 h-px bg-white/20"></div>
-          </div>
+      {/* DEEP GOLD EMAIL CAPTURE — Hong Kong sunset background */}
+      {/*
+        Sunset photo as the warm visual base. Deep gold/amber overlay tints
+        everything to brand. Reuses FiveQuestionsForm which delivers the
+        executive-readiness-diagnostic.pdf (11pp reference) via Supabase.
+      */}
+      <section className="relative py-20 md:py-28 px-6 overflow-hidden">
+        {/* Background: HK sunset photo */}
+        <Image
+          src="/m-lYDOrOkR_GU-unsplash (1).jpg"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          quality={85}
+        />
+        {/* Deep gold overlay — diagonal gradient for warmth + readability */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(168, 138, 31, 0.88) 0%, rgba(122, 93, 16, 0.92) 60%, rgba(70, 53, 8, 0.94) 100%)",
+          }}
+        />
+        {/* Subtle gold sheen highlight in corner */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 600px 400px at 80% 10%, rgba(245, 230, 179, 0.18) 0%, transparent 70%)",
+          }}
+        />
 
-          {/* Inline email form — just want the PDF, no questionnaire */}
-          <div className="max-w-md mx-auto bg-white/[0.04] border border-white/15 p-6 md:p-7 text-left">
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <p className="text-[#FAF9F7]/90 text-xs font-medium tracking-[0.32em] uppercase mb-4" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
+            Free PDF · Send to my inbox
+          </p>
+          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance", textShadow: "0 2px 16px rgba(0,0,0,0.4)" }}>
+            Don&apos;t have ten minutes?
+          </h2>
+          <p className="text-white/90 font-light leading-relaxed mb-10 max-w-xl mx-auto" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}>
+            Get the same diagnostic as a printable PDF. All five dimensions, the scoring rubric, the reflection prompts, and the band paragraphs. Self-score on your own time.
+          </p>
+
+          <div className="max-w-md mx-auto bg-[#0F1A24]/35 backdrop-blur-sm border border-white/25 p-6 md:p-7 text-left shadow-2xl">
             <FiveQuestionsForm />
           </div>
         </div>
@@ -286,29 +324,10 @@ export default function HomePage() {
 
       {/* THE PRACTICE UNDERNEATH (LANE) */}
       {/*
-        Champagne-on-cream gradient overlay distinguishes this section from the
-        flanking white-ish (Track Record cream) and navy (Final Invitation)
-        sections. Desktop: mandala-left, copy-right. Mobile: mandala on top
+        Desktop: mandala-left, copy-right. Mobile: mandala on top
         (because the image column comes first in DOM order), then copy + CTA.
       */}
-      <section className="relative py-20 md:py-28 px-6 overflow-hidden">
-        {/* Champagne gradient base */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background:
-              "linear-gradient(135deg, #fbf8ed 0%, #f8f0d8 45%, #fbf4dc 75%, #f5ecc4 100%)",
-          }}
-        />
-        {/* Subtle gold overlay sheen */}
-        <div
-          className="absolute inset-0 z-0 opacity-50 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 30% 50%, rgba(201,162,39,0.18) 0%, transparent 60%)",
-          }}
-        />
-
+      <section className="relative py-20 md:py-28 px-6 overflow-hidden bg-white">
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="grid md:grid-cols-[0.85fr_1.15fr] gap-12 md:gap-20 items-center">
             {/* LEFT (desktop) / TOP (mobile): mandala */}
