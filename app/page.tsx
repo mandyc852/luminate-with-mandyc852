@@ -108,16 +108,13 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full py-12">
           <div className="max-w-xl mx-auto md:mx-0 text-center md:text-left">
-            {/* Intro line above headline */}
-            <p className="text-white/70 font-light text-base md:text-lg mb-3">
+            <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.1] font-normal mb-4">
               Hi, I&apos;m Mandy Cheung.
-            </p>
-            <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.15] font-normal mb-4">
-              The hard part isn&apos;t strategy.<br />It&apos;s what comes next.
             </h1>
-            {/* Gold rule — width matches the two buttons combined (2×280px + gap) */}
-            <div className="h-px bg-gradient-to-r from-[#a68a1f] via-[#c9a227] to-[#d4b84a] mb-6 mx-auto md:mx-0 w-full sm:w-[540px] md:w-[575px]" />
-            <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-md mx-auto md:mx-0">
+            <p className="text-white/80 text-lg md:text-2xl font-light leading-[1.35] mb-6 max-w-lg" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+              The hard part isn&apos;t strategy.<br />It&apos;s what comes next.
+            </p>
+            <p className="text-sm md:text-base text-white/70 font-light leading-relaxed mb-7 max-w-md mx-auto md:mx-0">
               A Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list.
             </p>
             {/*
