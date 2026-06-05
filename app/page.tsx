@@ -3,7 +3,6 @@ import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { BookCallButton } from "./_components/home-interactions"
 import { SiteHeader } from "./_components/site-header"
-import { FiveQuestionsForm } from "./the-five-questions/_components/five-questions-form"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -210,43 +209,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DEEP GOLD EMAIL CAPTURE — Hong Kong sunset background */}
-      {/*
-        Separated from the navy diagnostic banner by a visual break.
-        Sunset photo + deep gold overlay. Form is flat in the section
-        (no extra box-in-a-box). Delivers executive-readiness-diagnostic.pdf.
-      */}
-      <section className="relative py-16 md:py-20 px-6 overflow-hidden">
-        {/* Background: HK sunset photo */}
-        <Image
-          src="/m-lYDOrOkR_GU-unsplash (1).jpg"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-          quality={85}
-        />
-        {/* Deep gold overlay */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(168, 138, 31, 0.88) 0%, rgba(122, 93, 16, 0.92) 60%, rgba(70, 53, 8, 0.94) 100%)",
-          }}
-        />
-
-        <div className="relative z-10 max-w-md mx-auto">
-          <p className="text-[#FAF9F7]/90 text-xs font-medium tracking-[0.32em] uppercase mb-3 text-center" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
-            Free PDF
-          </p>
-          <h2 className="text-2xl md:text-3xl mb-6 font-normal leading-[1.15] !text-white text-center" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.4)" }}>
-            Don&apos;t have ten minutes?
-          </h2>
-
-          {/* Form directly in the section — no extra box */}
-          <FiveQuestionsForm />
-        </div>
-      </section>
 
       {/* ABOUT */}
       <section id="about" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
