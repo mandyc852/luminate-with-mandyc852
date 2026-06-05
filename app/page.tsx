@@ -212,13 +212,15 @@ export default function HomePage() {
 
       {/* ABOUT */}
       <section id="about" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-[0.7fr_1.3fr] gap-12 md:gap-16 items-center">
-            <div className="relative aspect-[4/5] rounded-none overflow-hidden shadow-lg max-w-[280px] md:max-w-none mx-auto md:mx-0">
-              <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+        <div className="max-w-3xl mx-auto">
+          {/* Round profile pic + heading */}
+          <div className="flex flex-col md:flex-row items-center md:items-end gap-5 md:gap-6 mb-10">
+            <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden shadow-lg flex-shrink-0 border-2 border-[#c9a227]/30">
+              <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="112px" />
             </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-8">About Mandy</h2>
+            <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a]">About Mandy</h2>
+          </div>
+          <div>
               <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
                 <p>
                   I&apos;m a Hong Kong SFC Type 6 licensed corporate finance advisor with 10+ years and 60+ transactions across HKEX and NASDAQ — IPOs, general offers, convertible bonds, and restructurings. The kind of cross-border work where regulatory complexity is the norm, not the exception.
@@ -273,52 +275,44 @@ export default function HomePage() {
       </section>
 
       {/* THE PRACTICE UNDERNEATH (LANE) */}
-      {/*
-        Desktop: mandala-left, copy-right. Mobile: mandala on top
-        (because the image column comes first in DOM order), then copy + CTA.
-      */}
       <section className="relative py-20 md:py-28 px-6 overflow-hidden bg-white">
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-[0.85fr_1.15fr] gap-12 md:gap-20 items-center">
-            {/* LEFT (desktop) / TOP (mobile): mandala */}
-            <div className="flex items-center justify-center order-1">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/lead-magnet/lane-framework.png"
-                alt="LANE — Lookback, Anchor, Next, Envision"
-                className="w-full max-w-[440px] h-auto"
-              />
-            </div>
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase mb-4">
+            What I run myself
+          </p>
+          <h2 className="text-3xl md:text-4xl mb-8 font-normal leading-[1.1]" style={{ textWrap: "balance" }}>
+            The practice underneath the work
+          </h2>
 
-            {/* RIGHT (desktop) / BOTTOM (mobile): copy + CTA */}
-            <div className="order-2 text-center md:text-left">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase mb-4">
-                What I run myself
-              </p>
-              <h2 className="text-3xl md:text-4xl mb-6 font-normal leading-[1.1]" style={{ textWrap: "balance" }}>
-                The practice underneath the work
-              </h2>
-              <div className="space-y-4 text-slate-700 font-light leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
-                <p>
-                  Capital markets work is not just deals. The leaders who get through them intact run their own operating system underneath the engagement.
-                </p>
-                <p>
-                  LANE is the weekly inquiry I run myself. Five letters. Forty-five minutes. Pen and paper. I share it publicly because the practice belongs to anyone willing to do it.
-                </p>
-              </div>
-
-              {/* Button: full-width mobile, 420px min desktop (matches primary CTA convention) */}
-              <a
-                href="/lane"
-                className="w-full md:w-auto md:min-w-[420px] inline-flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
-              >
-                Get LANE →
-              </a>
-              <p className="text-slate-500 font-light text-sm mt-5">
-                Free. PDF plus phone and desktop wallpapers.
-              </p>
-            </div>
+          {/* Mandala — between heading and copy */}
+          <div className="flex items-center justify-center mb-10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/lead-magnet/lane-framework.png"
+              alt="LANE — Lookback, Anchor, Next, Envision"
+              className="w-full max-w-[320px] md:max-w-[380px] h-auto"
+            />
           </div>
+
+          <div className="space-y-4 text-slate-700 font-light leading-relaxed mb-8 max-w-xl mx-auto">
+            <p>
+              Capital markets work is not just deals. The leaders who get through them intact run their own operating system underneath the engagement.
+            </p>
+            <p>
+              LANE is the weekly inquiry I run myself. Five letters. Forty-five minutes. Pen and paper. I share it publicly because the practice belongs to anyone willing to do it.
+            </p>
+          </div>
+
+          {/* Button: full-width mobile, 420px min desktop */}
+          <a
+            href="/lane"
+            className="w-full md:w-auto md:min-w-[420px] inline-flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+          >
+            Get LANE →
+          </a>
+          <p className="text-slate-500 font-light text-sm mt-5">
+            Free. PDF plus phone and desktop wallpapers.
+          </p>
         </div>
       </section>
 
