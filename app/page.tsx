@@ -113,7 +113,7 @@ export default function HomePage() {
               Hi, I&apos;m Mandy Cheung.
             </p>
             <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.15] font-normal mb-4">
-              The hard part isn&apos;t strategy. It&apos;s what comes next.
+              The hard part isn&apos;t strategy.<br />It&apos;s what comes next.
             </h1>
             {/* Gold rule — width matches the two buttons combined (2×280px + gap) */}
             <div className="h-px bg-gradient-to-r from-[#a68a1f] via-[#c9a227] to-[#d4b84a] mb-6 mx-auto md:mx-0 w-full sm:w-[540px] md:w-[575px]" />
