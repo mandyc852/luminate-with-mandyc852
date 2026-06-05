@@ -212,37 +212,48 @@ export default function HomePage() {
 
       {/* ABOUT */}
       <section id="about" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          {/* Round profile pic + heading */}
-          <div className="flex flex-col md:flex-row items-center md:items-end gap-5 md:gap-6 mb-10">
-            <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden shadow-lg flex-shrink-0 border-2 border-[#c9a227]/30">
-              <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="112px" />
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-[0.7fr_1.3fr] gap-12 md:gap-16 items-center">
+            {/* Desktop: tall rectangular photo | Mobile: small round avatar */}
+            <div>
+              {/* Desktop photo — hidden on mobile */}
+              <div className="relative aspect-[4/5] rounded-none overflow-hidden shadow-lg hidden md:block">
+                <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
+              </div>
+              {/* Mobile round avatar — hidden on desktop */}
+              <div className="flex flex-col items-center gap-4 md:hidden">
+                <div className="relative w-28 h-28 rounded-full overflow-hidden shadow-lg border-2 border-[#c9a227]/30">
+                  <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="112px" />
+                </div>
+              </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a]">About Mandy</h2>
-          </div>
-          <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
-            <p>
-              I&apos;m a Hong Kong SFC Type 6 licensed corporate finance advisor with 10+ years and 60+ transactions across HKEX and NASDAQ — IPOs, general offers, convertible bonds, and restructurings. The kind of cross-border work where regulatory complexity is the norm, not the exception.
-            </p>
-            <p>
-              Most capital markets advisors serve businesses that have already arrived. The builders and operators still in the climb — the ones who started with no backing and figured it out as they went — get overlooked. I work with precisely those people, because I&apos;m one of them.
-            </p>
-            <p className="text-[#1a2a3a] font-normal">
-              Integrity is my core value.
-              <br />
-              I&apos;m in a service industry, and I act like it.
-              <br />
-              The client&apos;s success is the only metric that matters.
-            </p>
-          </div>
-          <div className="flex items-center gap-4 mt-8">
-            <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
-              YouTube
-            </a>
-            <span className="text-slate-300">·</span>
-            <a href="https://www.linkedin.com/in/mandyc852/" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
-              LinkedIn
-            </a>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-8 text-center md:text-left">About Mandy</h2>
+              <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
+                <p>
+                  I&apos;m a Hong Kong SFC Type 6 licensed corporate finance advisor with 10+ years and 60+ transactions across HKEX and NASDAQ — IPOs, general offers, convertible bonds, and restructurings. The kind of cross-border work where regulatory complexity is the norm, not the exception.
+                </p>
+                <p>
+                  Most capital markets advisors serve businesses that have already arrived. The builders and operators still in the climb — the ones who started with no backing and figured it out as they went — get overlooked. I work with precisely those people, because I&apos;m one of them.
+                </p>
+                <p className="text-[#1a2a3a] font-normal">
+                  Integrity is my core value.
+                  <br />
+                  I&apos;m in a service industry, and I act like it.
+                  <br />
+                  The client&apos;s success is the only metric that matters.
+                </p>
+              </div>
+              <div className="flex items-center gap-4 mt-8 justify-center md:justify-start">
+                <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
+                  YouTube
+                </a>
+                <span className="text-slate-300">·</span>
+                <a href="https://www.linkedin.com/in/mandyc852/" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
+                  LinkedIn
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
