@@ -108,13 +108,13 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full py-12">
           <div className="max-w-xl mx-auto md:mx-0 text-center md:text-left">
-            <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.1] font-normal mb-4">
-              Hi, I&apos;m Mandy Cheung.
-            </h1>
-            <p className="text-white/80 text-lg md:text-2xl font-light leading-[1.35] mb-6 max-w-lg" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-              The hard part isn&apos;t strategy.<br />It&apos;s what comes next.
+            <p className="text-[#c9a227] text-xs font-medium tracking-[0.3em] uppercase mb-4">
+              Mandy Cheung
             </p>
-            <p className="text-sm md:text-base text-white/70 font-light leading-relaxed mb-7 max-w-xl mx-auto md:mx-0">
+            <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.15] font-normal mb-5">
+              The hard part isn&apos;t strategy.<br />It&apos;s what comes next.
+            </h1>
+            <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-xl mx-auto md:mx-0">
               A Hong Kong capital markets advisor to ambitious companies<br />preparing to raise, restructure, or list.
             </p>
             {/*
