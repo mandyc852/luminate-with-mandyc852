@@ -30,70 +30,63 @@ export default function LanePage() {
           ]}
         />
 
-        <main className="max-w-5xl mx-auto px-6 md:px-12 py-12 md:py-20">
-          <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center">
-            {/* Left: Copy */}
-            <div>
-              <p className="text-[#C9A227] text-xs font-medium tracking-[0.3em] uppercase mb-4">
-                A weekly inquiry
-              </p>
-
-              <h1
-                className="text-5xl md:text-7xl font-normal mb-5 text-[#C9A227]"
-                style={{ letterSpacing: "0.18em", fontFamily: "var(--font-cormorant-garamond), serif" }}
-              >
-                LANE
-              </h1>
-
-              <div className="h-px w-16 bg-[#C9A227] mb-8" />
-
-              <p
-                className="text-lg md:text-2xl text-[#FAF9F7] font-light italic leading-relaxed mb-8"
-                style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
-              >
-                The loop runs whether you watch it or not. Most weeks look like last week. LANE is
-                the inquiry that makes the loop visible enough to choose, this week, what to repeat
-                and what to change.
-              </p>
-
-              <div className="space-y-4 text-[#B8B5A8] font-light leading-relaxed mb-8">
-                <p>
-                  Four sections. Lookback, Anchor, Next, Envision. About twenty-five questions
-                  across the four. You answer the ones that catch you, not every one every week.
-                </p>
-                <p>
-                  Once a week. Forty-five minutes. Pen and paper. Sunday evening or Monday morning.
-                </p>
-                <p className="text-[#FAF9F7]/85">
-                  The framework is the discipline. The questions are the prompts. The answers are
-                  between you and the page.
-                </p>
-              </div>
-            </div>
-
-            {/* Right: Mandala */}
-            <div className="flex items-center justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/lead-magnet/lane-framework.png"
-                alt="LANE — Lookback, Anchor, Next, Envision"
-                className="w-full max-w-[420px] h-auto"
-              />
-            </div>
-          </div>
-
-          <p className="text-[#FAF9F7]/40 text-xs font-medium tracking-[0.18em] uppercase mb-8">
-            Sent to your inbox · PDF + phone &amp; desktop wallpapers
+        <main className="max-w-2xl mx-auto px-6 md:px-12 py-16 md:py-24">
+          {/* Eyebrow */}
+          <p className="text-[#C9A227] text-xs font-medium tracking-[0.3em] uppercase mb-4 text-center">
+            A weekly inquiry
           </p>
 
-          {/* Email form */}
-          <div className="bg-[#1A2A3A]/60 backdrop-blur-sm border border-[#C9A227]/20 p-6 md:p-8 max-w-xl">
+          {/* Title */}
+          <h1
+            className="text-5xl md:text-7xl font-normal mb-8 text-[#C9A227] text-center"
+            style={{ letterSpacing: "0.18em", fontFamily: "var(--font-cormorant-garamond), serif" }}
+          >
+            LANE
+          </h1>
+
+          {/* Mandala — transparent bg */}
+          <div className="flex items-center justify-center mb-10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/lead-magnet/lane-framework.png"
+              alt="LANE — Lookback, Anchor, Next, Envision"
+              className="w-full max-w-[360px] md:max-w-[420px] h-auto"
+            />
+          </div>
+
+          {/* Lede */}
+          <p
+            className="text-lg md:text-xl text-[#FAF9F7] font-light italic leading-relaxed mb-8 text-center"
+            style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
+          >
+            The loop runs whether you watch it or not. Most weeks look like last week.
+            LANE is the inquiry that makes the loop visible enough to choose, this week,
+            what to repeat and what to change.
+          </p>
+
+          {/* Body copy */}
+          <div className="space-y-4 text-[#B8B5A8] font-light leading-relaxed mb-10 text-center">
+            <p>
+              Four sections. Lookback, Anchor, Next, Envision. About twenty-five questions
+              across the four. You answer the ones that catch you, not every one every week.
+            </p>
+            <p>
+              Once a week. Forty-five minutes. Pen and paper. Sunday evening or Monday morning.
+            </p>
+            <p className="text-[#FAF9F7]/85">
+              The framework is the discipline. The questions are the prompts.
+              The answers are between you and the page.
+            </p>
+          </div>
+
+          {/* Email form — no box, flat in the page */}
+          <div className="max-w-md mx-auto">
             <LaneForm />
           </div>
 
           {/* Cross-link to diagnostic */}
-          <p className="text-[#FAF9F7]/50 text-sm font-light mt-10 max-w-xl">
-            Preparing for a capital event — raise, restructure, or list?{" "}
+          <p className="text-[#FAF9F7]/50 text-sm font-light mt-12 text-center">
+            Preparing for a capital event?{" "}
             <a
               href="/executive-readiness"
               className="text-[#C9A227] hover:text-[#D4B84A] underline decoration-[#C9A227]/40 hover:decoration-[#D4B84A] transition-colors"

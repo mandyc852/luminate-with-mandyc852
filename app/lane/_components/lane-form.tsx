@@ -36,23 +36,13 @@ export function LaneForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
-      <p
-        className="text-white text-xl font-normal mb-1"
-        style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
-      >
-        Send LANE to my inbox
-      </p>
-      <p className="text-white/60 font-light text-sm mb-4">
-        Instant download. The one-page PDF, plus phone and desktop wallpapers of the question that
-        does the most work.
-      </p>
       <input
         type="email"
         placeholder="Email address"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="w-full px-5 py-3.5 rounded-none border border-white/30 bg-white/10 text-white placeholder-white/50 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227]/40 transition-all text-sm"
+        className="w-full px-5 py-3.5 rounded-none border border-white/30 bg-white/10 text-white placeholder-white/50 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227]/40 transition-all text-sm backdrop-blur-sm"
       />
       <label className="flex items-start gap-2.5 text-left text-xs text-white/60 font-light leading-relaxed cursor-pointer">
         <input
@@ -66,14 +56,17 @@ export function LaneForm() {
           anytime.
         </span>
       </label>
-      {error && <p className="text-red-300 text-sm">{error}</p>}
+      {error && <p className="text-red-300 text-sm text-center">{error}</p>}
       <button
         type="submit"
         disabled={isSubmitting}
         className="w-full py-3.5 rounded-none uppercase tracking-[0.18em] text-sm btn-gold-animated disabled:opacity-70 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? "Sending…" : "Send me LANE"}
+        {isSubmitting ? "Sending…" : "Get on the LANE"}
       </button>
+      <p className="text-white/40 text-xs text-center pt-1">
+        Free. PDF plus phone and desktop wallpapers.
+      </p>
     </form>
   )
 }
