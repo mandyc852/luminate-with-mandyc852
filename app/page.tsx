@@ -315,10 +315,9 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* Button: full-width mobile, 420px min desktop */}
               <a
                 href="/lane"
-                className="w-full md:w-auto md:min-w-[420px] inline-flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+                className="w-full md:max-w-xl inline-flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
               >
                 Get LANE →
               </a>
