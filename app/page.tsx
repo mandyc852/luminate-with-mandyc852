@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { BookCallButton } from "./_components/home-interactions"
 import { SiteHeader } from "./_components/site-header"
+import { LaneForm } from "./lane/_components/lane-form"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -284,7 +285,7 @@ export default function HomePage() {
         Desktop: two-column grid, copy left, mandala right.
         Mobile: single column — eyebrow, heading, mandala, copy, CTA (stacked).
       */}
-      <section className="relative py-20 md:py-28 px-6 overflow-hidden bg-white">
+      <section id="lane" className="relative py-20 md:py-28 px-6 overflow-hidden bg-white scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-[1.15fr_0.85fr] gap-12 md:gap-20 items-center">
             {/* LEFT (desktop): copy + CTA | On mobile this renders second (order-2) */}
@@ -315,15 +316,10 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <a
-                href="/lane"
-                className="w-full md:max-w-xl inline-flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
-              >
-                Get on the LANE →
-              </a>
-              <p className="text-slate-500 font-light text-sm mt-5">
-                Free. PDF plus phone and desktop wallpapers.
-              </p>
+              {/* Inline email form — converts right here, no separate page */}
+              <div className="max-w-sm mx-auto md:mx-0">
+                <LaneForm variant="light" />
+              </div>
             </div>
 
             {/* RIGHT (desktop): mandala — hidden on mobile (shown inline above instead) */}

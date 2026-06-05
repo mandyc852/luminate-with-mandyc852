@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 
-export function LaneForm() {
+export function LaneForm({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const [email, setEmail] = useState("")
   const [consent, setConsent] = useState(true)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -34,6 +34,8 @@ export function LaneForm() {
     }
   }
 
+  const light = variant === "light"
+
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
       <input
@@ -42,9 +44,17 @@ export function LaneForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="w-full px-5 py-3.5 rounded-none border border-white/30 bg-white/10 text-white placeholder-white/50 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227]/40 transition-all text-sm backdrop-blur-sm"
+        className={[
+          "w-full px-5 py-3.5 rounded-none border transition-all text-sm",
+          light
+            ? "border-slate-300 bg-white text-[#1a2a3a] placeholder-slate-400 focus:outline-none focus:border-[#c9a227] focus:ring-1 focus:ring-[#c9a227]/40"
+            : "border-white/30 bg-white/10 text-white placeholder-white/50 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227]/40 backdrop-blur-sm",
+        ].join(" ")}
       />
-      <label className="flex items-start gap-2.5 text-left text-xs text-white/60 font-light leading-relaxed cursor-pointer">
+      <label className={[
+        "flex items-start gap-2.5 text-left text-xs font-light leading-relaxed cursor-pointer",
+        light ? "text-slate-500" : "text-white/60",
+      ].join(" ")}>
         <input
           type="checkbox"
           checked={consent}
@@ -56,7 +66,7 @@ export function LaneForm() {
           anytime.
         </span>
       </label>
-      {error && <p className="text-red-300 text-sm text-center">{error}</p>}
+      {error && <p className={`text-sm text-center ${light ? "text-red-600" : "text-red-300"}`}>{error}</p>}
       <button
         type="submit"
         disabled={isSubmitting}
@@ -64,7 +74,7 @@ export function LaneForm() {
       >
         {isSubmitting ? "Sending…" : "Get on the LANE"}
       </button>
-      <p className="text-white/40 text-xs text-center pt-1">
+      <p className={`text-xs text-center pt-1 ${light ? "text-slate-400" : "text-white/40"}`}>
         Free. PDF plus phone and desktop wallpapers.
       </p>
     </form>
