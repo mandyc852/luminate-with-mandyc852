@@ -523,7 +523,7 @@ function ResultsEmailForm({
           A copy is on the way to your inbox. Or grab it now:
         </p>
         <a
-          href="/downloads/executive-readiness-diagnostic.pdf"
+          href="/lead-magnet/executive-readiness-diagnostic.pdf"
           download
           className="w-full inline-flex items-center justify-center py-3.5 rounded-none uppercase tracking-[0.15em] text-sm btn-gold-home mb-4"
         >

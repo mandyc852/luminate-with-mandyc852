@@ -53,7 +53,7 @@ The scored diagnostic is the **high-signal qualifier**. LANE is the **broad-appe
 
 ## 3. The artifacts
 
-### Print PDFs (`public/lead-magnet/` and `public/downloads/`)
+### Print PDFs (`public/lead-magnet/`)
 
 | File | Pages | Purpose | Delivered to |
 |---|---|---|---|

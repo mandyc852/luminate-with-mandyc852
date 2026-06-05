@@ -44,7 +44,7 @@ export default function FiveQuestionsThankYou() {
           </p>
 
           <a
-            href="/downloads/executive-readiness-diagnostic.pdf"
+            href="/lead-magnet/executive-readiness-diagnostic.pdf"
             download
             className="inline-flex items-center justify-center w-full max-w-sm px-8 py-4 rounded-none bg-[#C9A227] text-[#0F1A24] font-medium tracking-[0.12em] uppercase text-base hover:bg-[#d4b84a] transition-all duration-300 shadow-lg hover:shadow-xl"
             style={{ fontFamily: "Poppins, sans-serif" }}

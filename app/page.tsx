@@ -214,7 +214,7 @@ export default function HomePage() {
       {/*
         Sunset photo as the warm visual base. Deep gold/amber overlay tints
         everything to brand. Reuses FiveQuestionsForm which delivers the
-        executive-readiness-diagnostic.pdf (11pp reference) via Supabase.
+        /lead-magnet/executive-readiness-diagnostic.pdf (11pp reference) via Supabase.
       */}
       <section className="relative py-20 md:py-28 px-6 overflow-hidden">
         {/* Background: HK sunset photo */}

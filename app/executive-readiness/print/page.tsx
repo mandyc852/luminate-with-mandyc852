@@ -11,7 +11,7 @@ import { INSIGHTS } from "../lib/insights"
 //   1. dev server running on :3001
 //   2. /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
 //        --headless --disable-gpu --no-pdf-header-footer \
-//        --print-to-pdf="public/downloads/executive-readiness-diagnostic.pdf" \
+//        --print-to-pdf="public/lead-magnet/executive-readiness-diagnostic.pdf" \
 //        http://localhost:3001/executive-readiness/print
 //   3. commit the new PDF binary.
 
