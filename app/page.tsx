@@ -115,7 +115,7 @@ export default function HomePage() {
               The hard part isn&apos;t strategy.<br />It&apos;s what comes next.
             </h1>
             <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-xl mx-auto md:mx-0">
-              A Hong Kong capital markets advisor to ambitious companies<br />preparing to raise, restructure, or list.
+              A Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list.
             </p>
             {/*
               Button convention: full-width on mobile (`w-full`), generous fixed
