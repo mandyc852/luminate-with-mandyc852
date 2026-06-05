@@ -222,11 +222,11 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-4 md:mb-8 text-center md:text-left">About Mandy</h2>
-              {/* Mobile round avatar — under heading, hidden on desktop */}
-              <div className="flex justify-center mb-8 md:hidden">
-                <div className="relative w-28 h-28 rounded-full overflow-hidden shadow-lg border-2 border-[#c9a227]/30">
-                  <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="112px" />
+              <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-6 md:mb-8">About Mandy</h2>
+              {/* Mobile round avatar — under heading, left-aligned, hidden on desktop */}
+              <div className="flex mb-6 md:hidden">
+                <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-lg border-2 border-[#c9a227]/30">
+                  <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="96px" />
                 </div>
               </div>
               <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
@@ -244,7 +244,7 @@ export default function HomePage() {
                   The client&apos;s success is the only metric that matters.
                 </p>
               </div>
-              <div className="flex items-center gap-4 mt-8 justify-center md:justify-start">
+              <div className="flex items-center gap-4 mt-8">
                 <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
                   YouTube
                 </a>
