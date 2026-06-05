@@ -220,15 +220,15 @@ export default function HomePage() {
               <div className="relative aspect-[4/5] rounded-none overflow-hidden shadow-lg hidden md:block">
                 <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
               </div>
-              {/* Mobile round avatar — hidden on desktop */}
-              <div className="flex flex-col items-center gap-4 md:hidden">
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-4 md:mb-8 text-center md:text-left">About Mandy</h2>
+              {/* Mobile round avatar — under heading, hidden on desktop */}
+              <div className="flex justify-center mb-8 md:hidden">
                 <div className="relative w-28 h-28 rounded-full overflow-hidden shadow-lg border-2 border-[#c9a227]/30">
                   <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="112px" />
                 </div>
               </div>
-            </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-8 text-center md:text-left">About Mandy</h2>
               <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
                 <p>
                   I&apos;m a Hong Kong SFC Type 6 licensed corporate finance advisor with 10+ years and 60+ transactions across HKEX and NASDAQ — IPOs, general offers, convertible bonds, and restructurings. The kind of cross-border work where regulatory complexity is the norm, not the exception.
