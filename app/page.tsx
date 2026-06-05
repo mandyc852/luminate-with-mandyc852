@@ -109,23 +109,25 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full py-12">
           <div className="max-w-xl mx-auto md:mx-0 text-center md:text-left">
-            <p className="text-[#c9a227] text-sm font-medium tracking-wider uppercase mb-4">
-              Capital Markets Advisory · HKEX + NASDAQ + Global Markets
-            </p>
             <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.15] font-normal mb-5">
               The hard part isn&apos;t strategy. It&apos;s what comes next.
             </h1>
             <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-md mx-auto md:mx-0">
               I&apos;m Mandy Cheung. A Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list.
             </p>
+            {/*
+              Button convention: full-width on mobile (`w-full`), generous fixed
+              width on desktop (`md:min-w-[320px]` for paired/secondary CTAs,
+              `md:min-w-[420px]` for solo primary CTAs).
+            */}
             <div className="flex flex-col sm:flex-row gap-3">
               <BookCallButton
                 label="Book a call"
-                className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+                className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
               />
               <a
                 href="/executive-readiness"
-                className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
+                className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
               >
                 Take the free diagnostic
               </a>
@@ -283,18 +285,51 @@ export default function HomePage() {
       </section>
 
       {/* THE PRACTICE UNDERNEATH (LANE) */}
-      <section className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 md:gap-16 items-center">
-            {/* Left: copy */}
-            <div>
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">
+      {/*
+        Champagne-on-cream gradient overlay distinguishes this section from the
+        flanking white-ish (Track Record cream) and navy (Final Invitation)
+        sections. Desktop: mandala-left, copy-right. Mobile: mandala on top
+        (because the image column comes first in DOM order), then copy + CTA.
+      */}
+      <section className="relative py-20 md:py-28 px-6 overflow-hidden">
+        {/* Champagne gradient base */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "linear-gradient(135deg, #fbf8ed 0%, #f8f0d8 45%, #fbf4dc 75%, #f5ecc4 100%)",
+          }}
+        />
+        {/* Subtle gold overlay sheen */}
+        <div
+          className="absolute inset-0 z-0 opacity-50 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at 30% 50%, rgba(201,162,39,0.18) 0%, transparent 60%)",
+          }}
+        />
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-[0.85fr_1.15fr] gap-12 md:gap-20 items-center">
+            {/* LEFT (desktop) / TOP (mobile): mandala */}
+            <div className="flex items-center justify-center order-1">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lead-magnet/lane-framework.png"
+                alt="LANE — Lookback, Anchor, Next, Envision"
+                className="w-full max-w-[440px] h-auto"
+              />
+            </div>
+
+            {/* RIGHT (desktop) / BOTTOM (mobile): copy + CTA */}
+            <div className="order-2 text-center md:text-left">
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase mb-4">
                 What I run myself
               </p>
-              <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15]" style={{ textWrap: "balance" }}>
+              <h2 className="text-3xl md:text-4xl mb-6 font-normal leading-[1.1]" style={{ textWrap: "balance" }}>
                 The practice underneath the work
               </h2>
-              <div className="space-y-4 text-slate-600 font-light leading-relaxed mb-8">
+              <div className="space-y-4 text-slate-700 font-light leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
                 <p>
                   Capital markets work is not just deals. The leaders who get through them intact run their own operating system underneath the engagement.
                 </p>
@@ -302,25 +337,17 @@ export default function HomePage() {
                   LANE is the weekly inquiry I run myself. Five letters. Forty-five minutes. Pen and paper. I share it publicly because the practice belongs to anyone willing to do it.
                 </p>
               </div>
+
+              {/* Button: full-width mobile, 420px min desktop (matches primary CTA convention) */}
               <a
                 href="/lane"
-                className="inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+                className="w-full md:w-auto md:min-w-[420px] inline-flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
               >
                 Get LANE →
               </a>
               <p className="text-slate-500 font-light text-sm mt-5">
                 Free. PDF plus phone and desktop wallpapers.
               </p>
-            </div>
-
-            {/* Right: mandala */}
-            <div className="flex items-center justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/lead-magnet/lane-framework.png"
-                alt="LANE — Lookback, Anchor, Next, Envision"
-                className="w-full max-w-[360px] h-auto"
-              />
             </div>
           </div>
         </div>

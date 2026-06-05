@@ -107,6 +107,18 @@ To rebuild LANE assets after edits: `npm run build:lead-magnet`.
 - **No rounded corners** anywhere on UI (`rounded-none`). Exception: 4px on PDF diagram boxes.
 - **Sharp, premium, restrained.** Gold accents are punctuation, not background.
 
+### Button width convention (codified)
+
+Every CTA button on the site follows this rule. Don't deviate without a reason.
+
+- **Mobile:** always full-width (`w-full`)
+- **Desktop:** generous fixed width, never collapsing to content-fit
+  - **Solo primary CTA:** `md:w-auto md:min-w-[420px]` (e.g. Begin Diagnostic, Get LANE)
+  - **Paired CTAs (two side-by-side):** `sm:w-auto sm:min-w-[260px] md:min-w-[280px]` (e.g. hero Book a Call + Take the free diagnostic)
+  - **Secondary section CTA:** `md:w-auto md:min-w-[320px]` (e.g. Final Invitation Book a Call)
+
+In-form submit buttons (inside a constrained form box) stay `w-full` always — the form box is their container.
+
 ---
 
 ## 5. Email automation — outstanding work
