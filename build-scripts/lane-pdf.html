@@ -7,8 +7,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
+  /* A4 LANDSCAPE: 297mm wide × 210mm tall */
   @page {
-    size: A4 portrait;
+    size: A4 landscape;
     margin: 0;
   }
   * { box-sizing: border-box; }
@@ -20,31 +21,36 @@
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  .page {
-    width: 210mm;
-    height: 297mm;
-    position: relative;
-    padding: 22mm 22mm 14mm 22mm;
-    page-break-after: always;
-    page-break-inside: avoid;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .page:last-child { page-break-after: auto; }
 
-  /* ===== PAGE 1 — DARK COVER ===== */
-  .page.cover {
-    background: #0F1A24;
-    color: #FAF9F7;
+  .page {
+    width: 297mm;
+    height: 210mm;
+    background: #ffffff;
+    position: relative;
+    padding: 12mm 14mm 11mm 14mm;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 0.95fr 1.55fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header header"
+      "mandala questions"
+      "footer  footer";
+    column-gap: 10mm;
+    row-gap: 4mm;
   }
-  .p1-stack {
-    flex: 1;
+
+  /* ===== HEADER ===== */
+  .header {
+    grid-area: header;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16mm;
+    padding-bottom: 2mm;
+    border-bottom: 1px solid #e6e1d4;
   }
+  .header-left { flex: 1; }
   .eyebrow {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
@@ -52,85 +58,58 @@
     color: #C9A227;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    text-align: center;
-    margin: 0 0 14pt 0;
+    margin: 0 0 4pt 0;
   }
   .title-lane {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 500;
-    font-size: 72pt;
-    color: #C9A227;
+    font-size: 48pt;
+    color: #1A2A3A;
     letter-spacing: 0.22em;
-    text-align: center;
     line-height: 1;
-    margin: 0 0 12pt 0;
+    margin: 0;
     padding-left: 0.22em;
-  }
-  .title-rule {
-    width: 56mm;
-    height: 1px;
-    background: #C9A227;
-    margin: 0 auto 18pt auto;
-    border: 0;
   }
   .lede {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 400;
     font-style: italic;
-    font-size: 13.5pt;
-    line-height: 1.45;
-    color: #FAF9F7;
-    text-align: center;
-    margin: 0 auto;
-    max-width: 130mm;
+    font-size: 12.5pt;
+    line-height: 1.4;
+    color: #3d4f5f;
+    margin: 0;
+    max-width: 140mm;
+    text-align: right;
   }
-  .diagram-wrap {
-    margin: 8mm auto 4mm auto;
-    width: 95mm;
-    display: block;
-    text-align: center;
+
+  /* ===== MANDALA (LEFT) ===== */
+  .mandala-cell {
+    grid-area: mandala;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4mm 0;
   }
-  .diagram-wrap img {
+  .mandala-cell img {
     width: 100%;
+    max-width: 110mm;
     height: auto;
     display: block;
   }
-  .diagram-caption {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 10pt;
-    color: #B8B5A8;
-    text-align: center;
-    margin: 4mm 0 0 0;
-    letter-spacing: 0.05em;
-  }
 
-  /* ===== PAGE 2 — LIGHT QUESTIONS GRID ===== */
-  .page.light {
-    background: #ffffff;
-    color: #1A2A3A;
-  }
-  .light .eyebrow {
-    text-align: left;
-    margin: 0 0 5mm 0;
-  }
-  .grid {
+  /* ===== QUESTIONS (RIGHT) ===== */
+  .questions {
+    grid-area: questions;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 6mm 7mm;
-    flex: 1;
+    gap: 6mm 8mm;
     min-height: 0;
   }
   .cell {
-    border: 1px solid #d8dde3;
-    background: #f8f9fb;
-    padding: 6mm 6.5mm 5mm 6.5mm;
     display: flex;
     flex-direction: column;
-    border-radius: 2px;
     min-height: 0;
-    overflow: hidden;
   }
   .cell-head {
     display: flex;
@@ -142,7 +121,7 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 500;
     font-style: italic;
-    font-size: 34pt;
+    font-size: 32pt;
     color: #C9A227;
     line-height: 0.9;
   }
@@ -151,7 +130,7 @@
     font-weight: 400;
     font-size: 16pt;
     color: #1A2A3A;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     line-height: 1;
   }
   .cell-sub {
@@ -159,9 +138,9 @@
     font-weight: 500;
     font-size: 7.5pt;
     color: #C9A227;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    margin: 0 0 4mm 0;
+    margin: 0 0 3mm 0;
   }
   .q-list {
     list-style: none;
@@ -176,7 +155,7 @@
     font-size: 8.5pt;
     line-height: 1.4;
     color: #3d4f5f;
-    margin: 0 0 3.5pt 0;
+    margin: 0 0 2.5pt 0;
     padding-left: 9pt;
     position: relative;
   }
@@ -191,86 +170,59 @@
     line-height: 1;
   }
 
-  /* Closing block */
-  .closing {
-    flex-shrink: 0;
-    margin-top: 5mm;
-    text-align: center;
-  }
-  .closing-rule {
-    width: 56mm;
-    height: 1px;
-    background: #C9A227;
-    margin: 0 auto 3.5mm auto;
-    border: 0;
+  /* ===== FOOTER ===== */
+  .footer {
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12mm;
+    padding-top: 3mm;
+    border-top: 1px solid #e6e1d4;
   }
   .tagline {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 400;
     font-style: italic;
-    font-size: 11pt;
+    font-size: 10.5pt;
     color: #1A2A3A;
+    line-height: 1.35;
+    margin: 0;
+    flex: 1;
     text-align: center;
-    margin: 0 auto;
-    max-width: 150mm;
-    line-height: 1.4;
   }
-
-  /* Footer */
-  .page-number {
-    position: absolute;
-    bottom: 8mm;
-    right: 22mm;
+  .brand {
     font-family: 'Poppins', sans-serif;
-    font-size: 8.5pt;
-    color: #C9A227;
-    letter-spacing: 0.2em;
-  }
-  .footer-brand {
-    position: absolute;
-    bottom: 8mm;
-    left: 22mm;
-    font-family: 'Poppins', sans-serif;
-    font-size: 8.5pt;
+    font-weight: 500;
+    font-size: 8pt;
+    color: #8a96a3;
     letter-spacing: 0.22em;
     text-transform: uppercase;
   }
-  .page.cover .footer-brand { color: #B8B5A8; }
-  .page.light .footer-brand { color: #8a96a3; }
 </style>
 </head>
 <body>
 
-<!-- ============================================================ -->
-<!-- PAGE 1 — NAVY COVER                                          -->
-<!-- ============================================================ -->
-<section class="page cover">
-  <div class="p1-stack">
-    <p class="eyebrow">A WEEKLY INQUIRY</p>
-    <h1 class="title-lane">LANE</h1>
-    <hr class="title-rule" />
+<section class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <p class="eyebrow">A WEEKLY INQUIRY</p>
+      <h1 class="title-lane">LANE</h1>
+    </div>
     <p class="lede">
       The loop runs whether you watch it or not. Most weeks look like last week. LANE is the inquiry that makes the loop visible enough to choose, this week, what to repeat and what to change.
     </p>
-
-    <div class="diagram-wrap">
-      <img src="lane-framework.png" alt="LANE framework" />
-      <p class="diagram-caption">Once a week. Forty-five minutes. Pen and paper.</p>
-    </div>
   </div>
 
-  <div class="footer-brand">MANDYC.</div>
-  <div class="page-number">01 / 02</div>
-</section>
+  <!-- MANDALA -->
+  <div class="mandala-cell">
+    <img src="lane-framework.png" alt="LANE — Lookback, Anchor, Next, Envision" />
+  </div>
 
-<!-- ============================================================ -->
-<!-- PAGE 2 — WHITE QUESTIONS GRID                                -->
-<!-- ============================================================ -->
-<section class="page light">
-  <p class="eyebrow">THE QUESTIONS</p>
-
-  <div class="grid">
-    <!-- L: top-left -->
+  <!-- QUESTIONS GRID -->
+  <div class="questions">
     <div class="cell">
       <div class="cell-head">
         <span class="cell-letter">L</span>
@@ -287,7 +239,6 @@
       </ul>
     </div>
 
-    <!-- A: top-right -->
     <div class="cell">
       <div class="cell-head">
         <span class="cell-letter">A</span>
@@ -304,7 +255,6 @@
       </ul>
     </div>
 
-    <!-- E: bottom-left -->
     <div class="cell">
       <div class="cell-head">
         <span class="cell-letter">E</span>
@@ -322,7 +272,6 @@
       </ul>
     </div>
 
-    <!-- N: bottom-right -->
     <div class="cell">
       <div class="cell-head">
         <span class="cell-letter">N</span>
@@ -340,13 +289,13 @@
     </div>
   </div>
 
-  <div class="closing">
-    <hr class="closing-rule" />
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="brand">MANDYC.</span>
     <p class="tagline">The framework is the discipline. The questions are the prompts. The answers are between you and the page.</p>
+    <span class="brand">mandyc.me</span>
   </div>
 
-  <div class="footer-brand">MANDYC. &nbsp;·&nbsp; mandyc.me</div>
-  <div class="page-number">02 / 02</div>
 </section>
 
 </body>

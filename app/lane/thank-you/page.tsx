@@ -42,7 +42,7 @@ export default function LaneThankYou() {
             The loop runs whether you watch it or not.
           </p>
 
-          {/* Primary: PDF (print, pen and paper) */}
+          {/* Primary: PDF */}
           <a
             href="/lead-magnet/lane.pdf"
             download
@@ -52,29 +52,13 @@ export default function LaneThankYou() {
             Download the LANE PDF
           </a>
           <p
-            className="text-white/45 text-xs mb-5 max-w-sm mx-auto"
-            style={{ fontFamily: "Poppins, sans-serif" }}
-          >
-            Pen-and-paper version. For Sunday evenings.
-          </p>
-
-          {/* Secondary: Interactive PDF */}
-          <a
-            href="/lead-magnet/lane-fillable.pdf"
-            download
-            className="inline-flex items-center justify-center w-full max-w-sm px-8 py-3.5 rounded-none border border-[#C9A227]/50 text-[#C9A227] font-medium tracking-[0.12em] uppercase text-sm hover:bg-[#C9A227]/10 transition-all duration-300 mb-2"
-            style={{ fontFamily: "Poppins, sans-serif" }}
-          >
-            Or the interactive version →
-          </a>
-          <p
             className="text-white/45 text-xs mb-7 max-w-sm mx-auto"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            Fillable PDF. Type your answers. Save and reopen weekly.
+            One page, landscape. Print it, sit with it Sunday evening.
           </p>
 
-          {/* Tertiary: wallpapers */}
+          {/* Secondary: wallpapers */}
           <div className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
             <a
               href="/lead-magnet/wallpaper-phone.png"
@@ -98,7 +82,7 @@ export default function LaneThankYou() {
             className="text-white/40 text-xs mt-8"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            All four files sent to your inbox. Check spam if you don&apos;t see it.
+            All three files sent to your inbox. Check spam if you don&apos;t see it.
           </p>
         </div>
       </div>

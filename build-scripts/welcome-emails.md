@@ -5,8 +5,7 @@ campaign / scheduled drip. Replace `{firstname}` with Beehiiv's first-name
 merge tag.
 
 Attach to email 1:
-- `lane.pdf` (print version, pen and paper)
-- `lane-fillable.pdf` (interactive, type and save)
+- `lane.pdf` (one-page landscape, pen and paper)
 - `wallpaper-phone.png`
 - `wallpaper-desktop.png`
 
@@ -22,7 +21,7 @@ Attach to email 1:
 
 Hi {firstname},
 
-The LANE PDF is attached. Two versions, actually. The print one for pen and paper. The interactive one for typing and saving each week. Two wallpapers too. One for your phone, one for your desktop.
+The LANE PDF is attached. One page, landscape. Two wallpapers too. One for your phone, one for your desktop.
 
 Brief context: the loop runs whether you watch it or not. Most weeks look like last week. LANE is the inquiry that makes the loop visible enough to choose, this week, what to repeat and what to change.
 
@@ -30,7 +29,7 @@ A few notes on the practice:
 
 - Once a week. Sunday evening or Monday morning works. Forty-five minutes.
 - You don't answer every question every week. You answer the ones that catch you.
-- Pen and paper is the recommended path. If you prefer to type, the interactive PDF (`lane-fillable.pdf`) opens in Preview or Acrobat, saves your answers, and travels with you week to week.
+- Pen and paper. Print the PDF. The friction is the practice.
 
 I send one operator brief every other week. Same register as the PDF. If something on the list hit close, the link to a strategy call is below. No pitch. Just a real conversation.
 

@@ -25,7 +25,7 @@ Four lead-capture doors. All write to the same Supabase `subscribers` table with
 | URL | Audience | Commitment | source_page | Artifact delivered | Homepage promo |
 |---|---|---|---|---|---|
 | **`/executive-readiness`** | Executives 6–18 months from a capital event | High — 10-minute scored diagnostic | `executive-readiness` | `executive-readiness-diagnostic.pdf` (11 pages, scored, band-segmented) | Primary CTA in hero + lead-magnet banner |
-| **`/lane`** | Operators wanting a weekly practice (broader appeal) | Low — email only | `lane` | `lane.pdf` (print, 2pp) + `lane-fillable.pdf` (interactive, 5pp) + 2 wallpapers | Secondary link in lead-magnet banner |
+| **`/lane`** | Operators wanting a weekly practice (broader appeal) | Low — email only | `lane` | `lane.pdf` (one-page landscape) + 2 wallpapers | Secondary link in lead-magnet banner |
 | **`/the-five-questions`** | Backward-compat for shared URLs | Low — email only | `five-questions` | Same as diagnostic PDF | None (page exists but unlinked from homepage) |
 | **`/guide`** | IPO-specific interest | Low — email only | `guide` | `Should-you-go-public-guide.pdf` | None (separate funnel, paid traffic / SEO target) |
 
@@ -58,8 +58,7 @@ The scored diagnostic is the **high-signal qualifier**. LANE is the **broad-appe
 | File | Pages | Purpose | Delivered to |
 |---|---|---|---|
 | `executive-readiness-diagnostic.pdf` | 11 | The full Executive Readiness Diagnostic with scored questions, insights, bands | `/executive-readiness`, `/the-five-questions` |
-| `lane.pdf` | 2 | LANE weekly inquiry print version (pen and paper). Navy cover + white question grid. Includes AI-generated mandala diagram. | `/lane` |
-| `lane-fillable.pdf` | 5 | LANE interactive version. Navy cover + 4 white pages, one per L/A/E/N section with text input fields per question. Saveable in Preview / Acrobat. | `/lane` |
+| `lane.pdf` | 1 | LANE weekly inquiry, one-page landscape A4. Mandala on the left, 2×2 question grid on the right, tagline footer. Pen and paper. | `/lane` |
 | `Should-you-go-public-guide.pdf` | — | IPO Readiness Guide (pre-existing) | `/guide` |
 
 ### Wallpapers (`public/lead-magnet/`)
@@ -123,7 +122,7 @@ To rebuild LANE assets after edits: `npm run build:lead-magnet`.
 ### Sequences
 
 **LANE** (`source_page = "lane"`) — fully drafted in `build-scripts/welcome-emails.md`:
-- **Email 1 (immediate):** Delivers `lane.pdf` + `lane-fillable.pdf` + both wallpapers
+- **Email 1 (immediate):** Delivers `lane.pdf` + both wallpapers
 - **Email 2 (day 3):** "The question I ask most" — focuses on *Am I working on the lever or the noise?*
 - **Email 3 (day 7):** "Most operators sit on this one for years" — focuses on *Who would I have to become to make that real?*
 
@@ -174,8 +173,7 @@ After welcome sequence completes, all subscribers fold into the **biweekly opera
 |---|---|
 | `OFFER_STRATEGY.md` | This document |
 | `build-scripts/welcome-emails.md` | LANE welcome email sequence (paste into automation) |
-| `build-scripts/lane-pdf.html` | Print PDF template |
-| `build-scripts/lane-fillable.html` | Interactive PDF template |
+| `build-scripts/lane-pdf.html` | LANE one-pager template |
 | `build-scripts/build-pdf.js` | PDF generator (Puppeteer + system Chrome) |
 | `build-scripts/build-wallpapers.js` | Wallpaper renderer |
 | `app/_components/site-header.tsx` | Shared nav |

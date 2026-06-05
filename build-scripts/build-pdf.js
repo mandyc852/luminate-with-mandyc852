@@ -22,12 +22,7 @@ const TASKS = [
   {
     htmlPath: path.join(PROJECT_ROOT, "build-scripts", "lane-pdf.html"),
     outPath: path.join(PROJECT_ROOT, "public", "lead-magnet", "lane.pdf"),
-    label: "lane.pdf (print)",
-  },
-  {
-    htmlPath: path.join(PROJECT_ROOT, "build-scripts", "lane-fillable.html"),
-    outPath: path.join(PROJECT_ROOT, "public", "lead-magnet", "lane-fillable.pdf"),
-    label: "lane-fillable.pdf (interactive)",
+    label: "lane.pdf (one-pager landscape)",
   },
 ]
 
