@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { BookCallButton } from "./_components/home-interactions"
 import { SiteHeader } from "./_components/site-header"
+import { FiveQuestionsForm } from "./the-five-questions/_components/five-questions-form"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -189,7 +190,7 @@ export default function HomePage() {
         </div>
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free diagnostic</p>
-          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] text-white" style={{ textWrap: "balance" }}>
+          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance" }}>
             The Executive Readiness Diagnostic
           </h2>
           <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
@@ -204,7 +205,20 @@ export default function HomePage() {
           <p className="text-white/50 font-light text-sm mt-5">
             10 minutes. Self-scored. Honest scoring is the point.
           </p>
-          <p className="text-white/60 font-light text-sm mt-8">
+
+          {/* OR divider */}
+          <div className="flex items-center gap-4 max-w-md mx-auto my-10">
+            <div className="flex-1 h-px bg-white/20"></div>
+            <span className="text-white/40 text-xs tracking-[0.25em] uppercase">or</span>
+            <div className="flex-1 h-px bg-white/20"></div>
+          </div>
+
+          {/* Inline email form — just want the PDF, no questionnaire */}
+          <div className="max-w-md mx-auto bg-white/[0.04] border border-white/15 p-6 md:p-7 text-left">
+            <FiveQuestionsForm />
+          </div>
+
+          <p className="text-white/60 font-light text-sm mt-10">
             Want a weekly practice instead?{" "}
             <a
               href="/lane"

@@ -156,10 +156,8 @@ export default function IPOServicePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a2a3a]/80 via-[#1a2a3a]/72 to-[#1a2a3a]/88 pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-[#f5e6b3] text-sm font-medium tracking-wider uppercase mb-4" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
-            Capital Markets Advisory · 10+ Years
-            <br />
-            NASDAQ + HKEX + Global Markets · Type 6 Licensed
+          <p className="text-[#f5e6b3] text-xs font-medium tracking-[0.3em] uppercase mb-4" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
+            Lumina Capital · Hong Kong
           </p>
 
           <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.15] font-normal mb-5" style={{ filter: "drop-shadow(0 2px 18px rgba(0,0,0,0.5))" }}>
