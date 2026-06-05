@@ -114,7 +114,7 @@ export default function HomePage() {
             <p className="text-white/80 text-lg md:text-2xl font-light leading-[1.35] mb-6 max-w-lg" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
               The hard part isn&apos;t strategy.<br />It&apos;s what comes next.
             </p>
-            <p className="text-sm md:text-base text-white/70 font-light leading-relaxed mb-7 max-w-md mx-auto md:mx-0">
+            <p className="text-sm md:text-base text-white/70 font-light leading-relaxed mb-7 max-w-xl mx-auto md:mx-0">
               A Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list.
             </p>
             {/*
