@@ -319,7 +319,7 @@ export default function HomePage() {
                 href="/lane"
                 className="w-full md:max-w-xl inline-flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
               >
-                Get LANE →
+                Get on the LANE →
               </a>
               <p className="text-slate-500 font-light text-sm mt-5">
                 Free. PDF plus phone and desktop wallpapers.
