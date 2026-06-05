@@ -116,7 +116,7 @@ export default function HomePage() {
               The hard part isn&apos;t strategy. It&apos;s what comes next.
             </h1>
             <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-md mx-auto md:mx-0">
-              I&apos;m Mandy Cheung — Hong Kong capital markets advisor to builders and operators.
+              I&apos;m Mandy Cheung. A Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <BookCallButton
@@ -217,16 +217,6 @@ export default function HomePage() {
           <div className="max-w-md mx-auto bg-white/[0.04] border border-white/15 p-6 md:p-7 text-left">
             <FiveQuestionsForm />
           </div>
-
-          <p className="text-white/60 font-light text-sm mt-10">
-            Want a weekly practice instead?{" "}
-            <a
-              href="/lane"
-              className="text-[#c9a227] hover:text-[#d4b84a] underline decoration-[#c9a227]/40 hover:decoration-[#d4b84a] transition-colors"
-            >
-              Get LANE — the weekly inquiry →
-            </a>
-          </p>
         </div>
       </section>
 
@@ -289,6 +279,50 @@ export default function HomePage() {
           <p className="text-slate-400 text-xs font-light text-center mt-8 max-w-2xl mx-auto">
             Selected transactions. Figures reflect total deal value advised across the engagement.
           </p>
+        </div>
+      </section>
+
+      {/* THE PRACTICE UNDERNEATH (LANE) */}
+      <section className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 md:gap-16 items-center">
+            {/* Left: copy */}
+            <div>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">
+                What I run myself
+              </p>
+              <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15]" style={{ textWrap: "balance" }}>
+                The practice underneath the work
+              </h2>
+              <div className="space-y-4 text-slate-600 font-light leading-relaxed mb-8">
+                <p>
+                  Capital markets work is not just deals. The leaders who get through them intact run their own operating system underneath the engagement.
+                </p>
+                <p>
+                  LANE is the weekly inquiry I run myself. Five letters. Forty-five minutes. Pen and paper. I share it publicly because the practice belongs to anyone willing to do it.
+                </p>
+              </div>
+              <a
+                href="/lane"
+                className="inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+              >
+                Get LANE →
+              </a>
+              <p className="text-slate-500 font-light text-sm mt-5">
+                Free. PDF plus phone and desktop wallpapers.
+              </p>
+            </div>
+
+            {/* Right: mandala */}
+            <div className="flex items-center justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lead-magnet/lane-framework.png"
+                alt="LANE — Lookback, Anchor, Next, Envision"
+                className="w-full max-w-[360px] h-auto"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
