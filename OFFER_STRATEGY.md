@@ -73,7 +73,7 @@ The scored diagnostic is the **high-signal qualifier**. LANE is the **broad-appe
 
 | File | What |
 |---|---|
-| `public/lead-magnet/Lead magnet.png` | The AI-generated LANE mandala (Ideogram/Midjourney output) |
+| `public/lead-magnet/lane-framework.png` | The AI-generated LANE mandala (Ideogram/Midjourney output), transparent background |
 | `build-scripts/lane-pdf.html` | Print PDF template |
 | `build-scripts/lane-fillable.html` | Interactive PDF template |
 | `build-scripts/build-pdf.js` | Puppeteer-driven HTML→PDF generator |

@@ -40,8 +40,8 @@ async function renderOne(browser, { htmlPath, outPath, label }) {
   }
 
   // Copy the mandala image next to the HTML so relative <img src> resolves.
-  const imgSrc = path.join(PROJECT_ROOT, "public", "lead-magnet", "Lead magnet.png")
-  const imgDest = path.join(path.dirname(htmlPath), "Lead magnet.png")
+  const imgSrc = path.join(PROJECT_ROOT, "public", "lead-magnet", "lane-framework.png")
+  const imgDest = path.join(path.dirname(htmlPath), "lane-framework.png")
   if (fs.existsSync(imgSrc) && !fs.existsSync(imgDest)) {
     fs.copyFileSync(imgSrc, imgDest)
   }
