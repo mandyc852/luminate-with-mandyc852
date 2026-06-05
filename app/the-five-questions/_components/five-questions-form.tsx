@@ -37,40 +37,31 @@ export function FiveQuestionsForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
-      <p
-        className="text-white text-xl font-normal mb-1"
-        style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
-      >
-        Send the PDF to my inbox
-      </p>
-      <p className="text-white/60 font-light text-sm mb-4">
-        Instant download. No follow-up sequence unless you ask for it.
-      </p>
       <input
         type="email"
         placeholder="Email address"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="w-full px-5 py-3.5 rounded-none border border-white/30 bg-white/10 text-white placeholder-white/50 focus:outline-none focus:border-[#c9a227] focus:ring-1 focus:ring-[#c9a227]/40 transition-all text-sm"
+        className="w-full px-5 py-3.5 rounded-none border border-white/40 bg-white/15 text-white placeholder-white/60 focus:outline-none focus:border-white focus:ring-1 focus:ring-white/40 transition-all text-sm backdrop-blur-sm"
       />
-      <label className="flex items-start gap-2.5 text-left text-xs text-white/60 font-light leading-relaxed cursor-pointer">
+      <label className="flex items-start gap-2.5 text-left text-xs text-white/70 font-light leading-relaxed cursor-pointer">
         <input
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 accent-[#c9a227] w-4 h-4 flex-shrink-0"
+          className="mt-0.5 accent-[#1a2a3a] w-4 h-4 flex-shrink-0"
         />
         <span>
           Send me occasional insights from Mandy on capital markets and capital readiness.
           Unsubscribe anytime.
         </span>
       </label>
-      {error && <p className="text-red-300 text-sm">{error}</p>}
+      {error && <p className="text-red-200 text-sm">{error}</p>}
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3.5 rounded-none uppercase tracking-[0.15em] text-sm btn-gold-animated disabled:opacity-70 disabled:cursor-not-allowed"
+        className="w-full py-3.5 rounded-none uppercase tracking-[0.15em] text-sm bg-[#1a2a3a] text-white font-medium shadow-lg hover:bg-[#0F1A24] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {isSubmitting ? "Sending…" : "Send me the PDF"}
       </button>

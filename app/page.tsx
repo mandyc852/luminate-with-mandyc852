@@ -212,11 +212,11 @@ export default function HomePage() {
 
       {/* DEEP GOLD EMAIL CAPTURE — Hong Kong sunset background */}
       {/*
-        Sunset photo as the warm visual base. Deep gold/amber overlay tints
-        everything to brand. Reuses FiveQuestionsForm which delivers the
-        /lead-magnet/executive-readiness-diagnostic.pdf (11pp reference) via Supabase.
+        Separated from the navy diagnostic banner by a visual break.
+        Sunset photo + deep gold overlay. Form is flat in the section
+        (no extra box-in-a-box). Delivers executive-readiness-diagnostic.pdf.
       */}
-      <section className="relative py-20 md:py-28 px-6 overflow-hidden">
+      <section className="relative py-16 md:py-20 px-6 overflow-hidden">
         {/* Background: HK sunset photo */}
         <Image
           src="/m-lYDOrOkR_GU-unsplash (1).jpg"
@@ -226,7 +226,7 @@ export default function HomePage() {
           sizes="100vw"
           quality={85}
         />
-        {/* Deep gold overlay — diagonal gradient for warmth + readability */}
+        {/* Deep gold overlay */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
@@ -234,29 +234,17 @@ export default function HomePage() {
               "linear-gradient(135deg, rgba(168, 138, 31, 0.88) 0%, rgba(122, 93, 16, 0.92) 60%, rgba(70, 53, 8, 0.94) 100%)",
           }}
         />
-        {/* Subtle gold sheen highlight in corner */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 600px 400px at 80% 10%, rgba(245, 230, 179, 0.18) 0%, transparent 70%)",
-          }}
-        />
 
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-[#FAF9F7]/90 text-xs font-medium tracking-[0.32em] uppercase mb-4" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
-            Free PDF · Send to my inbox
+        <div className="relative z-10 max-w-md mx-auto">
+          <p className="text-[#FAF9F7]/90 text-xs font-medium tracking-[0.32em] uppercase mb-3 text-center" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
+            Free PDF
           </p>
-          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance", textShadow: "0 2px 16px rgba(0,0,0,0.4)" }}>
+          <h2 className="text-2xl md:text-3xl mb-6 font-normal leading-[1.15] !text-white text-center" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.4)" }}>
             Don&apos;t have ten minutes?
           </h2>
-          <p className="text-white/90 font-light leading-relaxed mb-10 max-w-xl mx-auto" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}>
-            Get the same diagnostic as a printable PDF. All five dimensions, the scoring rubric, the reflection prompts, and the band paragraphs. Self-score on your own time.
-          </p>
 
-          <div className="max-w-md mx-auto bg-[#0F1A24]/35 backdrop-blur-sm border border-white/25 p-6 md:p-7 text-left shadow-2xl">
-            <FiveQuestionsForm />
-          </div>
+          {/* Form directly in the section — no extra box */}
+          <FiveQuestionsForm />
         </div>
       </section>
 

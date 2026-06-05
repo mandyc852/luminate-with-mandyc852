@@ -337,7 +337,7 @@ export default function ExecutiveReadinessPrintPage() {
       <section className="page">
         <p className="eyebrow">How to use this</p>
         <hr className="gold-rule" />
-        <h2 className="section-title">5 dimensions. 5 scored questions. 5 reflection prompts.</h2>
+        <h2 className="section-title">5 dimensions. 5 scored questions.<br />5 reflection prompts.</h2>
         <p className="body-p">Each dimension has three layers:</p>
 
         <p className="body-p" style={{ marginTop: "14pt" }}>
