@@ -112,12 +112,13 @@ To rebuild LANE assets after edits: `npm run build:lead-magnet`.
 Every CTA button on the site follows this rule. Don't deviate without a reason.
 
 - **Mobile:** always full-width (`w-full`)
-- **Desktop:** generous fixed width, never collapsing to content-fit
-  - **Solo primary CTA:** `md:w-auto md:min-w-[420px]` (e.g. Begin Diagnostic, Get LANE)
-  - **Paired CTAs (two side-by-side):** `sm:w-auto sm:min-w-[260px] md:min-w-[280px]` (e.g. hero Book a Call + Take the free diagnostic)
-  - **Secondary section CTA:** `md:w-auto md:min-w-[320px]` (e.g. Final Invitation Book a Call)
+- **Desktop:** fixed width, never collapsing to content-fit
+  - **Solo CTA:** `md:w-[520px]` with `flex` (not `inline-flex`). E.g. Begin Diagnostic, Book a Call at page bottom.
+  - **Paired CTAs (two side-by-side):** `sm:min-w-[260px] md:min-w-[280px]` each. E.g. hero Book a Call + Take the free diagnostic.
+- **Form inputs:** the form container's `max-w` must match the text column's `max-w` above it. If text is `max-w-xl`, the form is `max-w-xl`. Never narrower.
+- **In-form submit buttons:** always `w-full` — they fill their container.
 
-In-form submit buttons (inside a constrained form box) stay `w-full` always — the form box is their container.
+**Key rule:** buttons and inputs must visually align with the text content width above them. This has been flagged repeatedly — never let a CTA sit narrower than the copy it follows.
 
 ---
 
