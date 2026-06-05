@@ -70,7 +70,7 @@ export function LaneForm({ variant = "dark" }: { variant?: "dark" | "light" }) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3.5 rounded-none uppercase tracking-[0.18em] text-sm btn-gold-animated disabled:opacity-70 disabled:cursor-not-allowed"
+        className="w-full py-4 rounded-none uppercase tracking-[0.18em] text-sm btn-gold-animated disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {isSubmitting ? "Sending…" : "Get on the LANE"}
       </button>
