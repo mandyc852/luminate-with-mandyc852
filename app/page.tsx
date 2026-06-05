@@ -220,32 +220,29 @@ export default function HomePage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a]">About Mandy</h2>
           </div>
-          <div>
-              <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
-                <p>
-                  I&apos;m a Hong Kong SFC Type 6 licensed corporate finance advisor with 10+ years and 60+ transactions across HKEX and NASDAQ — IPOs, general offers, convertible bonds, and restructurings. The kind of cross-border work where regulatory complexity is the norm, not the exception.
-                </p>
-                <p>
-                  Most capital markets advisors serve businesses that have already arrived. The builders and operators still in the climb — the ones who started with no backing and figured it out as they went — get overlooked. I work with precisely those people, because I&apos;m one of them.
-                </p>
-                <p className="text-[#1a2a3a] font-normal">
-                  Integrity is my core value.
-                  <br />
-                  I&apos;m in a service industry, and I act like it.
-                  <br />
-                  The client&apos;s success is the only metric that matters.
-                </p>
-              </div>
-              <div className="flex items-center gap-4 mt-8">
-                <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
-                  YouTube
-                </a>
-                <span className="text-slate-300">·</span>
-                <a href="https://www.linkedin.com/in/mandyc852/" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
-                  LinkedIn
-                </a>
-              </div>
-            </div>
+          <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
+            <p>
+              I&apos;m a Hong Kong SFC Type 6 licensed corporate finance advisor with 10+ years and 60+ transactions across HKEX and NASDAQ — IPOs, general offers, convertible bonds, and restructurings. The kind of cross-border work where regulatory complexity is the norm, not the exception.
+            </p>
+            <p>
+              Most capital markets advisors serve businesses that have already arrived. The builders and operators still in the climb — the ones who started with no backing and figured it out as they went — get overlooked. I work with precisely those people, because I&apos;m one of them.
+            </p>
+            <p className="text-[#1a2a3a] font-normal">
+              Integrity is my core value.
+              <br />
+              I&apos;m in a service industry, and I act like it.
+              <br />
+              The client&apos;s success is the only metric that matters.
+            </p>
+          </div>
+          <div className="flex items-center gap-4 mt-8">
+            <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
+              YouTube
+            </a>
+            <span className="text-slate-300">·</span>
+            <a href="https://www.linkedin.com/in/mandyc852/" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
+              LinkedIn
+            </a>
           </div>
         </div>
       </section>
