@@ -203,7 +203,7 @@ export default function HomePage() {
           </p>
           <a
             href="/executive-readiness"
-            className="w-full md:w-[520px] flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
           >
             Begin Diagnostic →
           </a>
@@ -347,7 +347,7 @@ export default function HomePage() {
           </p>
           <BookCallButton
             label="Book a call"
-            className="w-full md:w-[520px] flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
           />
           <p className="text-slate-400 text-xs mt-5 font-light tracking-wide">
             SFC Type 6 Licensed · For Builders &amp; Operators · Cross-Border Expertise

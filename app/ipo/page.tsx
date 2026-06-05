@@ -416,7 +416,7 @@ export default function IPOServicePage() {
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex md:inline-flex items-center justify-center whitespace-nowrap w-full md:w-auto px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
           >
             Book Your Strategy Call
           </a>
