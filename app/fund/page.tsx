@@ -157,20 +157,20 @@ export default function FundPage() {
             After a multi-year drought, both HKEX and US IPO markets reopened in 2025 with significant momentum. The Hong Kong and US listing windows are now aligned for the first time in years.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-5 max-w-3xl mx-auto items-start">
             {IPO_2025.map((s) => (
-              <div key={s.market} className="bg-[#1a2a3a]/60 border border-[#c9a227]/25 p-7 md:p-8 backdrop-blur-sm flex flex-col">
-                <p className="text-[#f5e6b3] text-[11px] font-medium tracking-[0.25em] uppercase mb-5">{s.market}</p>
+              <div key={s.market} className="bg-[#1a2a3a]/60 border border-[#c9a227]/25 px-6 py-5 md:px-7 md:py-6 backdrop-blur-sm">
+                <p className="text-[#f5e6b3] text-[10px] font-medium tracking-[0.25em] uppercase mb-3">{s.market}</p>
                 <p
-                  className="text-4xl md:text-5xl text-white font-normal mb-3 leading-none"
+                  className="text-3xl md:text-4xl text-white font-normal mb-2 leading-none"
                   style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.02em" }}
                 >
                   {s.value}
                 </p>
-                <p className="text-[#c9a227] text-sm font-medium mb-1">{s.growth}</p>
-                <p className="text-white/60 text-xs font-light leading-relaxed mb-4">{s.note}</p>
+                <p className="text-[#c9a227] text-sm font-medium leading-tight">{s.growth}</p>
+                <p className="text-white/60 text-xs font-light leading-relaxed mt-1">{s.note}</p>
                 {s.addendum && (
-                  <p className="text-white/75 text-sm font-light italic leading-relaxed pt-4 mt-auto border-t border-[#c9a227]/20">
+                  <p className="text-white/75 text-[13px] font-light italic leading-relaxed mt-3 pt-3 border-t border-[#c9a227]/20">
                     {s.addendum}
                   </p>
                 )}
@@ -196,21 +196,21 @@ export default function FundPage() {
           {/* No boxes — left gold accent line + generous whitespace */}
           <div className="grid md:grid-cols-3 gap-8 md:gap-10">
             <div className="border-l-2 border-[#c9a227] pl-6 md:pl-7">
-              <p className="text-[#a68a1f] text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">The Company</p>
+              <p className="text-[#a68a1f] text-xs md:text-sm font-semibold tracking-[0.25em] uppercase mb-4">The Company</p>
               <p className="text-slate-600 text-[15px] font-light leading-[1.7]">
                 Pays a standard advisory fee. Receives structured growth capital that covers IPO preparation without breaking operating cash flow.
               </p>
             </div>
 
             <div className="border-l-2 border-[#c9a227] pl-6 md:pl-7">
-              <p className="text-[#a68a1f] text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">The Investor</p>
+              <p className="text-[#a68a1f] text-xs md:text-sm font-semibold tracking-[0.25em] uppercase mb-4">The Investor</p>
               <p className="text-slate-600 text-[15px] font-light leading-[1.7]">
                 Holds structured equity with downside protection on every position. Never plain common equity. Anchor LPs can earn originating economics on companies they introduce.
               </p>
             </div>
 
             <div className="border-l-2 border-[#c9a227] pl-6 md:pl-7">
-              <p className="text-[#a68a1f] text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">Lumina</p>
+              <p className="text-[#a68a1f] text-xs md:text-sm font-semibold tracking-[0.25em] uppercase mb-4">Lumina</p>
               <p className="text-slate-600 text-[15px] font-light leading-[1.7]">
                 Earns through the same exit the LPs do. Advisory fees offset against management fee. LPs never double-pay.
               </p>
