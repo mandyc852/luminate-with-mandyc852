@@ -38,6 +38,27 @@ const INSTRUMENTS = [
   "Pre-IPO equity at protected entry",
 ]
 
+const IPO_2025 = [
+  {
+    market: "Hong Kong IPO",
+    value: "HK$286.9B",
+    growth: "+244% YoY",
+    note: "Ranked #1 globally",
+  },
+  {
+    market: "US IPO",
+    value: "US$44B",
+    growth: "+33% YoY",
+    note: "202 listings · 4-year high",
+  },
+  {
+    market: "HK in USD terms",
+    value: "US$36.7B",
+    growth: "Exceeds NYSE + NASDAQ combined",
+    note: "Cross-border proceeds momentum",
+  },
+]
+
 const EXITS = [
   { tier: "Primary", route: "US IPO — Nasdaq / NYSE" },
   { tier: "Secondary", route: "HKEX listing" },
@@ -117,6 +138,48 @@ export default function FundPage() {
               Lumina is built to sit precisely in that gap.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* THE MARKET MOMENT — 2025 IPO data */}
+      <section className="py-20 md:py-28 px-6 bg-[#0f1a24] relative overflow-hidden">
+        {/* Subtle skyline texture */}
+        <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
+          <Image
+            src="/Hong Kong 1.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <p className="text-[#f5e6b3] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">The market moment</p>
+          <h2 className="text-3xl md:text-4xl mb-5 text-center font-normal !text-white">Two IPO windows, open simultaneously</h2>
+          <p className="text-center text-white/70 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            After a multi-year drought, both HKEX and US IPO markets reopened in 2025 with significant momentum. The Hong Kong and US listing windows are now aligned for the first time in years.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+            {IPO_2025.map((s) => (
+              <div key={s.market} className="bg-[#1a2a3a]/60 border border-[#c9a227]/25 p-6 md:p-7 backdrop-blur-sm">
+                <p className="text-[#f5e6b3] text-[11px] font-medium tracking-[0.25em] uppercase mb-4">{s.market}</p>
+                <p
+                  className="text-3xl md:text-4xl text-white font-normal mb-3 leading-none"
+                  style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.02em" }}
+                >
+                  {s.value}
+                </p>
+                <p className="text-[#c9a227] text-sm font-medium mb-1">{s.growth}</p>
+                <p className="text-white/60 text-xs font-light leading-relaxed">{s.note}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-white/50 text-xs font-light italic mt-10 max-w-2xl mx-auto">
+            2025 full-year proceeds. Sources: HKEX market statistics, NYSE / NASDAQ IPO data, HK Companies Registry.
+          </p>
         </div>
       </section>
 
