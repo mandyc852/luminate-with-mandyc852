@@ -24,7 +24,7 @@ const baseUrl = siteUrl
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "MandyC. | Capital Markets & IPO Advisory for Founders",
+  title: "MandyC. | Capital Markets Advisory",
   description:
     "I help ambitious companies prepare their business for the milestones that matter most. Strategic advisory on capital markets, IPO readiness, and leadership.",
   icons: {

@@ -17,11 +17,8 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-// NOTE: still noindex while copy is in review. Remove the `robots`
-// block when you're ready to take the homepage live in search.
 export const metadata: Metadata = {
   title: "MandyC. | Capital Markets Advisory",
-  robots: { index: false, follow: false },
 }
 
 const REASONS = [
