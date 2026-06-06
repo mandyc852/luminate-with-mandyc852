@@ -42,12 +42,14 @@ const IPO_2025 = [
   {
     market: "Hong Kong IPO Proceeds",
     value: "HK$286.9B",
+    usdEquivalent: "US$36.7B",
     growth: "+244% YoY",
     note: "Ranked #1 globally",
   },
   {
     market: "US IPO Proceeds",
     value: "US$44B",
+    usdEquivalent: null,
     growth: "+33% YoY",
     note: "202 listings · 4-year high",
   },
@@ -160,21 +162,37 @@ export default function FundPage() {
             {IPO_2025.map((s) => (
               <div key={s.market} className="bg-[#1a2a3a]/60 border border-[#c9a227]/25 px-6 py-5 md:px-7 md:py-6 backdrop-blur-sm">
                 <p className="text-[#f5e6b3] text-[10px] font-medium tracking-[0.25em] uppercase mb-3">{s.market}</p>
-                <p
-                  className="text-3xl md:text-4xl text-white font-normal mb-2 leading-none"
-                  style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.02em" }}
-                >
-                  {s.value}
-                </p>
+                {/* HK row shows USD equivalent inline; US row shows just the headline value */}
+                <div className="flex items-baseline gap-2.5 mb-2 flex-wrap">
+                  <p
+                    className="text-3xl md:text-4xl text-white font-normal leading-none"
+                    style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.02em" }}
+                  >
+                    {s.value}
+                  </p>
+                  {s.usdEquivalent && (
+                    <>
+                      <span className="text-[#f5e6b3]/40 text-xl md:text-2xl leading-none">—</span>
+                      <p
+                        className="text-xl md:text-2xl text-[#f5e6b3]/75 font-normal leading-none"
+                        style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.01em" }}
+                      >
+                        {s.usdEquivalent}
+                      </p>
+                    </>
+                  )}
+                </div>
                 <p className="text-[#c9a227] text-sm font-medium leading-tight">{s.growth}</p>
                 <p className="text-white/60 text-xs font-light leading-relaxed mt-1">{s.note}</p>
               </div>
             ))}
           </div>
 
-          {/* Unifying observation that ties both numbers together */}
-          <p className="text-center text-white/85 text-base md:text-lg font-light italic mt-8 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            In USD terms, Hong Kong&apos;s proceeds reach US$36.7B — exceeding NYSE and NASDAQ combined.
+          {/* Punchline below — non-italic, forced line break before "exceeding" */}
+          <p className="text-center text-white/85 text-lg md:text-xl font-normal mt-8 max-w-2xl mx-auto leading-[1.5]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+            In USD terms,
+            <br />
+            exceeding NYSE and NASDAQ proceeds combined.
           </p>
 
           <p className="text-center text-white/45 text-xs font-light italic mt-10 max-w-2xl mx-auto">
