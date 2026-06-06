@@ -40,22 +40,18 @@ const INSTRUMENTS = [
 
 const IPO_2025 = [
   {
-    market: "Hong Kong IPO",
+    market: "Hong Kong IPO Proceeds",
     value: "HK$286.9B",
     growth: "+244% YoY",
     note: "Ranked #1 globally",
+    addendum: "US$36.7B in USD terms — exceeds NYSE + NASDAQ combined.",
   },
   {
-    market: "US IPO",
+    market: "US IPO Proceeds",
     value: "US$44B",
     growth: "+33% YoY",
     note: "202 listings · 4-year high",
-  },
-  {
-    market: "HK in USD terms",
-    value: "US$36.7B",
-    growth: "Exceeds NYSE + NASDAQ combined",
-    note: "Cross-border proceeds momentum",
+    addendum: null,
   },
 ]
 
@@ -161,18 +157,23 @@ export default function FundPage() {
             After a multi-year drought, both HKEX and US IPO markets reopened in 2025 with significant momentum. The Hong Kong and US listing windows are now aligned for the first time in years.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6 max-w-4xl mx-auto">
             {IPO_2025.map((s) => (
-              <div key={s.market} className="bg-[#1a2a3a]/60 border border-[#c9a227]/25 p-6 md:p-7 backdrop-blur-sm">
-                <p className="text-[#f5e6b3] text-[11px] font-medium tracking-[0.25em] uppercase mb-4">{s.market}</p>
+              <div key={s.market} className="bg-[#1a2a3a]/60 border border-[#c9a227]/25 p-7 md:p-8 backdrop-blur-sm flex flex-col">
+                <p className="text-[#f5e6b3] text-[11px] font-medium tracking-[0.25em] uppercase mb-5">{s.market}</p>
                 <p
-                  className="text-3xl md:text-4xl text-white font-normal mb-3 leading-none"
+                  className="text-4xl md:text-5xl text-white font-normal mb-3 leading-none"
                   style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.02em" }}
                 >
                   {s.value}
                 </p>
                 <p className="text-[#c9a227] text-sm font-medium mb-1">{s.growth}</p>
-                <p className="text-white/60 text-xs font-light leading-relaxed">{s.note}</p>
+                <p className="text-white/60 text-xs font-light leading-relaxed mb-4">{s.note}</p>
+                {s.addendum && (
+                  <p className="text-white/75 text-sm font-light italic leading-relaxed pt-4 mt-auto border-t border-[#c9a227]/20">
+                    {s.addendum}
+                  </p>
+                )}
               </div>
             ))}
           </div>
@@ -192,25 +193,26 @@ export default function FundPage() {
             Every party holds the same equity outcome. The company gets growth capital it could not otherwise access. The investor gets a sponsor-grade portfolio with offset fees. Lumina earns through the same exit Lumina structured.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-            <div className="bg-white border-t-2 border-[#c9a227] p-7 md:p-8">
+          {/* No boxes — left gold accent line + generous whitespace */}
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+            <div className="border-l-2 border-[#c9a227] pl-6 md:pl-7">
               <p className="text-[#a68a1f] text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">The Company</p>
-              <p className="text-slate-600 text-[15px] font-light leading-relaxed">
-                Pays a standard cash advisory fee and receives growth capital through structured instruments. Working-capital needs for IPO preparation get covered without breaking operating cash flow.
+              <p className="text-slate-600 text-[15px] font-light leading-[1.7]">
+                Pays a standard advisory fee. Receives structured growth capital that covers IPO preparation without breaking operating cash flow.
               </p>
             </div>
 
-            <div className="bg-white border-t-2 border-[#c9a227] p-7 md:p-8">
+            <div className="border-l-2 border-[#c9a227] pl-6 md:pl-7">
               <p className="text-[#a68a1f] text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">The Investor</p>
-              <p className="text-slate-600 text-[15px] font-light leading-relaxed">
-                Gets structured equity exposure with downside protection on every position. Never holds plain common equity. Anchor LPs can earn originating economics on companies they introduce.
+              <p className="text-slate-600 text-[15px] font-light leading-[1.7]">
+                Holds structured equity with downside protection on every position. Never plain common equity. Anchor LPs can earn originating economics on companies they introduce.
               </p>
             </div>
 
-            <div className="bg-white border-t-2 border-[#c9a227] p-7 md:p-8">
+            <div className="border-l-2 border-[#c9a227] pl-6 md:pl-7">
               <p className="text-[#a68a1f] text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">Lumina</p>
-              <p className="text-slate-600 text-[15px] font-light leading-relaxed">
-                Earns through the same equity outcome the LPs hold. Advisory fees received from portfolio companies are offset against management fee. LPs never double-pay.
+              <p className="text-slate-600 text-[15px] font-light leading-[1.7]">
+                Earns through the same exit the LPs do. Advisory fees offset against management fee. LPs never double-pay.
               </p>
             </div>
           </div>
@@ -288,51 +290,47 @@ export default function FundPage() {
             </details>
           </div>
 
-          {/* DESKTOP — 3 side-by-side boxes, point-form lists inside each. */}
-          <div className="hidden md:grid md:grid-cols-3 gap-5 lg:gap-6">
-            {/* Eligibility box */}
-            <div className="bg-[#f8f7f4] border border-slate-200 p-7 lg:p-8">
-              <h3 className="text-xl text-[#1a2a3a] font-normal mb-2">Portfolio company eligibility</h3>
-              <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-5">Qualifying criteria</p>
-              <ul className="space-y-3.5">
+          {/* DESKTOP — 3 editorial columns, no boxes. Gold rule under each heading. */}
+          <div className="hidden md:grid md:grid-cols-3 gap-10 lg:gap-14">
+            {/* Eligibility */}
+            <div>
+              <h3 className="text-xl text-[#1a2a3a] font-normal mb-1">Portfolio company eligibility</h3>
+              <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-4">Qualifying criteria</p>
+              <div className="h-px w-12 bg-[#c9a227] mb-6" />
+              <ul className="space-y-4">
                 {ELIGIBILITY.map((row) => (
-                  <li key={row.criterion} className="flex items-start gap-3 text-sm">
-                    <span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span>
-                    <div className="leading-relaxed">
-                      <p className="text-[#1a2a3a] font-medium mb-0.5">{row.criterion}</p>
-                      <p className="text-slate-600 font-light">{row.threshold}</p>
-                    </div>
+                  <li key={row.criterion} className="text-sm">
+                    <p className="text-[#1a2a3a] font-medium mb-0.5">{row.criterion}</p>
+                    <p className="text-slate-600 font-light leading-relaxed">{row.threshold}</p>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Instruments box */}
-            <div className="bg-[#f8f7f4] border border-slate-200 p-7 lg:p-8">
-              <h3 className="text-xl text-[#1a2a3a] font-normal mb-2">Instruments</h3>
-              <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-5">Never plain common equity</p>
+            {/* Instruments */}
+            <div>
+              <h3 className="text-xl text-[#1a2a3a] font-normal mb-1">Instruments</h3>
+              <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-4">Never plain common equity</p>
+              <div className="h-px w-12 bg-[#c9a227] mb-6" />
               <ul className="space-y-3.5">
                 {INSTRUMENTS.map((inst) => (
-                  <li key={inst} className="flex items-start gap-3 text-sm">
-                    <span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span>
-                    <span className="text-[#1a2a3a] font-medium leading-relaxed">{inst}</span>
+                  <li key={inst} className="text-[#1a2a3a] font-medium text-sm leading-relaxed">
+                    {inst}
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Exit pathways box */}
-            <div className="bg-[#f8f7f4] border border-slate-200 p-7 lg:p-8">
-              <h3 className="text-xl text-[#1a2a3a] font-normal mb-2">Exit pathways</h3>
-              <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-5">Tiered, with a protective floor</p>
-              <ul className="space-y-3.5">
+            {/* Exit pathways */}
+            <div>
+              <h3 className="text-xl text-[#1a2a3a] font-normal mb-1">Exit pathways</h3>
+              <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-4">Tiered, with a protective floor</p>
+              <div className="h-px w-12 bg-[#c9a227] mb-6" />
+              <ul className="space-y-4">
                 {EXITS.map((e) => (
-                  <li key={e.tier} className="flex items-start gap-3 text-sm">
-                    <span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span>
-                    <div className="leading-relaxed">
-                      <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.2em] uppercase mb-0.5">{e.tier}</p>
-                      <p className="text-[#1a2a3a] font-medium">{e.route}</p>
-                    </div>
+                  <li key={e.tier} className="text-sm">
+                    <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.2em] uppercase mb-0.5">{e.tier}</p>
+                    <p className="text-[#1a2a3a] font-medium">{e.route}</p>
                   </li>
                 ))}
               </ul>
