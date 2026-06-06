@@ -131,21 +131,21 @@ export default function FundPage() {
 
           <div className="grid md:grid-cols-3 gap-5 md:gap-6">
             <div className="bg-white border-t-2 border-[#c9a227] p-7 md:p-8">
-              <h3 className="text-2xl md:text-[26px] font-normal text-[#1a2a3a] mb-4 italic" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>The Company</h3>
+              <p className="text-[#a68a1f] text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">The Company</p>
               <p className="text-slate-600 text-[15px] font-light leading-relaxed">
                 Pays a standard cash advisory fee and receives growth capital through structured instruments. Working-capital needs for IPO preparation get covered without breaking operating cash flow.
               </p>
             </div>
 
             <div className="bg-white border-t-2 border-[#c9a227] p-7 md:p-8">
-              <h3 className="text-2xl md:text-[26px] font-normal text-[#1a2a3a] mb-4 italic" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>The Investor</h3>
+              <p className="text-[#a68a1f] text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">The Investor</p>
               <p className="text-slate-600 text-[15px] font-light leading-relaxed">
                 Gets structured equity exposure with downside protection on every position. Never holds plain common equity. Anchor LPs can earn originating economics on companies they introduce.
               </p>
             </div>
 
             <div className="bg-white border-t-2 border-[#c9a227] p-7 md:p-8">
-              <h3 className="text-2xl md:text-[26px] font-normal text-[#1a2a3a] mb-4 italic" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>Lumina</h3>
+              <p className="text-[#a68a1f] text-sm md:text-base font-semibold tracking-[0.25em] uppercase mb-4">Lumina</p>
               <p className="text-slate-600 text-[15px] font-light leading-relaxed">
                 Earns through the same equity outcome the LPs hold. Advisory fees received from portfolio companies are offset against management fee. LPs never double-pay.
               </p>
@@ -165,12 +165,12 @@ export default function FundPage() {
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Investment approach</p>
           <h2 className="text-3xl md:text-4xl mb-14 text-center font-normal">Disciplined, structured, success-aligned</h2>
 
-          {/* MOBILE — collapsible accordion */}
+          {/* MOBILE — collapsible accordion. Gold ▼ triangle indicates dropdown. */}
           <div className="md:hidden space-y-3">
             <details className="bg-[#f8f7f4] border border-slate-200 group">
               <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-medium text-base">
                 <span>Portfolio company eligibility</span>
-                <span className="text-[#c9a227] text-xl transition-transform group-open:rotate-45">+</span>
+                <span className="text-[#c9a227] text-xs transition-transform duration-200 group-open:rotate-180 ml-3">▼</span>
               </summary>
               <ul className="px-5 pb-5 space-y-3">
                 {ELIGIBILITY.map((row) => (
@@ -191,7 +191,7 @@ export default function FundPage() {
                   <span>Instruments</span>
                   <span className="block text-[#a68a1f] text-[10px] font-medium tracking-[0.2em] uppercase mt-0.5">Never plain common equity</span>
                 </div>
-                <span className="text-[#c9a227] text-xl transition-transform group-open:rotate-45">+</span>
+                <span className="text-[#c9a227] text-xs transition-transform duration-200 group-open:rotate-180 ml-3">▼</span>
               </summary>
               <ul className="px-5 pb-5 space-y-3">
                 {INSTRUMENTS.map((inst) => (
@@ -209,7 +209,7 @@ export default function FundPage() {
                   <span>Exit pathways</span>
                   <span className="block text-[#a68a1f] text-[10px] font-medium tracking-[0.2em] uppercase mt-0.5">Tiered, with a protective floor</span>
                 </div>
-                <span className="text-[#c9a227] text-xl transition-transform group-open:rotate-45">+</span>
+                <span className="text-[#c9a227] text-xs transition-transform duration-200 group-open:rotate-180 ml-3">▼</span>
               </summary>
               <ul className="px-5 pb-5 space-y-3">
                 {EXITS.map((e) => (
@@ -225,10 +225,10 @@ export default function FundPage() {
             </details>
           </div>
 
-          {/* DESKTOP — 3 columns side-by-side, point-form lists */}
-          <div className="hidden md:grid md:grid-cols-3 gap-10 lg:gap-14">
-            {/* Eligibility */}
-            <div>
+          {/* DESKTOP — 3 side-by-side boxes, point-form lists inside each. */}
+          <div className="hidden md:grid md:grid-cols-3 gap-5 lg:gap-6">
+            {/* Eligibility box */}
+            <div className="bg-[#f8f7f4] border border-slate-200 p-7 lg:p-8">
               <h3 className="text-xl text-[#1a2a3a] font-normal mb-2">Portfolio company eligibility</h3>
               <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-5">Qualifying criteria</p>
               <ul className="space-y-3.5">
@@ -244,8 +244,8 @@ export default function FundPage() {
               </ul>
             </div>
 
-            {/* Instruments */}
-            <div>
+            {/* Instruments box */}
+            <div className="bg-[#f8f7f4] border border-slate-200 p-7 lg:p-8">
               <h3 className="text-xl text-[#1a2a3a] font-normal mb-2">Instruments</h3>
               <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-5">Never plain common equity</p>
               <ul className="space-y-3.5">
@@ -258,8 +258,8 @@ export default function FundPage() {
               </ul>
             </div>
 
-            {/* Exit pathways */}
-            <div>
+            {/* Exit pathways box */}
+            <div className="bg-[#f8f7f4] border border-slate-200 p-7 lg:p-8">
               <h3 className="text-xl text-[#1a2a3a] font-normal mb-2">Exit pathways</h3>
               <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-5">Tiered, with a protective floor</p>
               <ul className="space-y-3.5">
@@ -327,7 +327,7 @@ export default function FundPage() {
           <div className="flex flex-col sm:flex-row gap-3 sm:justify-center">
             <a
               href={`mailto:${CONTACT_EMAIL}?subject=Lumina%20Capital%20Event%20Access%20Fund%20I%20%E2%80%94%20Investor%20Materials%20Request`}
-              className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+              className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
             >
               Request materials
             </a>
@@ -335,7 +335,7 @@ export default function FundPage() {
               href="https://tidycal.com/mandyc852/30-minute-meeting"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-4 bg-transparent border-2 border-white/70 text-white text-sm font-medium tracking-[0.15em] transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
+              className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
             >
               Book an investor call
             </a>
