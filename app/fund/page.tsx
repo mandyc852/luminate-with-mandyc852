@@ -156,50 +156,66 @@ export default function FundPage() {
 
       {/* INVESTMENT APPROACH */}
       <section className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Investment approach</p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal">Disciplined, structured, success-aligned</h2>
+          <h2 className="text-3xl md:text-4xl mb-14 text-center font-normal">Disciplined, structured, success-aligned</h2>
 
-          {/* Eligibility */}
-          <div className="mb-12">
-            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-5">Portfolio company eligibility</h3>
-            <div className="bg-[#f8f7f4] border border-slate-200">
+          {/* Eligibility — full width as a 6-card grid on desktop, stacked rows on mobile */}
+          <div className="mb-16">
+            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-6 text-center md:text-left">Portfolio company eligibility</h3>
+
+            {/* MOBILE: stacked rows */}
+            <div className="md:hidden bg-[#f8f7f4] border border-slate-200">
               {ELIGIBILITY.map((row, i) => (
                 <div
                   key={row.criterion}
-                  className={`grid grid-cols-[130px_1fr] md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-4 md:p-5 ${i !== ELIGIBILITY.length - 1 ? "border-b border-slate-200" : ""}`}
+                  className={`grid grid-cols-[130px_1fr] gap-4 p-4 ${i !== ELIGIBILITY.length - 1 ? "border-b border-slate-200" : ""}`}
                 >
                   <p className="text-[#1a2a3a] text-sm font-medium">{row.criterion}</p>
                   <p className="text-slate-600 text-sm font-light leading-relaxed">{row.threshold}</p>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Instruments */}
-          <div className="mb-12">
-            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-2">Instruments</h3>
-            <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-5">Never plain common equity</p>
-            <div className="grid sm:grid-cols-2 gap-3">
-              {INSTRUMENTS.map((inst) => (
-                <div key={inst} className="bg-[#f8f7f4] border border-slate-200 p-4 flex items-center gap-3">
-                  <span className="text-[#c9a227]">✦</span>
-                  <p className="text-[#1a2a3a] font-medium text-sm">{inst}</p>
+            {/* DESKTOP: 3-column grid of criterion cards */}
+            <div className="hidden md:grid md:grid-cols-3 gap-5">
+              {ELIGIBILITY.map((row) => (
+                <div key={row.criterion} className="bg-[#f8f7f4] border border-slate-200 p-6">
+                  <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.25em] uppercase mb-2">{row.criterion}</p>
+                  <p className="text-[#1a2a3a] text-base font-light leading-relaxed">{row.threshold}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Exit pathways */}
-          <div>
-            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-5">Exit pathways</h3>
-            <div className="space-y-2.5">
-              {EXITS.map((e) => (
-                <div key={e.tier} className="bg-[#f8f7f4] border border-slate-200 p-4 md:p-5 flex items-center gap-4">
-                  <span className="text-[#a68a1f] text-[11px] font-semibold tracking-[0.2em] uppercase whitespace-nowrap w-20">{e.tier}</span>
-                  <p className="text-[#1a2a3a] font-medium text-sm">{e.route}</p>
-                </div>
-              ))}
+          {/* Instruments + Exit pathways side-by-side on desktop, stacked on mobile */}
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
+            {/* Instruments */}
+            <div>
+              <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-2 text-center md:text-left">Instruments</h3>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-5 text-center md:text-left">Never plain common equity</p>
+              <div className="space-y-3">
+                {INSTRUMENTS.map((inst) => (
+                  <div key={inst} className="bg-[#f8f7f4] border border-slate-200 p-4 flex items-center gap-3">
+                    <span className="text-[#c9a227]">✦</span>
+                    <p className="text-[#1a2a3a] font-medium text-sm">{inst}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Exit pathways */}
+            <div>
+              <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-2 text-center md:text-left">Exit pathways</h3>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-5 text-center md:text-left">Tiered, with a protective floor</p>
+              <div className="space-y-3">
+                {EXITS.map((e) => (
+                  <div key={e.tier} className="bg-[#f8f7f4] border border-slate-200 p-4 flex items-center gap-4">
+                    <span className="text-[#a68a1f] text-[11px] font-semibold tracking-[0.2em] uppercase whitespace-nowrap w-20">{e.tier}</span>
+                    <p className="text-[#1a2a3a] font-medium text-sm">{e.route}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -245,15 +261,16 @@ export default function FundPage() {
 
       {/* CTA */}
       <section className="py-16 md:py-20 px-6 bg-[#1a2a3a]">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-normal mb-3 cta-title-gradient">Request the confidential materials</h2>
-          <p className="text-slate-300 font-light mb-7 text-base">
-            The full investor presentation is shared under NDA. Get in touch and I&apos;ll send the details.
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-normal mb-4 cta-title-gradient">For Professional Investors</h2>
+          <p className="text-slate-300 font-light mb-8 text-base max-w-2xl mx-auto leading-relaxed">
+            The complete investor presentation — pipeline, terms, and structure — is shared under NDA. Either path below begins the conversation.
           </p>
-          <div className="flex flex-col gap-3 items-center">
+          {/* Buttons: stacked on mobile, side-by-side on desktop (paired CTA convention) */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:justify-center">
             <a
               href={`mailto:${CONTACT_EMAIL}?subject=Lumina%20Capital%20Event%20Access%20Fund%20I%20%E2%80%94%20Investor%20Materials%20Request`}
-              className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+              className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
             >
               Request materials
             </a>
@@ -261,7 +278,7 @@ export default function FundPage() {
               href="https://tidycal.com/mandyc852/30-minute-meeting"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 bg-transparent border-2 border-white/70 text-white text-sm font-medium tracking-[0.15em] transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
+              className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-4 bg-transparent border-2 border-white/70 text-white text-sm font-medium tracking-[0.15em] transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
             >
               Book an investor call
             </a>
