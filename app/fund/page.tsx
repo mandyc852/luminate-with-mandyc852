@@ -248,7 +248,7 @@ export default function FundPage() {
           {/* MOBILE — collapsible accordion. Gold ▼ triangle indicates dropdown. */}
           <div className="md:hidden space-y-3">
             <details className="bg-[#f8f7f4] border border-slate-200 group">
-              <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-medium text-base">
+              <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-normal text-lg" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                 <span>Portfolio company eligibility</span>
                 <span className="text-[#c9a227] text-xs transition-transform duration-200 group-open:rotate-180 ml-3">▼</span>
               </summary>
@@ -266,7 +266,7 @@ export default function FundPage() {
             </details>
 
             <details className="bg-[#f8f7f4] border border-slate-200 group">
-              <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-medium text-base">
+              <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-normal text-lg" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                 <div>
                   <span>Instruments</span>
                   <span className="block text-[#a68a1f] text-[10px] font-medium tracking-[0.2em] uppercase mt-0.5">Never plain common equity</span>
@@ -284,7 +284,7 @@ export default function FundPage() {
             </details>
 
             <details className="bg-[#f8f7f4] border border-slate-200 group">
-              <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-medium text-base">
+              <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-normal text-lg" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                 <div>
                   <span>Exit pathways</span>
                   <span className="block text-[#a68a1f] text-[10px] font-medium tracking-[0.2em] uppercase mt-0.5">Tiered, with a protective floor</span>
