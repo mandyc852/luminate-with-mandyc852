@@ -44,14 +44,12 @@ const IPO_2025 = [
     value: "HK$286.9B",
     growth: "+244% YoY",
     note: "Ranked #1 globally",
-    addendum: "US$36.7B in USD terms — exceeds NYSE + NASDAQ combined.",
   },
   {
     market: "US IPO Proceeds",
     value: "US$44B",
     growth: "+33% YoY",
     note: "202 listings · 4-year high",
-    addendum: null,
   },
 ]
 
@@ -157,7 +155,8 @@ export default function FundPage() {
             After a multi-year drought, both HKEX and US IPO markets reopened in 2025 with significant momentum. The Hong Kong and US listing windows are now aligned for the first time in years.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-4 md:gap-5 max-w-3xl mx-auto items-start">
+          {/* Two equal-content cards — same fields, same height naturally */}
+          <div className="grid md:grid-cols-2 gap-4 md:gap-5 max-w-3xl mx-auto">
             {IPO_2025.map((s) => (
               <div key={s.market} className="bg-[#1a2a3a]/60 border border-[#c9a227]/25 px-6 py-5 md:px-7 md:py-6 backdrop-blur-sm">
                 <p className="text-[#f5e6b3] text-[10px] font-medium tracking-[0.25em] uppercase mb-3">{s.market}</p>
@@ -169,17 +168,17 @@ export default function FundPage() {
                 </p>
                 <p className="text-[#c9a227] text-sm font-medium leading-tight">{s.growth}</p>
                 <p className="text-white/60 text-xs font-light leading-relaxed mt-1">{s.note}</p>
-                {s.addendum && (
-                  <p className="text-white/75 text-[13px] font-light italic leading-relaxed mt-3 pt-3 border-t border-[#c9a227]/20">
-                    {s.addendum}
-                  </p>
-                )}
               </div>
             ))}
           </div>
 
-          <p className="text-center text-white/50 text-xs font-light italic mt-10 max-w-2xl mx-auto">
-            2025 full-year proceeds. Sources: HKEX market statistics, NYSE / NASDAQ IPO data, HK Companies Registry.
+          {/* Unifying observation that ties both numbers together */}
+          <p className="text-center text-white/85 text-base md:text-lg font-light italic mt-8 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+            In USD terms, Hong Kong&apos;s proceeds reach US$36.7B — exceeding NYSE and NASDAQ combined.
+          </p>
+
+          <p className="text-center text-white/45 text-xs font-light italic mt-10 max-w-2xl mx-auto">
+            2025 full-year proceeds. Sources: HKEX market statistics, NYSE / NASDAQ IPO data.
           </p>
         </div>
       </section>
