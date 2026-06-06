@@ -190,9 +190,9 @@ export default function FundPage() {
 
           {/* Punchline below — non-italic, forced line break before "exceeding" */}
           <p className="text-center text-white/85 text-lg md:text-xl font-normal mt-8 max-w-2xl mx-auto leading-[1.5]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            In USD terms,
+            Hong Kong&apos;s IPO proceeds, in USD terms,
             <br />
-            exceeding NYSE and NASDAQ proceeds combined.
+            exceeding NYSE and NASDAQ combined.
           </p>
 
           <p className="text-center text-white/45 text-xs font-light italic mt-10 max-w-2xl mx-auto">
