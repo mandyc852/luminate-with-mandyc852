@@ -29,67 +29,20 @@ const ELIGIBILITY = [
   { criterion: "Liquidity event", threshold: "Identifiable pathway within 12–36 months" },
   { criterion: "Structure", threshold: "Clean or cleanable corporate structure" },
   { criterion: "Founder", threshold: "Committed to capital-event timeline" },
-  { criterion: "Use of proceeds", threshold: "Defined, transparent, value-accretive" },
 ]
 
 const INSTRUMENTS = [
-  { name: "Convertible notes", detail: "Valuation cap · IPO discount · maturity redemption" },
-  { name: "Preferred shares", detail: "Liquidation preference · anti-dilution · board / observer rights" },
-  { name: "Secured bridges", detail: "Collateral · milestone drawdowns · mandatory redemption on event" },
-  { name: "Pre-IPO equity", detail: "Discounted entry · visible filed-listing pathway only" },
+  "Convertible notes",
+  "Preferred shares",
+  "Secured bridges",
+  "Pre-IPO equity at protected entry",
 ]
 
-const IPO_STATS = [
-  { value: "HK$286.9B", label: "Hong Kong IPO 2025", sub: "+244% YoY · #1 globally" },
-  { value: "US$44B", label: "US IPO 2025", sub: "+33% YoY · 202 listings · 4-year high" },
-  { value: "US$36.7B", label: "HK in USD terms", sub: "More than NYSE and NASDAQ combined" },
-]
-
-const LPF_BENEFITS = [
-  { v: "0%", label: "Hong Kong profits tax", sub: "On qualifying fund transactions" },
-  { v: "0%", label: "Withholding tax", sub: "On distributions to LPs" },
-  { v: "0%", label: "Carry tax", sub: "HK carried interest concession" },
-  { v: "None", label: "Stamp duty", sub: "Contributions · transfers · secondary" },
-]
-
-const NAMED_TRANSACTIONS = [
-  "Realord Group (00244)",
-  "TL Natural Gas (08536)",
-  "Vision International (08107)",
-  "Sunlight (08451)",
-]
-
-const EXECUTION_NETWORK = [
-  { name: "Loeb & Loeb LLP", detail: "US & HK securities counsel — one firm, both jurisdictions" },
-  { name: "TAAD LLP", detail: "US PCAOB-registered auditor" },
-  { name: "Big-4 reporting accountants", detail: "Relationships across PwC, Deloitte, EY, KPMG" },
-  { name: "SFC Type 9 partner firm", detail: "Appointed Investment Manager of the LPF" },
-]
-
-const STRATEGIC_ACCESS = [
-  {
-    h: "Co-investment priority",
-    d: "On any company sourced through the fund.",
-  },
-  {
-    h: "Originating economics",
-    d: "A defined share of GP carry attributable to the introduced position, paid from GP carry (not from other LPs), LPAC-approved.",
-  },
-  {
-    h: "Enhanced information rights",
-    d: "On introduced positions.",
-  },
-  {
-    h: "Sector / geographic preference",
-    d: "Noted in the fund's allocation policy.",
-  },
-]
-
-const NEXT_STEPS = [
-  { n: "01", h: "Execute NDA", d: "Confidential disclosure of pipeline, terms, and structure." },
-  { n: "02", h: "Investor call", d: "Meet Mandy, walk through the approach and current pipeline." },
-  { n: "03", h: "Data room access", d: "Full diligence materials, LPA terms, fund documents." },
-  { n: "04", h: "Subscription at first close", d: "Anchor-LP rights are available to those committing at or before first close." },
+const EXITS = [
+  { tier: "Primary", route: "US IPO — Nasdaq / NYSE" },
+  { tier: "Secondary", route: "HKEX listing" },
+  { tier: "Tertiary", route: "M&A" },
+  { tier: "Floor", route: "Secondary sale or buyback" },
 ]
 
 export default function FundPage() {
@@ -108,11 +61,6 @@ export default function FundPage() {
           letter-spacing: -0.02em;
         }
         p, a, button, span, li, td, th { font-family: var(--font-poppins), sans-serif; }
-        .stat-value {
-          font-family: var(--font-cormorant-garamond), serif;
-          font-weight: 500;
-          letter-spacing: -0.02em;
-        }
       `}</style>
 
       {/* Header */}
@@ -153,123 +101,73 @@ export default function FundPage() {
         </div>
       </section>
 
-      {/* CREDENTIALS BAR */}
-      <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            SFC Type 6 Licensed · 60+ Transactions · US$200M+ in Deal Value · HKEX &amp; NASDAQ
-          </p>
-        </div>
-      </section>
-
-      {/* THE FUND IN ONE SENTENCE */}
-      <section className="py-16 md:py-20 px-6 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase mb-5">The fund in one sentence</p>
-          <p className="text-xl md:text-2xl text-[#1a2a3a] font-normal italic leading-[1.5]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            Lumina invests in profitable private companies — typically US$15M+ revenue or US$1.5M+ net profit — with a clear 12–36 month liquidity pathway through US IPO, HKEX listing, or M&amp;A, using structured equity instruments that protect downside on every position.
-          </p>
-        </div>
-      </section>
-
-      {/* WHY THIS FUND EXISTS */}
-      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Why this fund exists</p>
-          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal">A gap, and a vintage, opening simultaneously</h2>
-
-          <div className="space-y-5 text-slate-600 text-[15px] leading-[1.8] font-light mb-12 max-w-3xl mx-auto">
-            <p>
-              The largest pre-IPO funds — Sequoia, General Atlantic, Hillhouse — only write US$50M+ tickets. Below that threshold, profitable cross-border companies preparing for a capital event have no natural capital partner.
-            </p>
-            <p>
-              At the same time, two IPO markets are simultaneously open after a multi-year drought:
-            </p>
-          </div>
-
-          {/* IPO stats grid */}
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-10">
-            {IPO_STATS.map((s) => (
-              <div key={s.label} className="bg-white border border-slate-200 p-6 md:p-7 text-center">
-                <p className="stat-value text-3xl md:text-4xl text-[#1a2a3a] mb-2">{s.value}</p>
-                <p className="text-[#1a2a3a] font-medium text-sm mb-2">{s.label}</p>
-                <p className="text-slate-500 text-xs font-light">{s.sub}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-[#1a2a3a] text-xl font-normal italic" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            This is the vintage. Lumina is built to capture it.
-          </p>
-        </div>
-      </section>
-
-      {/* HOW THE STRUCTURE WORKS — Three-way alignment */}
+      {/* THE OPPORTUNITY */}
       <section className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">The opportunity</p>
+          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal">Below the ticket size of the largest funds, above the reach of conventional capital</h2>
+          <div className="space-y-5 text-slate-600 text-[15px] leading-[1.8] font-light">
+            <p>
+              The largest pre-IPO funds write US$50M+ tickets. Below that threshold, profitable cross-border companies preparing for a capital event have no natural capital partner. They have audited financials, a liquidity pathway, and a working business — and no one structured to write the cheque.
+            </p>
+            <p>
+              At the same time, two IPO markets are simultaneously open after a multi-year drought. The HKEX and the US listings windows have both reopened with significant momentum.
+            </p>
+            <p className="text-[#1a2a3a] font-normal">
+              Lumina is built to sit precisely in that gap.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW THE STRUCTURE WORKS */}
+      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">How the structure works</p>
-          <h2 className="text-3xl md:text-4xl mb-6 text-center font-normal">Built around a three-way alignment</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-center font-normal">A three-way alignment</h2>
           <p className="text-center text-slate-600 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-            Every party holds the same equity outcome.
+            Every party holds the same equity outcome. The company gets growth capital it could not otherwise access. The investor gets a sponsor-grade portfolio with offset fees. Lumina earns through the same exit Lumina structured.
           </p>
 
           <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-            {/* The company */}
-            <div className="bg-[#f8f7f4] border-t-2 border-[#c9a227] p-7">
+            <div className="bg-white border-t-2 border-[#c9a227] p-7">
               <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.25em] uppercase mb-3">The Company</p>
-              <ul className="space-y-3 text-slate-600 text-sm font-light leading-relaxed">
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Pays a standard cash advisory fee (~US$100K) — like any normal corporate finance engagement.</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Receives US$3–5M of growth capital through structured instruments.</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Uses part of proceeds to cover third-party IPO prep costs (audit, legal, sponsor) — solving the working-capital problem that stops most processes.</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Preserves operating cash flow.</span></li>
-              </ul>
+              <p className="text-slate-600 text-sm font-light leading-relaxed">
+                Pays a standard cash advisory fee and receives growth capital through structured instruments. Working-capital needs for IPO preparation get covered without breaking operating cash flow.
+              </p>
             </div>
 
-            {/* The investor */}
-            <div className="bg-[#f8f7f4] border-t-2 border-[#c9a227] p-7">
+            <div className="bg-white border-t-2 border-[#c9a227] p-7">
               <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.25em] uppercase mb-3">The Investor</p>
-              <ul className="space-y-3 text-slate-600 text-sm font-light leading-relaxed">
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Subscribes to LP units (US$500K minimum).</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Gets structured equity exposure with downside protection on every position — convertible notes, preferred shares, secured bridges, or pre-IPO equity at protected entry.</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Never holds plain common equity.</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Anchor LPs (US$1M+) can earn originating economics on companies they introduce.</span></li>
-              </ul>
+              <p className="text-slate-600 text-sm font-light leading-relaxed">
+                Gets structured equity exposure with downside protection on every position. Never holds plain common equity. Anchor LPs can earn originating economics on companies they introduce.
+              </p>
             </div>
 
-            {/* Lumina */}
-            <div className="bg-[#f8f7f4] border-t-2 border-[#c9a227] p-7">
+            <div className="bg-white border-t-2 border-[#c9a227] p-7">
               <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.25em] uppercase mb-3">Lumina</p>
-              <ul className="space-y-3 text-slate-600 text-sm font-light leading-relaxed">
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Earns through the same equity outcome the LPs hold.</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>Advisory fees received from portfolio companies are <span className="text-[#1a2a3a] font-medium">offset 100% against management fee</span> under LPAC oversight.</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-1">✦</span><span>LPs never double-pay.</span></li>
-              </ul>
+              <p className="text-slate-600 text-sm font-light leading-relaxed">
+                Earns through the same equity outcome the LPs hold. Advisory fees received from portfolio companies are offset against management fee. LPs never double-pay.
+              </p>
             </div>
-          </div>
-
-          {/* Pullquote */}
-          <div className="mt-14 pt-10 border-t border-slate-200 max-w-3xl mx-auto">
-            <p className="text-center text-[#1a2a3a] text-lg md:text-xl italic leading-[1.6]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-              The company pays a normal advisory fee and gets growth capital it could not otherwise access. The investor gets a sponsor-grade portfolio with offset fees. Lumina earns through the same exit Lumina structured.
-            </p>
           </div>
         </div>
       </section>
 
       {/* INVESTMENT APPROACH */}
-      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Investment approach</p>
           <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal">Disciplined, structured, success-aligned</h2>
 
           {/* Eligibility */}
-          <div className="mb-14">
-            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-5">Eligibility</h3>
-            <div className="bg-white border border-slate-200">
+          <div className="mb-12">
+            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-5">Portfolio company eligibility</h3>
+            <div className="bg-[#f8f7f4] border border-slate-200">
               {ELIGIBILITY.map((row, i) => (
                 <div
                   key={row.criterion}
-                  className={`grid grid-cols-[140px_1fr] md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-4 md:p-5 ${i !== ELIGIBILITY.length - 1 ? "border-b border-slate-100" : ""}`}
+                  className={`grid grid-cols-[130px_1fr] md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-4 md:p-5 ${i !== ELIGIBILITY.length - 1 ? "border-b border-slate-200" : ""}`}
                 >
                   <p className="text-[#1a2a3a] text-sm font-medium">{row.criterion}</p>
                   <p className="text-slate-600 text-sm font-light leading-relaxed">{row.threshold}</p>
@@ -279,234 +177,68 @@ export default function FundPage() {
           </div>
 
           {/* Instruments */}
-          <div className="mb-14">
+          <div className="mb-12">
             <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-2">Instruments</h3>
             <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-5">Never plain common equity</p>
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-3">
               {INSTRUMENTS.map((inst) => (
-                <div key={inst.name} className="bg-white border border-slate-200 p-5">
-                  <p className="text-[#1a2a3a] font-medium text-base mb-1.5">{inst.name}</p>
-                  <p className="text-slate-500 text-sm font-light">{inst.detail}</p>
+                <div key={inst} className="bg-[#f8f7f4] border border-slate-200 p-4 flex items-center gap-3">
+                  <span className="text-[#c9a227]">✦</span>
+                  <p className="text-[#1a2a3a] font-medium text-sm">{inst}</p>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Portfolio construction */}
-          <div className="mb-14">
-            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-5">Portfolio construction</h3>
-            <div className="bg-white border border-slate-200 p-6 md:p-7">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div>
-                  <p className="stat-value text-2xl md:text-3xl text-[#1a2a3a] mb-1">4–6</p>
-                  <p className="text-slate-500 text-xs font-light tracking-wide uppercase">Positions per fund</p>
-                </div>
-                <div>
-                  <p className="stat-value text-2xl md:text-3xl text-[#1a2a3a] mb-1">US$3–5M</p>
-                  <p className="text-slate-500 text-xs font-light tracking-wide uppercase">Average check</p>
-                </div>
-                <div>
-                  <p className="stat-value text-2xl md:text-3xl text-[#1a2a3a] mb-1">~25%</p>
-                  <p className="text-slate-500 text-xs font-light tracking-wide uppercase">Single-name cap</p>
-                </div>
-                <div>
-                  <p className="stat-value text-2xl md:text-3xl text-[#1a2a3a] mb-1">~25%</p>
-                  <p className="text-slate-500 text-xs font-light tracking-wide uppercase">Reserve ratio</p>
-                </div>
-              </div>
             </div>
           </div>
 
           {/* Exit pathways */}
-          <div className="mb-14">
+          <div>
             <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-5">Exit pathways</h3>
-            <div className="space-y-3">
-              <div className="bg-white border border-slate-200 p-5 flex items-start gap-4">
-                <span className="text-[#a68a1f] text-xs font-semibold tracking-[0.2em] uppercase whitespace-nowrap mt-0.5">Primary</span>
-                <div>
-                  <p className="text-[#1a2a3a] font-medium text-sm mb-1">US IPO — Nasdaq / NYSE</p>
-                  <p className="text-slate-500 text-sm font-light">For multiple expansion.</p>
+            <div className="space-y-2.5">
+              {EXITS.map((e) => (
+                <div key={e.tier} className="bg-[#f8f7f4] border border-slate-200 p-4 md:p-5 flex items-center gap-4">
+                  <span className="text-[#a68a1f] text-[11px] font-semibold tracking-[0.2em] uppercase whitespace-nowrap w-20">{e.tier}</span>
+                  <p className="text-[#1a2a3a] font-medium text-sm">{e.route}</p>
                 </div>
-              </div>
-              <div className="bg-white border border-slate-200 p-5 flex items-start gap-4">
-                <span className="text-[#a68a1f] text-xs font-semibold tracking-[0.2em] uppercase whitespace-nowrap mt-0.5">Secondary</span>
-                <div>
-                  <p className="text-[#1a2a3a] font-medium text-sm mb-1">HKEX listing</p>
-                  <p className="text-slate-500 text-sm font-light">The route where Lumina&apos;s sponsor track record provides direct execution capability.</p>
-                </div>
-              </div>
-              <div className="bg-white border border-slate-200 p-5 flex items-start gap-4">
-                <span className="text-[#a68a1f] text-xs font-semibold tracking-[0.2em] uppercase whitespace-nowrap mt-0.5">Tertiary</span>
-                <div>
-                  <p className="text-[#1a2a3a] font-medium text-sm mb-1">M&amp;A</p>
-                </div>
-              </div>
-              <div className="bg-white border border-slate-200 p-5 flex items-start gap-4">
-                <span className="text-[#a68a1f] text-xs font-semibold tracking-[0.2em] uppercase whitespace-nowrap mt-0.5">Floor</span>
-                <div>
-                  <p className="text-[#1a2a3a] font-medium text-sm mb-1">Secondary sale or buyback</p>
-                  <p className="text-slate-500 text-sm font-light">Protective floor on every position.</p>
-                </div>
-              </div>
+              ))}
             </div>
-          </div>
-
-          {/* Sector mix */}
-          <div>
-            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-5">Target sector mix</h3>
-            <p className="text-slate-600 text-[15px] leading-[1.8] font-light">
-              AI / enterprise tech · healthcare and biotech · advanced manufacturing · consumer · new energy · fintech (selective).
-            </p>
           </div>
         </div>
       </section>
 
-      {/* WHY LUMINA — MANDY */}
-      <section className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Why Lumina</p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal">Mandy Cheung</h2>
-
-          {/* Mandy stats + bio */}
-          <div className="space-y-4 text-slate-600 text-[15px] leading-[1.8] font-light mb-10 max-w-3xl mx-auto">
-            <ul className="space-y-2">
-              <li className="flex items-start gap-3"><span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span><span><span className="text-[#1a2a3a] font-medium">10+ years</span> in corporate finance, IPO, M&amp;A, restructuring, and capital markets.</span></li>
-              <li className="flex items-start gap-3"><span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span><span><span className="text-[#1a2a3a] font-medium">60+ corporate transactions</span> advised on.</span></li>
-              <li className="flex items-start gap-3"><span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span><span><span className="text-[#1a2a3a] font-medium">US$200M+</span> in completed deal value.</span></li>
-              <li className="flex items-start gap-3"><span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span><span><span className="text-[#1a2a3a] font-medium">Cross-border footprint</span> across Hong Kong, mainland China, and the UAE.</span></li>
-            </ul>
-          </div>
-
-          {/* Named transactions */}
-          <div className="mb-12 pb-12 border-b border-slate-200">
-            <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-4">Named HKEX sponsor / advisory roles</p>
-            <div className="grid sm:grid-cols-2 gap-2">
-              {NAMED_TRANSACTIONS.map((t) => (
-                <p key={t} className="text-[#1a2a3a] text-sm font-medium flex items-start gap-2">
-                  <span className="text-[#c9a227]">·</span>{t}
-                </p>
-              ))}
-            </div>
-          </div>
-
-          {/* Execution network */}
-          <div>
-            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-2">Execution network</h3>
-            <p className="text-slate-600 text-sm font-light leading-relaxed mb-6 max-w-2xl">
-              Lumina&apos;s transaction execution leverages a network of professional service firms with provable working history:
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {EXECUTION_NETWORK.map((firm) => (
-                <div key={firm.name} className="bg-[#f8f7f4] border-l-2 border-[#c9a227] p-5">
-                  <p className="text-[#1a2a3a] font-medium text-base mb-1">{firm.name}</p>
-                  <p className="text-slate-500 text-sm font-light leading-relaxed">{firm.detail}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-slate-500 text-sm font-light italic mt-6">
-              The current pipeline includes a US-listing candidate engaged with Loeb &amp; Loeb as US securities counsel.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY THE LPF WRAPPER */}
+      {/* LEADERSHIP */}
       <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
         <div className="max-w-4xl mx-auto">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Why the LPF wrapper</p>
-          <h2 className="text-3xl md:text-4xl mb-8 text-center font-normal">The credible onshore alternative</h2>
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">Leadership</p>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal">Who runs the fund</h2>
 
-          <div className="space-y-4 text-slate-600 text-[15px] leading-[1.8] font-light mb-10 max-w-3xl mx-auto">
-            <p>
-              Hong Kong&apos;s Limited Partnership Fund regime, launched in 2020, has emerged as the credible onshore alternative to Cayman, Delaware, and Luxembourg structures.
-            </p>
-            <p>
-              <span className="text-[#1a2a3a] font-medium">1,347 LPFs were registered by end-2025, up 35% YoY</span>
-              <span className="text-slate-500"> (HK Companies Registry, January 2026).</span>
-            </p>
-          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-none border border-slate-200 p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-[#a68a1f] mb-2">General Partner</p>
+              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-1">Mandy Cheung</h3>
+              <p className="text-slate-500 text-sm font-light mb-4">Founder &amp; Director, Lumina Consulting Limited</p>
+              <p className="text-slate-600 text-sm font-light leading-relaxed mb-4">
+                Hong Kong SFC Type 6 (corporate finance) Responsible Officer with 10+ years and 60+ capital markets transactions across HKEX and NASDAQ. As financial adviser to listed-company boards and shareholders, she has completed general offers, whitewash waivers, convertible-bond subscriptions and restructurings — the structuring and downside-protection mechanics this fund is built on.
+              </p>
+              <ul className="space-y-1.5 text-slate-600 text-sm font-light">
+                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-0.5">✦</span> SFC Type 6 Responsible Officer</li>
+                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-0.5">✦</span> 60+ transactions: IPOs, general offers, convertible bonds, restructurings</li>
+                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-0.5">✦</span> Active cross-border pipeline: Hong Kong · PRC · UAE</li>
+              </ul>
+            </div>
 
-          {/* Tax benefits grid */}
-          <p className="text-slate-500 text-xs font-medium tracking-[0.2em] uppercase mb-4 text-center">For UAE family offices and cross-border investors</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 mb-8">
-            {LPF_BENEFITS.map((b) => (
-              <div key={b.label} className="bg-white border border-slate-200 p-5 md:p-6 text-center">
-                <p className="stat-value text-3xl md:text-4xl text-[#c9a227] mb-2">{b.v}</p>
-                <p className="text-[#1a2a3a] font-medium text-sm mb-1">{b.label}</p>
-                <p className="text-slate-500 text-xs font-light leading-relaxed">{b.sub}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-white border border-slate-200 p-6 md:p-7 max-w-2xl mx-auto">
-            <ul className="space-y-2.5 text-slate-600 text-sm font-light leading-relaxed">
-              <li className="flex items-start gap-2"><span className="text-[#c9a227]">✦</span><span><span className="text-[#1a2a3a] font-medium">USD-denominated</span> — no RMB convertibility risk.</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#c9a227]">✦</span><span><span className="text-[#1a2a3a] font-medium">English-law-friendly</span> wrapper with full access to PRC and HK growth-company origination.</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* DISCIPLINE & GOVERNANCE */}
-      <section className="py-16 md:py-20 px-6 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase mb-3">Discipline, alignment, governance</p>
-          <h2 className="text-2xl md:text-3xl mb-6 font-normal">Structure that does the work</h2>
-          <div className="space-y-4 text-slate-600 text-[15px] leading-[1.8] font-light">
-            <p>
-              Every position carries structured downside: valuation caps, liquidation preference, milestone-tied drawdowns, redemption rights. Every fund decision sits inside an LPAC-governed framework with conflict policy, valuation policy, independent oversight, and a key-person clause.
-            </p>
-            <p>
-              Advisory fees received from portfolio companies are disclosed quarterly and offset against management fee. The LP never pays twice for the same work.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* STRATEGIC ACCESS */}
-      <section className="py-20 md:py-28 px-6 bg-[#1a2a3a]">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-[#f5e6b3] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Strategic Access</p>
-          <h2 className="text-3xl md:text-4xl mb-6 text-center font-normal !text-white">For investors who bring more than capital</h2>
-          <p className="text-center text-white/75 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-            Some investors know private companies through business, family, industry, or portfolio networks but have no structure to monetize that access.
-          </p>
-
-          <p className="text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-10 text-center">
-            Anchor LPs may sign a <span className="text-[#f5e6b3] font-medium">Strategic Access Agreement</span> to introduce companies from their network for screening. Accepted introductions earn the introducing LP:
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-5">
-            {STRATEGIC_ACCESS.map((s) => (
-              <div key={s.h} className="border border-[#c9a227]/30 p-6 bg-[#0f1a24]/50">
-                <p className="text-[#f5e6b3] font-medium text-base mb-2">{s.h}</p>
-                <p className="text-white/70 text-sm font-light leading-relaxed">{s.d}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-white/60 text-sm font-light italic mt-10 max-w-2xl mx-auto">
-            This is a fund right, not a referral commission. It is the cleanest way to reward strategic LPs for proprietary deal access without creating regulatory or commercial conflict.
-          </p>
-        </div>
-      </section>
-
-      {/* NEXT STEPS */}
-      <section className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Next steps</p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal">For Professional Investors</h2>
-
-          <div className="space-y-4">
-            {NEXT_STEPS.map((step) => (
-              <div key={step.n} className="bg-[#f8f7f4] border border-slate-200 p-6 md:p-7 flex items-start gap-5 md:gap-8">
-                <p className="stat-value text-2xl md:text-3xl text-[#c9a227] flex-shrink-0">{step.n}</p>
-                <div>
-                  <p className="text-[#1a2a3a] font-medium text-base md:text-lg mb-1">{step.h}</p>
-                  <p className="text-slate-600 text-sm font-light leading-relaxed">{step.d}</p>
-                </div>
-              </div>
-            ))}
+            <div className="bg-white rounded-none border border-slate-200 p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-[#a68a1f] mb-2">Investment Manager</p>
+              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-1">SFC Type 9 Asset Manager</h3>
+              <p className="text-slate-500 text-sm font-light mb-4">Confirmed on engagement</p>
+              <p className="text-slate-600 text-sm font-light leading-relaxed mb-4">
+                The Fund is managed by an SFC Type 9 (Asset Management) licensed firm acting as Investment Manager — responsible for portfolio management, trade execution, and AML oversight under Hong Kong&apos;s regulated framework. The appointed manager is confirmed with investors during the materials discussion.
+              </p>
+              <ul className="space-y-1.5 text-slate-600 text-sm font-light">
+                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-0.5">✦</span> SFC Type 9 (Asset Management)</li>
+                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-0.5">✦</span> Investment Manager of the LPF</li>
+                <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-0.5">✦</span> Portfolio management &amp; trade execution</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -544,7 +276,7 @@ export default function FundPage() {
       <section className="py-12 px-6 bg-[#0f1a24]">
         <div className="max-w-3xl mx-auto">
           <p className="text-slate-500 text-xs font-light leading-relaxed text-center italic">
-            This document is for discussion purposes only and does not constitute an offer, solicitation, or investment advice. Investments in pre-IPO companies involve significant risks, including total loss of capital. Past performance is not indicative of future results. Any fund participation is subject to legal, regulatory, tax, and compliance review and to the executed Limited Partnership Agreement. For Professional Investors only.
+            This page is provided for information purposes only and does not constitute an offer, solicitation, or investment advice. Investments in pre-IPO companies involve significant risks, including total loss of capital. Past performance is not indicative of future results. Any fund participation is subject to legal, regulatory, tax, and compliance review and to the executed Limited Partnership Agreement. For Professional Investors only.
           </p>
         </div>
       </section>
