@@ -130,23 +130,23 @@ export default function FundPage() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-            <div className="bg-white border-t-2 border-[#c9a227] p-7">
-              <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.25em] uppercase mb-3">The Company</p>
-              <p className="text-slate-600 text-sm font-light leading-relaxed">
+            <div className="bg-white border-t-2 border-[#c9a227] p-7 md:p-8">
+              <h3 className="text-2xl md:text-[26px] font-normal text-[#1a2a3a] mb-4 italic" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>The Company</h3>
+              <p className="text-slate-600 text-[15px] font-light leading-relaxed">
                 Pays a standard cash advisory fee and receives growth capital through structured instruments. Working-capital needs for IPO preparation get covered without breaking operating cash flow.
               </p>
             </div>
 
-            <div className="bg-white border-t-2 border-[#c9a227] p-7">
-              <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.25em] uppercase mb-3">The Investor</p>
-              <p className="text-slate-600 text-sm font-light leading-relaxed">
+            <div className="bg-white border-t-2 border-[#c9a227] p-7 md:p-8">
+              <h3 className="text-2xl md:text-[26px] font-normal text-[#1a2a3a] mb-4 italic" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>The Investor</h3>
+              <p className="text-slate-600 text-[15px] font-light leading-relaxed">
                 Gets structured equity exposure with downside protection on every position. Never holds plain common equity. Anchor LPs can earn originating economics on companies they introduce.
               </p>
             </div>
 
-            <div className="bg-white border-t-2 border-[#c9a227] p-7">
-              <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.25em] uppercase mb-3">Lumina</p>
-              <p className="text-slate-600 text-sm font-light leading-relaxed">
+            <div className="bg-white border-t-2 border-[#c9a227] p-7 md:p-8">
+              <h3 className="text-2xl md:text-[26px] font-normal text-[#1a2a3a] mb-4 italic" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>Lumina</h3>
+              <p className="text-slate-600 text-[15px] font-light leading-relaxed">
                 Earns through the same equity outcome the LPs hold. Advisory fees received from portfolio companies are offset against management fee. LPs never double-pay.
               </p>
             </div>
@@ -155,67 +155,124 @@ export default function FundPage() {
       </section>
 
       {/* INVESTMENT APPROACH */}
+      {/*
+        Mobile: 3 collapsible <details> blocks stacked (saves screen space).
+        Desktop: 3 always-open columns side-by-side (eligibility | instruments | exits).
+        The duplication is intentional — clean tree per breakpoint beats CSS gymnastics.
+      */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Investment approach</p>
           <h2 className="text-3xl md:text-4xl mb-14 text-center font-normal">Disciplined, structured, success-aligned</h2>
 
-          {/* Eligibility — full width as a 6-card grid on desktop, stacked rows on mobile */}
-          <div className="mb-16">
-            <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-6 text-center md:text-left">Portfolio company eligibility</h3>
+          {/* MOBILE — collapsible accordion */}
+          <div className="md:hidden space-y-3">
+            <details className="bg-[#f8f7f4] border border-slate-200 group">
+              <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-medium text-base">
+                <span>Portfolio company eligibility</span>
+                <span className="text-[#c9a227] text-xl transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <ul className="px-5 pb-5 space-y-3">
+                {ELIGIBILITY.map((row) => (
+                  <li key={row.criterion} className="flex items-start gap-3 text-sm">
+                    <span className="text-[#c9a227] mt-1 text-xs">✦</span>
+                    <div>
+                      <span className="text-[#1a2a3a] font-medium">{row.criterion}:</span>{" "}
+                      <span className="text-slate-600 font-light">{row.threshold}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </details>
 
-            {/* MOBILE: stacked rows */}
-            <div className="md:hidden bg-[#f8f7f4] border border-slate-200">
-              {ELIGIBILITY.map((row, i) => (
-                <div
-                  key={row.criterion}
-                  className={`grid grid-cols-[130px_1fr] gap-4 p-4 ${i !== ELIGIBILITY.length - 1 ? "border-b border-slate-200" : ""}`}
-                >
-                  <p className="text-[#1a2a3a] text-sm font-medium">{row.criterion}</p>
-                  <p className="text-slate-600 text-sm font-light leading-relaxed">{row.threshold}</p>
+            <details className="bg-[#f8f7f4] border border-slate-200 group">
+              <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-medium text-base">
+                <div>
+                  <span>Instruments</span>
+                  <span className="block text-[#a68a1f] text-[10px] font-medium tracking-[0.2em] uppercase mt-0.5">Never plain common equity</span>
                 </div>
-              ))}
-            </div>
+                <span className="text-[#c9a227] text-xl transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <ul className="px-5 pb-5 space-y-3">
+                {INSTRUMENTS.map((inst) => (
+                  <li key={inst} className="flex items-start gap-3 text-sm">
+                    <span className="text-[#c9a227] mt-1 text-xs">✦</span>
+                    <span className="text-[#1a2a3a] font-medium">{inst}</span>
+                  </li>
+                ))}
+              </ul>
+            </details>
 
-            {/* DESKTOP: 3-column grid of criterion cards */}
-            <div className="hidden md:grid md:grid-cols-3 gap-5">
-              {ELIGIBILITY.map((row) => (
-                <div key={row.criterion} className="bg-[#f8f7f4] border border-slate-200 p-6">
-                  <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.25em] uppercase mb-2">{row.criterion}</p>
-                  <p className="text-[#1a2a3a] text-base font-light leading-relaxed">{row.threshold}</p>
+            <details className="bg-[#f8f7f4] border border-slate-200 group">
+              <summary className="cursor-pointer list-none p-5 flex items-center justify-between text-[#1a2a3a] font-medium text-base">
+                <div>
+                  <span>Exit pathways</span>
+                  <span className="block text-[#a68a1f] text-[10px] font-medium tracking-[0.2em] uppercase mt-0.5">Tiered, with a protective floor</span>
                 </div>
-              ))}
-            </div>
+                <span className="text-[#c9a227] text-xl transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <ul className="px-5 pb-5 space-y-3">
+                {EXITS.map((e) => (
+                  <li key={e.tier} className="flex items-start gap-3 text-sm">
+                    <span className="text-[#c9a227] mt-1 text-xs">✦</span>
+                    <div>
+                      <span className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.2em] uppercase">{e.tier}:</span>{" "}
+                      <span className="text-[#1a2a3a] font-medium">{e.route}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </details>
           </div>
 
-          {/* Instruments + Exit pathways side-by-side on desktop, stacked on mobile */}
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
+          {/* DESKTOP — 3 columns side-by-side, point-form lists */}
+          <div className="hidden md:grid md:grid-cols-3 gap-10 lg:gap-14">
+            {/* Eligibility */}
+            <div>
+              <h3 className="text-xl text-[#1a2a3a] font-normal mb-2">Portfolio company eligibility</h3>
+              <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-5">Qualifying criteria</p>
+              <ul className="space-y-3.5">
+                {ELIGIBILITY.map((row) => (
+                  <li key={row.criterion} className="flex items-start gap-3 text-sm">
+                    <span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span>
+                    <div className="leading-relaxed">
+                      <p className="text-[#1a2a3a] font-medium mb-0.5">{row.criterion}</p>
+                      <p className="text-slate-600 font-light">{row.threshold}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Instruments */}
             <div>
-              <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-2 text-center md:text-left">Instruments</h3>
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-5 text-center md:text-left">Never plain common equity</p>
-              <div className="space-y-3">
+              <h3 className="text-xl text-[#1a2a3a] font-normal mb-2">Instruments</h3>
+              <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-5">Never plain common equity</p>
+              <ul className="space-y-3.5">
                 {INSTRUMENTS.map((inst) => (
-                  <div key={inst} className="bg-[#f8f7f4] border border-slate-200 p-4 flex items-center gap-3">
-                    <span className="text-[#c9a227]">✦</span>
-                    <p className="text-[#1a2a3a] font-medium text-sm">{inst}</p>
-                  </div>
+                  <li key={inst} className="flex items-start gap-3 text-sm">
+                    <span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span>
+                    <span className="text-[#1a2a3a] font-medium leading-relaxed">{inst}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* Exit pathways */}
             <div>
-              <h3 className="text-xl md:text-2xl text-[#1a2a3a] font-normal mb-2 text-center md:text-left">Exit pathways</h3>
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-5 text-center md:text-left">Tiered, with a protective floor</p>
-              <div className="space-y-3">
+              <h3 className="text-xl text-[#1a2a3a] font-normal mb-2">Exit pathways</h3>
+              <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.2em] uppercase mb-5">Tiered, with a protective floor</p>
+              <ul className="space-y-3.5">
                 {EXITS.map((e) => (
-                  <div key={e.tier} className="bg-[#f8f7f4] border border-slate-200 p-4 flex items-center gap-4">
-                    <span className="text-[#a68a1f] text-[11px] font-semibold tracking-[0.2em] uppercase whitespace-nowrap w-20">{e.tier}</span>
-                    <p className="text-[#1a2a3a] font-medium text-sm">{e.route}</p>
-                  </div>
+                  <li key={e.tier} className="flex items-start gap-3 text-sm">
+                    <span className="text-[#c9a227] mt-1.5 text-[10px]">✦</span>
+                    <div className="leading-relaxed">
+                      <p className="text-[#a68a1f] text-[10px] font-semibold tracking-[0.2em] uppercase mb-0.5">{e.tier}</p>
+                      <p className="text-[#1a2a3a] font-medium">{e.route}</p>
+                    </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>
@@ -262,9 +319,9 @@ export default function FundPage() {
       {/* CTA */}
       <section className="py-16 md:py-20 px-6 bg-[#1a2a3a]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-normal mb-4 cta-title-gradient">For Professional Investors</h2>
+          <h2 className="text-2xl md:text-3xl font-normal mb-4 cta-title-gradient">Begin the conversation</h2>
           <p className="text-slate-300 font-light mb-8 text-base max-w-2xl mx-auto leading-relaxed">
-            The complete investor presentation — pipeline, terms, and structure — is shared under NDA. Either path below begins the conversation.
+            The complete investor presentation — pipeline, terms, and structure — is shared with Professional Investors under NDA. Either path below opens that door.
           </p>
           {/* Buttons: stacked on mobile, side-by-side on desktop (paired CTA convention) */}
           <div className="flex flex-col sm:flex-row gap-3 sm:justify-center">
