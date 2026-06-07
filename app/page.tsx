@@ -18,7 +18,9 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "MandyC. | Capital Markets Advisory",
+  title: "MandyC. | Capital Markets Advisory | Hong Kong",
+  description:
+    "Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list. SFC Type 6 licensed. 60+ transactions. US$200M+ in deal value. HKEX and NASDAQ.",
 }
 
 const REASONS = [

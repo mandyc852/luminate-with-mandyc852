@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "MandyC. | Capital Markets Advisory",
   description:
-    "I help ambitious companies prepare their business for the milestones that matter most. Strategic advisory on capital markets, IPO readiness, and leadership.",
+    "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$200M+ in deal value across HKEX and NASDAQ.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
