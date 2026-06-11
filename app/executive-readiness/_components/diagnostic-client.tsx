@@ -166,6 +166,7 @@ function DimensionScreen({ dimension, index, total, score, setScore, onNext, onB
   }, [handleNext, setScore])
 
   return (
+    <section className="bg-white min-h-[calc(100vh-80px)]">
     <div className="max-w-3xl mx-auto px-6 py-6 md:py-8">
       {/* Progress */}
       <div className="mb-6">
@@ -276,6 +277,7 @@ function DimensionScreen({ dimension, index, total, score, setScore, onNext, onB
         </div>
       </div>
     </div>
+    </section>
   )
 }
 
@@ -302,6 +304,7 @@ function ResultsScreen({ scores, onRestart }: { scores: (number | null)[]; onRes
   }
 
   return (
+    <section className="bg-white min-h-[calc(100vh-80px)]">
     <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
       <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">
         Your results
@@ -399,6 +402,7 @@ function ResultsScreen({ scores, onRestart }: { scores: (number | null)[]; onRes
         </button>
       </div>
     </div>
+    </section>
   )
 }
 

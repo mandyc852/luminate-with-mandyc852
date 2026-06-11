@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-const CONTACT_EMAIL = "hello@mandyc.me"
+const CONTACT_EMAIL = "mandy@lumina-consults.com"
 
 const ELIGIBILITY = [
   { criterion: "Revenue", threshold: "US$15M+ OR net profit US$1.5M+" },
