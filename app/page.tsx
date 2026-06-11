@@ -31,8 +31,8 @@ const REASONS = [
     cta: "See the advisory →",
   },
   {
-    title: "Scaling under pressure",
-    body: "The business is working, but the decisions are getting heavier. You want a sharp, discreet second mind in the room.",
+    title: "Performing under pressure",
+    body: "The business is working, but the pressure is landing on you. Heavier decisions. Louder inputs. If the videos brought you here and you want to work on the inner game directly — that's a call.",
     href: null,
     cta: "Book a call →",
   },
@@ -143,6 +143,15 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
             SFC Type 6 Licensed · 60+ Transactions · US$200M+ in Deal Value · HKEX &amp; NASDAQ
+          </p>
+        </div>
+      </section>
+
+      {/* YOUTUBE BRIDGE LINE */}
+      <section className="bg-white pt-4 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-center text-slate-400 text-xs font-light tracking-wide md:whitespace-nowrap">
+            Here from YouTube? Same person, same work. The inner game runs underneath every deal on this page.
           </p>
         </div>
       </section>

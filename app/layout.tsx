@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     ],
   },
   appleWebApp: {
-    title: "Luminate",
+    title: "MandyC.",
   },
   other: {
-    "apple-mobile-web-app-title": "Luminate",
+    "apple-mobile-web-app-title": "MandyC.",
   },
 }
 
