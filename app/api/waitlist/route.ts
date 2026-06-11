@@ -87,7 +87,8 @@ export async function POST(request: NextRequest) {
         const greeting = name ? `Hi ${name},` : "Hi there,"
 
         await resend.emails.send({
-          from: "Mandy Cheung <hey@mandyc852.com>",
+          from: "Mandy Cheung <hey@mandyc.me>",
+          replyTo: "hey@mandyc852.com",
           to: email.toLowerCase().trim(),
           subject: magnet.subject,
           html: `
