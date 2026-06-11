@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ExecutiveReadinessPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-[#1a2a3a]">
       <style>{`
         body { padding-top: 80px; background: #ffffff; color: #3d4f5f; }
         h1, h2, h3 {

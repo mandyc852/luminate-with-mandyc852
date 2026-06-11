@@ -148,7 +148,7 @@ export default function HomePage() {
       </section>
 
       {/* YOUTUBE BRIDGE LINE */}
-      <section className="bg-white pt-4 px-6">
+      <section className="bg-white pt-5 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-slate-400 text-xs font-light tracking-wide md:whitespace-nowrap">
             Here from YouTube? Same person, same work. The inner game runs underneath every deal on this page.
@@ -157,7 +157,7 @@ export default function HomePage() {
       </section>
 
       {/* THREE REASONS */}
-      <section id="work" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
+      <section id="work" className="scroll-anchor pt-10 md:pt-14 pb-20 md:pb-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             Three reasons to reach out
