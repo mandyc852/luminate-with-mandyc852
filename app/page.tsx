@@ -320,7 +320,7 @@ export default function HomePage() {
                   Capital markets work is not just deals. The leaders who get through them intact run their own operating system underneath the engagement.
                 </p>
                 <p>
-                  LANE is the weekly inquiry I run myself. Five letters. Forty-five minutes. Pen and paper. I share it publicly because the practice belongs to anyone willing to do it.
+                  LANE is the weekly inquiry I run myself. Four letters. Forty-five minutes. Pen and paper. I share it publicly because the practice belongs to anyone willing to do it.
                 </p>
               </div>
 
