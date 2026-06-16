@@ -406,7 +406,7 @@ export default function IPOPathPage() {
               Or talk first — book a free 30-minute call →
             </a>
             <p className="text-[#f5e6b3]/90 text-[11px] font-medium tracking-[0.22em] uppercase mt-3" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}>
-              US$2,500 · 30-day sprint · Fully creditable · Only 4 founders per month
+              US$2,500 · 30-day sprint · Fully creditable · Only 4 companies per month
             </p>
           </div>
         </div>
@@ -766,7 +766,7 @@ export default function IPOPathPage() {
       <section className="py-12 md:py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="border-l-2 border-[#c9a227] pl-6 py-2 text-slate-500 font-light italic text-[15px] leading-[1.8]">
-            I take a maximum of 4 founders per month — not 4 sessions per founder, 4 founders total. The deep review and memo are 4 – 6 hours of senior advisory time each, and diluting that defeats the point. When the current month is full, you book the next.
+            I take a maximum of 4 companies per month — not 4 sessions per company, 4 companies total. The deep review and memo are 4 – 6 hours of senior advisory time each, and diluting that defeats the point. When the current month is full, you book the next.
           </div>
         </div>
       </section>
@@ -873,7 +873,7 @@ export default function IPOPathPage() {
             </a>
           </div>
           <p className="text-slate-400 text-xs mt-8 font-light tracking-wide">
-            Fully creditable toward continuation engagements within 60 days · Only 4 founders accepted per month
+            Fully creditable toward continuation engagements within 60 days · Only 4 companies accepted per month
           </p>
         </div>
       </section>
