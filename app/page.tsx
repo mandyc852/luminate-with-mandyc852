@@ -3,7 +3,6 @@ import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { BookCallButton } from "./_components/home-interactions"
 import { SiteHeader } from "./_components/site-header"
-import { LaneForm } from "./lane/_components/lane-form"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -23,12 +22,23 @@ export const metadata: Metadata = {
     "Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list. SFC Type 6 licensed. 60+ transactions. US$200M+ in deal value. HKEX and NASDAQ.",
 }
 
-const REASONS = [
+type Reason = {
+  title: string
+  body: string
+  href: string | null
+  cta: string
+  secondaryHref?: string
+  secondaryCta?: string
+}
+
+const REASONS: Reason[] = [
   {
     title: "Exploring a listing",
     body: "You're weighing whether NASDAQ or HKEX makes sense for where your business is now — and what it would actually take.",
-    href: "/ipo",
-    cta: "See the advisory →",
+    href: "/ipo-path",
+    cta: "Start with The IPO Path Assessment →",
+    secondaryHref: "/ipo",
+    secondaryCta: "See the full advisory →",
   },
   {
     title: "Performing under pressure",
@@ -177,9 +187,16 @@ export default function HomePage() {
                 <h3 className="text-xl font-normal text-[#1a2a3a] mb-3">{r.title}</h3>
                 <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-6">{r.body}</p>
                 {r.href ? (
-                  <a href={r.href} className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
-                    {r.cta}
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <a href={r.href} className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
+                      {r.cta}
+                    </a>
+                    {r.secondaryHref && r.secondaryCta && (
+                      <a href={r.secondaryHref} className="text-slate-500 hover:text-[#1a2a3a] text-xs font-light tracking-wide transition-colors">
+                        {r.secondaryCta}
+                      </a>
+                    )}
+                  </div>
                 ) : (
                   <BookCallButton label={r.cta} className="text-left text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors" />
                 )}
@@ -189,7 +206,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LEAD MAGNET */}
+      {/* PAID OFFER — The IPO Path Assessment */}
       <section id="download" className="relative py-20 md:py-28 px-6 bg-[#1a2a3a] scroll-mt-24 overflow-hidden">
         {/* Subtle skyline texture to distinguish from the final CTA */}
         <div className="absolute inset-0 z-0">
@@ -202,21 +219,21 @@ export default function HomePage() {
           />
         </div>
         <div className="max-w-3xl mx-auto text-center relative z-10">
-          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free diagnostic</p>
+          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Paid Assessment · US$2,500</p>
           <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance" }}>
-            The Executive Readiness Diagnostic
+            The IPO Path Assessment
           </h2>
           <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-            Five dimensions. Five questions. A diagnostic that measures whether you, the person in the chair, are ready to lead a capital event — not whether your cap table is.
+            Thirty days. A written verdict on whether your company is ready to list — and the next move spelled out, whatever the answer. Fully creditable toward continuation engagements.
           </p>
           <a
-            href="/executive-readiness"
+            href="/ipo-path"
             className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
           >
-            Begin Diagnostic →
+            See the assessment →
           </a>
           <p className="text-white/50 font-light text-sm mt-5">
-            10 minutes. Self-scored. Honest scoring is the point.
+            Only 4 founders accepted per month · ExitPro access + Listing Path Memo + follow-up support
           </p>
         </div>
       </section>
@@ -288,57 +305,81 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* THE PRACTICE UNDERNEATH (LANE) */}
-      {/*
-        Desktop: two-column grid, copy left, mandala right.
-        Mobile: single column — eyebrow, heading, mandala, copy, CTA (stacked).
-      */}
-      <section id="lane" className="relative py-20 md:py-28 px-6 overflow-hidden bg-white scroll-mt-24">
+      {/* THE PLATFORM I BUILT (ExitPro) */}
+      <section id="exitpro" className="relative py-20 md:py-28 px-6 overflow-hidden bg-white scroll-mt-24">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-[1.15fr_0.85fr] gap-12 md:gap-20 items-center">
-            {/* LEFT (desktop): copy + CTA | On mobile this renders second (order-2) */}
-            <div className="order-2 md:order-1 text-center md:text-left">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Copy column */}
+            <div className="text-center md:text-left order-2 md:order-1">
               <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase mb-4">
-                What I run myself
+                The platform I built
               </p>
-              <h2 className="text-3xl md:text-4xl mb-6 font-normal leading-[1.1]" style={{ textWrap: "balance" }}>
-                The practice underneath the work
+              <h2 className="text-3xl md:text-4xl mb-6 font-normal leading-[1.15]" style={{ textWrap: "balance" }}>
+                ExitPro — IPO readiness, on demand
               </h2>
 
-              {/* Mobile only: mandala between heading and copy */}
-              <div className="flex items-center justify-center mb-8 md:hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/lead-magnet/lane-framework.png"
-                  alt="LANE — Lookback, Anchor, Next, Envision"
-                  className="w-full max-w-[320px] h-auto"
-                />
-              </div>
-
-              <div className="space-y-4 text-slate-700 font-light leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
+              <div className="space-y-4 text-slate-700 font-light leading-relaxed mb-8 max-w-xl mx-auto md:mx-0 text-[15px]">
                 <p>
-                  Capital markets work is not just deals. The leaders who get through them intact run their own operating system underneath the engagement.
+                  ExitPro is the IPO-readiness research platform I built — the same tool I use inside paid engagements. Upload your financials and cap table; it surfaces structural gaps against listing thresholds for NASDAQ, NYSE American, and HKEX within 24 hours.
                 </p>
                 <p>
-                  LANE is the weekly inquiry I run myself. Four letters. Forty-five minutes. Pen and paper. I share it publicly because the practice belongs to anyone willing to do it.
+                  It also benchmarks P/E and P/S multiples for comparable listed companies in your sector — searchable across 3,000+ real transactions.
+                </p>
+                <p className="text-[#1a2a3a] font-normal">
+                  Bundled into every IPO Path Assessment. Available standalone for founders who just want to see where they stand.
                 </p>
               </div>
 
-              {/* Inline email form — converts right here, no separate page.
-                  No max-w constraint so inputs match the text column width above. */}
-              <div className="max-w-xl mx-auto md:mx-0">
-                <LaneForm variant="light" />
+              <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto md:mx-0">
+                <a
+                  href="https://exitproai.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center whitespace-nowrap px-6 py-3 rounded-none uppercase tracking-wide text-xs btn-gold-animated"
+                >
+                  Explore ExitPro →
+                </a>
+                <a
+                  href="/ipo-path"
+                  className="flex-1 inline-flex items-center justify-center whitespace-nowrap px-6 py-3 rounded-none uppercase tracking-wide text-xs border-2 border-[#1a2a3a] text-[#1a2a3a] hover:bg-[#1a2a3a] hover:text-white transition-colors"
+                >
+                  See the assessment →
+                </a>
               </div>
             </div>
 
-            {/* RIGHT (desktop): mandala — hidden on mobile (shown inline above instead) */}
-            <div className="hidden md:flex items-center justify-center order-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/lead-magnet/lane-framework.png"
-                alt="LANE — Lookback, Anchor, Next, Envision"
-                className="w-full max-w-[440px] h-auto"
-              />
+            {/* ExitPro live demo — GIF */}
+            <div className="order-1 md:order-2">
+              <a
+                href="https://exitproai.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative group overflow-hidden shadow-lg border border-slate-200 hover:border-[#c9a227]/60 transition-colors"
+                aria-label="Open ExitPro"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/ExitPro_Demo_14x9.gif"
+                  alt="ExitPro — IPO readiness platform demo"
+                  className="w-full h-auto block"
+                  loading="lazy"
+                />
+                {/* Subtle gold hover veil */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(26,42,58,0.55) 0%, transparent 60%)",
+                  }}
+                />
+                <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 text-[10px] font-medium tracking-[0.18em] uppercase text-white opacity-0 group-hover:opacity-100 transition-opacity bg-[#1a2a3a]/80 px-2.5 py-1">
+                  Open ExitPro →
+                </span>
+              </a>
+              <p className="text-slate-500 font-light italic text-xs mt-3 text-center md:text-left">
+                Built and maintained by Mandy. Updated continuously.
+              </p>
             </div>
           </div>
         </div>

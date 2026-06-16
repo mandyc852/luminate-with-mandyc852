@@ -345,6 +345,28 @@ export default function IPOServicePage() {
               <strong className="text-[#1a2a3a] font-medium">Businesses that may qualify through a carve-out or roll-up</strong> — Your parent company might seem too small for an IPO. But a single profitable business unit generating $750K+ in net income could qualify on its own. That&apos;s the conversation most founders have never had.
             </p>
           </div>
+
+          {/* PAID DIAGNOSTIC CALLOUT — link to /ipo-path. Sits inside the same
+              section as the bullets so it reads as a follow-on, not a new band. */}
+          <div className="mt-8 md:mt-10 border-l-2 border-[#c9a227] bg-[#f8f7f4] p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            <div className="md:max-w-xl">
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-2">
+                Start with a paid diagnostic
+              </p>
+              <h3 className="text-xl md:text-2xl font-normal text-[#1a2a3a] mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                The IPO Path Assessment
+              </h3>
+              <p className="text-slate-600 font-light text-sm leading-[1.7]">
+                Thirty days. A written verdict on whether your company is ready to list — and the next move spelled out. US$2,500, fully creditable toward continuation.
+              </p>
+            </div>
+            <a
+              href="/ipo-path"
+              className="flex-shrink-0 inline-flex items-center justify-center whitespace-nowrap px-6 py-3 rounded-none uppercase tracking-wide text-xs btn-gold-animated"
+            >
+              See the assessment →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -356,44 +378,50 @@ export default function IPOServicePage() {
               How it works
             </h2>
             <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
-              Two conversations. Then a decision. No elaborate funnel.
+              A free conversation, a written verdict, then the work. No elaborate funnel.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 01</p>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 01 · Free</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                Strategy call
+                Discovery call
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                A 30-minute conversation. You talk about your business. I listen, ask questions, and give you an honest initial read on whether there&apos;s a listing opportunity — and which structuring approach might work. If the carve-out concept is relevant, this is usually where the &quot;aha moment&quot; happens. Free. No obligation.
+                Thirty minutes, video. You talk about the business. I give you an honest initial read on whether listing is worth exploring — and which structuring approach might fit. Free.
               </p>
               <p className="text-slate-400 text-xs font-light italic">
-                Outcome: Clarity on whether it&apos;s worth exploring further.
+                Outcome: Clarity on whether it&apos;s worth the next step.
               </p>
             </div>
 
-            <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 02</p>
+            <div className="bg-[#f8f7f4] rounded-none p-8 border-2 border-[#c9a227] flex flex-col relative">
+              <span className="absolute -top-3 left-8 bg-[#c9a227] text-[#1a2a3a] text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1">
+                The Recommended Start
+              </span>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 02 · US$2,500</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                Assessment call
+                The IPO Path Assessment
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                A deeper conversation about your business structure, financials, and potential listing candidates. I lay out the full cost — my fees plus lawyers, auditors, and sponsors — so you know exactly what you&apos;re signing up for. By the end, both sides know whether this is a real engagement.
+                A 30-day paid sprint. ExitPro access, a two-week deep review, a 90-minute working call, then your Listing Path Memo — 8 to 12 pages within 14 days. Fully creditable.
               </p>
-              <p className="text-slate-400 text-xs font-light italic">
-                Outcome: A clear-eyed view of what&apos;s possible and what needs to happen first.
+              <p className="text-slate-400 text-xs font-light italic mb-4">
+                Outcome: A written verdict on whether you should list, and the next move spelled out.
               </p>
+              <a href="/ipo-path" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
+                See the assessment →
+              </a>
             </div>
 
             <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 03</p>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 03 · Continuation</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                 Advisory mandate
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                If we&apos;re both aligned, we move forward together. Fees are structured around milestones — you pay as the deal progresses, not all upfront. This means we&apos;re financially aligned: I succeed when you succeed. We&apos;ll agree on scope and terms before anything begins, so there are no surprises.
+                If the memo points to a path, we structure the work — a 90-Day Engagement or a full mandate. Milestone-based fees. Your US$2,500 credits in full toward either, within 60 days.
               </p>
               <p className="text-slate-400 text-xs font-light italic">
                 Outcome: Your company on the path to public markets.

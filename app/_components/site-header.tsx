@@ -14,18 +14,18 @@ const WORK_LINKS = [
 
 type NavLink = { label: string; href: string }
 
-const logoStyle: React.CSSProperties = {
-  width: 220,
-  height: 72,
-  background: "linear-gradient(to right, #c9a227, #d4b84a, #1a2a3a)",
-  WebkitMaskImage: "url(/Logo%202%20black.png)",
-  WebkitMaskSize: "contain",
-  WebkitMaskRepeat: "no-repeat",
-  WebkitMaskPosition: "center",
-  maskImage: "url(/Logo%202%20black.png)",
-  maskSize: "contain",
-  maskRepeat: "no-repeat",
-  maskPosition: "center",
+const wordmarkStyle: React.CSSProperties = {
+  fontFamily: "var(--font-cormorant-garamond), serif",
+  fontWeight: 500,
+  letterSpacing: "0.18em",
+  color: "#1a2a3a",
+  lineHeight: 1,
+}
+const taglineStyle: React.CSSProperties = {
+  fontFamily: "var(--font-poppins), sans-serif",
+  fontWeight: 500,
+  letterSpacing: "0.32em",
+  color: "#a68a1f",
 }
 
 function SocialIcons({ className = "" }: { className?: string }) {
@@ -61,8 +61,22 @@ export function SiteHeader({
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          <a href="/" className="hover:opacity-90 transition-opacity">
-            <div className="flex-shrink-0" style={logoStyle} role="img" aria-label="MandyC." />
+          <a href="/" className="flex-shrink-0 group" aria-label="MandyC. home">
+            {/* Two thin gold rules frame the wordmark — letterhead/seal feel */}
+            <div className="inline-block transition-opacity group-hover:opacity-80">
+              <div className="h-px bg-[#c9a227] w-full mb-1.5" aria-hidden="true" />
+              <div className="px-1 leading-none">
+                <span className="text-[22px] md:text-[26px]" style={wordmarkStyle}>
+                  MANDYC<span style={{ color: "#c9a227" }}>.</span>
+                </span>
+              </div>
+              <div className="h-px bg-[#c9a227] w-full mt-1.5" aria-hidden="true" />
+              <div className="text-center mt-1.5 leading-none">
+                <span className="text-[7px] md:text-[8px]" style={taglineStyle}>
+                  CAPITAL · MARKETS
+                </span>
+              </div>
+            </div>
           </a>
 
           {/* Desktop nav */}
