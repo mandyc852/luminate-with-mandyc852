@@ -19,7 +19,7 @@ const poppins = Poppins({
 
 const STRIPE_PAYMENT_LINK = "STRIPE_PAYMENT_LINK_PLACEHOLDER"
 const TIDYCAL_URL = "https://tidycal.com/mandyc852/30-minute-meeting"
-const GUIDE_URL = "GUIDE_PDF_PLACEHOLDER"
+const GUIDE_URL = "/lead-magnet/Should-you-go-public-guide.pdf"
 
 // TODO(analytics): wire these helpers to the analytics provider when one is added
 // (e.g. gtag, Plausible, PostHog). For now they push to window.dataLayer and
@@ -798,7 +798,7 @@ export default function IPOPathPage() {
                   See the full track record →
                 </a>
                 <span className="hidden sm:inline text-slate-300">·</span>
-                <a href={GUIDE_URL} className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
+                <a href={GUIDE_URL} target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
                   Read the free guide first →
                 </a>
               </div>
