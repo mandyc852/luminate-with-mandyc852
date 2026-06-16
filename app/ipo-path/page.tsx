@@ -17,7 +17,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-const STRIPE_PAYMENT_LINK = "STRIPE_PAYMENT_LINK_PLACEHOLDER"
+const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/4gM7sMcTx1Qv9bZ1VrgnK00"
 const TIDYCAL_URL = "https://tidycal.com/mandyc852/30-minute-meeting"
 const GUIDE_URL = "/lead-magnet/Should-you-go-public-guide.pdf"
 
