@@ -755,7 +755,7 @@ export default function IPOPathPage() {
                 </svg>,
               ]
               return (
-                <div key={i} className="bg-white border border-slate-200 rounded-xl p-7 md:p-8 flex flex-col">
+                <div key={i} className="bg-white border border-slate-200 p-7 md:p-8 flex flex-col">
                   {/* Seal-style circular badge */}
                   <div className="w-14 h-14 rounded-full border-2 border-[#c9a227] flex items-center justify-center mb-5">
                     {icons[i]}
@@ -769,14 +769,11 @@ export default function IPOPathPage() {
               )
             })}
           </div>
-        </div>
-      </section>
 
-      {/* CAPACITY */}
-      <section className="py-12 md:py-16 px-6 bg-[#f8f7f4]">
-        <div className="max-w-3xl mx-auto">
-          <div className="border-l-2 border-[#c9a227] pl-6 py-2 text-slate-500 font-light italic text-[15px] leading-[1.8]">
-            I take a maximum of 4 companies per month — not 4 sessions per company, 4 companies total. The deep review and memo are 4 – 6 hours of senior advisory time each, and diluting that defeats the point. When the current month is full, you book the next.
+          <div className="mt-8 max-w-3xl mx-auto">
+            <div className="border-l-2 border-[#c9a227] pl-6 py-2 text-slate-500 font-light italic text-[15px] leading-[1.8]">
+              I take a maximum of 4 companies per month — not 4 sessions per company, 4 companies total. The deep review and memo are 4 – 6 hours of senior advisory time each, and diluting that defeats the point. When the current month is full, you book the next.
+            </div>
           </div>
         </div>
       </section>
@@ -846,7 +843,7 @@ export default function IPOPathPage() {
           </p>
 
           {/* Value math repeated for the close */}
-          <div className="inline-flex items-baseline gap-4 md:gap-5 mb-10 px-6 py-4 border border-white/15">
+          <div className="inline-flex items-baseline gap-4 md:gap-5 mb-10">
             <span className="text-lg md:text-xl text-slate-400 line-through decoration-1 font-light" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
               ~US$14,500
             </span>
