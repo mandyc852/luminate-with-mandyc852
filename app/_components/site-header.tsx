@@ -64,16 +64,9 @@ export function SiteHeader({
           <a href="/" className="flex-shrink-0 group" aria-label="MandyC. home">
             {/* Two thin gold rules frame the wordmark — letterhead/seal feel */}
             <div className="inline-block transition-opacity group-hover:opacity-80">
-              <div className="h-px bg-[#c9a227] w-full mb-1.5" aria-hidden="true" />
               <div className="px-1 leading-none">
                 <span className="text-[22px] md:text-[26px]" style={wordmarkStyle}>
                   MANDYC<span style={{ color: "#c9a227" }}>.</span>
-                </span>
-              </div>
-              <div className="h-px bg-[#c9a227] w-full mt-1.5" aria-hidden="true" />
-              <div className="text-center mt-1.5 leading-none">
-                <span className="text-[7px] md:text-[8px]" style={taglineStyle}>
-                  CAPITAL · MARKETS
                 </span>
               </div>
             </div>

@@ -27,6 +27,34 @@ export const metadata: Metadata = {
   title: "MandyC. | Capital Markets Advisory",
   description:
     "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$200M+ in deal value across HKEX and NASDAQ.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  openGraph: {
+    type: "website",
+    url: baseUrl,
+    siteName: "MandyC.",
+    title: "MandyC. | Capital Markets Advisory",
+    description:
+      "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$200M+ in deal value across HKEX and NASDAQ.",
+    images: [
+      {
+        url: "/Wallstreet.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MandyC. Capital Markets Advisory",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MandyC. | Capital Markets Advisory",
+    description:
+      "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$200M+ in deal value across HKEX and NASDAQ.",
+    images: ["/Wallstreet.jpg"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
