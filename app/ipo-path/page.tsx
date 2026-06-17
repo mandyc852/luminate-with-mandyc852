@@ -455,13 +455,13 @@ export default function IPOPathPage() {
           </div>
 
           {/* Comparison: The Hard Way vs. Now */}
-          <div className="mt-14 grid md:grid-cols-2 gap-px bg-slate-200 border border-slate-200 overflow-hidden">
-            <div className="bg-slate-50 p-8 md:p-10">
+          <div className="mt-14 grid md:grid-cols-2 overflow-hidden rounded-lg">
+            <div className="bg-[#1a2a3a] p-8 md:p-10">
               <p className="text-[11px] font-medium tracking-[0.22em] uppercase text-slate-400 mb-5">Finding out during due diligence</p>
-              <p className="text-4xl md:text-5xl font-normal text-slate-400 line-through decoration-1 mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>~US$1M+</p>
-              <p className="text-slate-500 font-light text-sm mb-6">in sunk costs</p>
-              <p className="text-3xl md:text-4xl font-normal text-slate-400 line-through decoration-1 mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>18+ months</p>
-              <p className="text-slate-500 font-light text-sm">lost, deal team already committed</p>
+              <p className="text-4xl md:text-5xl font-normal text-white/50 line-through decoration-1 mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>~US$1M+</p>
+              <p className="text-slate-400 font-light text-sm mb-6">in sunk costs</p>
+              <p className="text-3xl md:text-4xl font-normal text-white/50 line-through decoration-1 mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>18+ months</p>
+              <p className="text-slate-400 font-light text-sm">lost, deal team already committed</p>
             </div>
             <div className="bg-white p-8 md:p-10 border-l-2 border-[#c9a227]">
               <p className="text-[11px] font-medium tracking-[0.22em] uppercase text-[#a68a1f] mb-5">Finding out now</p>
@@ -755,7 +755,7 @@ export default function IPOPathPage() {
                 </svg>,
               ]
               return (
-                <div key={i} className="bg-white border border-slate-200 p-7 md:p-8 flex flex-col">
+                <div key={i} className="bg-white border border-slate-200 rounded-xl p-7 md:p-8 flex flex-col">
                   {/* Seal-style circular badge */}
                   <div className="w-14 h-14 rounded-full border-2 border-[#c9a227] flex items-center justify-center mb-5">
                     {icons[i]}
@@ -773,7 +773,7 @@ export default function IPOPathPage() {
       </section>
 
       {/* CAPACITY */}
-      <section className="py-12 md:py-16 px-6 bg-white">
+      <section className="py-12 md:py-16 px-6 bg-[#f8f7f4]">
         <div className="max-w-3xl mx-auto">
           <div className="border-l-2 border-[#c9a227] pl-6 py-2 text-slate-500 font-light italic text-[15px] leading-[1.8]">
             I take a maximum of 4 companies per month — not 4 sessions per company, 4 companies total. The deep review and memo are 4 – 6 hours of senior advisory time each, and diluting that defeats the point. When the current month is full, you book the next.
@@ -864,11 +864,11 @@ export default function IPOPathPage() {
             </span>
           </div>
 
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-4 max-w-2xl mx-auto">
             <a
               href={STRIPE_PAYMENT_LINK}
               onClick={trackBookClick}
-              className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+              className="w-full flex items-center justify-center whitespace-nowrap px-10 py-5 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
             >
               Start the 30-Day Assessment
             </a>
@@ -882,7 +882,7 @@ export default function IPOPathPage() {
               Or book a free 30-minute call first →
             </a>
           </div>
-          <p className="text-slate-400 text-xs mt-8 font-light tracking-wide">
+          <p className="text-slate-400 text-[10px] mt-8 font-medium tracking-[0.2em] uppercase">
             Fully creditable toward continuation · Only 4 companies per month · Full refund before the working call
           </p>
         </div>
