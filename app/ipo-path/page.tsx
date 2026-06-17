@@ -385,7 +385,7 @@ export default function IPOPathPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-white/95 font-light leading-[1.55] mb-10 max-w-2xl mx-auto" style={{ textShadow: "0 1px 16px rgba(0,0,0,0.6)" }}>
-            Thirty days. A written verdict on whether your company is ready to list — and the next move spelled out, whatever the answer.
+            Know if your company is ready to list — before you spend US$1.5M finding out the hard way.
           </p>
 
           <div className="flex flex-col items-center gap-4">
@@ -406,7 +406,7 @@ export default function IPOPathPage() {
               Or talk first — book a free 30-minute call →
             </a>
             <p className="text-[#f5e6b3]/90 text-[11px] font-medium tracking-[0.22em] uppercase mt-3" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}>
-              US$2,500 · 30-day sprint · Fully creditable · Only 4 companies per month
+              US$2,500 · 30-Day Sprint · Fully Creditable · 4 Spots Per Month
             </p>
           </div>
         </div>
@@ -421,9 +421,9 @@ export default function IPOPathPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 md:gap-x-8">
             {[
               ["60+", "Transactions"],
-              ["US$200M+", "In Deal Value"],
-              ["10+ Years", "Cross-Border Work"],
-              ["SFC Type 6", "Licensed · HKEX & NASDAQ"],
+              ["US$200M+", "Deal Value"],
+              ["10+ Yrs", "Cross-Border"],
+              ["SFC Type 6", "Licensed"],
             ].map(([num, label]) => (
               <div key={label} className="text-center">
                 <p className="text-2xl md:text-3xl font-normal text-[#1a2a3a] mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
@@ -454,26 +454,33 @@ export default function IPOPathPage() {
             </p>
           </div>
 
-          {/* Pull-quote — magazine-style, thin gold rules, no box */}
-          <figure className="mt-14 max-w-2xl mx-auto text-center">
-            <div className="w-10 h-px bg-[#c9a227] mx-auto mb-6" aria-hidden="true" />
-            <blockquote
-              className="text-[#1a2a3a] text-lg md:text-xl leading-[1.6] font-normal italic"
-              style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
-            >
-              The cost of finding out you&apos;re not ready inside due diligence is roughly US$1M and 18 months. The cost of finding out now is US$2,500 and 30 days.
-            </blockquote>
-            <div className="w-10 h-px bg-[#c9a227] mx-auto mt-6" aria-hidden="true" />
-          </figure>
+          {/* Comparison: The Hard Way vs. Now */}
+          <div className="mt-14 grid md:grid-cols-2 gap-px bg-slate-200 border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 p-8 md:p-10">
+              <p className="text-[11px] font-medium tracking-[0.22em] uppercase text-slate-400 mb-5">Finding out during due diligence</p>
+              <p className="text-4xl md:text-5xl font-normal text-slate-400 line-through decoration-1 mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>~US$1M+</p>
+              <p className="text-slate-500 font-light text-sm mb-6">in sunk costs</p>
+              <p className="text-3xl md:text-4xl font-normal text-slate-400 line-through decoration-1 mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>18+ months</p>
+              <p className="text-slate-500 font-light text-sm">lost, deal team already committed</p>
+            </div>
+            <div className="bg-white p-8 md:p-10 border-l-2 border-[#c9a227]">
+              <p className="text-[11px] font-medium tracking-[0.22em] uppercase text-[#a68a1f] mb-5">Finding out now</p>
+              <p className="text-4xl md:text-5xl font-normal text-[#1a2a3a] mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>US$2,500</p>
+              <p className="text-slate-500 font-light text-sm mb-6">fully creditable toward continuation</p>
+              <p className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>30 days</p>
+              <p className="text-slate-500 font-light text-sm">written verdict, no further commitment</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* WHO THIS IS FOR */}
       <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal">
+          <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
             Who this is for
           </h2>
+          <p className="text-slate-500 font-light text-base text-center mb-10">Built for founders who are past the idea stage</p>
           <ul className="space-y-5">
             {[
               <>Founders or executives whose company generates <strong className="text-[#1a2a3a] font-medium">US$750K+ in net profit</strong> — or has a business unit that does.</>,
@@ -568,7 +575,7 @@ export default function IPOPathPage() {
             <div className="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 items-center">
               <div className="text-center md:text-right">
                 <p className="text-[#f5e6b3]/75 font-medium text-[11px] tracking-[0.22em] uppercase mb-2">
-                  Total stacked value
+                  Total Stacked Value
                 </p>
                 <p
                   className="text-3xl md:text-4xl font-normal text-white/45 line-through decoration-1"
@@ -586,7 +593,7 @@ export default function IPOPathPage() {
 
               <div className="text-center md:text-left">
                 <p className="text-[#f5e6b3] font-medium text-[11px] tracking-[0.22em] uppercase mb-2">
-                  Your price today
+                  Your Investment
                 </p>
                 <p
                   className="text-5xl md:text-6xl font-normal"
@@ -605,17 +612,20 @@ export default function IPOPathPage() {
             </div>
 
             <p className="text-white/80 font-light leading-[1.7] max-w-2xl mx-auto text-[14.5px] text-center mt-10 mb-7 pt-7 border-t border-white/15">
-              Credited in full if you continue with a 90-Day Strategic Engagement or a full advisory mandate within 60 days. For a continuing client, the Sprint is effectively free.
+              Credited in full if you continue with a 90-Day Strategic Engagement or full advisory mandate within 60 days. For a continuing client, the assessment is effectively free.
             </p>
 
-            <div className="flex justify-center">
+            <div className="flex flex-col items-center gap-3">
               <a
                 href={STRIPE_PAYMENT_LINK}
                 onClick={trackBookClick}
                 className="w-full md:w-[520px] inline-flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
               >
-                Book the Assessment — US$2,500
+                Secure Your Spot — US$2,500
               </a>
+              <p className="text-[#f5e6b3]/70 text-[10px] font-medium tracking-[0.25em] uppercase">
+                Only 4 Companies Accepted Per Month
+              </p>
             </div>
           </div>
         </div>
@@ -860,7 +870,7 @@ export default function IPOPathPage() {
               onClick={trackBookClick}
               className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
             >
-              Book the Assessment — US$2,500
+              Start the 30-Day Assessment
             </a>
             <a
               href={TIDYCAL_URL}
@@ -873,7 +883,7 @@ export default function IPOPathPage() {
             </a>
           </div>
           <p className="text-slate-400 text-xs mt-8 font-light tracking-wide">
-            Fully creditable toward continuation engagements within 60 days · Only 4 companies accepted per month
+            Fully creditable toward continuation · Only 4 companies per month · Full refund before the working call
           </p>
         </div>
       </section>
