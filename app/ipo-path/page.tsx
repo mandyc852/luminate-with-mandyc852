@@ -455,19 +455,19 @@ export default function IPOPathPage() {
           </div>
 
           {/* Comparison: The Hard Way vs. Now */}
-          <div className="mt-14 grid md:grid-cols-2 overflow-hidden rounded-lg">
-            <div className="bg-[#1a2a3a] p-8 md:p-10">
-              <p className="text-[11px] font-medium tracking-[0.22em] uppercase text-slate-400 mb-5">Finding out during due diligence</p>
-              <p className="text-4xl md:text-5xl font-normal text-white/50 line-through decoration-1 mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>~US$1M+</p>
-              <p className="text-slate-400 font-light text-sm mb-6">in sunk costs</p>
-              <p className="text-3xl md:text-4xl font-normal text-white/50 line-through decoration-1 mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>18+ months</p>
+          <div className="mt-14 grid md:grid-cols-2 overflow-hidden">
+            <div className="bg-[#1a2a3a] p-6 md:p-8">
+              <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-slate-400 mb-4">Finding out during due diligence</p>
+              <p className="text-3xl md:text-4xl font-normal text-white line-through decoration-1 mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>~US$1M+</p>
+              <p className="text-slate-400 font-light text-sm mb-5">in sunk costs</p>
+              <p className="text-2xl md:text-3xl font-normal text-white line-through decoration-1 mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>18+ months</p>
               <p className="text-slate-400 font-light text-sm">lost, deal team already committed</p>
             </div>
-            <div className="bg-white p-8 md:p-10 border-l-2 border-[#c9a227]">
-              <p className="text-[11px] font-medium tracking-[0.22em] uppercase text-[#a68a1f] mb-5">Finding out now</p>
-              <p className="text-4xl md:text-5xl font-normal text-[#1a2a3a] mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>US$2,500</p>
-              <p className="text-slate-500 font-light text-sm mb-6">fully creditable toward continuation</p>
-              <p className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>30 days</p>
+            <div className="bg-white p-6 md:p-8 border-l-2 border-[#c9a227]">
+              <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-[#a68a1f] mb-4">Finding out now</p>
+              <p className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>US$2,500</p>
+              <p className="text-slate-500 font-light text-sm mb-5">fully creditable toward continuation</p>
+              <p className="text-2xl md:text-3xl font-normal text-[#1a2a3a] mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>30 days</p>
               <p className="text-slate-500 font-light text-sm">written verdict, no further commitment</p>
             </div>
           </div>
