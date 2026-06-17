@@ -499,7 +499,7 @@ export default function IPOPathPage() {
           {/* Comparison: The Hard Way vs. Now */}
           <div className="mt-8 grid md:grid-cols-2 overflow-hidden">
             <div className="bg-[#1a2a3a] p-6 md:p-8">
-              <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-slate-400 mb-4">Finding out during due diligence</p>
+              <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-[#a68a1f] mb-4">Finding out during due diligence</p>
               <p className="text-3xl md:text-4xl font-normal text-white line-through decoration-1 mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>~US$1M+</p>
               <p className="text-slate-400 font-light text-sm mb-5">in sunk costs</p>
               <p className="text-2xl md:text-3xl font-normal text-white line-through decoration-1 mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>18+ months</p>
