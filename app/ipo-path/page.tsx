@@ -460,7 +460,7 @@ export default function IPOPathPage() {
           <p className="text-[#a68a1f] text-[10px] font-medium tracking-[0.32em] uppercase text-center mb-5">
             The Advisor Behind The Memo
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 md:gap-x-8">
+          <div className="grid grid-cols-4 gap-x-2 md:gap-x-8">
             {[
               ["60+", "Transactions"],
               ["US$200M+", "Deal Value"],
@@ -468,10 +468,10 @@ export default function IPOPathPage() {
               ["SFC Type 6", "Licensed"],
             ].map(([num, label]) => (
               <div key={label} className="text-center">
-                <p className="text-2xl md:text-3xl font-normal text-[#1a2a3a] mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                <p className="text-base md:text-3xl font-normal text-[#1a2a3a] mb-1 leading-tight" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                   {num}
                 </p>
-                <p className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] uppercase text-slate-500">
+                <p className="text-[8px] md:text-[11px] font-medium tracking-[0.15em] md:tracking-[0.2em] uppercase text-slate-500">
                   {label}
                 </p>
               </div>
