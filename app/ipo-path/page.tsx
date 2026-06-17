@@ -779,7 +779,7 @@ export default function IPOPathPage() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      <section id="about" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-[0.7fr_1.3fr] gap-12 md:gap-16 items-center">
             <div>
@@ -815,7 +815,7 @@ export default function IPOPathPage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
+      <section id="faq" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
         <div className="max-w-3xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             FAQ
@@ -824,7 +824,7 @@ export default function IPOPathPage() {
             Common questions
           </h2>
 
-          <div className="bg-[#f8f7f4] border border-slate-200 px-7 md:px-10">
+          <div className="bg-white border border-slate-200 px-7 md:px-10">
             {FAQ.map((item) => (
               <FAQItem key={item.q} q={item.q} a={item.a} />
             ))}
@@ -833,7 +833,7 @@ export default function IPOPathPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-20 md:py-28 px-6 bg-[#1a2a3a]">
+      <section className="py-14 md:py-20 px-6 bg-[#1a2a3a]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-normal mb-4 cta-title-gradient leading-[1.15]" style={{ textWrap: "balance" }}>
             Thirty days. One memo. The next move spelled out.
@@ -880,7 +880,7 @@ export default function IPOPathPage() {
             </a>
           </div>
           <p className="text-slate-400 text-[10px] mt-8 font-medium tracking-[0.2em] uppercase">
-            Fully creditable toward continuation · Only 4 companies per month · Full refund before the working call
+            Fully creditable toward continuation · Only 4 companies per month
           </p>
         </div>
       </section>
