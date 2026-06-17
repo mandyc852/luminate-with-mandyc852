@@ -202,6 +202,48 @@ function StackCard({ n, title, body, value }: { n: string; title: string; body: 
   )
 }
 
+function GuaranteeAccordion({ icon, label, title, body }: { icon: React.ReactNode; label: string; title: string; body: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <>
+      {/* Mobile: accordion */}
+      <div className="md:hidden bg-white border border-slate-200">
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="w-full flex items-center gap-4 px-5 py-4 text-left"
+          aria-expanded={open}
+        >
+          <div className="flex-shrink-0 w-9 h-9 rounded-full border-2 border-[#c9a227] flex items-center justify-center">
+            <span className="scale-75">{icon}</span>
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-[#a68a1f] text-[9px] font-medium tracking-[0.25em] uppercase mb-0.5">{label}</p>
+            <h3 className="text-base font-normal text-[#1a2a3a] leading-snug">{title}</h3>
+          </div>
+          <svg className={`flex-shrink-0 w-4 h-4 text-[#a68a1f] transition-transform ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        {open && (
+          <div className="px-5 pb-4 text-slate-600 font-light text-[14px] leading-[1.75] border-t border-slate-100">
+            <p className="pt-3">{body}</p>
+          </div>
+        )}
+      </div>
+      {/* Desktop: full card */}
+      <div className="hidden md:flex bg-white border border-slate-200 p-8 flex-col">
+        <div className="w-14 h-14 rounded-full border-2 border-[#c9a227] flex items-center justify-center mb-5">
+          {icon}
+        </div>
+        <p className="text-[#a68a1f] text-[10px] font-medium tracking-[0.25em] uppercase mb-3">{label}</p>
+        <h3 className="text-xl font-normal text-[#1a2a3a] mb-3 leading-snug">{title}</h3>
+        <p className="text-slate-600 font-light leading-[1.75] text-[14.5px]">{body}</p>
+      </div>
+    </>
+  )
+}
+
 function FAQItem({ q, a }: { q: string; a: React.ReactNode }) {
   const [open, setOpen] = useState(false)
   return (
@@ -733,39 +775,31 @@ export default function IPOPathPage() {
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             Three guarantees
           </p>
-          <h2 className="text-3xl md:text-4xl mb-7 text-center font-normal">
+          <h2 className="text-2xl md:text-4xl mb-7 text-center font-normal">
             Why the math actually favors you
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-2 md:gap-5">
             {RISK_REVERSAL.map((r, i) => {
-              // Each guarantee gets a distinct seal icon
               const icons = [
-                // Credit / dollar-circle
                 <svg key="i0" className="w-7 h-7 text-[#a68a1f]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>,
-                // Calendar / clock for delivery
                 <svg key="i1" className="w-7 h-7 text-[#a68a1f]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>,
-                // Document / honesty
                 <svg key="i2" className="w-7 h-7 text-[#a68a1f]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>,
               ]
               return (
-                <div key={i} className="bg-white border border-slate-200 p-7 md:p-8 flex flex-col">
-                  {/* Seal-style circular badge */}
-                  <div className="w-14 h-14 rounded-full border-2 border-[#c9a227] flex items-center justify-center mb-5">
-                    {icons[i]}
-                  </div>
-                  <p className="text-[#a68a1f] text-[10px] font-medium tracking-[0.25em] uppercase mb-3">
-                    Guarantee {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="text-lg md:text-xl font-normal text-[#1a2a3a] mb-3 leading-snug">{r.title}</h3>
-                  <p className="text-slate-600 font-light leading-[1.75] text-[14.5px]">{r.body}</p>
-                </div>
+                <GuaranteeAccordion
+                  key={i}
+                  icon={icons[i]}
+                  label={`Guarantee ${String(i + 1).padStart(2, "0")}`}
+                  title={r.title}
+                  body={r.body}
+                />
               )
             })}
           </div>
@@ -781,9 +815,15 @@ export default function IPOPathPage() {
       {/* ABOUT */}
       <section id="about" className="scroll-anchor py-12 md:py-16 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
+          {/* Mobile: circular photo + centered text */}
+          <div className="flex flex-col items-center mb-8 md:hidden">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-[#c9a227]/60 ring-offset-2 mb-5">
+              <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="96px" />
+            </div>
+          </div>
           <div className="grid md:grid-cols-[0.7fr_1.3fr] gap-8 md:gap-12 items-center">
-            <div>
-              <div className="relative aspect-[4/5] rounded-none overflow-hidden shadow-lg hidden md:block">
+            <div className="hidden md:block">
+              <div className="relative aspect-[4/5] rounded-none overflow-hidden shadow-lg">
                 <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
               </div>
             </div>
