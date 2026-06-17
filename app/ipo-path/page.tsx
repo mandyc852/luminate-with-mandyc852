@@ -347,7 +347,7 @@ export default function IPOPathPage() {
       />
 
       {/* HERO */}
-      <section className="relative w-full py-20 md:py-28 px-6 overflow-hidden bg-[#1a2a3a]">
+      <section className="relative w-full py-14 md:py-20 px-6 overflow-hidden bg-[#1a2a3a]">
         <Image
           src="/Wallstreet.jpg"
           alt="New York Stock Exchange, Wall Street"
@@ -413,7 +413,7 @@ export default function IPOPathPage() {
       </section>
 
       {/* AUTHORITY STRIP — early social proof */}
-      <section className="bg-white border-y border-slate-200 py-8 md:py-10 px-6">
+      <section className="bg-white border-y border-slate-200 py-5 md:py-7 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-[#a68a1f] text-[10px] font-medium tracking-[0.32em] uppercase text-center mb-5">
             The Advisor Behind The Memo
@@ -439,9 +439,9 @@ export default function IPOPathPage() {
       </section>
 
       {/* WHY THIS EXISTS */}
-      <section className="py-20 md:py-28 px-6 bg-slate-50/50">
+      <section className="py-12 md:py-16 px-6 bg-slate-50/50">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal leading-[1.2]" style={{ textWrap: "balance" }}>
+          <h2 className="text-3xl md:text-4xl mb-7 text-center font-normal leading-[1.2]" style={{ textWrap: "balance" }}>
             Most companies don&apos;t fail at the listing. They fail in the 18 months before it.
           </h2>
 
@@ -455,7 +455,7 @@ export default function IPOPathPage() {
           </div>
 
           {/* Comparison: The Hard Way vs. Now */}
-          <div className="mt-14 grid md:grid-cols-2 overflow-hidden">
+          <div className="mt-8 grid md:grid-cols-2 overflow-hidden">
             <div className="bg-[#1a2a3a] p-6 md:p-8">
               <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-slate-400 mb-4">Finding out during due diligence</p>
               <p className="text-3xl md:text-4xl font-normal text-white line-through decoration-1 mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>~US$1M+</p>
@@ -475,7 +475,7 @@ export default function IPOPathPage() {
       </section>
 
       {/* WHO THIS IS FOR */}
-      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      <section className="py-12 md:py-16 px-6 bg-[#f8f7f4]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
             Who this is for
@@ -498,24 +498,24 @@ export default function IPOPathPage() {
             ))}
           </ul>
 
-          <p className="text-slate-500 italic font-light text-sm mt-10 leading-[1.8] max-w-2xl mx-auto text-center">
+          <p className="text-slate-500 italic font-light text-sm mt-6 leading-[1.8] max-w-2xl mx-auto text-center">
             This is not for companies that need capital next quarter, founders shopping purely on price, or businesses where the financials would not survive due diligence.
           </p>
         </div>
       </section>
 
       {/* WHAT YOU GET — THE STACK */}
-      <section id="what-you-get" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
+      <section id="what-you-get" className="scroll-anchor py-12 md:py-16 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             The Stack
           </p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal">
+          <h2 className="text-3xl md:text-4xl mb-7 text-center font-normal">
             What you get over the 30 days
           </h2>
 
           {/* Top row: cards 1, 2, 3 */}
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6 mb-5 md:mb-6">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5 mb-4 md:mb-5">
             {VALUE_STACK_TOP.map((c) => (
               <StackCard key={c.n} {...c} />
             ))}
@@ -558,7 +558,7 @@ export default function IPOPathPage() {
           </div>
 
           {/* Bottom row: cards 5, 6 */}
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6 mb-10 md:mb-12">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-5 mb-5 md:mb-6">
             {VALUE_STACK_BOTTOM.map((c) => (
               <StackCard key={c.n} {...c} />
             ))}
@@ -611,7 +611,7 @@ export default function IPOPathPage() {
               </div>
             </div>
 
-            <p className="text-white/80 font-light leading-[1.7] max-w-2xl mx-auto text-[14.5px] text-center mt-10 mb-7 pt-7 border-t border-white/15">
+            <p className="text-white/80 font-light leading-[1.7] max-w-2xl mx-auto text-[14.5px] text-center mt-6 mb-5 pt-5 border-t border-white/15">
               Credited in full if you continue with a 90-Day Strategic Engagement or full advisory mandate within 60 days. For a continuing client, the assessment is effectively free.
             </p>
 
@@ -632,12 +632,12 @@ export default function IPOPathPage() {
       </section>
 
       {/* BONUSES INCLUDED */}
-      <section className="py-20 md:py-28 px-6 bg-slate-50">
+      <section className="py-12 md:py-16 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             Bonuses
           </p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal">
+          <h2 className="text-3xl md:text-4xl mb-7 text-center font-normal">
             Plus, included free
           </h2>
 
@@ -668,12 +668,12 @@ export default function IPOPathPage() {
       </section>
 
       {/* THE 30-DAY PROCESS */}
-      <section id="process" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
+      <section id="process" className="scroll-anchor py-12 md:py-16 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             Timeline
           </p>
-          <h2 className="text-3xl md:text-4xl mb-16 text-center font-normal">
+          <h2 className="text-3xl md:text-4xl mb-7 text-center font-normal">
             The 30-day process
           </h2>
 
@@ -728,12 +728,12 @@ export default function IPOPathPage() {
       </section>
 
       {/* RISK REVERSAL */}
-      <section id="guarantees" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      <section id="guarantees" className="scroll-anchor py-12 md:py-16 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             Three guarantees
           </p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal">
+          <h2 className="text-3xl md:text-4xl mb-7 text-center font-normal">
             Why the math actually favors you
           </h2>
 
@@ -770,7 +770,7 @@ export default function IPOPathPage() {
             })}
           </div>
 
-          <div className="mt-8 max-w-3xl mx-auto">
+          <div className="mt-6 max-w-3xl mx-auto">
             <div className="border-l-2 border-[#c9a227] pl-6 py-2 text-slate-500 font-light italic text-[15px] leading-[1.8]">
               I take a maximum of 4 companies per month — not 4 sessions per company, 4 companies total. The deep review and memo are 4 – 6 hours of senior advisory time each, and diluting that defeats the point. When the current month is full, you book the next.
             </div>
@@ -779,9 +779,9 @@ export default function IPOPathPage() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
+      <section id="about" className="scroll-anchor py-12 md:py-16 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-[0.7fr_1.3fr] gap-12 md:gap-16 items-center">
+          <div className="grid md:grid-cols-[0.7fr_1.3fr] gap-8 md:gap-12 items-center">
             <div>
               <div className="relative aspect-[4/5] rounded-none overflow-hidden shadow-lg hidden md:block">
                 <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
@@ -815,12 +815,12 @@ export default function IPOPathPage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      <section id="faq" className="scroll-anchor py-12 md:py-16 px-6 bg-[#f8f7f4]">
         <div className="max-w-3xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             FAQ
           </p>
-          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal">
+          <h2 className="text-3xl md:text-4xl mb-7 text-center font-normal">
             Common questions
           </h2>
 
@@ -833,7 +833,7 @@ export default function IPOPathPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-14 md:py-20 px-6 bg-[#1a2a3a]">
+      <section className="py-10 md:py-14 px-6 bg-[#1a2a3a]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-normal mb-4 cta-title-gradient leading-[1.15]" style={{ textWrap: "balance" }}>
             Thirty days. One memo. The next move spelled out.
