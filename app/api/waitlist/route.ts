@@ -6,27 +6,14 @@ import path from "path"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY
-const BEEHIIV_PUBLICATION_ID = "3f18f5c8-216d-45f6-8556-265477009844"
-
-async function addToBeehiiv(email: string, source?: string) {
-  if (!BEEHIIV_API_KEY) return
+async function addToBeehiiv(email: string) {
   try {
     await fetch(
-      `https://api.beehiiv.com/v2/publications/${BEEHIIV_PUBLICATION_ID}/subscriptions`,
+      "https://vrdeizaaunxbmbmcgtzr.supabase.co/functions/v1/beehiiv-subscribe",
       {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${BEEHIIV_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email.toLowerCase().trim(),
-          reactivate_existing: true,
-          send_welcome_email: false,
-          utm_source: source || "mandyc-website",
-          utm_medium: "waitlist",
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.toLowerCase().trim() }),
       }
     )
   } catch (err) {
@@ -100,7 +87,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: message }, { status: 500 })
     }
 
-    addToBeehiiv(email, sourcePage || "website")
+    addToBeehiiv(email)
 
     const magnet = LEAD_MAGNETS[sourcePage]
     if (magnet && process.env.RESEND_API_KEY) {
