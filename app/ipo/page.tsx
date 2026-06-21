@@ -191,7 +191,7 @@ export default function IPOServicePage() {
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            SFC Type 6 Licensed · 60+ Transactions · US$200M+ in Deal Value · HKEX &amp; NASDAQ
+            SFC Type 6 Licensed · 60+ Transactions · US$500M+ in Deal Value · HKEX &amp; NASDAQ
           </p>
         </div>
       </section>

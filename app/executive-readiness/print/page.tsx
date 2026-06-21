@@ -294,7 +294,7 @@ export default function ExecutiveReadinessPrintPage() {
         </p>
         <div className="cover-byline">
           Mandy Cheung · SFC Type 6 Licensed<br />
-          60+ Transactions · US$200M+ in Deal Value<br />
+          60+ Transactions · US$500M+ in Deal Value<br />
           HKEX &amp; NASDAQ
         </div>
         <div className="footer">
@@ -478,7 +478,7 @@ export default function ExecutiveReadinessPrintPage() {
           }}
         >
           Mandy Cheung is a capital markets advisor based in Hong Kong. SFC Type 6
-          licensed, 10+ years across HKEX and NASDAQ, 60+ transactions, US$200M+ in
+          licensed, 10+ years across HKEX and NASDAQ, 60+ transactions, US$500M+ in
           deal value. She works with executives running companies that are preparing
           to raise, restructure, or list. Her work sits at the intersection of capital
           strategy and the leader&apos;s operating system.
@@ -486,7 +486,7 @@ export default function ExecutiveReadinessPrintPage() {
         <p className="closing-cta">mandyc.me</p>
         <p className="credentials">
           SFC Type 6 Licensed · HKEX &amp; NASDAQ<br />
-          60+ Transactions · US$200M+ in Deal Value
+          60+ Transactions · US$500M+ in Deal Value
         </p>
         <p className="disclaimer">
           This diagnostic is for informational purposes. It is not legal, tax, or

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "MandyC. | Capital Markets Advisory",
   description:
-    "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$200M+ in deal value across HKEX and NASDAQ.",
+    "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$500M+ in deal value across HKEX and NASDAQ.",
   robots: {
     index: true,
     follow: true,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "MandyC.",
     title: "MandyC. | Capital Markets Advisory",
     description:
-      "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$200M+ in deal value across HKEX and NASDAQ.",
+      "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$500M+ in deal value across HKEX and NASDAQ.",
     images: [
       {
         url: "/Wallstreet.jpg",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MandyC. | Capital Markets Advisory",
     description:
-      "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$200M+ in deal value across HKEX and NASDAQ.",
+      "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$500M+ in deal value across HKEX and NASDAQ.",
     images: ["/Wallstreet.jpg"],
   },
   icons: {

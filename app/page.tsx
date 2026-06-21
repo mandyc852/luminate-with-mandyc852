@@ -19,7 +19,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "MandyC. | Capital Markets Advisory | Hong Kong",
   description:
-    "Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list. SFC Type 6 licensed. 60+ transactions. US$200M+ in deal value. HKEX and NASDAQ.",
+    "Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list. SFC Type 6 licensed. 60+ transactions. US$500M+ in deal value. HKEX and NASDAQ.",
 }
 
 type Reason = {
@@ -152,7 +152,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            SFC Type 6 Licensed · 60+ Transactions · US$200M+ in Deal Value · HKEX &amp; NASDAQ
+            SFC Type 6 Licensed · 60+ Transactions · US$500M+ in Deal Value · HKEX &amp; NASDAQ
           </p>
         </div>
       </section>
@@ -285,7 +285,7 @@ export default function HomePage() {
       <section id="track-record" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">Track record</p>
-          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal">60+ transactions · US$200M+ in deal value</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal">60+ transactions · US$500M+ in deal value</h2>
           <p className="text-center text-slate-600 font-light mb-12 max-w-2xl mx-auto">
             A selection of the deals I&apos;ve advised across IPOs, privatisations, restructurings, and the Takeovers Code.
           </p>

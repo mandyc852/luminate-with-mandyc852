@@ -463,7 +463,7 @@ export default function IPOPathPage() {
           <div className="grid grid-cols-4 gap-x-2 md:gap-x-8">
             {[
               ["60+", "Transactions"],
-              ["US$200M+", "Deal Value"],
+              ["US$500M+", "Deal Value"],
               ["10+ Yrs", "Cross-Border"],
               ["SFC Type 6", "Licensed"],
             ].map(([num, label]) => (
@@ -837,7 +837,7 @@ export default function IPOPathPage() {
                   Most capital markets advisors serve businesses that have already arrived. Mandy works with the builders and operators still in the climb — because she is one of them.
                 </p>
                 <p className="text-[#1a2a3a] font-normal">
-                  SFC Type 6 Licensed · 60+ Transactions · US$200M+ in Deal Value · HKEX &amp; NASDAQ.
+                  SFC Type 6 Licensed · 60+ Transactions · US$500M+ in Deal Value · HKEX &amp; NASDAQ.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 mt-8">

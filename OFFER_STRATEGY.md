@@ -9,7 +9,7 @@ A reference doc for the funnels, lead magnets, voice, and outstanding work on th
 **B2B corporate consulting** — Hong Kong capital markets advisor to builders and operators. Cross-border (HKEX + NASDAQ + global). Companies, not founders, in primary marketing copy. The shift away from "founders" was deliberate: the actual buyer is the executive running a company that's preparing for a capital event.
 
 **Two lenses, one practice:**
-1. **Capital markets advisor** — SFC Type 6 licensed, 60+ transactions, US$200M+ in deal value
+1. **Capital markets advisor** — SFC Type 6 licensed, 60+ transactions, US$500M+ in deal value
 2. **Joe Dispenza practitioner** — inner game, nervous system, state control under pressure
 
 These lenses are the moat. Capital markets advisors don't write about the leader's operating system. Mindset practitioners don't sit in deal rooms. The overlap is what makes the MandyC. brand distinct.
