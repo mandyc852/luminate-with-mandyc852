@@ -52,7 +52,10 @@ const REDIRECT_MAP: Record<string, string> = {
   guide: "/guide/thank-you",
   "five-questions": "/the-five-questions/thank-you",
   lane: "/lane/thank-you",
+  lumen: "/lumen/thank-you",
 }
+
+const LUMEN_INSTALL_URL = "https://lumen-by-mandyc.vercel.app"
 
 export async function POST(request: NextRequest) {
   try {
@@ -88,6 +91,36 @@ export async function POST(request: NextRequest) {
     }
 
     addToBeehiiv(email)
+
+    // Lumen: install email (no PDF)
+    if (sourcePage === "lumen" && process.env.RESEND_API_KEY) {
+      const name = firstName || ""
+      const greeting = name ? `Hi ${name},` : "Hi there,"
+      try {
+        await resend.emails.send({
+          from: "Mandy Cheung <hey@mandyc.me>",
+          replyTo: "hey@mandyc852.com",
+          to: email.toLowerCase().trim(),
+          subject: "Your Lumen install link",
+          html: `
+            <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 40px 20px; color: #1a2a3a;">
+              <p style="font-size: 16px; line-height: 1.6;">${greeting}</p>
+              <p style="font-size: 16px; line-height: 1.6;">Here's your Lumen install link:</p>
+              <p style="margin: 24px 0;">
+                <a href="${LUMEN_INSTALL_URL}" style="display: inline-block; background: #C9A227; color: #fff; text-decoration: none; padding: 14px 32px; font-size: 15px; font-weight: 600; letter-spacing: 0.04em;">Open Lumen</a>
+              </p>
+              <p style="font-size: 16px; line-height: 1.6; color: #555;">To install: open the link in <strong>Safari on iPhone</strong> (or Chrome on Android), tap the Share icon, then tap <strong>Add to Home Screen</strong>. Takes 30 seconds.</p>
+              <p style="font-size: 16px; line-height: 1.6;">It's a beta. I use it myself. If something feels off or you want to share how you're using it, just reply to this email — I read every message.</p>
+              <p style="font-size: 16px; line-height: 1.6; margin-top: 32px;">Mandy</p>
+              <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;" />
+              <p style="font-size: 13px; color: #888; line-height: 1.5;">Lumen by Mandy C. · <a href="https://mandyc.me" style="color: #888;">mandyc.me</a></p>
+            </div>
+          `,
+        })
+      } catch (emailError) {
+        console.error("Resend email error:", emailError)
+      }
+    }
 
     const magnet = LEAD_MAGNETS[sourcePage]
     if (magnet && process.env.RESEND_API_KEY) {
