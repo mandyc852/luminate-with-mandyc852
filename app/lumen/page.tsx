@@ -210,105 +210,6 @@ function PhoneFrame({
   )
 }
 
-/* ── Signup form ── */
-function SignupForm() {
-  const [firstName, setFirstName] = useState("")
-  const [email, setEmail] = useState("")
-  const [struggle, setStruggle] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState("")
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setError("")
-    setIsSubmitting(true)
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, firstName, struggle, sourcePage: "lumen", sourcePlacement: "hero" }),
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || "Something went wrong.")
-      setSuccess(true)
-      setFirstName(""); setEmail(""); setStruggle("")
-      setTimeout(() => { window.location.href = data.redirect || "/lumen/thank-you" }, 1500)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const inputStyle: React.CSSProperties = {
-    width: "100%",
-    padding: "13px 16px",
-    border: "1px solid rgba(26,42,58,0.14)",
-    borderRadius: 10,
-    background: "rgba(255,255,255,0.06)",
-    color: "#FAF9F7",
-    fontSize: 15,
-    fontFamily: "Cormorant Garamond, Georgia, serif",
-    outline: "none",
-    transition: "border-color 0.2s, box-shadow 0.2s",
-    WebkitAppearance: "none",
-  }
-
-  return (
-    <form onSubmit={handleSubmit} style={{ width: "100%", maxWidth: 480 }}>
-      <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
-        <input
-          type="text"
-          placeholder="First name"
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)}
-          style={{ ...inputStyle, flex: 1 }}
-        />
-        <input
-          type="email"
-          placeholder="Email address"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required
-          style={{ ...inputStyle, flex: 1 }}
-        />
-      </div>
-      <textarea
-        placeholder="What's your biggest struggle with staying consistent? (optional)"
-        value={struggle}
-        onChange={e => setStruggle(e.target.value)}
-        rows={2}
-        style={{ ...inputStyle, resize: "none", marginBottom: 12, display: "block" }}
-      />
-      {error && <p style={{ color: "#f87171", fontSize: 14, textAlign: "center", marginBottom: 8, fontFamily: "Cormorant Garamond, serif" }}>{error}</p>}
-      {success && <p style={{ color: "#FAF9F7", fontSize: 16, textAlign: "center", marginBottom: 8, fontFamily: "Cormorant Garamond, serif" }}>Check your email — install instructions are on their way.</p>}
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        style={{
-          width: "100%",
-          padding: "14px 24px",
-          background: "linear-gradient(90deg, #B8911F, #D8B84A, #C9A227)",
-          backgroundSize: "200% auto",
-          color: "#1A2A3A",
-          border: "none",
-          borderRadius: 9,
-          fontSize: 14,
-          fontWeight: 600,
-          fontFamily: "Inter, system-ui, sans-serif",
-          letterSpacing: "0.04em",
-          cursor: isSubmitting ? "not-allowed" : "pointer",
-          opacity: isSubmitting ? 0.7 : 1,
-          boxShadow: "0 4px 24px rgba(201,162,39,0.35)",
-          transition: "transform 0.2s, box-shadow 0.2s",
-        }}
-      >
-        {isSubmitting ? "Sending…" : "Get Free Access →"}
-      </button>
-    </form>
-  )
-}
 
 /* ── Lumen logo (CSS-only, matches demo.html) ── */
 function LumenLogo() {
@@ -411,31 +312,48 @@ export default function LumenPage() {
         </div>
       </div>
 
-      {/* ── CTA / SIGNUP BAND ── */}
+      {/* ── CTA BAND ── */}
       <div style={{ maxWidth: 1000, margin: "0 auto 24px", padding: "0 28px" }}>
         <div style={{
           background: "linear-gradient(135deg, #1A2A3A, #22364A)",
           borderRadius: 14,
-          padding: "40px 32px",
+          padding: "48px 32px",
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
         }}>
           <div style={{ position: "absolute", top: -40, left: "50%", transform: "translateX(-50%)", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(216,184,74,0.08), transparent 60%)" }} />
 
-          <p style={{ position: "relative", fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: 28, fontWeight: 600, color: "#FAF9F7", marginBottom: 8, lineHeight: 1.25 }}>
+          <p style={{ position: "relative", fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: 28, fontWeight: 600, color: "#FAF9F7", marginBottom: 10, lineHeight: 1.25 }}>
             Get Lumen for free.
           </p>
-          <p style={{ position: "relative", fontSize: 13, color: "#9AAABA", marginBottom: 28, lineHeight: 1.6, fontWeight: 300, fontFamily: "Inter, system-ui, sans-serif" }}>
-            Enter your details and I&apos;ll send install instructions to your inbox. Beta. Always free.
+          <p style={{ position: "relative", fontSize: 13, color: "#9AAABA", marginBottom: 32, lineHeight: 1.6, fontWeight: 300, fontFamily: "Inter, system-ui, sans-serif" }}>
+            Create your account and install Lumen in under a minute. Beta. Always free.
           </p>
 
           <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
-            <SignupForm />
+            <a
+              href="https://lumen-by-mandyc.vercel.app/login.html"
+              style={{
+                display: "inline-block",
+                padding: "14px 40px",
+                background: "linear-gradient(90deg, #B8911F, #D8B84A, #C9A227)",
+                color: "#1A2A3A",
+                textDecoration: "none",
+                borderRadius: 9,
+                fontSize: 14,
+                fontWeight: 600,
+                fontFamily: "Inter, system-ui, sans-serif",
+                letterSpacing: "0.04em",
+                boxShadow: "0 4px 24px rgba(201,162,39,0.35)",
+              }}
+            >
+              Get Lumen — It&apos;s Free →
+            </a>
           </div>
 
-          <p style={{ position: "relative", fontSize: 12, color: "rgba(154,170,186,0.6)", marginTop: 16, fontFamily: "Cormorant Garamond, serif", fontStyle: "italic" }}>
-            Free. I use it myself. Reply to the email if something feels off — I read every message.
+          <p style={{ position: "relative", fontSize: 12, color: "rgba(154,170,186,0.6)", marginTop: 20, fontFamily: "Cormorant Garamond, serif", fontStyle: "italic" }}>
+            Beta. I use it myself. Reply to any message if something feels off — I read everything.
           </p>
         </div>
       </div>
