@@ -51,12 +51,6 @@ const LEAD_MAGNETS: Record<
     description:
       "Here's the guide you requested — a practical framework for evaluating whether going public is right for your company, and what to prepare before you start the process.",
   },
-  lane: {
-    file: "lane.pdf",
-    subject: "Your LANE Framework is here",
-    description:
-      "Here's the LANE Framework you requested — four questions designed to help you reflect on what's driving your next move as a founder.",
-  },
   "five-questions": {
     file: "executive-readiness-diagnostic.pdf",
     subject: "Your Executive Readiness Diagnostic is here",
@@ -68,7 +62,6 @@ const LEAD_MAGNETS: Record<
 const REDIRECT_MAP: Record<string, string> = {
   guide: "/guide/thank-you",
   "five-questions": "/the-five-questions/thank-you",
-  lane: "/lane/thank-you",
 }
 
 export async function POST(request: NextRequest) {
