@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         destination: "/ipo-path",
         permanent: true,
       },
+      {
+        source: "/lumen",
+        destination: "https://lumen-by-mandyc.vercel.app/demo.html",
+        permanent: false,
+      },
     ];
   },
 };
