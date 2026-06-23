@@ -1,417 +1,217 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import Image from "next/image"
 
-type FormProps = {
-  firstName: string
-  setFirstName: (v: string) => void
-  email: string
-  setEmail: (v: string) => void
-  struggle: string
-  setStruggle: (v: string) => void
-  onSubmit: (e: React.FormEvent) => void
-  isSubmitting: boolean
-  success: boolean
-  error: string
-}
+/* ── Phone frame component ── */
+function PhoneFrame({
+  src,
+  alt,
+  activeNav,
+}: {
+  src: string
+  alt: string
+  activeNav: "overview" | "today" | "week" | "goals" | "settings"
+}) {
+  const screenRef = useRef<HTMLDivElement>(null)
+  const [scrolled, setScrolled] = useState(false)
+  const [atEnd, setAtEnd] = useState(false)
 
-const features = [
-  {
-    num: "1",
-    title: "The 12-week season",
-    description:
-      "Brian Moran and Michael Lennington's system: compress your year into 12-week sprints, set clear goals, track weekly. That's the foundation.",
-  },
-  {
-    num: "2",
-    title: "Mandy's inner game layer",
-    description:
-      "A daily affirmation anchored to who you're becoming. A 90-day practice set: what you're wiring in, what you're releasing.",
-  },
-  {
-    num: "3",
-    title: "The DAWN weekly ritual",
-    description:
-      "Debrief, Anchor, Widen, Next — four moves that close one week and open the next. No guilt. Just clarity.",
-  },
-]
+  function handleScroll() {
+    const el = screenRef.current
+    if (!el) return
+    if (el.scrollTop > 8) setScrolled(true)
+    setAtEnd(el.scrollTop + el.clientHeight >= el.scrollHeight - 4)
+  }
 
-function LumenIcon() {
+  const navItems = [
+    { id: "overview", label: "Overview" },
+    { id: "today", label: "Today" },
+    { id: "week", label: "Week" },
+    { id: "goals", label: "Goals" },
+    { id: "settings", label: "Settings" },
+  ] as const
+
+  const navIcons: Record<string, React.ReactNode> = {
+    overview: <path d="M3 3h6v6H3zM11 3h6v6h-6zM3 11h6v6H3zM11 11h6v6h-6z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" fill="none" />,
+    today: <><circle cx="10" cy="10" r="6.5" stroke="currentColor" strokeWidth="1.6" fill="none" /><circle cx="10" cy="10" r="2.2" fill="currentColor" /></>,
+    week: <><rect x="3" y="4.5" width="14" height="12.5" rx="1.6" stroke="currentColor" strokeWidth="1.6" fill="none" /><path d="M3 8h14M7 3v3M13 3v3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></>,
+    goals: <><path d="M6 5h11M6 10h11M6 15h11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><circle cx="3.2" cy="5" r="1" fill="currentColor" /><circle cx="3.2" cy="10" r="1" fill="currentColor" /><circle cx="3.2" cy="15" r="1" fill="currentColor" /></>,
+    settings: <><circle cx="10" cy="10" r="2.4" stroke="currentColor" strokeWidth="1.6" fill="none" /><path d="M10 2v2.4M10 15.6v2.4M2 10h2.4M15.6 10h2.4M4.4 4.4l1.7 1.7M13.9 13.9l1.7 1.7M4.4 15.6l1.7-1.7M13.9 6.1l1.7-1.7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></>,
+  }
+
   return (
-    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9 flex-shrink-0">
-      <defs>
-        <radialGradient id="lh" cx="50%" cy="46%" r="50%">
-          <stop offset="0%" stopColor="#FFF6DC" />
-          <stop offset="30%" stopColor="#D8B84A" />
-          <stop offset="100%" stopColor="#C9A227" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <rect width="1024" height="1024" rx="232" fill="#1A2A3A" />
-      <circle cx="512" cy="468" r="390" fill="url(#lh)" opacity="0.62" />
-      <circle cx="512" cy="468" r="94" fill="#FFF6DC" />
-    </svg>
-  )
-}
+    <div style={{
+      position: "relative",
+      width: 220,
+      height: 448,
+      borderRadius: 34,
+      padding: 8,
+      background: "linear-gradient(150deg, #3A4654, #11181F 60%)",
+      boxShadow: "0 20px 50px -14px rgba(26,42,58,0.42), 0 5px 16px -5px rgba(26,42,58,0.22), inset 0 0 0 1.5px rgba(255,255,255,0.07)",
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden",
+      flexShrink: 0,
+    }}>
+      {/* Inner rounded content area */}
+      <div style={{
+        position: "relative",
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        borderRadius: 27,
+        overflow: "hidden",
+        background: "#FAF9F7",
+      }}>
+        {/* Status bar */}
+        <div style={{
+          position: "relative",
+          zIndex: 3,
+          flexShrink: 0,
+          height: 28,
+          padding: "0 15px 0 17px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          background: "#FAF9F7",
+          fontSize: 10,
+          fontWeight: 700,
+          color: "#1A2A3A",
+          letterSpacing: "0.01em",
+          fontFamily: "system-ui, sans-serif",
+        }}>
+          <span>9:41</span>
+          {/* Dynamic island */}
+          <div style={{
+            position: "absolute",
+            top: 7,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: 52,
+            height: 15,
+            borderRadius: 9,
+            background: "#05080B",
+            zIndex: 4,
+          }} />
+          <span style={{ display: "flex", alignItems: "center", gap: 5 }}>
+            {/* Signal */}
+            <svg width="15" height="9" viewBox="0 0 17 10" aria-hidden="true">
+              <rect x="0" y="6.5" width="3" height="3.5" rx="0.6" fill="#1A2A3A"/>
+              <rect x="4.6" y="4.5" width="3" height="5.5" rx="0.6" fill="#1A2A3A"/>
+              <rect x="9.2" y="2.5" width="3" height="7.5" rx="0.6" fill="#1A2A3A"/>
+              <rect x="13.8" y="0.5" width="3" height="9.5" rx="0.6" fill="#1A2A3A"/>
+            </svg>
+            {/* WiFi */}
+            <svg width="13" height="9" viewBox="0 0 14 8" fill="none" stroke="#1A2A3A" strokeWidth="1.3" strokeLinecap="round" aria-hidden="true">
+              <path d="M1 3 A9 9 0 0 1 13 3"/><path d="M3.4 5.4 A5.1 5.1 0 0 1 10.6 5.4"/><circle cx="7" cy="7.3" r="0.4" fill="#1A2A3A" stroke="none"/>
+            </svg>
+            {/* Battery */}
+            <svg width="22" height="10" viewBox="0 0 24 11" aria-hidden="true">
+              <rect x="0.5" y="0.5" width="19.5" height="10" rx="2.6" fill="none" stroke="#1A2A3A" strokeOpacity="0.45"/>
+              <rect x="2" y="2" width="14" height="7" rx="1.3" fill="#1A2A3A"/>
+              <rect x="21" y="3.6" width="1.8" height="3.8" rx="0.9" fill="#1A2A3A" fillOpacity="0.45"/>
+            </svg>
+          </span>
+        </div>
 
-function FeatureList() {
-  return (
-    <ul className="list-none m-0 p-0">
-      {features.map((f) => (
-        <li key={f.num} className="flex items-start gap-4 mb-6 last:mb-0">
-          <span
-            className="w-9 h-9 rounded-lg flex items-center justify-center text-[#C9A227] flex-shrink-0 mt-0.5"
+        {/* Scrollable screen */}
+        <div style={{ position: "relative", flex: 1, minHeight: 0 }}>
+          <div
+            ref={screenRef}
+            onScroll={handleScroll}
             style={{
-              background: "#1A2A3A",
-              fontFamily: "Cormorant Garamond, serif",
-              fontSize: "17px",
-              fontWeight: 600,
+              position: "absolute",
+              inset: 0,
+              overflowY: "auto",
+              overflowX: "hidden",
+              background: "#FAF9F7",
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
             }}
           >
-            {f.num}
-          </span>
-          <div>
-            <p className="font-semibold text-[#1A2A3A] text-[15px] mb-1" style={{ fontFamily: "var(--font-poppins), sans-serif" }}>
-              {f.title}
-            </p>
-            <p className="text-[#1A2A3A]/65 text-[17px] leading-relaxed" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-              {f.description}
-            </p>
+            <Image src={src} alt={alt} width={220} height={900} style={{ width: "100%", height: "auto", display: "block" }} />
           </div>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-function SignupForm({ firstName, setFirstName, email, setEmail, struggle, setStruggle, onSubmit, isSubmitting, success, error }: FormProps) {
-  return (
-    <form onSubmit={onSubmit} className="w-full">
-      <div className="flex gap-3 mb-3">
-        <input
-          type="text"
-          placeholder="First name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          className="flex-1 px-4 py-3.5 border border-[#1A2A3A]/15 rounded-[10px] bg-white text-[#1A2A3A] placeholder-[#1A2A3A]/35 focus:outline-none focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/15 transition-all text-base"
-          style={{ fontFamily: "Cormorant Garamond, serif" }}
-        />
-        <input
-          type="email"
-          placeholder="Email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="flex-1 px-4 py-3.5 border border-[#1A2A3A]/15 rounded-[10px] bg-white text-[#1A2A3A] placeholder-[#1A2A3A]/35 focus:outline-none focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/15 transition-all text-base"
-          style={{ fontFamily: "Cormorant Garamond, serif" }}
-        />
-      </div>
-      <textarea
-        placeholder="What's your biggest struggle with staying consistent? (optional)"
-        value={struggle}
-        onChange={(e) => setStruggle(e.target.value)}
-        rows={2}
-        className="w-full px-4 py-3.5 border border-[#1A2A3A]/15 rounded-[10px] bg-white text-[#1A2A3A] placeholder-[#1A2A3A]/35 focus:outline-none focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/15 transition-all text-base resize-none mb-3"
-        style={{ fontFamily: "Cormorant Garamond, serif" }}
-      />
-      {error && (
-        <p className="text-center text-red-600 text-sm mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-          {error}
-        </p>
-      )}
-      {success && (
-        <p className="text-center text-[#1A2A3A] font-medium text-base mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-          Check your email — install instructions are on their way.
-        </p>
-      )}
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full py-4 rounded-[10px] bg-[#C9A227] text-white font-semibold text-base hover:bg-[#D8B84A] hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-        style={{ fontFamily: "var(--font-poppins), sans-serif", letterSpacing: "0.04em" }}
-      >
-        {isSubmitting ? "Sending…" : "Get Free Access →"}
-      </button>
-    </form>
-  )
-}
-
-function DesktopView(props: FormProps) {
-  return (
-    <div className="h-screen flex flex-col">
-      <div className="flex flex-1 min-h-0">
-        {/* Left — dark hero */}
-        <div
-          className="w-1/2 flex flex-col justify-center items-center px-14 py-10"
-          style={{ background: "linear-gradient(135deg, #1A2A3A 0%, #0F1A24 55%, #1A2A3A 100%)" }}
-        >
-          <div className="max-w-[500px] w-full">
-            {/* Brand */}
-            <div className="flex items-center gap-3 mb-9">
-              <LumenIcon />
-              <span className="text-white" style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 22, fontWeight: 600, letterSpacing: "0.04em" }}>Lumen</span>
-              <span className="text-white/40 text-xs tracking-[0.18em] uppercase ml-1" style={{ fontFamily: "var(--font-poppins), sans-serif" }}>by Mandy C.</span>
-            </div>
-
-            <h1
-              className="text-white mb-5 leading-[1.15]"
-              style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(30px, 3.5vw, 42px)", fontWeight: 600 }}
-            >
-              Mandy&apos;s workflow of the 12 Week Year.
-            </h1>
-
-            <p
-              className="mb-9 leading-relaxed"
-              style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 18, color: "rgba(255,255,255,0.72)" }}
-            >
-              The 12 Week Year by Brian Moran and Michael Lennington changed how I plan. So I built a free app around how I actually use it — with my own inner game layer added in: an affirmation, a 90-day practice set, and a weekly reflection ritual.
-            </p>
-
-            {/* App screenshots — scrollable row, fixed height so tall images crop to top */}
-            <div className="flex gap-3 overflow-x-auto pb-2" style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}>
-              {[
-                { src: "/lumen/goals.png", alt: "Goals" },
-                { src: "/lumen/today.png", alt: "Today" },
-                { src: "/lumen/overview.png", alt: "Overview" },
-                { src: "/lumen/week.png", alt: "Week" },
-                { src: "/lumen/dawn.png", alt: "DAWN" },
-              ].map((img) => (
-                <div key={img.src} className="flex-shrink-0 relative" style={{ width: 110, height: 238, borderRadius: 20, overflow: "hidden", boxShadow: "0 6px 28px rgba(0,0,0,0.4)", background: "#111" }}>
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Fade */}
+          <div style={{
+            position: "absolute",
+            left: 0, right: 0, bottom: 0,
+            height: 52,
+            background: "linear-gradient(to top, #FAF9F7 10%, rgba(250,249,247,0) 100%)",
+            pointerEvents: "none",
+            zIndex: 2,
+            opacity: atEnd ? 0 : 1,
+            transition: "opacity 0.25s ease",
+          }} />
+          {/* Scroll hint */}
+          {!scrolled && !atEnd && (
+            <span style={{
+              position: "absolute",
+              left: "50%",
+              bottom: 9,
+              transform: "translateX(-50%)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 4,
+              zIndex: 3,
+              fontSize: 9,
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+              color: "#1A2A3A",
+              background: "rgba(255,255,255,0.94)",
+              border: "1px solid rgba(26,42,58,0.12)",
+              borderRadius: 11,
+              padding: "3px 9px",
+              boxShadow: "0 2px 8px -2px rgba(26,42,58,0.18)",
+              pointerEvents: "none",
+              fontFamily: "system-ui, sans-serif",
+            }}>
+              Scroll ↓
+            </span>
+          )}
         </div>
 
-        {/* Right — cream features + form */}
-        <div
-          className="w-1/2 flex flex-col justify-center items-center px-14 py-10 overflow-y-auto"
-          style={{ backgroundColor: "#FAF7F3" }}
-        >
-          <div className="max-w-[480px] w-full">
-            <p
-              className="mb-6"
-              style={{ fontFamily: "var(--font-poppins), sans-serif", fontSize: 12, fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A227" }}
-            >
-              What you get
-            </p>
-
-            <FeatureList />
-
-            <div className="w-20 h-px my-8 mx-auto" style={{ background: "linear-gradient(to right, transparent, #C9A227, transparent)" }} />
-
-            <h2
-              className="text-center mb-2"
-              style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(26px, 3vw, 34px)", fontWeight: 600, color: "#1A2A3A" }}
-            >
-              Get Lumen for free.
-            </h2>
-            <p
-              className="text-center mb-6"
-              style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 17, color: "rgba(26,42,58,0.55)" }}
-            >
-              Enter your details and I&apos;ll send it straight to your inbox.
-            </p>
-
-            <SignupForm {...props} />
-
-            <p
-              className="text-center mt-4"
-              style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 14, color: "rgba(26,42,58,0.38)", lineHeight: 1.5 }}
-            >
-              Free. Beta. I use it myself. Feedback welcome — I read every message.
-            </p>
-          </div>
-        </div>
+        {/* Bottom nav */}
+        <nav style={{
+          position: "relative",
+          zIndex: 3,
+          flexShrink: 0,
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          background: "#16242F",
+          padding: "5px 4px 6px",
+          boxShadow: "0 -4px 14px rgba(26,42,58,0.16)",
+        }}>
+          {navItems.map((item) => {
+            const isActive = item.id === activeNav
+            return (
+              <span key={item.id} style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 2,
+                color: isActive ? "#D8B84A" : "#8FA3B5",
+                flex: 1,
+                filter: isActive ? "drop-shadow(0 0 3px rgba(216,184,74,0.55))" : undefined,
+              }}>
+                <svg width="12" height="12" viewBox="0 0 20 20" aria-hidden="true">
+                  {navIcons[item.id]}
+                </svg>
+                <span style={{ fontSize: 5.5, fontWeight: 600, letterSpacing: "0.01em", fontFamily: "system-ui, sans-serif" }}>
+                  {item.label}
+                </span>
+              </span>
+            )
+          })}
+        </nav>
       </div>
-
-      {/* CTA Bridge */}
-      <div className="w-full py-6 px-6 border-t" style={{ background: "#0F1A24", borderColor: "rgba(201,162,39,0.2)" }}>
-        <div className="max-w-4xl mx-auto flex items-center justify-between gap-4 flex-col md:flex-row">
-          <p className="text-white text-xl md:text-2xl text-center md:text-left" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            Want help building your season?
-          </p>
-          <a
-            href="https://tidycal.com/mandyc852/30-minute-meeting"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3 bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase whitespace-nowrap hover:bg-[#D8B84A] transition-all"
-            style={{ fontFamily: "var(--font-poppins), sans-serif" }}
-          >
-            Book a Free Strategy Call
-          </a>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="w-full py-4 px-6 text-center border-t" style={{ background: "#0a0a0a", borderColor: "rgba(201,162,39,0.2)" }}>
-        <p className="text-white/50 text-xs" style={{ fontFamily: "var(--font-poppins), sans-serif" }}>
-          © 2026 MandyC.{" "}
-          <a href="/terms" className="hover:text-[#C9A227] transition-colors mx-1">Terms</a>
-          {" · "}
-          <a href="/privacy" className="hover:text-[#C9A227] transition-colors mx-1">Privacy</a>
-        </p>
-      </footer>
     </div>
   )
 }
 
-function MobileView(props: FormProps) {
-  return (
-    <div className="min-h-screen">
-      {/* Dark hero */}
-      <div className="px-6 pt-10 pb-10" style={{ background: "linear-gradient(135deg, #1A2A3A 0%, #0F1A24 100%)" }}>
-        <div className="max-w-sm mx-auto">
-          <div className="flex items-center gap-3 mb-8">
-            <LumenIcon />
-            <span className="text-white" style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 20, fontWeight: 600 }}>Lumen</span>
-            <span className="text-white/40 text-xs tracking-[0.18em] uppercase ml-1" style={{ fontFamily: "var(--font-poppins), sans-serif" }}>by Mandy C.</span>
-          </div>
-
-          <h1
-            className="text-white mb-4 leading-[1.15]"
-            style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(30px, 8vw, 38px)", fontWeight: 600 }}
-          >
-            Mandy&apos;s workflow of the 12 Week Year.
-          </h1>
-
-          <p
-            className="mb-8 leading-relaxed"
-            style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 17, color: "rgba(255,255,255,0.72)" }}
-          >
-            The 12 Week Year by Brian Moran and Michael Lennington changed how I plan. So I built a free app around how I actually use it — with my own inner game layer added in.
-          </p>
-
-          {/* Screenshots */}
-          <div className="flex gap-3 overflow-x-auto pb-2 mb-8" style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}>
-            {[
-              { src: "/lumen/goals.png", alt: "Goals" },
-              { src: "/lumen/today.png", alt: "Today" },
-              { src: "/lumen/overview.png", alt: "Overview" },
-              { src: "/lumen/week.png", alt: "Week" },
-              { src: "/lumen/dawn.png", alt: "DAWN" },
-            ].map((img) => (
-              <div key={img.src} className="flex-shrink-0 relative" style={{ width: 90, height: 194, borderRadius: 16, overflow: "hidden", boxShadow: "0 6px 28px rgba(0,0,0,0.4)", background: "#111" }}>
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Form inline on mobile */}
-          <h2
-            className="text-center text-white mb-1"
-            style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 28, fontWeight: 600 }}
-          >
-            Get Lumen for free.
-          </h2>
-          <p
-            className="text-center mb-5"
-            style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 17, color: "rgba(255,255,255,0.6)" }}
-          >
-            I&apos;ll send install instructions to your inbox.
-          </p>
-
-          {/* Mobile form — inputs need light bg override */}
-          <form onSubmit={props.onSubmit} className="w-full">
-            <input
-              type="text"
-              placeholder="First name"
-              value={props.firstName}
-              onChange={(e) => props.setFirstName(e.target.value)}
-              className="w-full px-4 py-3.5 border border-white/15 rounded-[10px] bg-white/10 text-white placeholder-white/35 focus:outline-none focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/15 transition-all text-base mb-3"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
-            />
-            <input
-              type="email"
-              placeholder="Email address"
-              value={props.email}
-              onChange={(e) => props.setEmail(e.target.value)}
-              required
-              className="w-full px-4 py-3.5 border border-white/15 rounded-[10px] bg-white/10 text-white placeholder-white/35 focus:outline-none focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/15 transition-all text-base mb-3"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
-            />
-            <textarea
-              placeholder="What's your biggest struggle with staying consistent? (optional)"
-              value={props.struggle}
-              onChange={(e) => props.setStruggle(e.target.value)}
-              rows={2}
-              className="w-full px-4 py-3.5 border border-white/15 rounded-[10px] bg-white/10 text-white placeholder-white/35 focus:outline-none focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/15 transition-all text-base resize-none mb-3"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
-            />
-            {props.error && <p className="text-red-400 text-sm text-center mb-2">{props.error}</p>}
-            {props.success && <p className="text-white font-medium text-base text-center mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>Check your email — install instructions are on their way.</p>}
-            <button
-              type="submit"
-              disabled={props.isSubmitting}
-              className="w-full py-4 rounded-[10px] bg-[#C9A227] text-white font-semibold text-base hover:bg-[#D8B84A] transition-all duration-300 disabled:opacity-70"
-              style={{ fontFamily: "var(--font-poppins), sans-serif", letterSpacing: "0.04em" }}
-            >
-              {props.isSubmitting ? "Sending…" : "Get Free Access →"}
-            </button>
-          </form>
-
-          <p className="text-center mt-4 text-white/35 text-sm" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            Free. Beta. I use it myself. Feedback welcome.
-          </p>
-        </div>
-      </div>
-
-      {/* What you get — cream */}
-      <div className="px-6 py-12" style={{ backgroundColor: "#FAF7F3" }}>
-        <div className="max-w-sm mx-auto">
-          <p
-            className="mb-6"
-            style={{ fontFamily: "var(--font-poppins), sans-serif", fontSize: 12, fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A227" }}
-          >
-            What you get
-          </p>
-          <FeatureList />
-        </div>
-      </div>
-
-      {/* CTA Bridge */}
-      <div className="w-full py-10 px-6" style={{ background: "#0F1A24" }}>
-        <div className="max-w-sm mx-auto text-center">
-          <p className="text-white text-xl mb-5" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            Want help building your season?
-          </p>
-          <a
-            href="https://tidycal.com/mandyc852/30-minute-meeting"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#D8B84A] transition-all"
-            style={{ fontFamily: "var(--font-poppins), sans-serif" }}
-          >
-            Book a Free Strategy Call
-          </a>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="w-full py-5 px-6 text-center border-t" style={{ background: "#0a0a0a", borderColor: "rgba(201,162,39,0.2)" }}>
-        <p className="text-white/50 text-sm" style={{ fontFamily: "var(--font-poppins), sans-serif" }}>
-          © 2026 MandyC.{" "}
-          <a href="/terms" className="hover:text-[#C9A227] transition-colors">Terms</a>
-          {" · "}
-          <a href="/privacy" className="hover:text-[#C9A227] transition-colors">Privacy</a>
-        </p>
-      </footer>
-    </div>
-  )
-}
-
-export default function LumenPage() {
+/* ── Signup form ── */
+function SignupForm() {
   const [firstName, setFirstName] = useState("")
   const [email, setEmail] = useState("")
   const [struggle, setStruggle] = useState("")
@@ -419,30 +219,21 @@ export default function LumenPage() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState("")
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError("")
     setIsSubmitting(true)
     try {
-      const response = await fetch("/api/waitlist", {
+      const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          firstName: firstName || "",
-          struggle: struggle || "",
-          sourcePage: "lumen",
-          sourcePlacement: "hero",
-        }),
+        body: JSON.stringify({ email, firstName, struggle, sourcePage: "lumen", sourcePlacement: "hero" }),
       })
-      const data = await response.json()
-      if (!response.ok) throw new Error(data.error || "Something went wrong. Please try again.")
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || "Something went wrong.")
       setSuccess(true)
-      setFirstName("")
-      setEmail("")
-      setStruggle("")
-      const redirectUrl = data.redirect || "/lumen/thank-you"
-      setTimeout(() => { window.location.href = redirectUrl }, 1500)
+      setFirstName(""); setEmail(""); setStruggle("")
+      setTimeout(() => { window.location.href = data.redirect || "/lumen/thank-you" }, 1500)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
     } finally {
@@ -450,16 +241,218 @@ export default function LumenPage() {
     }
   }
 
-  const formProps = { firstName, setFirstName, email, setEmail, struggle, setStruggle, onSubmit: handleSubmit, isSubmitting, success, error }
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "13px 16px",
+    border: "1px solid rgba(26,42,58,0.14)",
+    borderRadius: 10,
+    background: "rgba(255,255,255,0.06)",
+    color: "#FAF9F7",
+    fontSize: 15,
+    fontFamily: "Cormorant Garamond, Georgia, serif",
+    outline: "none",
+    transition: "border-color 0.2s, box-shadow 0.2s",
+    WebkitAppearance: "none",
+  }
 
   return (
-    <div className="relative">
-      <div className="hidden xl:block">
-        <DesktopView {...formProps} />
+    <form onSubmit={handleSubmit} style={{ width: "100%", maxWidth: 480 }}>
+      <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
+        <input
+          type="text"
+          placeholder="First name"
+          value={firstName}
+          onChange={e => setFirstName(e.target.value)}
+          style={{ ...inputStyle, flex: 1 }}
+        />
+        <input
+          type="email"
+          placeholder="Email address"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+          style={{ ...inputStyle, flex: 1 }}
+        />
       </div>
-      <div className="block xl:hidden">
-        <MobileView {...formProps} />
+      <textarea
+        placeholder="What's your biggest struggle with staying consistent? (optional)"
+        value={struggle}
+        onChange={e => setStruggle(e.target.value)}
+        rows={2}
+        style={{ ...inputStyle, resize: "none", marginBottom: 12, display: "block" }}
+      />
+      {error && <p style={{ color: "#f87171", fontSize: 14, textAlign: "center", marginBottom: 8, fontFamily: "Cormorant Garamond, serif" }}>{error}</p>}
+      {success && <p style={{ color: "#FAF9F7", fontSize: 16, textAlign: "center", marginBottom: 8, fontFamily: "Cormorant Garamond, serif" }}>Check your email — install instructions are on their way.</p>}
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        style={{
+          width: "100%",
+          padding: "14px 24px",
+          background: "linear-gradient(90deg, #B8911F, #D8B84A, #C9A227)",
+          backgroundSize: "200% auto",
+          color: "#1A2A3A",
+          border: "none",
+          borderRadius: 9,
+          fontSize: 14,
+          fontWeight: 600,
+          fontFamily: "Inter, system-ui, sans-serif",
+          letterSpacing: "0.04em",
+          cursor: isSubmitting ? "not-allowed" : "pointer",
+          opacity: isSubmitting ? 0.7 : 1,
+          boxShadow: "0 4px 24px rgba(201,162,39,0.35)",
+          transition: "transform 0.2s, box-shadow 0.2s",
+        }}
+      >
+        {isSubmitting ? "Sending…" : "Get Free Access →"}
+      </button>
+    </form>
+  )
+}
+
+/* ── Lumen logo (CSS-only, matches demo.html) ── */
+function LumenLogo() {
+  return (
+    <div style={{
+      width: 52, height: 52, borderRadius: 13,
+      background: "#0E1923",
+      position: "relative",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      boxShadow: "0 4px 18px rgba(22,36,47,0.16)",
+      flexShrink: 0,
+    }}>
+      <div style={{
+        width: 38, height: 38, borderRadius: "50%",
+        background: "radial-gradient(circle at 50% 45%, #FFF6DC 0%, #F2DC8A 16%, #D8B84A 38%, rgba(201,162,39,0.4) 60%, transparent 78%)",
+        filter: "blur(0.5px)",
+      }} />
+      <div style={{
+        position: "absolute",
+        width: 8, height: 8, borderRadius: "50%",
+        background: "#FFFBE6",
+        boxShadow: "0 0 10px rgba(255,246,220,0.9)",
+      }} />
+    </div>
+  )
+}
+
+export default function LumenPage() {
+  return (
+    <div style={{ background: "#E7E4DE", minHeight: "100vh", color: "#1A2A3A" }}>
+
+      {/* ── HERO ── */}
+      <div style={{ maxWidth: 1000, margin: "0 auto", padding: "44px 28px 32px", display: "flex", alignItems: "center", gap: 36, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 16, flexShrink: 0 }}>
+          <LumenLogo />
+          <div>
+            <div style={{ fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: 48, fontWeight: 600, letterSpacing: "-0.012em", lineHeight: 1, color: "#1A2A3A" }}>Lumen</div>
+            <div style={{ fontSize: 9, fontWeight: 500, letterSpacing: "0.28em", color: "rgba(26,42,58,0.38)", marginTop: 2, fontFamily: "Inter, system-ui, sans-serif" }}>BY MANDY C.</div>
+          </div>
+        </div>
+        <div style={{ width: 1, height: 48, background: "rgba(26,42,58,0.12)", flexShrink: 0 }} />
+        <div style={{ flex: 1, minWidth: 240 }}>
+          <p style={{ fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: 18, fontStyle: "italic", color: "#1A2A3A", lineHeight: 1.4, marginBottom: 6 }}>
+            Mandy&apos;s workflow of the 12 Week Year — free.
+          </p>
+          <p style={{ fontSize: 13, color: "#5A6A7A", lineHeight: 1.6, fontWeight: 300, fontFamily: "Inter, system-ui, sans-serif" }}>
+            Built on Brian Moran &amp; Michael Lennington&apos;s system, with Mandy&apos;s inner game layer added in: an affirmation anchor, a 90-day practice set, and a weekly reflection ritual. Twelve weeks. One season at a time.
+          </p>
+        </div>
       </div>
+
+      {/* ── SYSTEM CARD ── */}
+      <div style={{ maxWidth: 1000, margin: "0 auto 32px", padding: "0 28px" }}>
+        <div style={{ background: "#FAF9F7", border: "1px solid rgba(26,42,58,0.06)", borderRadius: 14, padding: "28px 32px" }}>
+          <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A227", marginBottom: 8, fontFamily: "Inter, system-ui, sans-serif" }}>The system</div>
+          <div style={{ fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: 26, fontWeight: 600, color: "#1A2A3A", lineHeight: 1.2, marginBottom: 8 }}>Set the season once. Everything flows.</div>
+          <div style={{ display: "flex", alignItems: "stretch", gap: 0, marginTop: 12, flexWrap: "wrap" }}>
+            <p style={{ fontSize: 13, color: "#5A6A7A", lineHeight: 1.65, fontWeight: 300, flex: 1, minWidth: 200, paddingRight: 24, fontFamily: "Inter, system-ui, sans-serif" }}>
+              You set a 12-week season: goals, weekly commitments, a daily practice. Mandy&apos;s additions — an affirmation anchor, 90-day practices, and DAWN, a weekly reflection that closes one week and opens the next.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 0, flexShrink: 0, paddingLeft: 24, borderLeft: "1px solid rgba(26,42,58,0.12)", justifyContent: "flex-start" }}>
+              {[["5","Pages"],["1","Weekly Ritual"],["12","Week Seasons"]].map(([n, l]) => (
+                <div key={l} style={{ display: "flex", alignItems: "baseline", gap: 10, padding: "5px 0" }}>
+                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: 38, fontWeight: 600, color: "#C9A227", lineHeight: 1, minWidth: 46, textAlign: "right" }}>{n}</div>
+                  <div style={{ fontSize: 10, color: "#5A6A7A", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.2, whiteSpace: "nowrap", fontFamily: "Inter, system-ui, sans-serif" }}>{l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── PHONES ── */}
+      <div style={{ maxWidth: 1000, margin: "0 auto", padding: "0 28px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 24 }}>
+          <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(26,42,58,0.38)", flexShrink: 0, fontFamily: "Inter, system-ui, sans-serif" }}>The app</span>
+          <div style={{ flex: 1, height: 1, background: "rgba(26,42,58,0.12)" }} />
+        </div>
+
+        <div style={{ display: "flex", gap: 32, alignItems: "flex-start", justifyContent: "center", flexWrap: "wrap", paddingBottom: 36 }}>
+          {/* Overview */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: 6 }}>
+              <div style={{ width: 20, height: 20, borderRadius: "50%", background: "#1A2A3A", color: "#E8D896", fontFamily: "Cormorant Garamond, serif", fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center" }}>1</div>
+              <span style={{ fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: 20, fontWeight: 600, color: "#1A2A3A", lineHeight: 1 }}>Overview</span>
+            </div>
+            <p style={{ fontSize: 12, color: "#5A6A7A", lineHeight: 1.45, marginBottom: 14, textAlign: "center", maxWidth: 200, fontWeight: 300, fontFamily: "Inter, system-ui, sans-serif" }}>Your affirmation, 90-day practices, and execution calendar.</p>
+            <PhoneFrame src="/lumen/overview.png" alt="Overview page" activeNav="overview" />
+          </div>
+
+          {/* Today */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: 6 }}>
+              <div style={{ width: 20, height: 20, borderRadius: "50%", background: "#1A2A3A", color: "#E8D896", fontFamily: "Cormorant Garamond, serif", fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center" }}>2</div>
+              <span style={{ fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: 20, fontWeight: 600, color: "#1A2A3A", lineHeight: 1 }}>Today</span>
+            </div>
+            <p style={{ fontSize: 12, color: "#5A6A7A", lineHeight: 1.45, marginBottom: 14, textAlign: "center", maxWidth: 200, fontWeight: 300, fontFamily: "Inter, system-ui, sans-serif" }}>The daily page: feeling, foundation, habits, and today&apos;s Big Three.</p>
+            <PhoneFrame src="/lumen/today.png" alt="Today page" activeNav="today" />
+          </div>
+        </div>
+      </div>
+
+      {/* ── CTA / SIGNUP BAND ── */}
+      <div style={{ maxWidth: 1000, margin: "0 auto 24px", padding: "0 28px" }}>
+        <div style={{
+          background: "linear-gradient(135deg, #1A2A3A, #22364A)",
+          borderRadius: 14,
+          padding: "40px 32px",
+          textAlign: "center",
+          position: "relative",
+          overflow: "hidden",
+        }}>
+          <div style={{ position: "absolute", top: -40, left: "50%", transform: "translateX(-50%)", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(216,184,74,0.08), transparent 60%)" }} />
+
+          <p style={{ position: "relative", fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: 28, fontWeight: 600, color: "#FAF9F7", marginBottom: 8, lineHeight: 1.25 }}>
+            Get Lumen for free.
+          </p>
+          <p style={{ position: "relative", fontSize: 13, color: "#9AAABA", marginBottom: 28, lineHeight: 1.6, fontWeight: 300, fontFamily: "Inter, system-ui, sans-serif" }}>
+            Enter your details and I&apos;ll send install instructions to your inbox. Beta. Always free.
+          </p>
+
+          <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
+            <SignupForm />
+          </div>
+
+          <p style={{ position: "relative", fontSize: 12, color: "rgba(154,170,186,0.6)", marginTop: 16, fontFamily: "Cormorant Garamond, serif", fontStyle: "italic" }}>
+            Free. I use it myself. Reply to the email if something feels off — I read every message.
+          </p>
+        </div>
+      </div>
+
+      {/* ── FOOTER ── */}
+      <div style={{ textAlign: "center", padding: "14px 28px 28px", maxWidth: 1000, margin: "0 auto" }}>
+        <p style={{ fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: 14, fontStyle: "italic", color: "#9A8A55", lineHeight: 1.5 }}>
+          Built on the 12 Week Year by Brian Moran &amp; Michael Lennington. The inner game layer, DAWN ritual, and affirmation anchor are Mandy&apos;s additions.
+        </p>
+        <p style={{ marginTop: 10, fontSize: 12, color: "rgba(26,42,58,0.35)", fontFamily: "Inter, system-ui, sans-serif" }}>
+          © 2026 MandyC. ·{" "}
+          <a href="/terms" style={{ color: "rgba(26,42,58,0.35)", textDecoration: "none" }}>Terms</a>
+          {" · "}
+          <a href="/privacy" style={{ color: "rgba(26,42,58,0.35)", textDecoration: "none" }}>Privacy</a>
+        </p>
+      </div>
+
     </div>
   )
 }
