@@ -167,21 +167,21 @@ function DesktopView(props: FormProps) {
               The 12 Week Year by Brian Moran and Michael Lennington changed how I plan. So I built a free app around how I actually use it — with my own inner game layer added in: an affirmation, a 90-day practice set, and a weekly reflection ritual.
             </p>
 
-            {/* App screenshots */}
-            <div className="flex gap-4 overflow-x-auto pb-1" style={{ WebkitOverflowScrolling: "touch" }}>
+            {/* App screenshots — scrollable row, fixed height so tall images crop to top */}
+            <div className="flex gap-3 overflow-x-auto pb-2" style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}>
               {[
-                { src: "/lumen/today.png", alt: "Today page" },
-                { src: "/lumen/overview.png", alt: "Overview page" },
-                { src: "/lumen/week.png", alt: "Week page" },
+                { src: "/lumen/goals.png", alt: "Goals" },
+                { src: "/lumen/today.png", alt: "Today" },
+                { src: "/lumen/overview.png", alt: "Overview" },
+                { src: "/lumen/week.png", alt: "Week" },
+                { src: "/lumen/dawn.png", alt: "DAWN" },
               ].map((img) => (
-                <div key={img.src} className="flex-shrink-0 relative" style={{ height: 200, width: "auto" }}>
+                <div key={img.src} className="flex-shrink-0 relative" style={{ width: 110, height: 238, borderRadius: 20, overflow: "hidden", boxShadow: "0 6px 28px rgba(0,0,0,0.4)", background: "#111" }}>
                   <Image
                     src={img.src}
                     alt={img.alt}
-                    height={200}
-                    width={94}
-                    className="rounded-[10px] shadow-xl object-contain h-full w-auto"
-                    style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.3)" }}
+                    fill
+                    className="object-cover object-top"
                   />
                 </div>
               ))}
@@ -289,19 +289,20 @@ function MobileView(props: FormProps) {
           </p>
 
           {/* Screenshots */}
-          <div className="flex gap-3 overflow-x-auto pb-1 mb-8" style={{ WebkitOverflowScrolling: "touch" }}>
+          <div className="flex gap-3 overflow-x-auto pb-2 mb-8" style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}>
             {[
-              { src: "/lumen/today.png", alt: "Today page" },
-              { src: "/lumen/overview.png", alt: "Overview page" },
-              { src: "/lumen/week.png", alt: "Week page" },
+              { src: "/lumen/goals.png", alt: "Goals" },
+              { src: "/lumen/today.png", alt: "Today" },
+              { src: "/lumen/overview.png", alt: "Overview" },
+              { src: "/lumen/week.png", alt: "Week" },
+              { src: "/lumen/dawn.png", alt: "DAWN" },
             ].map((img) => (
-              <div key={img.src} className="flex-shrink-0 relative" style={{ height: 160, width: "auto" }}>
+              <div key={img.src} className="flex-shrink-0 relative" style={{ width: 90, height: 194, borderRadius: 16, overflow: "hidden", boxShadow: "0 6px 28px rgba(0,0,0,0.4)", background: "#111" }}>
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  height={160}
-                  width={75}
-                  className="rounded-[10px] shadow-xl object-contain h-full w-auto"
+                  fill
+                  className="object-cover object-top"
                 />
               </div>
             ))}
