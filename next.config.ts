@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/lumen",
-        destination: "https://lumen-by-mandyc.vercel.app/demo.html",
+        destination: "https://lumen-by-mandyc.vercel.app/how-it-works",
         permanent: false,
       },
     ];
