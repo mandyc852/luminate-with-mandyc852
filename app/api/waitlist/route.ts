@@ -6,6 +6,26 @@ import path from "path"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+// Fire-and-forget — failures here never block the user
+async function saveToSupabase(email: string, firstName: string | null, sourcePage: string, sourcePlacement: string) {
+  try {
+    const { error } = await supabase
+      .from("subscribers")
+      .upsert(
+        {
+          email: email.toLowerCase().trim(),
+          first_name: firstName || null,
+          source_page: sourcePage || "unknown",
+          source_placement: sourcePlacement || "hero",
+        },
+        { onConflict: "email,source_page" }
+      )
+    if (error) console.error("Supabase error:", error)
+  } catch (err) {
+    console.error("Supabase error:", err)
+  }
+}
+
 async function addToBeehiiv(email: string) {
   try {
     await fetch(
@@ -23,26 +43,23 @@ async function addToBeehiiv(email: string) {
 
 const LEAD_MAGNETS: Record<
   string,
-  { file: string; subject: string; heading: string; description: string }
+  { file: string; subject: string; description: string }
 > = {
   guide: {
     file: "Should-you-go-public-guide.pdf",
     subject: "Your IPO Readiness Guide is here",
-    heading: "Your IPO Readiness Guide",
     description:
       "Here's the guide you requested — a practical framework for evaluating whether going public is right for your company, and what to prepare before you start the process.",
   },
   lane: {
     file: "lane.pdf",
     subject: "Your LANE Framework is here",
-    heading: "The LANE Framework",
     description:
       "Here's the LANE Framework you requested — four questions designed to help you reflect on what's driving your next move as a founder.",
   },
   "five-questions": {
     file: "executive-readiness-diagnostic.pdf",
     subject: "Your Executive Readiness Diagnostic is here",
-    heading: "Your Executive Readiness Diagnostic",
     description:
       "Here's the diagnostic you requested — a structured way to assess where you stand before your next leadership chapter.",
   },
@@ -52,10 +69,7 @@ const REDIRECT_MAP: Record<string, string> = {
   guide: "/guide/thank-you",
   "five-questions": "/the-five-questions/thank-you",
   lane: "/lane/thank-you",
-  lumen: "/lumen/thank-you",
 }
-
-const LUMEN_INSTALL_URL = "https://lumen-by-mandyc.vercel.app"
 
 export async function POST(request: NextRequest) {
   try {
@@ -69,59 +83,11 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const { error } = await supabase
-      .from("subscribers")
-      .upsert(
-        {
-          email: email.toLowerCase().trim(),
-          first_name: firstName || null,
-          source_page: sourcePage || "unknown",
-          source_placement: sourcePlacement || "hero",
-        },
-        { onConflict: "email,source_page" }
-      )
+    const cleanEmail = email.toLowerCase().trim()
+    const name = firstName || ""
+    const greeting = name ? `Hi ${name},` : "Hi there,"
 
-    if (error) {
-      console.error("Supabase error:", error)
-      const message =
-        process.env.NODE_ENV === "development"
-          ? error.message
-          : "Something went wrong. Please try again."
-      return NextResponse.json({ error: message }, { status: 500 })
-    }
-
-    addToBeehiiv(email)
-
-    // Lumen: install email (no PDF)
-    if (sourcePage === "lumen" && process.env.RESEND_API_KEY) {
-      const name = firstName || ""
-      const greeting = name ? `Hi ${name},` : "Hi there,"
-      try {
-        await resend.emails.send({
-          from: "Mandy Cheung <hey@mandyc.me>",
-          replyTo: "hey@mandyc852.com",
-          to: email.toLowerCase().trim(),
-          subject: "Your Lumen install link",
-          html: `
-            <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 40px 20px; color: #1a2a3a;">
-              <p style="font-size: 16px; line-height: 1.6;">${greeting}</p>
-              <p style="font-size: 16px; line-height: 1.6;">Here's your Lumen install link:</p>
-              <p style="margin: 24px 0;">
-                <a href="${LUMEN_INSTALL_URL}" style="display: inline-block; background: #C9A227; color: #fff; text-decoration: none; padding: 14px 32px; font-size: 15px; font-weight: 600; letter-spacing: 0.04em;">Open Lumen</a>
-              </p>
-              <p style="font-size: 16px; line-height: 1.6; color: #555;">To install: open the link in <strong>Safari on iPhone</strong> (or Chrome on Android), tap the Share icon, then tap <strong>Add to Home Screen</strong>. Takes 30 seconds.</p>
-              <p style="font-size: 16px; line-height: 1.6;">It's a beta. I use it myself. If something feels off or you want to share how you're using it, just reply to this email — I read every message.</p>
-              <p style="font-size: 16px; line-height: 1.6; margin-top: 32px;">Mandy</p>
-              <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;" />
-              <p style="font-size: 13px; color: #888; line-height: 1.5;">Lumen by Mandy C. · <a href="https://mandyc.me" style="color: #888;">mandyc.me</a></p>
-            </div>
-          `,
-        })
-      } catch (emailError) {
-        console.error("Resend email error:", emailError)
-      }
-    }
-
+    // Send email first — Supabase being paused must never block delivery
     const magnet = LEAD_MAGNETS[sourcePage]
     if (magnet && process.env.RESEND_API_KEY) {
       try {
@@ -133,13 +99,10 @@ export async function POST(request: NextRequest) {
         )
         const pdfBuffer = await readFile(pdfPath)
 
-        const name = firstName || ""
-        const greeting = name ? `Hi ${name},` : "Hi there,"
-
         await resend.emails.send({
           from: "Mandy Cheung <hey@mandyc.me>",
           replyTo: "hey@mandyc852.com",
-          to: email.toLowerCase().trim(),
+          to: cleanEmail,
           subject: magnet.subject,
           html: `
             <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 40px 20px; color: #1a2a3a;">
@@ -152,17 +115,16 @@ export async function POST(request: NextRequest) {
               <p style="font-size: 13px; color: #888; line-height: 1.5;">Mandy Cheung · <a href="https://mandyc.me" style="color: #888;">mandyc.me</a></p>
             </div>
           `,
-          attachments: [
-            {
-              filename: magnet.file,
-              content: pdfBuffer,
-            },
-          ],
+          attachments: [{ filename: magnet.file, content: pdfBuffer }],
         })
       } catch (emailError) {
         console.error("Resend email error:", emailError)
       }
     }
+
+    // Non-blocking background tasks — failures are logged but never returned to the user
+    saveToSupabase(cleanEmail, firstName || null, sourcePage, sourcePlacement)
+    addToBeehiiv(cleanEmail)
 
     return NextResponse.json({
       message: "Success!",
