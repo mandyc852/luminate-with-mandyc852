@@ -306,115 +306,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* THE PLATFORM I BUILT (ExitPro) */}
-      <section id="exitpro" className="relative py-20 md:py-28 px-6 overflow-hidden bg-white scroll-mt-24">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Copy column */}
-            <div className="text-center md:text-left order-2 md:order-1">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase mb-4">
-                The platform I built
-              </p>
-              <h2 className="text-3xl md:text-4xl mb-6 font-normal leading-[1.15]" style={{ textWrap: "balance" }}>
-                ExitPro — IPO readiness, on demand
-              </h2>
-
-              <div className="space-y-4 text-slate-700 font-light leading-relaxed mb-8 max-w-xl mx-auto md:mx-0 text-[15px]">
-                <p>
-                  ExitPro is the IPO-readiness research platform I built — the same tool I use inside paid engagements. Upload your financials and cap table; it surfaces structural gaps against listing thresholds for NASDAQ, NYSE American, and HKEX within 24 hours.
-                </p>
-                <p>
-                  It also benchmarks P/E and P/S multiples for comparable listed companies in your sector — searchable across 3,000+ real transactions.
-                </p>
-                <p className="text-[#1a2a3a] font-normal">
-                  Bundled into every IPO Path Assessment. Available standalone for founders who just want to see where they stand.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto md:mx-0">
-                <a
-                  href="https://exitproai.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center whitespace-nowrap px-6 py-3 rounded-none uppercase tracking-wide text-xs btn-gold-animated"
-                >
-                  Explore ExitPro →
-                </a>
-                <a
-                  href="/ipo-path"
-                  className="flex-1 inline-flex items-center justify-center whitespace-nowrap px-6 py-3 rounded-none uppercase tracking-wide text-xs border-2 border-[#1a2a3a] text-[#1a2a3a] hover:bg-[#1a2a3a] hover:text-white transition-colors"
-                >
-                  See the assessment →
-                </a>
-              </div>
-            </div>
-
-            {/* ExitPro live demo — GIF */}
-            <div className="order-1 md:order-2">
-              <a
-                href="https://exitproai.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block relative group overflow-hidden shadow-lg border border-slate-200 hover:border-[#c9a227]/60 transition-colors"
-                aria-label="Open ExitPro"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/ExitPro_Demo_14x9.gif"
-                  alt="ExitPro — IPO readiness platform demo"
-                  className="w-full h-auto block"
-                  loading="lazy"
-                />
-                {/* Subtle gold hover veil */}
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(26,42,58,0.55) 0%, transparent 60%)",
-                  }}
-                />
-                <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 text-[10px] font-medium tracking-[0.18em] uppercase text-white opacity-0 group-hover:opacity-100 transition-opacity bg-[#1a2a3a]/80 px-2.5 py-1">
-                  Open ExitPro →
-                </span>
-              </a>
-              <p className="text-slate-500 font-light italic text-xs mt-3 text-center md:text-left">
-                Built and maintained by Mandy. Updated continuously.
-              </p>
-            </div>
-          </div>
+      {/* NEWSLETTER SUBSCRIBE */}
+      <section className="relative py-20 md:py-28 px-6 bg-[#1a2a3a] scroll-mt-24 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/Hong Kong 1.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-[0.06]"
+            sizes="100vw"
+          />
         </div>
-      </section>
-
-      {/* FINAL INVITATION */}
-      <section className="py-16 md:py-20 px-6 bg-[#1a2a3a]">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-normal mb-3 cta-title-gradient">
-            Open to a conversation
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Newsletter</p>
+          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance" }}>
+            The Fortnightly Operator Brief
           </h2>
-          <p className="text-slate-300 font-light mb-6 text-base">
-            Strategy, collaboration, or just a conversation. No pitch, no pressure — book a slot and we&apos;ll take it from there.
+          <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+            One question to help you show up better. No fluff.
           </p>
-          <BookCallButton
-            label="Book a call"
-            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
-          />
-          <p className="text-slate-400 text-xs mt-5 font-light tracking-wide">
-            SFC Type 6 Licensed · For Builders &amp; Operators · Cross-Border Expertise
-          </p>
-        </div>
-      </section>
-
-      {/* NEWSLETTER */}
-      <section className="py-16 md:py-20 px-6 bg-[#0f1a24]">
-        <div className="max-w-2xl mx-auto">
-          <BeehiivSubscribe
-            variant="hero"
-            heading="The fortnightly operator brief"
-            subheading="One question to sit with. Capital markets signal. No fluff."
-            buttonText="Join"
-            utmCampaign="homepage_hero"
-          />
+          <div className="w-full md:w-[520px] mx-auto">
+            <BeehiivSubscribe
+              variant="hero"
+              buttonText="Subscribe"
+              utmCampaign="homepage_hero"
+            />
+            <p className="text-[#f5e6b3]/70 text-[11px] font-medium tracking-[0.22em] uppercase mt-3 text-center">
+              Free · Fortnightly · Unsubscribe Anytime
+            </p>
+          </div>
         </div>
       </section>
 
@@ -433,14 +353,6 @@ export default function HomePage() {
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
               </a>
-            </div>
-            <div className="flex justify-center">
-              <BeehiivSubscribe
-                variant="compact"
-                heading="Get the operator brief"
-                buttonText="Join"
-                utmCampaign="footer"
-              />
             </div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-1 text-center" style={{ fontFamily: "var(--font-poppins)" }}>
               <p className="text-slate-500 text-xs leading-relaxed mb-2 md:mb-0">© 2026 MandyC. | All Rights Reserved</p>
