@@ -323,7 +323,7 @@ export default function HomePage() {
             The Fortnightly Operator Brief
           </h2>
           <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-            One question to help you show up better. No fluff.
+            One question, every two weeks. For people who do serious work and want to show up better at it.
           </p>
           <div className="w-full md:w-[520px] mx-auto">
             <BeehiivSubscribe

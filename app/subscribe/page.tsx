@@ -86,14 +86,13 @@ export default function SubscribePage() {
             <span className="inline-block w-8 h-px bg-[#f5e6b3]/60 align-middle ml-3" />
           </p>
 
-          <h1 className="gradient-text-hero text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[1.1] font-normal mb-5 tracking-tight" style={{ filter: "drop-shadow(0 2px 18px rgba(0,0,0,0.5))" }}>
+          <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.1] font-normal mb-4 tracking-tight" style={{ filter: "drop-shadow(0 2px 18px rgba(0,0,0,0.5))" }}>
             <span className="md:hidden">The Fortnightly<br />Operator Brief.</span>
             <span className="hidden md:inline">The Fortnightly Operator Brief.</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-white/90 font-light leading-[1.55] mb-10 max-w-xl mx-auto" style={{ textShadow: "0 1px 16px rgba(0,0,0,0.6)" }}>
-            <span className="md:hidden">One question to help you show up better.<br />No fluff.</span>
-            <span className="hidden md:inline">One question to help you show up better. No fluff.</span>
+          <p className="text-sm md:text-base text-white/90 font-light leading-[1.55] mb-8 max-w-xl mx-auto" style={{ textShadow: "0 1px 16px rgba(0,0,0,0.6)" }}>
+            One question, every two weeks. For people who do serious work and want to show up better at it.
           </p>
 
           <div className="max-w-md md:max-w-[520px] mx-auto">
