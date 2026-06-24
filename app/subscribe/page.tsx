@@ -26,7 +26,7 @@ export default function SubscribePage() {
   return (
     <div className={`${cormorantGaramond.variable} ${poppins.variable} min-h-screen`}>
       <style>{`
-        html { scroll-behavior: smooth; }
+        html, body { overflow: hidden; height: 100%; }
         body {
           color: #3d4f5f;
           padding-top: 80px;
@@ -54,7 +54,7 @@ export default function SubscribePage() {
       />
 
       {/* HERO */}
-      <section className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-center px-6 py-20 overflow-hidden bg-[#1a2a3a]">
+      <section className="relative w-full h-[calc(100vh-80px)] flex items-center justify-center px-6 overflow-hidden bg-[#1a2a3a]">
         <Image
           src="/Hong Kong 1.jpg"
           alt=""
@@ -109,34 +109,6 @@ export default function SubscribePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="w-full bg-[#0f1a24] border-t border-[#1a2a3a] py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col items-center gap-5">
-            <div className="flex items-center justify-center gap-6">
-              <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#c9a227] transition-colors" aria-label="YouTube">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </a>
-              <a href="https://www.linkedin.com/in/mandyc852/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#c9a227] transition-colors" aria-label="LinkedIn">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-            </div>
-            <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-1 text-center" style={{ fontFamily: "var(--font-poppins)" }}>
-              <p className="text-slate-500 text-xs leading-relaxed mb-2 md:mb-0">© 2026 MandyC. | All Rights Reserved</p>
-              <span className="hidden md:inline text-slate-600 text-xs"> | </span>
-              <div className="text-slate-500 text-xs flex items-center justify-center gap-2 md:gap-1">
-                <a href="/terms" className="hover:text-[#c9a227] transition-colors">Terms &amp; Conditions</a>
-                <span className="text-slate-600">|</span>
-                <a href="/privacy" className="hover:text-[#c9a227] transition-colors">Privacy Policy</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
