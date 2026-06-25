@@ -105,11 +105,11 @@ export default function HomePage() {
       <section className="relative w-full min-h-[540px] md:min-h-[620px] flex items-center overflow-hidden bg-[#1a2a3a]">
         <div className="absolute right-0 top-0 bottom-0 w-full md:w-[47%] z-0">
           <Image
-            src="/mandyc.jpg"
+            src="/main banner 2.png"
             alt="Mandy Cheung"
             fill
             className="object-cover"
-            style={{ objectPosition: "38% 52%" }}
+            style={{ objectPosition: "55% 25%" }}
             priority
             quality={100}
           />
@@ -243,12 +243,12 @@ export default function HomePage() {
       {/* ABOUT */}
       <section id="about" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-[0.7fr_1.3fr] gap-12 md:gap-16 items-center">
+          <div className="grid md:grid-cols-[0.45fr_1.55fr] gap-12 md:gap-16 items-center">
             {/* Desktop: tall rectangular photo | Mobile: small round avatar */}
             <div>
               {/* Desktop photo — hidden on mobile */}
               <div className="relative aspect-[4/5] rounded-none overflow-hidden shadow-lg hidden md:block">
-                <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
+                <Image src="/Profile pic 5.png" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
               </div>
             </div>
             <div>
