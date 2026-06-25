@@ -35,7 +35,7 @@ const CURRICULUM = [
   { week: 3, title: "Internal Standards", body: "The difference between performing for external validation and operating from internal calibration. Recalibrating your floor." },
   { week: 4, title: "Regulating Under Pressure", body: "State regulation for the moments that matter. Before the meeting. In the room. After the outcome." },
   { week: 5, title: "Execution from the Right State", body: "Decisions from clarity, not reaction. The practice applied to real situations from your week." },
-  { week: 6, title: "Integration", body: "Making it yours. Building the long game. What the practice looks like after the cohort ends." },
+  { week: 6, title: "The Long Game", body: "Making it yours. What the practice looks like after the cohort ends — and how to keep building from here." },
 ]
 
 const FAQ: Array<{ q: string; a: string }> = [
@@ -61,7 +61,7 @@ const FAQ: Array<{ q: string; a: string }> = [
   },
   {
     q: "Will courses be added?",
-    a: "Standalone courses covering specific modules are planned for future release through Lumina Academy. Cohort participants get early access.",
+    a: "Standalone courses on specific modules are planned for future release. Cohort participants get early access.",
   },
 ]
 
@@ -80,7 +80,13 @@ const WHO_THIS_IS_FOR = [
   },
 ]
 
-const JOURNEY_STEPS = ["Awareness", "Identity", "Standards", "Action", "Outcomes"]
+const JOURNEY_STEPS = [
+  { label: "Awareness", sub: "Reading your system" },
+  { label: "Identity", sub: "Closing the lag" },
+  { label: "Standards", sub: "Internal calibration" },
+  { label: "Action", sub: "Executing from clarity" },
+  { label: "Outcomes", sub: "Sustainable results" },
+]
 
 const SHIFTS = [
   { before: "Overthinking before decisions", after: "Clear in the room" },
@@ -123,20 +129,20 @@ function WaitlistForm({ placement }: { placement: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full flex flex-col sm:flex-row gap-3 max-w-[520px] mx-auto">
+    <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3 max-w-[520px] mx-auto">
       <input
         type="email"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Your email"
-        className="flex-1 px-5 py-3.5 text-sm font-light outline-none bg-white/[0.05] border border-white/[0.08] text-[#FAF5EF] placeholder:text-[#78716C] focus:border-[#C4982A]/50 transition-colors"
+        className="w-full px-5 py-3.5 text-sm font-light outline-none bg-white/[0.05] border border-white/[0.08] text-[#FAF5EF] placeholder:text-[#78716C] focus:border-[#C4982A]/50 transition-colors"
         style={ig.body}
       />
       <button
         type="submit"
         disabled={status === "loading"}
-        className="ig-cta whitespace-nowrap disabled:opacity-50 w-full sm:w-auto sm:min-w-[200px]"
+        className="ig-cta whitespace-nowrap disabled:opacity-50 w-full"
       >
         {status === "loading" ? "Joining..." : "Join Waitlist"}
       </button>
@@ -189,13 +195,53 @@ export default function CohortPage() {
         body { background: #1A1714; padding-top: 80px; }
         .scroll-anchor { scroll-margin-top: 96px; }
 
+        /* ── Dark nav override ─────────────────────────── */
+        header.fixed {
+          background: rgba(26, 23, 20, 0.97) !important;
+          border-bottom-color: rgba(196, 152, 42, 0.18) !important;
+          box-shadow: none !important;
+        }
+        header.fixed nav a:not([aria-label]):not(.btn-gold-animated) { color: #A8A29E !important; }
+        header.fixed nav a:not([aria-label]):not(.btn-gold-animated):hover { color: #FAF5EF !important; }
+        header.fixed nav > div > button { color: #A8A29E !important; }
+        header.fixed nav > div > button:hover { color: #FAF5EF !important; }
+        /* Social icons — gold */
+        header.fixed nav a[aria-label] { color: #C4982A !important; }
+        header.fixed nav a[aria-label]:hover { color: #a68a1f !important; }
+        /* Book a Call — black bold on gold */
+        header.fixed nav .btn-gold-animated {
+          color: #1A1714 !important;
+          font-weight: 700 !important;
+        }
+        /* Dropdown panel */
+        header.fixed .absolute .bg-white,
+        header.fixed .absolute > div {
+          background: #1A1714 !important;
+          border-color: rgba(196, 152, 42, 0.2) !important;
+        }
+        header.fixed .absolute a { color: #A8A29E !important; }
+        header.fixed .absolute a:hover {
+          background: rgba(196, 152, 42, 0.06) !important;
+          color: #FAF5EF !important;
+        }
+        /* Mobile menu */
+        header.fixed .md\\:hidden.bg-white,
+        header.fixed .md\\:hidden.border-t {
+          background: #1A1714 !important;
+          border-color: rgba(196, 152, 42, 0.15) !important;
+        }
+        header.fixed .md\\:hidden nav a:not([aria-label]):not(.btn-gold-animated),
+        header.fixed .md\\:hidden nav p { color: #A8A29E !important; }
+        header.fixed button[aria-label="Menu"] svg { color: #C4982A !important; }
+        header.fixed a[aria-label="MandyC. home"] span { color: #FAF5EF !important; }
+
         .ig-cta {
           background: linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%);
           background-size: 200% 200%;
           color: #1A1714;
           font-family: var(--font-poppins), sans-serif;
           font-size: 0.85rem;
-          letter-spacing: 0.12em;
+          letter-spacing: 0.15em;
           text-transform: uppercase;
           padding: 14px 32px;
           border: none;
@@ -247,9 +293,9 @@ export default function CohortPage() {
 
       {/* ── 1. HERO — Full-bleed banner + CTA ── */}
       <section className="bg-[#1A1714]">
-        <div className="relative w-full aspect-[3/2] max-h-[80vh]">
+        <div className="relative w-full aspect-[3/2] max-h-[55vh]">
           <Image
-            src="/hero.png"
+            src="/hero_2.png"
             alt="Mandy Cheung — Inner work. Real outcomes."
             fill
             priority
@@ -262,6 +308,9 @@ export default function CohortPage() {
 
         <div className="relative -mt-8 pb-20 md:pb-28 px-6">
           <div className="max-w-[720px] mx-auto text-center">
+            <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase mb-5" style={ig.body}>
+              Inner Work. Real Outcomes.
+            </p>
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1] text-[#FAF5EF] mb-6 tracking-tight"
               style={ig.headline}
@@ -297,18 +346,18 @@ export default function CohortPage() {
           <h2 className="text-3xl md:text-4xl text-[#FAF5EF] mb-12 text-center md:text-left" style={ig.headline}>
             Who&apos;s running this
           </h2>
-          <div className="grid md:grid-cols-[0.65fr_1.35fr] gap-10 md:gap-14 items-start">
-            <div className="flex justify-center md:block">
-              <div className="relative aspect-[4/5] w-52 md:w-full overflow-hidden">
-                <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="(max-width: 768px) 208px, 35vw" />
+          <div className="flex flex-col items-center md:flex-row md:items-start gap-10 md:gap-14">
+            <div className="flex-shrink-0">
+              <div className="relative w-40 md:w-48 aspect-[4/5] overflow-hidden">
+                <Image src="/MandyC profile pic.png" alt="Mandy Cheung" fill loading="eager" className="object-cover object-top" sizes="(max-width: 768px) 160px, 192px" />
               </div>
             </div>
-            <div className="space-y-5 text-[#A8A29E] text-base leading-[1.85] font-light" style={ig.body}>
+            <div className="space-y-5 text-[#A8A29E] text-base leading-[1.85] font-light text-center md:text-left" style={ig.body}>
               <p>
                 Mandy Cheung. SFC Type 6 licensed capital markets advisor. 10+ years, 60+ transactions across HKEX and NASDAQ. The inner game work comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings.
               </p>
               <p>
-                She built this cohort because the system she uses changed how she operates, and no one was teaching it the way operators actually need it.
+                She built this cohort because the practice she developed changed how she operates under pressure — and creates opportunities from challenges.
               </p>
               <div className="pt-4">
                 <a href="https://mandyc.me/#about" className="text-[#A8A29E] hover:text-[#D4A832] text-sm underline decoration-[#A8A29E]/30 hover:decoration-[#D4A832] underline-offset-4 transition-colors">
@@ -326,7 +375,7 @@ export default function CohortPage() {
           <h2 className="text-3xl md:text-[40px] mb-8 text-center text-[#3D3530] leading-[1.15]" style={ig.headline}>
             You already know what to do.<br />That&apos;s not the problem.
           </h2>
-          <div className="space-y-5 text-[#57534E] text-[15px] leading-[1.9] font-light" style={ig.body}>
+          <div className="space-y-5 text-[#57534E] text-[15px] leading-[1.9] font-light text-center md:text-left" style={ig.body}>
             <p>
               The strategy is clear. The playbook exists. But in the 10 minutes before the meeting, the deal, the decision &mdash; something else runs. An older pattern. A version of you that hasn&apos;t caught up to where you actually are.
             </p>
@@ -361,7 +410,7 @@ export default function CohortPage() {
           <div className="flex justify-center mt-12">
             <button
               onClick={() => document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" })}
-              className="ig-cta w-full sm:w-auto sm:min-w-[260px]"
+              className="ig-cta w-full md:w-[520px]"
             >
               Join Waitlist
             </button>
@@ -419,37 +468,47 @@ export default function CohortPage() {
       </section>
 
       {/* ── 7. VISUAL JOURNEY BAR ── */}
-      <section className="py-20 md:py-28 px-6 bg-[#1A1714]">
-        <div className="max-w-[720px] mx-auto">
+      <section className="py-24 md:py-32 px-6 bg-[#1A1714]">
+        <div className="max-w-[960px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             Five Stages
           </p>
-          <h2 className="text-3xl md:text-4xl text-[#FAF5EF] text-center mb-16" style={ig.headline}>
+          <h2 className="text-3xl md:text-5xl text-[#FAF5EF] text-center mb-20" style={ig.headline}>
             The Practice
           </h2>
 
           {/* Desktop: horizontal */}
-          <div className="hidden md:flex items-start justify-between relative">
-            <div className="absolute top-[15px] left-10 right-10 h-px bg-gradient-to-r from-[#C4982A]/10 via-[#C4982A]/30 to-[#C4982A]/10" />
+          <div className="hidden md:grid grid-cols-5 gap-6 relative">
+            <div className="absolute top-[32px] left-[10%] right-[10%] h-px bg-gradient-to-r from-[#C4982A]/5 via-[#C4982A]/30 to-[#C4982A]/5" />
             {JOURNEY_STEPS.map((step, i) => (
-              <div key={step} className="relative flex flex-col items-center gap-4 z-10">
-                <div className="w-[30px] h-[30px] rounded-full border border-[#C4982A]/50 bg-[#1A1714] flex items-center justify-center">
-                  <span className="text-[#C4982A] text-[11px] font-medium" style={ig.body}>{i + 1}</span>
+              <div key={step.label} className="relative flex flex-col items-center text-center z-10">
+                <div className="w-16 h-16 rounded-full border border-[#C4982A]/40 bg-[#1A1714] flex items-center justify-center mb-5 shadow-[0_0_24px_rgba(196,152,42,0.08)]">
+                  <span className="text-[#C4982A] text-lg" style={{ fontFamily: "var(--font-playfair-display), Georgia, serif", fontStyle: "italic" }}>{i + 1}</span>
                 </div>
-                <span className="text-[#FAF5EF]/80 text-[11px] tracking-[0.18em] uppercase" style={ig.body}>{step}</span>
+                <span className="text-[#FAF5EF] text-sm tracking-[0.14em] uppercase mb-2" style={ig.body}>{step.label}</span>
+                <span className="text-[#A8A29E]/70 text-xs font-light leading-snug" style={ig.body}>{step.sub}</span>
               </div>
             ))}
           </div>
 
-          {/* Mobile: vertical */}
-          <div className="md:hidden relative pl-12">
-            <div className="absolute top-4 bottom-4 left-[14px] w-px bg-gradient-to-b from-[#C4982A]/10 via-[#C4982A]/30 to-[#C4982A]/10" />
+          {/* Mobile: vertical — flex column avoids absolute-positioning overlap */}
+          <div className="md:hidden flex flex-col max-w-xs mx-auto">
             {JOURNEY_STEPS.map((step, i) => (
-              <div key={step} className="relative flex items-center gap-5 py-4">
-                <div className="absolute left-[-34px] w-[30px] h-[30px] rounded-full border border-[#C4982A]/50 bg-[#1A1714] flex items-center justify-center z-10">
-                  <span className="text-[#C4982A] text-[11px] font-medium" style={ig.body}>{i + 1}</span>
+              <div key={step.label} className="flex items-start gap-5">
+                {/* Circle + connector */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full border border-[#C4982A]/40 bg-[#1A1714] flex items-center justify-center shadow-[0_0_20px_rgba(196,152,42,0.08)]">
+                    <span className="text-[#C4982A] text-base" style={{ fontFamily: "var(--font-playfair-display), Georgia, serif", fontStyle: "italic" }}>{i + 1}</span>
+                  </div>
+                  {i < JOURNEY_STEPS.length - 1 && (
+                    <div className="w-px flex-1 min-h-[28px] bg-gradient-to-b from-[#C4982A]/30 to-[#C4982A]/10 my-1" />
+                  )}
                 </div>
-                <span className="text-[#FAF5EF]/80 text-sm tracking-[0.15em] uppercase" style={ig.body}>{step}</span>
+                {/* Text */}
+                <div className="pt-3 pb-6">
+                  <span className="text-[#FAF5EF] text-sm tracking-[0.14em] uppercase block mb-1" style={ig.body}>{step.label}</span>
+                  <span className="text-[#A8A29E]/70 text-xs font-light" style={ig.body}>{step.sub}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -487,9 +546,9 @@ export default function CohortPage() {
           <h2 className="text-3xl md:text-[40px] mb-10 text-center text-[#FAF5EF] leading-[1.15]" style={ig.headline}>
             Built for operators, not audiences
           </h2>
-          <div className="space-y-5 text-[#A8A29E] text-[15px] leading-[1.9] font-light" style={ig.body}>
+          <div className="space-y-5 text-[#A8A29E] text-[15px] leading-[1.9] font-light text-center md:text-left" style={ig.body}>
             <p>
-              Founders, executives, and professionals who perform at a level where the stakes are real &mdash; and who&apos;ve noticed that the constraint isn&apos;t knowledge or strategy. It&apos;s internal.
+              This is not a program for people who collect frameworks. The operators who get the most from it are the ones who&apos;ve already tried everything external &mdash; and know the work is now internal.
             </p>
             <p>
               The practice is sourced from Mandy&apos;s own work: what she actually runs in the 10 minutes before a deal closes, a board speaks, a decision has to be made. It&apos;s been pressure-tested, not theorised.
@@ -523,9 +582,6 @@ export default function CohortPage() {
               Apply for private coaching &rarr;
             </a>
           </div>
-          <p className="text-[#78716C]/60 text-xs mt-6 font-light" style={ig.body}>
-            This is a separate engagement from the cohort. Limited seats.
-          </p>
         </div>
       </section>
 
@@ -559,7 +615,7 @@ export default function CohortPage() {
                 US$2,200
               </p>
               <p className="text-[#A8A29E] font-light leading-[1.75] text-[14.5px] flex-grow" style={ig.body}>
-                Lifetime re-access to future cohorts + 12 months community access (when live).
+                Lifetime re-access to future cohorts + 12 months community access, included when the community opens after Cohort 1.
               </p>
             </div>
           </div>
@@ -617,7 +673,7 @@ export default function CohortPage() {
       {showFloatingButton && (
         <button
           onClick={() => document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" })}
-          className="floating-cta px-5 py-3.5 bg-gradient-to-br from-[#C4982A] to-[#B8891F] hover:from-[#D4A832] hover:to-[#C4982A] text-[#1A1714] text-sm font-semibold tracking-wide flex items-center gap-2 uppercase cursor-pointer border-none transition-all"
+          className="floating-cta px-5 py-3.5 bg-gradient-to-br from-[#C4982A] to-[#B8891F] hover:from-[#D4A832] hover:to-[#C4982A] text-[#1A1714] text-sm font-light tracking-wide flex items-center gap-2 uppercase cursor-pointer border-none transition-all"
           style={ig.body}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

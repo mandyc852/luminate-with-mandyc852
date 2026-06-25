@@ -120,18 +120,26 @@ export default function SubscribePage() {
           border-bottom-color: rgba(196, 152, 42, 0.18) !important;
           box-shadow: none !important;
         }
-        header.fixed nav a {
+        header.fixed nav a:not([aria-label]):not(.btn-gold-animated) {
           color: #A8A29E !important;
         }
-        header.fixed nav a:hover {
+        header.fixed nav a:not([aria-label]):not(.btn-gold-animated):hover {
           color: #FAF5EF !important;
         }
-        /* Work With Me button (nested inside div, not a direct nav child) */
+        /* Work With Me button */
         header.fixed nav > div > button {
           color: #A8A29E !important;
         }
         header.fixed nav > div > button:hover {
           color: #FAF5EF !important;
+        }
+        /* Social icons — gold */
+        header.fixed nav a[aria-label] { color: #C4982A !important; }
+        header.fixed nav a[aria-label]:hover { color: #a68a1f !important; }
+        /* Book a Call — black bold on gold */
+        header.fixed nav .btn-gold-animated {
+          color: #1A1714 !important;
+          font-weight: 700 !important;
         }
         /* Work With Me dropdown panel */
         header.fixed .absolute .bg-white,
@@ -152,7 +160,7 @@ export default function SubscribePage() {
           background: #1A1714 !important;
           border-color: rgba(196, 152, 42, 0.15) !important;
         }
-        header.fixed .md\\:hidden nav a,
+        header.fixed .md\\:hidden nav a:not([aria-label]):not(.btn-gold-animated),
         header.fixed .md\\:hidden nav p {
           color: #A8A29E !important;
         }
@@ -161,7 +169,7 @@ export default function SubscribePage() {
           color: #C4982A !important;
         }
         /* Wordmark text colour */
-        header.fixed a[aria-label] span {
+        header.fixed a[aria-label="MandyC. home"] span {
           color: #FAF5EF !important;
         }
 
