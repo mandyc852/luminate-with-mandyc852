@@ -1,11 +1,18 @@
 import type { Metadata } from "next"
-import { Cormorant_Garamond, Poppins } from "next/font/google"
+import { Cormorant_Garamond, Playfair_Display, Poppins } from "next/font/google"
 import "./globals.css"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
   variable: "--font-cormorant-garamond",
+})
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair-display",
 })
 
 const poppins = Poppins({
@@ -79,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${cormorantGaramond.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${cormorantGaramond.variable} ${playfairDisplay.variable} ${poppins.variable}`}>
       <body className="antialiased">
         {children}
       </body>

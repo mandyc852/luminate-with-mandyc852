@@ -3,7 +3,7 @@
 // ============================================================
 // Reusable subscribe form — posts to /api/subscribe (your proxy).
 // Two variants:
-//   "hero"    — large, centered, for homepage hero or /lane page
+//   "hero"    — large, centered, for homepage hero
 //   "compact" — single-line, for footer or sidebar
 //
 // Usage:
