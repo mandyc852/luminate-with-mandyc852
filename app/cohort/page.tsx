@@ -349,7 +349,7 @@ export default function CohortPage() {
           <div className="flex flex-col items-center md:flex-row md:items-start gap-10 md:gap-14">
             <div className="flex-shrink-0">
               <div className="relative w-40 md:w-48 aspect-[4/5] overflow-hidden">
-                <Image src="/MandyC profile pic.png" alt="Mandy Cheung" fill loading="eager" className="object-cover object-top" sizes="(max-width: 768px) 160px, 192px" />
+                <Image src="/MandyC profile pic 1.png" alt="Mandy Cheung" fill loading="eager" className="object-cover object-top" sizes="(max-width: 768px) 160px, 192px" />
               </div>
             </div>
             <div className="space-y-5 text-[#A8A29E] text-base leading-[1.85] font-light text-center md:text-left" style={ig.body}>

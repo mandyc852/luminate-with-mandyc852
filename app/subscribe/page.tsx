@@ -222,7 +222,7 @@ export default function SubscribePage() {
           position: absolute;
           inset: 0;
           pointer-events: none;
-          background: linear-gradient(to right, rgba(15,13,11,0) 25%, rgba(15,13,11,0.5) 65%, #0F0D0B 100%);
+          background: linear-gradient(to left, rgba(15,13,11,0) 25%, rgba(15,13,11,0.5) 65%, #0F0D0B 100%);
         }
 
         /* ── Responsive split layout ─────────────────────── */
@@ -289,22 +289,9 @@ export default function SubscribePage() {
       />
 
       <div className="subscribe-layout">
-        {/* LEFT — editorial photo */}
-        <div className="subscribe-img-col">
-          <Image
-            src="/Subscribe background.png"
-            alt=""
-            fill
-            priority
-            unoptimized
-            style={{ objectFit: "cover", objectPosition: "20% center" }}
-            sizes="(max-width: 767px) 100vw, 50vw"
-          />
-          <div className="subscribe-img-gradient" />
-        </div>
-
-        {/* RIGHT — copy + form */}
+        {/* LEFT — copy + form */}
         <div className="subscribe-copy-col">
+
           <div className="subscribe-copy-inner">
 
             {/* Section label */}
@@ -369,6 +356,20 @@ export default function SubscribePage() {
             </p>
 
           </div>
+        </div>
+
+        {/* RIGHT — editorial photo */}
+        <div className="subscribe-img-col">
+          <Image
+            src="/subscribe photo.png"
+            alt=""
+            fill
+            priority
+            unoptimized
+            style={{ objectFit: "cover", objectPosition: "80% center" }}
+            sizes="(max-width: 767px) 100vw, 50vw"
+          />
+          <div className="subscribe-img-gradient" />
         </div>
       </div>
     </div>
