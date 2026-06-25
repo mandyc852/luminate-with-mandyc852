@@ -256,6 +256,10 @@ export default function SubscribePage() {
             flex: none;
             height: 45vh;
             width: 100%;
+            order: -1;
+          }
+          .subscribe-copy-col {
+            order: 1;
           }
           /* Mobile gradient: fade bottom edge into content below */
           .subscribe-img-gradient {
