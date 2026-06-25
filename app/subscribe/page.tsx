@@ -1,48 +1,275 @@
-import type { Metadata } from "next"
+"use client"
+
+import { useState, FormEvent } from "react"
 import Image from "next/image"
-import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
-import BeehiivSubscribe from "@/components/BeehiivSubscribe"
 
-const cormorantGaramond = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-cormorant-garamond",
-})
+const igHeadline: React.CSSProperties = {
+  fontFamily: "var(--font-playfair-display), Georgia, serif",
+  fontStyle: "italic",
+  fontWeight: 400,
+}
+const igBody: React.CSSProperties = {
+  fontFamily: "var(--font-poppins), sans-serif",
+}
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-poppins",
-})
+function SubscribeForm() {
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [errorMsg, setErrorMsg] = useState("")
 
-export const metadata: Metadata = {
-  title: "Subscribe | MandyC.",
-  description:
-    "The fortnightly operator brief — one question to sit with, capital markets signal, no fluff.",
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault()
+    if (!email.trim()) return
+    setStatus("loading")
+    setErrorMsg("")
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          utm_source: "mandyc.me",
+          utm_medium: "website",
+          utm_campaign: "subscribe_page",
+          referring_site:
+            typeof window !== "undefined" ? window.location.href : "https://mandyc.me",
+        }),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error || "Something went wrong.")
+      }
+      setStatus("success")
+      setEmail("")
+    } catch (err: unknown) {
+      setStatus("error")
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.")
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <p
+        style={{
+          ...igBody,
+          color: "#C4982A",
+          fontSize: "0.9rem",
+          fontWeight: 500,
+          letterSpacing: "0.05em",
+          padding: "14px 0",
+        }}
+      >
+        You&rsquo;re in. Check your inbox.
+      </p>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px", width: "100%" }}>
+      <input
+        type="email"
+        required
+        placeholder="your@email.com"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        disabled={status === "loading"}
+        className="ig-subscribe-input"
+        style={{
+          ...igBody,
+          width: "100%",
+          background: "rgba(255, 248, 240, 0.06)",
+          border: "1px solid rgba(196, 152, 42, 0.2)",
+          color: "#FAF5EF",
+          fontSize: "1rem",
+          padding: "14px 16px",
+          borderRadius: "0",
+          outline: "none",
+          boxSizing: "border-box",
+          transition: "border-color 0.2s ease",
+        }}
+      />
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="ig-cta-subscribe"
+        style={{ width: "100%" }}
+      >
+        {status === "loading" ? "Joining…" : "JOIN THE BRIEF"}
+      </button>
+      {status === "error" && (
+        <p style={{ ...igBody, color: "#F87171", fontSize: "0.8rem", marginTop: "4px" }}>{errorMsg}</p>
+      )}
+    </form>
+  )
 }
 
 export default function SubscribePage() {
   return (
-    <div className={`${cormorantGaramond.variable} ${poppins.variable} min-h-screen`}>
+    <div>
       <style>{`
-        html, body { overflow: hidden; height: 100%; }
         body {
-          color: #3d4f5f;
+          background: #0F0D0B;
           padding-top: 80px;
+          margin: 0;
         }
-        h1, h2, h3 {
-          font-family: var(--font-cormorant-garamond), serif;
-          font-weight: 400;
-          color: #1a2a3a;
-          letter-spacing: -0.02em;
+
+        /* ── Dark nav override ─────────────────────────── */
+        header.fixed {
+          background: rgba(15, 13, 11, 0.97) !important;
+          border-bottom-color: rgba(196, 152, 42, 0.18) !important;
+          box-shadow: none !important;
         }
-        p, a, button, label, input { font-family: var(--font-poppins), sans-serif; }
-        .gradient-text-hero {
-          background: linear-gradient(135deg, #FFFFFF 0%, #f5e6b3 40%, #c9a227 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+        header.fixed nav a {
+          color: #A8A29E !important;
+        }
+        header.fixed nav a:hover {
+          color: #FAF5EF !important;
+        }
+        /* Work With Me button (nested inside div, not a direct nav child) */
+        header.fixed nav > div > button {
+          color: #A8A29E !important;
+        }
+        header.fixed nav > div > button:hover {
+          color: #FAF5EF !important;
+        }
+        /* Work With Me dropdown panel */
+        header.fixed .absolute .bg-white,
+        header.fixed .absolute > div {
+          background: #1A1714 !important;
+          border-color: rgba(196, 152, 42, 0.2) !important;
+        }
+        header.fixed .absolute a {
+          color: #A8A29E !important;
+        }
+        header.fixed .absolute a:hover {
+          background: rgba(196, 152, 42, 0.06) !important;
+          color: #FAF5EF !important;
+        }
+        /* Mobile menu panel */
+        header.fixed .md\\:hidden.bg-white,
+        header.fixed .md\\:hidden.border-t {
+          background: #1A1714 !important;
+          border-color: rgba(196, 152, 42, 0.15) !important;
+        }
+        header.fixed .md\\:hidden nav a,
+        header.fixed .md\\:hidden nav p {
+          color: #A8A29E !important;
+        }
+        /* Hamburger icon — gold */
+        header.fixed button[aria-label="Menu"] svg {
+          color: #C4982A !important;
+        }
+        /* Wordmark text colour */
+        header.fixed a[aria-label] span {
+          color: #FAF5EF !important;
+        }
+
+        /* ── Form elements ──────────────────────────────── */
+        .ig-subscribe-input:focus {
+          border-color: rgba(196, 152, 42, 0.55) !important;
+          box-shadow: 0 0 0 3px rgba(196, 152, 42, 0.08);
+        }
+        .ig-subscribe-input::placeholder {
+          color: #78716C;
+        }
+        .ig-subscribe-input:disabled {
+          opacity: 0.6;
+        }
+
+        /* ── CTA button ─────────────────────────────────── */
+        .ig-cta-subscribe {
+          background: linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%);
+          background-size: 200% 200%;
+          color: #1A1714;
+          font-family: var(--font-poppins), sans-serif;
+          font-size: 0.85rem;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          padding: 14px 32px;
+          border: none;
+          border-radius: 0;
+          font-weight: 500;
+          cursor: pointer;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          box-shadow: 0 4px 14px rgba(26, 23, 20, 0.25), 0 2px 8px rgba(196, 152, 42, 0.2);
+        }
+        .ig-cta-subscribe:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(26, 23, 20, 0.35), 0 4px 15px rgba(196, 152, 42, 0.3);
+          animation: igShimmer 1.5s ease infinite;
+        }
+        .ig-cta-subscribe:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+        @keyframes igShimmer {
+          0%   { background-position: 200% 0%; }
+          100% { background-position: -200% 0%; }
+        }
+
+        /* ── Image gradient overlay ──────────────────────── */
+        /* Desktop: fade right edge into content column */
+        .subscribe-img-gradient {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(to right, rgba(15,13,11,0) 25%, rgba(15,13,11,0.5) 65%, #0F0D0B 100%);
+        }
+
+        /* ── Responsive split layout ─────────────────────── */
+        .subscribe-layout {
+          display: flex;
+          min-height: calc(100vh - 80px);
+        }
+        .subscribe-img-col {
+          flex: 0 0 50%;
+          position: relative;
+          overflow: hidden;
+        }
+        .subscribe-copy-col {
+          flex: 0 0 50%;
+          background: #0F0D0B;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 48px;
+        }
+        .subscribe-copy-inner {
+          max-width: 460px;
+          width: 100%;
+        }
+
+        @media (max-width: 767px) {
+          .subscribe-layout {
+            flex-direction: column;
+          }
+          .subscribe-img-col {
+            flex: none;
+            height: 45vh;
+            width: 100%;
+          }
+          /* Mobile gradient: fade bottom edge into content below */
+          .subscribe-img-gradient {
+            background: linear-gradient(to bottom, rgba(15,13,11,0) 20%, rgba(15,13,11,0.6) 65%, #0F0D0B 100%);
+          }
+          .subscribe-copy-col {
+            flex: none;
+            width: 100%;
+            padding: 36px 24px;
+            min-height: auto;
+          }
+          .subscribe-copy-inner {
+            max-width: 100%;
+            text-align: center;
+          }
+          /* Keep the form inputs left-aligned for usability */
+          .subscribe-copy-inner form {
+            text-align: left;
+          }
+          .subscribe-copy-inner > p:last-child {
+            text-align: center;
+          }
         }
       `}</style>
 
@@ -53,62 +280,89 @@ export default function SubscribePage() {
         ]}
       />
 
-      {/* HERO */}
-      <section className="relative w-full h-[calc(100vh-80px)] flex items-center justify-center px-6 overflow-hidden bg-[#1a2a3a]">
-        <Image
-          src="/Hong Kong 1.jpg"
-          alt=""
-          fill
-          priority
-          quality={90}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a2a3a]/90 via-[#1a2a3a]/85 to-[#1a2a3a]/92 pointer-events-none" />
-
-        <div className="relative z-10 max-w-2xl md:max-w-3xl mx-auto text-center">
-          <div className="flex justify-center mb-5">
-            <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-[#c9a227]/70 ring-offset-4 ring-offset-[#1a2a3a]/80">
-              <Image
-                src="/IMG_2269.JPG"
-                alt="Mandy Cheung"
-                fill
-                priority
-                className="object-cover"
-                sizes="96px"
-              />
-            </div>
-          </div>
-
-          <p className="text-[#f5e6b3] text-[11px] font-medium tracking-[0.32em] uppercase mb-6" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
-            <span className="inline-block w-8 h-px bg-[#f5e6b3]/60 align-middle mr-3" />
-            MandyC.
-            <span className="inline-block w-8 h-px bg-[#f5e6b3]/60 align-middle ml-3" />
-          </p>
-
-          <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.1] font-normal mb-4 tracking-tight" style={{ filter: "drop-shadow(0 2px 18px rgba(0,0,0,0.5))" }}>
-            <span className="md:hidden">The Fortnightly<br />Operator Brief.</span>
-            <span className="hidden md:inline">The Fortnightly Operator Brief.</span>
-          </h1>
-
-          <p className="text-sm md:text-base text-white/90 font-light leading-[1.55] mb-8 max-w-xl mx-auto" style={{ textShadow: "0 1px 16px rgba(0,0,0,0.6)" }}>
-            One question, every two weeks. For people who do serious work and want to show up better at it.
-          </p>
-
-          <div className="max-w-md md:max-w-[520px] mx-auto">
-            <BeehiivSubscribe
-              variant="hero"
-              buttonText="Subscribe"
-              utmCampaign="subscribe_page"
-            />
-          </div>
-
-          <p className="text-[#f5e6b3]/70 text-[11px] font-medium tracking-[0.22em] uppercase mt-3" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}>
-            Free · Fortnightly · Unsubscribe Anytime
-          </p>
+      <div className="subscribe-layout">
+        {/* LEFT — editorial photo */}
+        <div className="subscribe-img-col">
+          <Image
+            src="/Subscribe background.png"
+            alt=""
+            fill
+            priority
+            unoptimized
+            style={{ objectFit: "cover", objectPosition: "20% center" }}
+            sizes="(max-width: 767px) 100vw, 50vw"
+          />
+          <div className="subscribe-img-gradient" />
         </div>
-      </section>
 
+        {/* RIGHT — copy + form */}
+        <div className="subscribe-copy-col">
+          <div className="subscribe-copy-inner">
+
+            {/* Section label */}
+            <p
+              style={{
+                ...igBody,
+                fontSize: "0.68rem",
+                fontWeight: 500,
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "#C4982A",
+                marginBottom: "20px",
+              }}
+            >
+              The Fortnightly Operator Brief
+            </p>
+
+            {/* Headline */}
+            <h1
+              style={{
+                ...igHeadline,
+                fontSize: "clamp(2rem, 3vw, 2.4rem)",
+                lineHeight: 1.2,
+                color: "#FAF5EF",
+                letterSpacing: "-0.01em",
+                marginBottom: "20px",
+              }}
+            >
+              One question.<br />Every two weeks.
+            </h1>
+
+            {/* Body */}
+            <p
+              style={{
+                ...igBody,
+                fontSize: "1rem",
+                lineHeight: 1.75,
+                color: "#A8A29E",
+                fontWeight: 300,
+                marginBottom: "32px",
+              }}
+            >
+              For people who do serious work and want to show up better at it.
+              No frameworks. No productivity hacks. One question worth sitting with.
+            </p>
+
+            {/* Subscribe form */}
+            <SubscribeForm />
+
+            {/* Micro-text */}
+            <p
+              style={{
+                ...igBody,
+                fontSize: "0.75rem",
+                color: "#78716C",
+                textAlign: "center",
+                marginTop: "16px",
+                letterSpacing: "0.04em",
+              }}
+            >
+              Free · Fortnightly · Unsubscribe anytime
+            </p>
+
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

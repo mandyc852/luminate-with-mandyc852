@@ -136,7 +136,7 @@ function WaitlistForm({ placement }: { placement: string }) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="ig-cta whitespace-nowrap disabled:opacity-50"
+        className="ig-cta whitespace-nowrap disabled:opacity-50 w-full sm:w-auto sm:min-w-[200px]"
       >
         {status === "loading" ? "Joining..." : "Join Waitlist"}
       </button>
@@ -145,17 +145,20 @@ function WaitlistForm({ placement }: { placement: string }) {
   )
 }
 
-function FAQItem({ q, a }: { q: string; a: string }) {
+function FAQItem({ q, a, variant = "light" }: { q: string; a: string; variant?: "light" | "dark" }) {
   const [open, setOpen] = useState(false)
+  const qColor = variant === "dark" ? "text-[#FAF5EF]" : "text-[#3D3530]"
+  const aColor = variant === "dark" ? "text-[#A8A29E]" : "text-[#57534E]"
+  const borderColor = variant === "dark" ? "border-[#C4982A]/15" : "border-[#3D3530]/10"
   return (
-    <div className="border-b border-[#C4982A]/15 last:border-b-0">
+    <div className={`border-b ${borderColor} last:border-b-0`}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         className="w-full flex items-start justify-between gap-6 py-6 text-left"
         aria-expanded={open}
       >
-        <span className="text-base md:text-lg text-[#3D3530] font-normal" style={ig.headline}>{q}</span>
+        <span className={`text-base md:text-lg ${qColor} font-normal`} style={ig.headline}>{q}</span>
         <svg
           className={`flex-shrink-0 w-4 h-4 mt-2 text-[#C4982A] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
@@ -164,7 +167,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         </svg>
       </button>
       {open && (
-        <div className="pb-6 pr-8 text-[#57534E] font-light leading-[1.85] text-[15px]" style={ig.body}><p>{a}</p></div>
+        <div className={`pb-6 pr-8 ${aColor} font-light leading-[1.85] text-[15px]`} style={ig.body}><p>{a}</p></div>
       )}
     </div>
   )
@@ -263,7 +266,7 @@ export default function CohortPage() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1] text-[#FAF5EF] mb-6 tracking-tight"
               style={ig.headline}
             >
-              Your next level is not a strategy problem.
+              Your next level is not<br />a strategy problem.
             </h1>
             <p className="text-base md:text-lg text-[#A8A29E] font-light leading-[1.6] mb-10 max-w-lg mx-auto" style={ig.body}>
               A 6-week live cohort for operators who already know the strategy &mdash;<br />and keep hitting the same internal wall.
@@ -334,12 +337,15 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 4. WHO THIS IS FOR (NEW) ── */}
+      {/* ── 4. WHO THIS IS FOR ── */}
       <section className="py-20 md:py-28 px-6 bg-[#1A1714]">
         <div className="max-w-[1080px] mx-auto">
-          <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-12" style={ig.body}>
+          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             Who This Is For
           </p>
+          <h2 className="text-3xl md:text-4xl text-[#FAF5EF] text-center mb-12" style={ig.headline}>
+            For the operator who already knows.
+          </h2>
           <div className="grid md:grid-cols-3 gap-5">
             {WHO_THIS_IS_FOR.map((card) => (
               <div key={card.lead} className="ig-card">
@@ -390,22 +396,22 @@ export default function CohortPage() {
       </section>
 
       {/* ── 6. THE CURRICULUM ── */}
-      <section className="py-20 md:py-28 px-6 bg-[#1A1714]">
+      <section className="py-20 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-[720px] mx-auto">
-          <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
+          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             The Curriculum
           </p>
-          <h2 className="text-3xl md:text-4xl mb-14 text-center text-[#FAF5EF]" style={ig.headline}>
+          <h2 className="text-3xl md:text-4xl mb-14 text-center text-[#3D3530]" style={ig.headline}>
             What we cover
           </h2>
           <div className="space-y-0">
             {CURRICULUM.map((w) => (
-              <div key={w.week} className="border-t border-white/[0.06] py-7 first:border-t-0">
+              <div key={w.week} className="border-t border-[#3D3530]/10 py-7 first:border-t-0">
                 <div className="flex items-baseline gap-4 mb-2">
-                  <span className="text-[#C4982A] text-sm font-medium tracking-wide" style={ig.body}>Week {w.week}</span>
-                  <span className="text-[#FAF5EF] text-base font-medium" style={ig.body}>{w.title}</span>
+                  <span className="text-[#C4982A] text-sm font-medium tracking-wide flex-shrink-0" style={ig.body}>Week {w.week}</span>
+                  <span className="text-[#3D3530] text-base font-medium" style={ig.body}>{w.title}</span>
                 </div>
-                <p className="text-[#A8A29E] font-light leading-[1.8] text-[14.5px] pl-[68px]" style={ig.body}>{w.body}</p>
+                <p className="text-[#57534E] font-light leading-[1.8] text-[14.5px] pl-[68px]" style={ig.body}>{w.body}</p>
               </div>
             ))}
           </div>
@@ -415,9 +421,12 @@ export default function CohortPage() {
       {/* ── 7. VISUAL JOURNEY BAR ── */}
       <section className="py-20 md:py-28 px-6 bg-[#1A1714]">
         <div className="max-w-[720px] mx-auto">
-          <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-16" style={ig.body}>
-            The Practice
+          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
+            Five Stages
           </p>
+          <h2 className="text-3xl md:text-4xl text-[#FAF5EF] text-center mb-16" style={ig.headline}>
+            The Practice
+          </h2>
 
           {/* Desktop: horizontal */}
           <div className="hidden md:flex items-start justify-between relative">
@@ -447,12 +456,15 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 7. THE SHIFT — Before / After (NEW) ── */}
+      {/* ── 8. THE SHIFT — Before / After ── */}
       <section className="py-20 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-[680px] mx-auto">
-          <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-14" style={ig.body}>
-            The Shift
+          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
+            Before &amp; After
           </p>
+          <h2 className="text-3xl md:text-4xl text-[#3D3530] text-center mb-14" style={ig.headline}>
+            The Shift
+          </h2>
           <div className="relative">
             <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-[#C4982A]/20" />
             <div className="grid grid-cols-2 gap-x-8 md:gap-x-14 gap-y-8">
@@ -558,16 +570,16 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 10. FAQ ── */}
-      <section id="faq" className="scroll-anchor py-20 md:py-28 px-6 bg-[#F5F0EB]">
+      {/* ── 12. FAQ ── */}
+      <section id="faq" className="scroll-anchor py-20 md:py-28 px-6 bg-[#1A1714]">
         <div className="max-w-[680px] mx-auto">
-          <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>FAQ</p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center text-[#3D3530]" style={ig.headline}>
+          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>FAQ</p>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center text-[#FAF5EF]" style={ig.headline}>
             Common questions
           </h2>
-          <div className="bg-white/70 border border-[#E7E5E4] px-8 md:px-10">
+          <div className="bg-white/[0.03] border border-white/[0.06] px-8 md:px-10">
             {FAQ.map((item) => (
-              <FAQItem key={item.q} q={item.q} a={item.a} />
+              <FAQItem key={item.q} q={item.q} a={item.a} variant="dark" />
             ))}
           </div>
         </div>
