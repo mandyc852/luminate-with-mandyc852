@@ -9,7 +9,7 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/mandyc852/"
 
 const WORK_LINKS = [
   { label: "IPO Advisory", href: "/ipo" },
-  { label: "LPF", href: "/fund" },
+  { label: "LPF Launch", href: "/fund" },
   { label: "Inner Game Cohort", href: "/cohort" },
 ]
 
