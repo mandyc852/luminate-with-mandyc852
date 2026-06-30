@@ -411,10 +411,10 @@ export default function HomePage() {
       {/* NEWSLETTER SUBSCRIBE */}
       <section className="py-12 md:py-16 px-6 bg-[#1a2a3a]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl mb-4 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance" }}>
+          <h2 className="text-3xl md:text-5xl mb-6 font-normal leading-[1.12] !text-white" style={{ textWrap: "balance" }}>
             The Fortnightly Operator Brief
           </h2>
-          <p className="text-white/80 font-light leading-relaxed mb-6 max-w-2xl mx-auto">
+          <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
             One question, every two weeks.
             <br />
             For people who do serious work and want to show up better at it.

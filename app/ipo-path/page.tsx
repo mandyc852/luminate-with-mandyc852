@@ -402,19 +402,8 @@ export default function IPOPathPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a2a3a]/88 via-[#1a2a3a]/80 to-[#1a2a3a]/92 pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          {/* Mandy photo — small, circular, anchors the offer to a person */}
-          <div className="flex justify-center mb-5">
-            <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-[#c9a227]/70 ring-offset-4 ring-offset-[#1a2a3a]/80">
-              <Image
-                src="/Profile pic 4.png"
-                alt="Mandy Cheung"
-                fill
-                priority
-                className="object-cover object-[50%_15%] scale-[1.3]"
-                sizes="96px"
-              />
-            </div>
-          </div>
+          {/* Spacer where photo circle used to be */}
+          <div className="mb-2" />
 
           <p className="text-[#f5e6b3] text-[11px] font-medium tracking-[0.32em] uppercase mb-5" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
             <span className="inline-block w-8 h-px bg-[#f5e6b3]/60 align-middle mr-3" />
@@ -892,7 +881,7 @@ export default function IPOPathPage() {
             <a
               href={STRIPE_PAYMENT_LINK}
               onClick={trackBookClick}
-              className="w-full flex items-center justify-center whitespace-nowrap px-10 py-5 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+              className="w-full flex items-center justify-center whitespace-nowrap px-10 py-[14px] rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
             >
               Start the 30-Day Assessment
             </a>

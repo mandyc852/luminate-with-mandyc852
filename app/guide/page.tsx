@@ -43,25 +43,13 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
           style={{ backgroundColor: "#FAF7F3" }}
         >
           <div className="max-w-lg w-full">
-            <div className="mb-4 text-center flex justify-center items-center">
-              <div
-                className="flex-shrink-0"
-                style={{
-                  width: 320,
-                  height: 106,
-                  background: "linear-gradient(to right, #c9a227, #d4b84a, #1a2a3a)",
-                  WebkitMaskImage: "url(/Logo%202%20black.png)",
-                  WebkitMaskSize: "contain",
-                  WebkitMaskRepeat: "no-repeat",
-                  WebkitMaskPosition: "center",
-                  maskImage: "url(/Logo%202%20black.png)",
-                  maskSize: "contain",
-                  maskRepeat: "no-repeat",
-                  maskPosition: "center",
-                }}
-                role="img"
-                aria-label="MandyC."
-              />
+            <div className="mb-4 text-center">
+              <span
+                className="text-[32px] tracking-[0.18em]"
+                style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontWeight: 300, color: "#1A2A3A" }}
+              >
+                MANDYC<span style={{ color: "#c9a227" }}>.</span>
+              </span>
             </div>
 
             <p
@@ -133,8 +121,8 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-none bg-[#C9A227] text-white font-medium text-base hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
-                style={{ fontFamily: "var(--font-poppins), sans-serif", letterSpacing: "0.15em" }}
+                className="w-full py-[14px] rounded-none text-[#1a2a3a] font-medium text-sm hover:shadow-[0_8px_25px_rgba(26,42,58,0.35),0_4px_15px_rgba(201,162,39,0.3)] hover:-translate-y-[2px] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
+                style={{ fontFamily: "var(--font-poppins), sans-serif", letterSpacing: "0.15em", background: "linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%)", boxShadow: "0 4px 14px rgba(26,42,58,0.25), 0 2px 8px rgba(201,162,39,0.2)" }}
               >
                 {isSubmitting ? "Sending…" : "GET THE FREE GUIDE"}
               </button>
@@ -249,10 +237,10 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
       </div>
 
       {/* CTA Bridge */}
-      <div className="w-full bg-[#0F1A24] border-t border-[#C9A227]/20 py-6">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="w-full bg-[#0F1A24] border-t border-[#C9A227]/20 py-14 md:py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
           <h3
-            className="text-white text-xl md:text-2xl text-center md:text-left"
+            className="text-white text-2xl md:text-3xl mb-6 leading-[1.15]"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Ready to have the conversation?
@@ -261,8 +249,8 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-none bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#d4b84a] transition-all duration-300 whitespace-nowrap"
-            style={{ fontFamily: "Poppins, sans-serif" }}
+            className="inline-flex items-center justify-center px-10 py-[14px] rounded-none text-[#1a2a3a] text-sm font-medium tracking-[0.12em] uppercase hover:-translate-y-[2px] transition-all duration-300 whitespace-nowrap"
+            style={{ fontFamily: "Poppins, sans-serif", background: "linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%)", boxShadow: "0 4px 14px rgba(26,42,58,0.25), 0 2px 8px rgba(201,162,39,0.2)" }}
           >
             Book a Free Strategy Call
           </a>
@@ -296,25 +284,13 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
     <div className="min-h-screen" style={{ backgroundColor: "#FAF7F3" }}>
       <div className="px-6 pt-8 pb-10">
         <div className="max-w-sm mx-auto">
-          <div className="mb-6 text-center flex justify-center items-center">
-            <div
-              className="flex-shrink-0"
-              style={{
-                width: 280,
-                height: 93,
-                background: "linear-gradient(to right, #c9a227, #d4b84a, #1a2a3a)",
-                WebkitMaskImage: "url(/Logo%202%20black.png)",
-                WebkitMaskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskImage: "url(/Logo%202%20black.png)",
-                maskSize: "contain",
-                maskRepeat: "no-repeat",
-                maskPosition: "center",
-              }}
-              role="img"
-              aria-label="MandyC."
-            />
+          <div className="mb-6 text-center">
+              <span
+                className="text-[28px] tracking-[0.18em]"
+                style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontWeight: 300, color: "#1A2A3A" }}
+              >
+                MANDYC<span style={{ color: "#c9a227" }}>.</span>
+              </span>
           </div>
 
           <p
@@ -386,7 +362,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 rounded-none bg-[#C9A227] text-white font-medium text-base hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
+              className="w-full py-[14px] rounded-none bg-[#C9A227] text-white font-medium text-sm hover:shadow-[0_0_24px_rgba(201,162,39,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
               style={{ fontFamily: "var(--font-poppins), sans-serif", letterSpacing: "0.15em" }}
             >
               {isSubmitting ? "Sending…" : "GET THE FREE GUIDE"}
@@ -496,10 +472,10 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
       </div>
 
       {/* CTA Bridge (mobile) */}
-      <div className="w-full bg-[#0F1A24] py-8 px-6">
+      <div className="w-full bg-[#0F1A24] py-14 px-6">
         <div className="max-w-sm mx-auto text-center">
           <h3
-            className="text-white text-xl mb-4"
+            className="text-white text-2xl mb-6 leading-[1.15]"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Ready to have the conversation?
@@ -508,8 +484,8 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full px-6 py-3 rounded-none bg-[#C9A227] text-[#0F1A24] text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#d4b84a] transition-all duration-300"
-            style={{ fontFamily: "Poppins, sans-serif" }}
+            className="inline-flex items-center justify-center w-full px-6 py-[14px] rounded-none text-[#1a2a3a] text-sm font-medium tracking-[0.12em] uppercase hover:-translate-y-[2px] transition-all duration-300"
+            style={{ fontFamily: "Poppins, sans-serif", background: "linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%)", boxShadow: "0 4px 14px rgba(26,42,58,0.25), 0 2px 8px rgba(201,162,39,0.2)" }}
           >
             Book a Free Strategy Call
           </a>

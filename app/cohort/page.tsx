@@ -544,7 +544,7 @@ export default function CohortPage() {
       <section className="py-14 md:py-28 px-6 bg-[#1A1714]">
         <div className="max-w-[680px] mx-auto">
           <h2 className="text-3xl md:text-[40px] mb-10 text-center text-[#FAF5EF] leading-[1.15]" style={ig.headline}>
-            Built for operators, not audiences
+            Built for operators,{" "}<br className="md:hidden" />not audiences
           </h2>
           <div className="space-y-5 text-[#A8A29E] text-[15px] leading-[1.9] font-light text-center md:text-left" style={ig.body}>
             <p>
@@ -645,10 +645,10 @@ export default function CohortPage() {
       <section id="final-cta" className="py-14 md:py-28 px-6 bg-[#1A1714]">
         <div className="max-w-[680px] mx-auto text-center">
           <h2 className="text-3xl md:text-5xl mb-6 text-[#FAF5EF] leading-[1.12]" style={ig.headline}>
-            Cohort 1 opens September 2026.
+            Cohort 1 opens{" "}<br className="md:hidden" />September 2026.
           </h2>
           <p className="text-[#A8A29E] font-light mb-12 text-base md:text-lg" style={ig.body}>
-            12 seats. Waitlist gets first access and early pricing.
+            12 seats.{" "}<br className="md:hidden" />Waitlist gets first access and early pricing.
           </p>
 
           <div className="flex flex-col items-center gap-4 max-w-2xl mx-auto">
