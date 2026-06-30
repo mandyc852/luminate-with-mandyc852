@@ -121,8 +121,8 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-[14px] rounded-none text-[#1a2a3a] font-medium text-sm hover:shadow-[0_8px_25px_rgba(26,42,58,0.35),0_4px_15px_rgba(201,162,39,0.3)] hover:-translate-y-[2px] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed uppercase"
-                style={{ fontFamily: "var(--font-poppins), sans-serif", letterSpacing: "0.15em", background: "linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%)", boxShadow: "0 4px 14px rgba(26,42,58,0.25), 0 2px 8px rgba(201,162,39,0.2)" }}
+                className="w-full py-[14px] rounded-none text-sm disabled:opacity-70 disabled:cursor-not-allowed uppercase btn-gold-guide"
+                style={{ fontFamily: "var(--font-poppins), sans-serif", letterSpacing: "0.15em" }}
               >
                 {isSubmitting ? "Sending…" : "GET THE FREE GUIDE"}
               </button>
@@ -249,8 +249,8 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-10 py-[14px] rounded-none text-[#1a2a3a] text-sm font-medium tracking-[0.12em] uppercase hover:-translate-y-[2px] transition-all duration-300 whitespace-nowrap"
-            style={{ fontFamily: "Poppins, sans-serif", background: "linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%)", boxShadow: "0 4px 14px rgba(26,42,58,0.25), 0 2px 8px rgba(201,162,39,0.2)" }}
+            className="inline-flex items-center justify-center px-10 py-[14px] rounded-none text-sm tracking-[0.12em] uppercase whitespace-nowrap btn-gold-guide"
+            style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Book a Free Strategy Call
           </a>
@@ -484,8 +484,8 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             href="https://tidycal.com/mandyc852/30-minute-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full px-6 py-[14px] rounded-none text-[#1a2a3a] text-sm font-medium tracking-[0.12em] uppercase hover:-translate-y-[2px] transition-all duration-300"
-            style={{ fontFamily: "Poppins, sans-serif", background: "linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%)", boxShadow: "0 4px 14px rgba(26,42,58,0.25), 0 2px 8px rgba(201,162,39,0.2)" }}
+            className="inline-flex items-center justify-center w-full px-6 py-[14px] rounded-none text-sm tracking-[0.12em] uppercase btn-gold-guide"
+            style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Book a Free Strategy Call
           </a>
@@ -561,6 +561,27 @@ export default function GuidePage() {
 
   return (
     <div className="relative">
+      <style jsx global>{`
+        .btn-gold-guide {
+          position: relative;
+          background: linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%);
+          background-size: 200% 200%;
+          color: #1a2a3a;
+          box-shadow: 0 4px 14px rgba(26, 42, 58, 0.25), 0 2px 8px rgba(201, 162, 39, 0.2);
+          font-weight: 500;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          overflow: hidden;
+        }
+        .btn-gold-guide:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(26, 42, 58, 0.35), 0 4px 15px rgba(201, 162, 39, 0.3);
+          animation: shimmerGuide 1.5s ease infinite;
+        }
+        @keyframes shimmerGuide {
+          0% { background-position: 200% 0%; }
+          100% { background-position: -200% 0%; }
+        }
+      `}</style>
       <div className="hidden xl:block">
         <DesktopView
           firstName={firstName}
