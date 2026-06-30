@@ -139,17 +139,17 @@ export default function HomePage() {
 
       {/* HERO */}
       <section className="relative w-full min-h-[540px] md:min-h-[620px] flex items-center overflow-hidden bg-[#1a2a3a]">
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[47%] z-0">
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[55%] z-0 overflow-hidden">
           <Image
-            src="/main banner 2.png"
+            src="/main banner 3.png"
             alt="Mandy Cheung"
             fill
             className="object-cover"
-            style={{ objectPosition: "55% 25%" }}
+            style={{ objectPosition: "40% 20%" }}
             priority
             quality={100}
           />
-          <div className="absolute left-0 top-0 bottom-0 w-[120px] md:w-[200px] bg-gradient-to-r from-[#1a2a3a] via-[#1a2a3a]/60 to-transparent pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-[120px] md:w-[160px] bg-gradient-to-r from-[#1a2a3a] via-[#1a2a3a]/60 to-transparent pointer-events-none" />
           <div className="absolute inset-0 bg-[#1a2a3a]/60 md:hidden pointer-events-none" />
         </div>
 
