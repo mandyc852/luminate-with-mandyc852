@@ -267,20 +267,16 @@ export default function HomePage() {
       </section>
 
       {/* FROM THE CHANNEL */}
-      <section id="from-the-channel" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      <section id="from-the-channel" className="scroll-anchor py-12 md:py-20 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             From the channel
           </p>
-          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal">
+          <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
             If the videos brought you here
           </h2>
-          <p className="text-center text-slate-600 font-light mb-12 max-w-2xl mx-auto">
-            The channel is where I work through the part nobody trains you for — staying clear-headed when the decision is real and the room is watching.
-            <br /><br />
-            Two things run off it.
-            <br />
-            One is free. One is a room you join.
+          <p className="text-center text-slate-600 font-light mb-8 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            The channel is where I work through the part nobody trains you for — staying clear-headed when the decision is real and the room is watching. Two things run off it. One is free. One is a room you join.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
