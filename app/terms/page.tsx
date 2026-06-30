@@ -260,7 +260,7 @@ export default function TermsPage() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-center md:text-left">
             <p className="text-stone-400 text-xs" style={{ fontFamily: "var(--font-poppins), sans-serif" }}>
-              © 2026 MandyC.
+              © 2026 Lumina Consulting Limited
             </p>
             <div className="text-stone-400 text-xs flex items-center justify-center md:justify-end gap-2" style={{ fontFamily: "var(--font-poppins), sans-serif" }}>
               <Link href="/terms" className="hover:text-amber-300 transition-colors underline underline-offset-4">

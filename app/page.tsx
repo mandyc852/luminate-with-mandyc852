@@ -17,10 +17,46 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_URL
+const baseUrl = siteUrl
+  ? /^https?:\/\//i.test(siteUrl)
+    ? siteUrl
+    : `https://${siteUrl}`
+  : "https://mandyc.me"
+
+const title = "MandyC. | IPO & Capital Markets Advisory | Hong Kong"
+const description =
+  "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions."
+
 export const metadata: Metadata = {
-  title: "MandyC. | Capital Markets Advisory | Hong Kong",
-  description:
-    "Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list. SFC Type 6 licensed. 60+ transactions. US$500M+ in deal value. HKEX and NASDAQ.",
+  title,
+  description,
+  alternates: {
+    canonical: baseUrl,
+  },
+  openGraph: {
+    type: "website",
+    url: baseUrl,
+    siteName: "MandyC.",
+    locale: "en_US",
+    title,
+    description,
+    images: [
+      {
+        url: "/Wallstreet.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MandyC. IPO & Capital Markets Advisory — Hong Kong",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/Wallstreet.jpg"],
+  },
 }
 
 type Reason = {
@@ -248,7 +284,7 @@ export default function HomePage() {
             <div>
               {/* Desktop photo — hidden on mobile */}
               <div className="relative aspect-[4/5] rounded-none overflow-hidden shadow-lg hidden md:block">
-                <Image src="/Profile pic 5.png" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
+                <Image src="/Profile pic 4.png" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
               </div>
             </div>
             <div>
@@ -355,7 +391,7 @@ export default function HomePage() {
               </a>
             </div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-1 text-center" style={{ fontFamily: "var(--font-poppins)" }}>
-              <p className="text-slate-500 text-xs leading-relaxed mb-2 md:mb-0">© 2026 MandyC. | All Rights Reserved</p>
+              <p className="text-slate-500 text-xs leading-relaxed mb-2 md:mb-0">© 2026 Lumina Consulting Limited</p>
               <span className="hidden md:inline text-slate-600 text-xs"> | </span>
               <div className="text-slate-500 text-xs flex items-center justify-center gap-2 md:gap-1">
                 <a href="/terms" className="hover:text-[#c9a227] transition-colors">Terms &amp; Conditions</a>

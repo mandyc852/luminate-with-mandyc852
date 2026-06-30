@@ -696,7 +696,7 @@ export default function CohortPage() {
               </a>
             </div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-1 text-center" style={ig.body}>
-              <p className="text-[#78716C]/50 text-xs leading-relaxed mb-2 md:mb-0">&copy; 2026 MandyC. | All Rights Reserved</p>
+              <p className="text-[#78716C]/50 text-xs leading-relaxed mb-2 md:mb-0">&copy; 2026 Lumina Consulting Limited</p>
               <span className="hidden md:inline text-[#78716C]/30 text-xs"> | </span>
               <div className="text-[#78716C]/50 text-xs flex items-center justify-center gap-2 md:gap-1">
                 <a href="/terms" className="hover:text-[#C4982A] transition-colors">Terms &amp; Conditions</a>

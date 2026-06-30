@@ -31,9 +31,12 @@ const baseUrl = siteUrl
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "MandyC. | Capital Markets Advisory",
+  title: "MandyC. | IPO & Capital Markets Advisory | Hong Kong",
   description:
-    "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$500M+ in deal value across HKEX and NASDAQ.",
+    "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions.",
+  alternates: {
+    canonical: baseUrl,
+  },
   robots: {
     index: true,
     follow: true,
@@ -43,23 +46,24 @@ export const metadata: Metadata = {
     type: "website",
     url: baseUrl,
     siteName: "MandyC.",
-    title: "MandyC. | Capital Markets Advisory",
+    locale: "en_US",
+    title: "MandyC. | IPO & Capital Markets Advisory | Hong Kong",
     description:
-      "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$500M+ in deal value across HKEX and NASDAQ.",
+      "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions.",
     images: [
       {
         url: "/Wallstreet.jpg",
         width: 1200,
         height: 630,
-        alt: "MandyC. Capital Markets Advisory",
+        alt: "MandyC. IPO & Capital Markets Advisory — Hong Kong",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MandyC. | Capital Markets Advisory",
+    title: "MandyC. | IPO & Capital Markets Advisory | Hong Kong",
     description:
-      "Mandy Cheung. Hong Kong SFC Type 6 licensed capital markets advisor. 60+ transactions, US$500M+ in deal value across HKEX and NASDAQ.",
+      "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions.",
     images: ["/Wallstreet.jpg"],
   },
   icons: {
@@ -85,9 +89,51 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "MandyC.",
+    url: baseUrl,
+    logo: `${baseUrl}/Logo%202%20black.png`,
+    image: `${baseUrl}/Wallstreet.jpg`,
+    description:
+      "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions.",
+    founder: {
+      "@type": "Person",
+      name: "Mandy Cheung",
+      jobTitle: "Capital Markets Advisor",
+      url: baseUrl,
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Hong Kong",
+      addressCountry: "HK",
+    },
+    areaServed: ["Hong Kong", "United States"],
+    knowsAbout: [
+      "IPO advisory",
+      "Capital markets",
+      "HKEX listing",
+      "NASDAQ listing",
+      "Corporate finance",
+    ],
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Professional License",
+      name: "SFC Type 6 License — Advising on Corporate Finance",
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/mandycheung852/",
+    ],
+  }
+
   return (
     <html lang="en" className={`${cormorantGaramond.variable} ${playfairDisplay.variable} ${poppins.variable}`}>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>

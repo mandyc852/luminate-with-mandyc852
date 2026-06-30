@@ -490,7 +490,7 @@ export default function IPOServicePage() {
             {/* Copyright + Links */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-1 text-center" style={{ fontFamily: "var(--font-poppins)" }}>
               <p className="text-slate-500 text-xs leading-relaxed mb-2 md:mb-0">
-                © 2026 MandyC. | All Rights Reserved
+                © 2026 Lumina Consulting Limited
               </p>
               <span className="hidden md:inline text-slate-600 text-xs"> | </span>
               <div className="text-slate-500 text-xs flex items-center justify-center gap-2 md:gap-1">

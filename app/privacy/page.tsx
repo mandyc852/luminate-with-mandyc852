@@ -195,7 +195,7 @@ export default function PrivacyPage() {
             className="text-stone-400 text-xs"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
-            © 2026 MandyC. | All Rights Reserved |{" "}
+            © 2026 Lumina Consulting Limited |{" "}
             <Link href="/terms" className="hover:text-amber-300 transition-colors mx-1">
               Terms &amp; Conditions
             </Link>{" "}

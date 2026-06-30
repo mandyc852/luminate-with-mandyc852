@@ -280,7 +280,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
             className="text-white/70 text-xs md:text-sm"
             style={{ fontFamily: "var(--font-poppins), sans-serif" }}
           >
-            © 2026 MandyC.{" "}
+            © 2026 Lumina Consulting Limited{" "}
             <a href="/terms" className="hover:text-[#C9A227] transition-colors mx-1">Terms</a>
             {" · "}
             <a href="/privacy" className="hover:text-[#C9A227] transition-colors mx-1">Privacy</a>
@@ -526,7 +526,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             className="text-white/70 text-sm leading-relaxed mb-2"
             style={{ fontFamily: "var(--font-poppins), sans-serif" }}
           >
-            © 2026 MandyC.
+            © 2026 Lumina Consulting Limited
           </p>
           <div
             className="text-white/70 text-sm"
