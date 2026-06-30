@@ -476,7 +476,7 @@ export default function IPOPathPage() {
             Most companies don&apos;t fail at the listing. They fail in the 18 months before it.
           </h2>
 
-          <div className="space-y-5 text-slate-600 text-[15px] leading-[1.85] font-light">
+          <div className="space-y-5 text-slate-600 text-[15px] leading-[1.85] font-light text-center md:text-left">
             <p>
               Founders preparing for a public listing typically spend US$1.5M to US$3M+ getting there. Most start the readiness conversation six to eighteen months too late. By the time the lawyers, auditors, and sponsors are in the room, the gaps that delayed the deal — cap-table issues, financial restatements, an unclean narrative, missing structural pieces — were knowable a year earlier. They&apos;re just expensive to fix at that point.
             </p>
@@ -805,7 +805,7 @@ export default function IPOPathPage() {
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-8 text-center md:text-left">About Mandy</h2>
-              <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
+              <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light text-center md:text-left">
                 <p>
                   Mandy Cheung is a Hong Kong SFC Type 6 licensed corporate finance advisor with 10+ years and 60+ transactions across HKEX and NASDAQ. IPOs, sponsor work, general offers under the Takeovers Code, convertible bonds, and privatisations. Cross-border work where regulatory complexity is the norm.
                 </p>
@@ -816,7 +816,7 @@ export default function IPOPathPage() {
                   SFC Type 6 Licensed · 60+ Transactions · US$500M+ in Deal Value · HKEX &amp; NASDAQ.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 mt-8">
+              <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 sm:gap-5 mt-8 md:items-start">
                 <a href="/#track-record" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
                   See the full track record →
                 </a>

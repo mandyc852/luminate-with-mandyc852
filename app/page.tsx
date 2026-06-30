@@ -351,7 +351,7 @@ export default function HomePage() {
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-8 text-center md:text-left">About Mandy</h2>
-              <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light">
+              <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light text-center md:text-left">
                 <p>
                   I&apos;m a Hong Kong SFC Type 6 licensed corporate finance advisor with 10+ years and 60+ transactions across HKEX and NASDAQ — IPOs, general offers, convertible bonds, and restructurings. The kind of cross-border work where regulatory complexity is the norm, not the exception.
                 </p>
@@ -366,7 +366,7 @@ export default function HomePage() {
                   The client&apos;s success is the only metric that matters.
                 </p>
               </div>
-              <div className="flex items-center gap-4 mt-8">
+              <div className="flex items-center justify-center md:justify-start gap-4 mt-8">
                 <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-[#1a2a3a] hover:text-[#c9a227] font-medium text-sm underline decoration-slate-300 hover:decoration-[#c9a227] transition-colors">
                   YouTube
                 </a>
