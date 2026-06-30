@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
+        source: "/executive-readiness",
+        destination: "/guide",
+        permanent: true,
+      },
+      {
         source: "/the-five-questions",
         destination: "/guide",
         permanent: true,

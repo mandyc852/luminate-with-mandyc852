@@ -341,7 +341,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 2. WHO'S RUNNING THIS ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#1E1B18]">
+      <section className="py-14 md:py-28 px-6 bg-[#282320]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-[#FAF5EF] mb-12 text-center md:text-left" style={ig.headline}>
             Who&apos;s running this
@@ -419,7 +419,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 5. WHAT YOU GET ── */}
-      <section id="what-it-is" className="scroll-anchor py-14 md:py-28 px-6 bg-[#1E1B18]">
+      <section id="what-it-is" className="scroll-anchor py-14 md:py-28 px-6 bg-[#282320]">
         <div className="max-w-[1080px] mx-auto">
           <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             What You Get
@@ -558,7 +558,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 10. COACHING UPGRADE ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#1E1B18]">
+      <section className="py-14 md:py-28 px-6 bg-[#282320]">
         <div className="max-w-[680px] mx-auto text-center">
           <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase mb-4" style={ig.body}>
             Want Direct Access
@@ -627,7 +627,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 12. FAQ ── */}
-      <section id="faq" className="scroll-anchor py-14 md:py-28 px-6 bg-[#1A1714]">
+      <section id="faq" className="scroll-anchor py-14 md:py-28 px-6 bg-[#282320]">
         <div className="max-w-[680px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>FAQ</p>
           <h2 className="text-3xl md:text-4xl mb-12 text-center text-[#FAF5EF]" style={ig.headline}>

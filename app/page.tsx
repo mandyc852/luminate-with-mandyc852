@@ -86,8 +86,6 @@ const REASONS: Reason[] = [
     cta: "Book a call →",
     secondaryHref: "/cohort",
     secondaryCta: "Or see the cohort →",
-    tertiaryHref: "/executive-readiness",
-    tertiaryCta: "Or take the free readiness diagnostic →",
   },
   {
     title: "Just want to connect",
@@ -278,14 +276,18 @@ export default function HomePage() {
             If the videos brought you here
           </h2>
           <p className="text-center text-slate-600 font-light mb-12 max-w-2xl mx-auto">
-            The channel is where I work through the part nobody trains you for — staying clear-headed when the decision is real and the room is watching. Two things run off it. One is free. One is a room you join.
+            The channel is where I work through the part nobody trains you for — staying clear-headed when the decision is real and the room is watching.
+            <br /><br />
+            Two things run off it.
+            <br />
+            One is free. One is a room you join.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <div className="p-8 rounded-none bg-white border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free</p>
-              <h3 className="text-xl font-normal text-[#1a2a3a] mb-3">Lumen</h3>
-              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-6">
+            <div className="p-6 rounded-none bg-white border border-slate-200/60 flex flex-col">
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-2">Free</p>
+              <h3 className="text-xl font-normal text-[#1a2a3a] mb-2">Lumen</h3>
+              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
                 The 12-week execution system I built for my own use and now share. It starts with who you&apos;re becoming, not your task list. Free, always.
               </p>
               <a href="https://lumen-by-mandyc.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
@@ -293,11 +295,11 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="p-8 rounded-none bg-white border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Cohort 1 · September 2026</p>
-              <h3 className="text-xl font-normal text-[#1a2a3a] mb-3">The Inner Game Cohort</h3>
-              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-6">
-                A six-week room for operators working the same internal problem — small group, one live call a week, a daily practice in between. Where the cohort work goes first.
+            <div className="p-6 rounded-none bg-white border border-slate-200/60 flex flex-col">
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-2">Cohort 1 · September 2026</p>
+              <h3 className="text-xl font-normal text-[#1a2a3a] mb-2">The Inner Game Cohort</h3>
+              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
+                A six-week room for operators working the same internal problem — small group, one live call a week, a daily practice in between.
               </p>
               <a href="/cohort" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
                 See the cohort →

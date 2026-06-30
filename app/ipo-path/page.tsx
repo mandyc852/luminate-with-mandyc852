@@ -683,28 +683,15 @@ export default function IPOPathPage() {
             Plus, included free
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                label: "Bonus one",
-                title: "Should You Take Your Company Public? — The Founder’s Guide",
-                body: "A 10-page founder’s guide covering listing thresholds for NASDAQ and HKEX, carve-out and roll-up strategies most founders haven’t heard of, real cost ranges, and an honest red-flag list. Yours on booking.",
-              },
-              {
-                label: "Bonus two",
-                title: "The Executive Readiness Diagnostic",
-                body: "A 10-minute self-assessment that measures your personal readiness to lead a capital event — separate question from the company readiness this Assessment covers. Yours on booking.",
-              },
-            ].map((b) => (
-              <div key={b.label} className="relative bg-white border border-slate-200 p-7 md:p-8 flex flex-col">
-                <span className="absolute -top-3 left-6 bg-[#c9a227] text-[#1a2a3a] text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1">
-                  Included free
-                </span>
-                <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3 mt-2">{b.label}</p>
-                <h3 className="text-xl md:text-2xl font-normal text-[#1a2a3a] mb-3 leading-snug">{b.title}</h3>
-                <p className="text-slate-600 font-light leading-[1.8] text-[14.5px]">{b.body}</p>
-              </div>
-            ))}
+          <div className="max-w-xl mx-auto">
+            <div className="relative bg-white border border-slate-200 p-7 md:p-8 flex flex-col">
+              <span className="absolute -top-3 left-6 bg-[#c9a227] text-[#1a2a3a] text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1">
+                Included free
+              </span>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3 mt-2">Bonus</p>
+              <h3 className="text-xl md:text-2xl font-normal text-[#1a2a3a] mb-3 leading-snug">Should You Take Your Company Public? — The Founder&apos;s Guide</h3>
+              <p className="text-slate-600 font-light leading-[1.8] text-[14.5px]">A 10-page founder&apos;s guide covering listing thresholds for NASDAQ and HKEX, carve-out and roll-up strategies most founders haven&apos;t heard of, real cost ranges, and an honest red-flag list. Yours on booking.</p>
+            </div>
           </div>
         </div>
       </section>
