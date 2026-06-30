@@ -76,7 +76,7 @@ export function SiteHeader({
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="text-sm font-normal text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
+              <a key={l.href} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-sm font-normal text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
                 {l.label}
               </a>
             ))}
@@ -140,7 +140,7 @@ export function SiteHeader({
         <div className="md:hidden bg-white border-t border-slate-200 shadow-lg">
           <nav className="px-6 py-5 flex flex-col items-center gap-3 text-center">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">
+              <a key={l.href} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">
                 {l.label}
               </a>
             ))}

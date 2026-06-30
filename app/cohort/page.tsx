@@ -76,7 +76,7 @@ const WHO_THIS_IS_FOR = [
   },
   {
     lead: "You’re growing",
-    body: "— but your identity is operating from a version of you that’s two levels behind.",
+    body: "— and you’re tired of how much composure it takes to hold the standard while everyone reads the room off you.",
   },
 ]
 
@@ -91,7 +91,7 @@ const JOURNEY_STEPS = [
 const SHIFTS = [
   { before: "Overthinking before decisions", after: "Clear in the room" },
   { before: "Reacting to pressure", after: "Regulating under it" },
-  { before: "Performing from external validation", after: "Operating from internal standards" },
+  { before: "Managing how you're perceived", after: "Operating from your own standard" },
 ]
 
 const ig = {
@@ -306,7 +306,7 @@ export default function CohortPage() {
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#1A1714] to-transparent" />
         </div>
 
-        <div className="relative -mt-8 pb-20 md:pb-28 px-6">
+        <div className="relative -mt-8 pb-14 md:pb-28 px-6">
           <div className="max-w-[720px] mx-auto text-center">
             <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase mb-5" style={ig.body}>
               Inner Work. Real Outcomes.
@@ -341,7 +341,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 2. WHO'S RUNNING THIS ── */}
-      <section className="py-20 md:py-28 px-6 bg-[#1E1B18]">
+      <section className="py-14 md:py-28 px-6 bg-[#1E1B18]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-[#FAF5EF] mb-12 text-center md:text-left" style={ig.headline}>
             Who&apos;s running this
@@ -349,12 +349,12 @@ export default function CohortPage() {
           <div className="flex flex-col items-center md:flex-row md:items-start gap-10 md:gap-14">
             <div className="flex-shrink-0">
               <div className="relative w-40 md:w-48 aspect-[4/5] overflow-hidden">
-                <Image src="/MandyC profile pic 1.png" alt="Mandy Cheung" fill loading="eager" className="object-cover object-top" sizes="(max-width: 768px) 160px, 192px" />
+                <Image src="/Profile pic 4.png" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="(max-width: 768px) 160px, 192px" />
               </div>
             </div>
             <div className="space-y-5 text-[#A8A29E] text-base leading-[1.85] font-light text-center md:text-left" style={ig.body}>
               <p>
-                Mandy Cheung. SFC Type 6 licensed capital markets advisor. 10+ years, 60+ transactions across HKEX and NASDAQ. The inner game work comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings.
+                Mandy Cheung. SFC Type 6 licensed capital markets advisor. 10+ years, 60+ transactions across HKEX and NASDAQ. The inner game work comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings. I built it as a woman operating in rooms that weren&apos;t built for me &mdash; but it works for anyone who carries that kind of pressure.
               </p>
               <p>
                 She built this cohort because the practice she developed changed how she operates under pressure — and creates opportunities from challenges.
@@ -370,7 +370,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 3. PROBLEM STATEMENT ── */}
-      <section className="py-20 md:py-28 px-6 bg-[#F5F0EB]">
+      <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-[680px] mx-auto">
           <h2 className="text-3xl md:text-[40px] mb-8 text-center text-[#3D3530] leading-[1.15]" style={ig.headline}>
             You already know what to do.<br />That&apos;s not the problem.
@@ -387,7 +387,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 4. WHO THIS IS FOR ── */}
-      <section className="py-20 md:py-28 px-6 bg-[#1A1714]">
+      <section className="py-14 md:py-28 px-6 bg-[#1A1714]">
         <div className="max-w-[1080px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             Who This Is For
@@ -419,7 +419,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 5. WHAT YOU GET ── */}
-      <section id="what-it-is" className="scroll-anchor py-20 md:py-28 px-6 bg-[#1E1B18]">
+      <section id="what-it-is" className="scroll-anchor py-14 md:py-28 px-6 bg-[#1E1B18]">
         <div className="max-w-[1080px] mx-auto">
           <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             What You Get
@@ -445,7 +445,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 6. THE CURRICULUM ── */}
-      <section className="py-20 md:py-28 px-6 bg-[#F5F0EB]">
+      <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-[720px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             The Curriculum
@@ -468,7 +468,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 7. VISUAL JOURNEY BAR ── */}
-      <section className="py-24 md:py-32 px-6 bg-[#1A1714]">
+      <section className="py-16 md:py-32 px-6 bg-[#1A1714]">
         <div className="max-w-[960px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             Five Stages
@@ -516,7 +516,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 8. THE SHIFT — Before / After ── */}
-      <section className="py-20 md:py-28 px-6 bg-[#F5F0EB]">
+      <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-[680px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             Before &amp; After
@@ -541,7 +541,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 9. BUILT FOR OPERATORS ── */}
-      <section className="py-20 md:py-28 px-6 bg-[#1A1714]">
+      <section className="py-14 md:py-28 px-6 bg-[#1A1714]">
         <div className="max-w-[680px] mx-auto">
           <h2 className="text-3xl md:text-[40px] mb-10 text-center text-[#FAF5EF] leading-[1.15]" style={ig.headline}>
             Built for operators, not audiences
@@ -558,7 +558,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 10. COACHING UPGRADE ── */}
-      <section className="py-20 md:py-28 px-6 bg-[#1E1B18]">
+      <section className="py-14 md:py-28 px-6 bg-[#1E1B18]">
         <div className="max-w-[680px] mx-auto text-center">
           <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase mb-4" style={ig.body}>
             Want Direct Access
@@ -586,7 +586,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 11. PRICING ── */}
-      <section id="pricing" className="scroll-anchor py-20 md:py-28 px-6 bg-[#F5F0EB]">
+      <section id="pricing" className="scroll-anchor py-14 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             Investment
@@ -627,7 +627,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 12. FAQ ── */}
-      <section id="faq" className="scroll-anchor py-20 md:py-28 px-6 bg-[#1A1714]">
+      <section id="faq" className="scroll-anchor py-14 md:py-28 px-6 bg-[#1A1714]">
         <div className="max-w-[680px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>FAQ</p>
           <h2 className="text-3xl md:text-4xl mb-12 text-center text-[#FAF5EF]" style={ig.headline}>
@@ -642,7 +642,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 11. BOTTOM CTA ── */}
-      <section id="final-cta" className="py-20 md:py-28 px-6 bg-[#1A1714]">
+      <section id="final-cta" className="py-14 md:py-28 px-6 bg-[#1A1714]">
         <div className="max-w-[680px] mx-auto text-center">
           <h2 className="text-3xl md:text-5xl mb-6 text-[#FAF5EF] leading-[1.12]" style={ig.headline}>
             Cohort 1 opens September 2026.

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from "react"
 import { DIMENSIONS } from "../lib/content"
 import { bandFor, totalOf } from "../lib/scoring"
 import { insightFor } from "../lib/insights"
-import { BookCallButton } from "../../_components/home-interactions"
+
 
 type Stage = "landing" | "dimension" | "results"
 
@@ -92,8 +92,7 @@ function LandingScreen({ onBegin }: { onBegin: () => void }) {
           The Executive Readiness Diagnostic
         </h1>
         <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-4 max-w-2xl">
-          A 10-minute self-assessment for executives whose companies are preparing to raise,
-          restructure, or list.
+          A 10-minute self-assessment for the person running the deal — not the company behind it.
         </p>
         <p className="text-white/50 text-xs font-medium tracking-[0.15em] uppercase mb-8">
           Built from patterns across 60+ capital-market transactions · HKEX &amp; NASDAQ
@@ -263,7 +262,7 @@ function DimensionScreen({ dimension, index, total, score, setScore, onNext, onB
             onClick={onNext}
             disabled={!answered}
             className={[
-              "inline-flex items-center justify-center whitespace-nowrap px-8 py-3 rounded-none shadow-lg uppercase tracking-[0.15em] text-xs",
+              "w-full md:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-xs",
               answered ? "btn-gold-animated" : "bg-slate-200 text-slate-400 cursor-not-allowed",
             ].join(" ")}
           >
@@ -357,21 +356,23 @@ function ResultsScreen({ scores, onRestart }: { scores: (number | null)[]; onRes
         <ResultsEmailForm total={total} bandName={band.name} scores={scores} />
       </div>
 
-      {/* CTA — compact, full-width button */}
+      {/* CTA — cohort next step */}
       <div className="bg-[#1a2a3a] text-white p-6 md:p-8 mb-8">
         <p
           className="text-xl md:text-2xl font-normal mb-2 text-white"
           style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
         >
-          Want to talk through what you found?
+          The score shows the gap. The cohort is where you close it.
         </p>
         <p className="text-white/70 font-light text-sm leading-relaxed mb-5">
-          Fit exploration, not a pitch.
+          A six-week room for operators working the same internal problem. Cohort 1 opens September 2026.
         </p>
-        <BookCallButton
-          label="Book a call"
-          className="w-full inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
-        />
+        <a
+          href="/cohort"
+          className="w-full inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+        >
+          See the Inner Game Cohort →
+        </a>
       </div>
 
       {/* Share + retake */}
@@ -529,13 +530,13 @@ function ResultsEmailForm({
         <a
           href="/lead-magnet/executive-readiness-diagnostic.pdf"
           download
-          className="w-full inline-flex items-center justify-center py-3.5 rounded-none uppercase tracking-[0.15em] text-sm btn-gold-home mb-4"
+          className="w-full inline-flex items-center justify-center py-4 rounded-none uppercase tracking-[0.15em] text-sm btn-gold-home mb-4"
         >
           Download the PDF
         </a>
         <p className="text-slate-500 font-light text-xs italic mt-3">
-          Most people in {bandName} have 2–3 specific questions after seeing their scores.
-          That&apos;s usually a good time for a call.
+          Most people in {bandName} have 2–3 dimensions they want to work on.
+          That&apos;s exactly what the cohort is built for.
         </p>
       </div>
     )
@@ -586,7 +587,7 @@ function ResultsEmailForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3.5 rounded-none uppercase tracking-wide text-sm btn-gold-home disabled:opacity-70 disabled:cursor-not-allowed"
+        className="w-full py-4 rounded-none uppercase tracking-wide text-sm btn-gold-home disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {isSubmitting ? "Sending…" : "Send me the PDF"}
       </button>

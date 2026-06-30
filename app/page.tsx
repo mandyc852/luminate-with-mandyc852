@@ -66,6 +66,8 @@ type Reason = {
   cta: string
   secondaryHref?: string
   secondaryCta?: string
+  tertiaryHref?: string
+  tertiaryCta?: string
 }
 
 const REASONS: Reason[] = [
@@ -84,6 +86,8 @@ const REASONS: Reason[] = [
     cta: "Book a call →",
     secondaryHref: "/cohort",
     secondaryCta: "Or see the cohort →",
+    tertiaryHref: "/executive-readiness",
+    tertiaryCta: "Or take the free readiness diagnostic →",
   },
   {
     title: "Just want to connect",
@@ -132,7 +136,7 @@ export default function HomePage() {
       {/* Header */}
       <SiteHeader
         links={[
-          { label: "Diagnostic", href: "/executive-readiness" },
+          { label: "Lumen", href: "https://lumen-by-mandyc.vercel.app/how-it-works" },
           { label: "Talk to Me", href: "#work" },
           { label: "About", href: "#about" },
           { label: "Track Record", href: "#track-record" },
@@ -174,13 +178,15 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <BookCallButton
                 label="Book a call"
-                className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+                className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
               />
               <a
-                href="/executive-readiness"
-                className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
+                href="https://lumen-by-mandyc.vercel.app/how-it-works"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-[14px] bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
               >
-                Take the free diagnostic
+                Try Lumen — free
               </a>
             </div>
           </div>
@@ -235,12 +241,68 @@ export default function HomePage() {
                         {r.secondaryCta}
                       </a>
                     )}
+                    {r.tertiaryHref && r.tertiaryCta && (
+                      <a href={r.tertiaryHref} className="text-slate-500 hover:text-[#1a2a3a] text-xs font-light tracking-wide transition-colors">
+                        {r.tertiaryCta}
+                      </a>
+                    )}
                   </div>
                 ) : (
-                  <BookCallButton label={r.cta} className="text-left text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors" />
+                  <div className="flex flex-col gap-2">
+                    <BookCallButton label={r.cta} className="text-left text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors" />
+                    {r.secondaryHref && r.secondaryCta && (
+                      <a href={r.secondaryHref} className="text-slate-500 hover:text-[#1a2a3a] text-xs font-light tracking-wide transition-colors">
+                        {r.secondaryCta}
+                      </a>
+                    )}
+                    {r.tertiaryHref && r.tertiaryCta && (
+                      <a href={r.tertiaryHref} className="text-slate-500 hover:text-[#1a2a3a] text-xs font-light tracking-wide transition-colors">
+                        {r.tertiaryCta}
+                      </a>
+                    )}
+                  </div>
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FROM THE CHANNEL */}
+      <section id="from-the-channel" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
+            From the channel
+          </p>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal">
+            If the videos brought you here
+          </h2>
+          <p className="text-center text-slate-600 font-light mb-12 max-w-2xl mx-auto">
+            The channel is where I work through the part nobody trains you for — staying clear-headed when the decision is real and the room is watching. Two things run off it. One is free. One is a room you join.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div className="p-8 rounded-none bg-white border border-slate-200/60 flex flex-col">
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Free</p>
+              <h3 className="text-xl font-normal text-[#1a2a3a] mb-3">Lumen</h3>
+              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-6">
+                The 12-week execution system I built for my own use and now share. It starts with who you&apos;re becoming, not your task list. Free, always.
+              </p>
+              <a href="https://lumen-by-mandyc.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
+                Open Lumen →
+              </a>
+            </div>
+
+            <div className="p-8 rounded-none bg-white border border-slate-200/60 flex flex-col">
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Cohort 1 · September 2026</p>
+              <h3 className="text-xl font-normal text-[#1a2a3a] mb-3">The Inner Game Cohort</h3>
+              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-6">
+                A six-week room for operators working the same internal problem — small group, one live call a week, a daily practice in between. Where the cohort work goes first.
+              </p>
+              <a href="/cohort" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
+                See the cohort →
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -351,7 +413,9 @@ export default function HomePage() {
             The Fortnightly Operator Brief
           </h2>
           <p className="text-white/80 font-light leading-relaxed mb-6 max-w-2xl mx-auto">
-            One question, every two weeks. For people who do serious work and want to show up better at it.
+            One question, every two weeks.
+            <br />
+            For people who do serious work and want to show up better at it.
           </p>
           <div className="w-full md:w-[520px] mx-auto">
             <BeehiivSubscribe

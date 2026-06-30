@@ -200,11 +200,11 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                 style={{ borderColor: "rgba(201,162,39,0.5)" }}
               >
                 <Image
-                  src="/mandyc.jpg"
+                  src="/Profile pic 4.png"
                   alt="Mandy Cheung"
                   fill
                   className="object-cover"
-                  style={{ objectPosition: "30% 48%" }}
+                  style={{ objectPosition: "50% 15%" }}
                   sizes="128px"
                 />
               </div>
@@ -462,11 +462,11 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             style={{ borderColor: "rgba(201,162,39,0.5)" }}
           >
             <Image
-              src="/mandyc.jpg"
+              src="/Profile pic 4.png"
               alt="Mandy Cheung"
               fill
               className="object-cover"
-              style={{ objectPosition: "30% 48%" }}
+              style={{ objectPosition: "50% 15%" }}
               sizes="160px"
             />
           </div>

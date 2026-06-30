@@ -13,6 +13,16 @@ const nextConfig: NextConfig = {
         destination: "https://lumen-by-mandyc.vercel.app/how-it-works",
         permanent: false,
       },
+      {
+        source: "/the-five-questions",
+        destination: "/guide",
+        permanent: true,
+      },
+      {
+        source: "/the-five-questions/thank-you",
+        destination: "/guide",
+        permanent: true,
+      },
     ];
   },
 };

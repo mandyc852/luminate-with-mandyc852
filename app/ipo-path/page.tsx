@@ -115,7 +115,7 @@ const RISK_REVERSAL = [
   {
     title: "100% creditable toward continuation",
     body:
-      "If the memo identifies a continuation path — a 90-Day Strategic Engagement (US$15,000) or a full advisory mandate — the entire US$2,500 is credited toward it, provided you book within 60 days of memo delivery. For a continuing client, the Sprint is effectively free.",
+      "If the memo identifies a continuation path — a 90-Day Strategic Engagement (US$15,000) or a full advisory mandate — the entire US$2,500 is credited toward it, provided you book within 60 days of memo delivery. For a continuing client, the Assessment is effectively free.",
   },
   {
     title: "14-day delivery guarantee",
@@ -131,10 +131,10 @@ const RISK_REVERSAL = [
 
 const FAQ: Array<{ q: string; a: React.ReactNode }> = [
   {
-    q: "How is this different from the free Executive Readiness Diagnostic on the site?",
+    q: "How is this different from the free IPO Guide?",
     a: (
       <p>
-        The free diagnostic measures the leader — your own readiness to lead a capital event. The IPO Path Assessment measures the company — financials, structure, listing route. Different tools for different questions. Many founders take the free one first, then book this one when they want a company-level answer.
+        The guide educates — listing requirements, costs, structuring strategies. The IPO Path Assessment delivers a verdict on your specific company: whether it qualifies, which route fits, and what needs to change before you spend on advisors. One is general knowledge; the other is a company-level answer.
       </p>
     ),
   },
@@ -150,7 +150,7 @@ const FAQ: Array<{ q: string; a: React.ReactNode }> = [
     q: "Is this a sales call dressed as an assessment?",
     a: (
       <p>
-        No. The memo is the product. You receive it whether or not we work together after. The credit-back structure means there is no upsell pressure during the call — if you continue, the Sprint is free; if you don&apos;t, you&apos;ve already received what you paid for.
+        No. The memo is the product. You receive it whether or not we work together after. The credit-back structure means there is no upsell pressure during the call — if you continue, the Assessment is free; if you don&apos;t, you&apos;ve already received what you paid for.
       </p>
     ),
   },
@@ -277,7 +277,7 @@ const PRODUCT_JSONLD = {
   "@type": "Product",
   name: "The IPO Path Assessment",
   description:
-    "A 30-day sprint that delivers a written verdict on whether your company is ready to list — with the next move spelled out. Fully creditable toward continuation engagements within 60 days.",
+    "A 30-day assessment that delivers a written verdict on whether your company is ready to list — with the next move spelled out. Fully creditable toward continuation engagements within 60 days.",
   brand: { "@type": "Brand", name: "MandyC." },
   category: "Capital Markets Advisory",
   offers: {
@@ -389,7 +389,7 @@ export default function IPOPathPage() {
       />
 
       {/* HERO */}
-      <section className="relative w-full py-14 md:py-20 px-6 overflow-hidden bg-[#1a2a3a]">
+      <section className="relative w-full py-10 md:py-20 px-6 overflow-hidden bg-[#1a2a3a]">
         <Image
           src="/Wallstreet.jpg"
           alt="New York Stock Exchange, Wall Street"
@@ -406,11 +406,11 @@ export default function IPOPathPage() {
           <div className="flex justify-center mb-5">
             <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-[#c9a227]/70 ring-offset-4 ring-offset-[#1a2a3a]/80">
               <Image
-                src="/IMG_2269.JPG"
+                src="/Profile pic 4.png"
                 alt="Mandy Cheung"
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-[50%_15%] scale-[1.3]"
                 sizes="96px"
               />
             </div>
@@ -448,7 +448,7 @@ export default function IPOPathPage() {
               Or talk first — book a free 30-minute call →
             </a>
             <p className="text-[#f5e6b3]/90 text-[11px] font-medium tracking-[0.22em] uppercase mt-3" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}>
-              US$2,500 · 30-Day Sprint · Fully Creditable · 4 Spots Per Month
+              US$2,500 · 30-Day Assessment · Fully Creditable · 4 Spots Per Month
             </p>
           </div>
         </div>
@@ -693,7 +693,7 @@ export default function IPOPathPage() {
               {
                 label: "Bonus two",
                 title: "The Executive Readiness Diagnostic",
-                body: "A 10-minute self-assessment that measures your personal readiness to lead a capital event — separate question from the company readiness this Sprint covers. Yours on booking.",
+                body: "A 10-minute self-assessment that measures your personal readiness to lead a capital event — separate question from the company readiness this Assessment covers. Yours on booking.",
               },
             ].map((b) => (
               <div key={b.label} className="relative bg-white border border-slate-200 p-7 md:p-8 flex flex-col">
@@ -818,13 +818,13 @@ export default function IPOPathPage() {
           {/* Mobile: circular photo + centered text */}
           <div className="flex flex-col items-center mb-8 md:hidden">
             <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-[#c9a227]/60 ring-offset-2 mb-5">
-              <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="96px" />
+              <Image src="/Profile pic 4.png" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="96px" />
             </div>
           </div>
           <div className="grid md:grid-cols-[0.7fr_1.3fr] gap-8 md:gap-12 items-center">
             <div className="hidden md:block">
               <div className="relative aspect-[4/5] rounded-none overflow-hidden shadow-lg">
-                <Image src="/IMG_2269.JPG" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
+                <Image src="/Profile pic 4.png" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="50vw" />
               </div>
             </div>
             <div>
