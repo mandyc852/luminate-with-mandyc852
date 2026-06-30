@@ -82,6 +82,8 @@ const REASONS: Reason[] = [
     body: "The business is working, but the pressure is landing on you. Heavier decisions. Louder inputs. If the videos brought you here and you want to work on the inner game directly — that's a call.",
     href: null,
     cta: "Book a call →",
+    secondaryHref: "/cohort",
+    secondaryCta: "Or see the cohort →",
   },
   {
     title: "Just want to connect",
@@ -198,7 +200,7 @@ export default function HomePage() {
       <section className="bg-white pt-5 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-slate-400 text-xs font-light tracking-wide md:whitespace-nowrap">
-            Here from YouTube? Same person, same work. The inner game runs underneath every deal on this page.
+            <a href="#from-the-channel" className="hover:text-[#a68a1f] transition-colors">Here from YouTube?</a> Same person, same work. The inner game runs underneath every deal on this page.
           </p>
         </div>
       </section>
@@ -343,22 +345,12 @@ export default function HomePage() {
       </section>
 
       {/* NEWSLETTER SUBSCRIBE */}
-      <section className="relative py-20 md:py-28 px-6 bg-[#1a2a3a] scroll-mt-24 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/Hong Kong 1.jpg"
-            alt=""
-            fill
-            className="object-cover opacity-[0.06]"
-            sizes="100vw"
-          />
-        </div>
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Newsletter</p>
-          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance" }}>
+      <section className="py-12 md:py-16 px-6 bg-[#1a2a3a]">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl mb-4 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance" }}>
             The Fortnightly Operator Brief
           </h2>
-          <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+          <p className="text-white/80 font-light leading-relaxed mb-6 max-w-2xl mx-auto">
             One question, every two weeks. For people who do serious work and want to show up better at it.
           </p>
           <div className="w-full md:w-[520px] mx-auto">
@@ -367,7 +359,7 @@ export default function HomePage() {
               buttonText="Subscribe"
               utmCampaign="homepage_hero"
             />
-            <p className="text-[#f5e6b3]/70 text-[11px] font-medium tracking-[0.22em] uppercase mt-3 text-center">
+            <p className="text-slate-400 text-[11px] font-medium tracking-[0.22em] uppercase mt-3 text-center">
               Free · Fortnightly · Unsubscribe Anytime
             </p>
           </div>
