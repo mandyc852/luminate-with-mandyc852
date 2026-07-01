@@ -75,6 +75,20 @@ body {
   background-clip: text;
 }
 
+/* Pulsing gold urgency dot */
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(201,162,39,0); }
+}
+.pulse-dot { animation: pulse-gold 2s ease infinite; }
+
+/* Float bob for sticky CTA pill */
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.float-bob { animation: float-bob 3s ease-in-out infinite; }
+
 /* Solid gold button - used site-wide (header, homepage, fund) */
 .btn-gold-home {
   background: linear-gradient(135deg, #a68a1f 0%, #c9a227 50%, #d4b84a 100%);

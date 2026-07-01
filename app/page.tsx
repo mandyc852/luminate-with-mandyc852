@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
-import { BookCallButton } from "./_components/home-interactions"
+import { BookCallButton, FloatingCTA } from "./_components/home-interactions"
 import { SiteHeader } from "./_components/site-header"
 import BeehiivSubscribe from "@/components/BeehiivSubscribe"
 
@@ -140,7 +140,7 @@ export default function HomePage() {
       />
 
       {/* HERO */}
-      <section className="relative w-full min-h-[540px] md:min-h-[620px] flex items-center overflow-hidden bg-[#1a2a3a]">
+      <section id="hero-section" className="relative w-full min-h-[540px] md:min-h-[620px] flex items-center overflow-hidden bg-[#1a2a3a]">
         <div className="absolute right-0 top-0 bottom-0 w-full md:w-[55%] z-0 overflow-hidden">
           <Image
             src="/main banner 3.png"
@@ -166,23 +166,22 @@ export default function HomePage() {
             <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-xl mx-auto md:mx-0">
               A Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list.
             </p>
-            {/*
-              Button convention: full-width on mobile (`w-full`), generous fixed
-              width on desktop (`md:min-w-[280px]` for paired CTAs).
-              Gold rule above is sized to match: 2×280px buttons + 12px gap = ~572px.
-            */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col items-center md:items-start gap-3 mt-2">
               <BookCallButton
-                label="Book a call"
-                className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
+                label="Book a Confidential Call"
+                className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-10 py-[18px] rounded-none uppercase tracking-[0.18em] text-xs font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
               />
+              <div className="flex items-center gap-2">
+                <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0 pulse-dot" />
+                <span className="text-white/60 text-[10px] font-medium">Accepting 4 new founders this quarter</span>
+              </div>
               <a
                 href="https://lumen-by-mandyc.vercel.app/how-it-works"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-[14px] bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
+                className="text-white/35 hover:text-white/60 text-[10px] underline underline-offset-2 transition-colors"
               >
-                Try Lumen — free
+                or try Lumen free →
               </a>
             </div>
           </div>
@@ -193,7 +192,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            SFC Type 6 Licensed · 60+ Transactions · US$500M+ in Deal Value · HKEX &amp; NASDAQ
+            SFC Type 6 Licensed · 60+ Transactions · US$500M+ in Deal Value · <u>Now Accepting Q3 2026</u>
           </p>
         </div>
       </section>
@@ -260,6 +259,24 @@ export default function HomePage() {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* URGENCY BAND */}
+      <section className="py-16 md:py-24 px-6 bg-[#1a2a3a]" style={{ backgroundImage: "linear-gradient(135deg, rgba(201,162,39,0.06) 0%, transparent 60%)" }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="text-3xl md:text-4xl font-normal mb-8 leading-[1.2]" style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.02em" }}>
+            <p style={{ color: "white" }}>The founders who move first</p>
+            <p style={{ color: "#c9a227" }}>get the most from this relationship.</p>
+          </div>
+          <BookCallButton
+            label="Book a Confidential Call"
+            className="inline-flex items-center justify-center whitespace-nowrap px-11 py-4 rounded-none uppercase tracking-[0.18em] text-xs font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform mb-4"
+          />
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0 pulse-dot" />
+            <span className="text-white/45 text-[10px]">2 spots remaining this month</span>
           </div>
         </div>
       </section>
@@ -425,6 +442,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <FloatingCTA />
 
       {/* Footer */}
       <footer className="w-full bg-[#0f1a24] border-t border-[#1a2a3a] py-8">

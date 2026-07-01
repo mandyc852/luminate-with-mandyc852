@@ -1,9 +1,46 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 
 const TIDYCAL_URL = "https://tidycal.com/mandyc852/30-minute-meeting"
+
+/* ============================================================
+   FLOATING STICKY CTA
+   Appears after user scrolls past the hero section.
+   Pill-shaped gold button with float animation.
+   ============================================================ */
+export function FloatingCTA() {
+  const [visible, setVisible] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    const hero = document.getElementById("hero-section")
+    if (!hero) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(!entry.isIntersecting),
+      { threshold: 0 }
+    )
+    observer.observe(hero)
+    return () => observer.disconnect()
+  }, [])
+
+  if (!mounted) return null
+
+  return (
+    <div
+      className={`fixed bottom-6 right-6 z-[999] transition-opacity duration-300 float-bob ${
+        visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+      }`}
+    >
+      <BookCallButton
+        label="Book a Call ↗"
+        className="px-6 py-[14px] text-[11px] font-semibold tracking-[0.1em] uppercase cursor-pointer rounded-[40px] btn-gold-home shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
+      />
+    </div>
+  )
+}
 
 /* ============================================================
    LEAD MAGNET FORM
