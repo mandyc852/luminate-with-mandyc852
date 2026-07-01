@@ -272,7 +272,7 @@ export default function HomePage() {
           </div>
           <BookCallButton
             label="Book a Confidential Call"
-            className="inline-flex items-center justify-center whitespace-nowrap px-11 py-4 rounded-none uppercase tracking-[0.18em] text-xs font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform mb-4"
+            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.18em] text-xs font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform mb-4"
           />
           <div className="flex items-center justify-center gap-2 mt-4">
             <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0 pulse-dot" />

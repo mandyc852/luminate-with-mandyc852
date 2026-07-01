@@ -11,7 +11,6 @@ const WORK_LINKS = [
   { label: "IPO Advisory", href: "/ipo" },
   { label: "LPF Launch", href: "/fund" },
   { label: "Inner Game Cohort", href: "/cohort" },
-  { label: "Resources", href: "/resources" },
 ]
 
 type NavLink = { label: string; href: string }
@@ -82,6 +81,10 @@ export function SiteHeader({
               </a>
             ))}
 
+            <a href="/resources" className="text-sm font-normal text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
+              Resources
+            </a>
+
             {/* Work With Me dropdown */}
             <div className="relative" onMouseLeave={() => setWorkOpen(false)}>
               <button
@@ -145,6 +148,9 @@ export function SiteHeader({
                 {l.label}
               </a>
             ))}
+            <a href="/resources" onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">
+              Resources
+            </a>
             <div className="w-full border-t border-slate-100 my-1" />
             <p className="text-xs uppercase tracking-[0.2em] text-[#a68a1f]">Work With Me</p>
             {WORK_LINKS.map((w) => (
