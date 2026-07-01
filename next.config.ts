@@ -34,6 +34,12 @@ const nextConfig: NextConfig = {
         destination: "https://mandyc.me/:path*",
         permanent: true,
       },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.lumina-consult.com" }],
+        destination: "https://mandyc.me/:path*",
+        permanent: true,
+      },
     ];
   },
 };
