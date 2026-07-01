@@ -90,7 +90,6 @@ export default function ResourcesPage() {
 
       <SiteHeader
         links={[
-          { label: "Articles", href: "#articles" },
           { label: "About", href: "/#about" },
         ]}
         bookHref="https://tidycal.com/mandyc852/30-minute-meeting"
