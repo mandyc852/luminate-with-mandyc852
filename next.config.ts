@@ -28,6 +28,12 @@ const nextConfig: NextConfig = {
         destination: "/guide",
         permanent: true,
       },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "lumina-consult.com" }],
+        destination: "https://mandyc.me/:path*",
+        permanent: true,
+      },
     ];
   },
 };
