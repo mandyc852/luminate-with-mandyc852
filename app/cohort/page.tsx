@@ -284,7 +284,8 @@ export default function CohortPage() {
 
       <SiteHeader
         links={[
-          { label: "What It Is", href: "#what-it-is" },
+          { label: "What You Get", href: "#what-you-get" },
+          { label: "Who This Is For", href: "#who-its-for" },
           { label: "About", href: "#about" },
           { label: "Pricing", href: "#pricing" },
           { label: "FAQ", href: "#faq" },
@@ -342,36 +343,7 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 2. WHO'S RUNNING THIS ── */}
-      <section id="about" className="scroll-anchor py-14 md:py-28 px-6 bg-[#282320]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-[#FAF5EF] mb-12 text-center md:text-left" style={ig.headline}>
-            Who&apos;s running this
-          </h2>
-          <div className="flex flex-col items-center md:flex-row md:items-start gap-10 md:gap-14">
-            <div className="flex-shrink-0">
-              <div className="relative w-40 md:w-48 aspect-[4/5] overflow-hidden">
-                <Image src="/Profile pic 4.png" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="(max-width: 768px) 160px, 192px" />
-              </div>
-            </div>
-            <div className="space-y-5 text-[#A8A29E] text-base leading-[1.85] font-light text-center md:text-left" style={ig.body}>
-              <p>
-                Mandy Cheung. SFC Type 6 licensed capital markets advisor. 10+ years, 60+ transactions across HKEX and NASDAQ. The inner game work comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings. I built it as a woman operating in rooms that weren&apos;t built for me &mdash; but it works for anyone who carries that kind of pressure.
-              </p>
-              <p>
-                She built this cohort because the practice she developed changed how she operates under pressure — and creates opportunities from challenges.
-              </p>
-              <div className="pt-4">
-                <a href="https://mandyc.me/#about" className="text-[#A8A29E] hover:text-[#D4A832] text-sm underline decoration-[#A8A29E]/30 hover:decoration-[#D4A832] underline-offset-4 transition-colors">
-                  More about Mandy &rarr;
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. PROBLEM STATEMENT ── */}
+      {/* ── 2. PROBLEM STATEMENT ── */}
       <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-[680px] mx-auto">
           <h2 className="text-3xl md:text-[40px] mb-8 text-center text-[#3D3530] leading-[1.15]" style={ig.headline}>
@@ -388,40 +360,8 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 4. WHO THIS IS FOR ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#1A1714]">
-        <div className="max-w-[1080px] mx-auto">
-          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
-            Who This Is For
-          </p>
-          <h2 className="text-3xl md:text-4xl text-[#FAF5EF] text-center mb-12" style={ig.headline}>
-            For the operator who already knows.
-          </h2>
-          <div className="grid md:grid-cols-3 gap-5">
-            {WHO_THIS_IS_FOR.map((card) => (
-              <div key={card.lead} className="ig-card">
-                <p className="text-[#FAF5EF] text-lg md:text-xl mb-3 leading-snug" style={ig.headline}>
-                  {card.lead}
-                </p>
-                <p className="text-[#A8A29E] font-light leading-[1.75] text-[15px]" style={ig.body}>
-                  {card.body}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center mt-12">
-            <button
-              onClick={() => document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" })}
-              className="ig-cta w-full md:w-[520px]"
-            >
-              Join Waitlist
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. WHAT YOU GET ── */}
-      <section id="what-it-is" className="scroll-anchor py-14 md:py-28 px-6 bg-[#282320]">
+      {/* ── 3. WHAT YOU GET ── */}
+      <section id="what-you-get" className="scroll-anchor py-14 md:py-28 px-6 bg-[#282320]">
         <div className="max-w-[1080px] mx-auto">
           <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             What You Get
@@ -446,7 +386,7 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 6. THE CURRICULUM ── */}
+      {/* ── 4. THE CURRICULUM ── */}
       <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-[720px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
@@ -469,7 +409,7 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 7. VISUAL JOURNEY BAR ── */}
+      {/* ── 5. VISUAL JOURNEY BAR ── */}
       <section className="py-16 md:py-32 px-6 bg-[#1A1714]">
         <div className="max-w-[960px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
@@ -517,7 +457,7 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 8. THE SHIFT — Before / After ── */}
+      {/* ── 6. THE SHIFT — Before / After ── */}
       <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-[680px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
@@ -542,8 +482,40 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 9. BUILT FOR OPERATORS ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#1A1714]">
+      {/* ── 7. WHO THIS IS FOR ── */}
+      <section id="who-its-for" className="scroll-anchor py-14 md:py-28 px-6 bg-[#1A1714]">
+        <div className="max-w-[1080px] mx-auto">
+          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
+            Who This Is For
+          </p>
+          <h2 className="text-3xl md:text-4xl text-[#FAF5EF] text-center mb-12" style={ig.headline}>
+            For the operator who already knows.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-5">
+            {WHO_THIS_IS_FOR.map((card) => (
+              <div key={card.lead} className="ig-card">
+                <p className="text-[#FAF5EF] text-lg md:text-xl mb-3 leading-snug" style={ig.headline}>
+                  {card.lead}
+                </p>
+                <p className="text-[#A8A29E] font-light leading-[1.75] text-[15px]" style={ig.body}>
+                  {card.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center mt-12">
+            <button
+              onClick={() => document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" })}
+              className="ig-cta w-full md:w-[520px]"
+            >
+              Join Waitlist
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 8. BUILT FOR OPERATORS ── */}
+      <section className="py-14 md:py-28 px-6 bg-[#282320]">
         <div className="max-w-[680px] mx-auto">
           <h2 className="text-3xl md:text-[40px] mb-10 text-center text-[#FAF5EF] leading-[1.15]" style={ig.headline}>
             Built for operators,{" "}<br className="md:hidden" />not audiences
@@ -559,30 +531,31 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 10. COACHING UPGRADE ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#282320]">
-        <div className="max-w-[680px] mx-auto text-center">
-          <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase mb-4" style={ig.body}>
-            Want Direct Access
-          </p>
-          <h2 className="text-3xl md:text-4xl mb-8 text-[#FAF5EF]" style={ig.headline}>
-            Private coaching
+      {/* ── 9. WHO'S RUNNING THIS ── */}
+      <section id="about" className="scroll-anchor py-14 md:py-28 px-6 bg-[#1A1714]">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl text-[#FAF5EF] mb-12 text-center md:text-left" style={ig.headline}>
+            Who&apos;s running this
           </h2>
-          <div className="space-y-5 text-[#A8A29E] text-[15px] leading-[1.9] font-light max-w-lg mx-auto" style={ig.body}>
-            <p>
-              One-on-one work alongside the cohort. Applied directly to your deals, decisions, and situations. Available for a limited number of cohort members.
-            </p>
-          </div>
-          <div className="mt-10">
-            <a
-              href={TIDYCAL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-8 py-3.5 text-sm font-medium tracking-[0.12em] uppercase border border-[#C4982A]/40 text-[#C4982A] hover:bg-[#C4982A]/10 transition-colors w-full sm:w-auto sm:min-w-[260px]"
-              style={ig.body}
-            >
-              Apply for private coaching &rarr;
-            </a>
+          <div className="flex flex-col items-center md:flex-row md:items-start gap-10 md:gap-14">
+            <div className="flex-shrink-0">
+              <div className="relative w-40 md:w-48 aspect-[4/5] overflow-hidden">
+                <Image src="/Profile pic 4.png" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="(max-width: 768px) 160px, 192px" />
+              </div>
+            </div>
+            <div className="space-y-5 text-[#A8A29E] text-base leading-[1.85] font-light text-center md:text-left" style={ig.body}>
+              <p>
+                Mandy Cheung. SFC Type 6 licensed capital markets advisor. 10+ years, 60+ transactions across HKEX and NASDAQ. The inner game work comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings. I built it as a woman operating in rooms that weren&apos;t built for me &mdash; but it works for anyone who carries that kind of pressure.
+              </p>
+              <p>
+                She built this cohort because the practice she developed changed how she operates under pressure — and creates opportunities from challenges.
+              </p>
+              <div className="pt-4">
+                <a href="https://mandyc.me/#about" className="text-[#A8A29E] hover:text-[#D4A832] text-sm underline decoration-[#A8A29E]/30 hover:decoration-[#D4A832] underline-offset-4 transition-colors">
+                  More about Mandy &rarr;
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -625,6 +598,18 @@ export default function CohortPage() {
           <div className="border-l-2 border-[#C4982A]/40 pl-6 py-2 text-[#57534E] font-light text-[15px] leading-[1.85] max-w-3xl mx-auto" style={{ ...ig.body, fontStyle: "italic" }}>
             No outcome guarantees. Structural commitment instead: complete the work, or your next cohort seat is free.
           </div>
+
+          <p className="text-center text-[#57534E] font-light text-[14px] leading-[1.8] mt-8 max-w-3xl mx-auto" style={ig.body}>
+            Want private one-on-one coaching alongside the cohort?{" "}
+            <a
+              href={TIDYCAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C4982A] hover:text-[#D4A832] underline decoration-[#C4982A]/30 hover:decoration-[#D4A832] underline-offset-4 transition-colors"
+            >
+              Book a call to discuss &rarr;
+            </a>
+          </p>
         </div>
       </section>
 

@@ -35,7 +35,7 @@ export function FloatingCTA() {
       }`}
     >
       <BookCallButton
-        label="Book a Call ↗"
+        label="Book a Call"
         className="px-6 py-[14px] text-[11px] font-semibold tracking-[0.1em] uppercase cursor-pointer rounded-[40px] btn-gold-home shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
       />
     </div>

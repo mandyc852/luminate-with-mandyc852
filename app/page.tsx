@@ -158,7 +158,7 @@ export default function HomePage() {
             <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.15] font-normal mb-5">
               The hard part isn&apos;t strategy.<br />It&apos;s what comes next.
             </h1>
-            <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-xl mx-auto md:mx-0">
+            <p className="text-base md:text-lg text-white/90 font-light leading-relaxed mb-7 max-w-xl mx-auto md:mx-0">
               A Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list.
             </p>
             <div className="flex flex-col items-center md:items-start gap-3 mt-2">

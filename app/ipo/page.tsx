@@ -151,7 +151,6 @@ export default function IPOServicePage() {
           { label: "How It Works", href: "#how-it-works" },
           { label: "Resources", href: "#resources" },
         ]}
-        bookHref="https://tidycal.com/mandyc852/30-minute-meeting"
         hideGlobalLinks
       />
 
@@ -192,7 +191,7 @@ export default function IPOServicePage() {
               Should you take your company public?
             </h1>
 
-            <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-[480px] mx-auto md:mx-0">
+            <p className="text-base md:text-lg text-white/90 font-light leading-relaxed mb-7 max-w-[480px] mx-auto md:mx-0">
               Most founders assume listing isn&apos;t for them. They&apos;re often wrong. I help you find out — and walk with you from restructuring to listing day.
             </p>
 
@@ -526,17 +525,10 @@ export default function IPOServicePage() {
       {/* Floating CTA */}
       {showFloatingButton && (
         <div className="fixed bottom-6 right-6 z-[1000]" style={{ animation: "floatBob 3s ease-in-out infinite" }}>
-          <a
-            href="https://tidycal.com/mandyc852/30-minute-meeting"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-7 py-4 bg-gradient-to-br from-[#c9a227] to-[#d4b84a] text-[#1a2a3a] text-xs font-semibold tracking-[0.1em] uppercase rounded-none shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
-          >
-            Book a Call
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" viewBox="0 0 24 24">
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </a>
+          <BookCallButton
+            label="Book a Call"
+            className="px-7 py-4 text-xs font-semibold tracking-[0.1em] uppercase cursor-pointer rounded-none btn-gold-animated shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
+          />
         </div>
       )}
 

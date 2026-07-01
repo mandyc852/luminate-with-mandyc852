@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
+import { BookCallButton } from "../_components/home-interactions"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -82,7 +83,6 @@ export default function FundPage() {
 
       {/* Header */}
       <SiteHeader
-        bookHref="https://tidycal.com/mandyc852/30-minute-meeting"
         links={[
           { label: "The Opportunity", href: "#opportunity" },
           { label: "Market Moment", href: "#market" },
@@ -410,14 +410,10 @@ export default function FundPage() {
             >
               Request materials
             </a>
-            <a
-              href="https://tidycal.com/mandyc852/30-minute-meeting"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
-            >
-              Book an investor call
-            </a>
+            <BookCallButton
+              label="Book an investor call"
+              className="w-full sm:w-auto sm:min-w-[260px] md:min-w-[280px] inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none uppercase tracking-[0.12em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
+            />
           </div>
           <p className="text-slate-400 text-xs mt-6 font-light tracking-[0.15em] uppercase">
             By Invitation · Confidential · Lumina Consulting Limited
