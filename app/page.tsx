@@ -266,7 +266,7 @@ export default function HomePage() {
       {/* URGENCY BAND */}
       <section className="py-16 md:py-24 px-6 bg-[#1a2a3a]" style={{ backgroundImage: "linear-gradient(135deg, rgba(201,162,39,0.06) 0%, transparent 60%)" }}>
         <div className="max-w-2xl mx-auto text-center">
-          <div className="text-3xl md:text-4xl font-normal mb-8 leading-[1.2]" style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.02em" }}>
+          <div className="text-3xl md:text-5xl font-normal mb-8 leading-[1.12]" style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.02em" }}>
             <p style={{ color: "white" }}>The founders who move first</p>
             <p style={{ color: "#c9a227" }}>get the most from this relationship.</p>
           </div>
@@ -276,7 +276,7 @@ export default function HomePage() {
           />
           <div className="flex items-center justify-center gap-2 mt-4">
             <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0 pulse-dot" />
-            <span className="text-white/45 text-[10px]">2 spots remaining this month</span>
+            <span className="text-white/45 text-[11px] font-medium tracking-[0.22em] uppercase">2 spots remaining this month</span>
           </div>
         </div>
       </section>
