@@ -43,10 +43,10 @@ export function FloatingCTA() {
       <BookCallButton
         label={
           <>
-            <svg className="sm:hidden w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            <span className="hidden sm:inline">Book a Call ›</span>
+            <span className="hidden sm:inline ml-2">Book a Call</span>
           </>
         }
         className="p-3.5 sm:px-6 sm:py-[14px] flex items-center justify-center text-[14px] font-semibold tracking-[0.1em] uppercase cursor-pointer rounded-none btn-gold-home shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
