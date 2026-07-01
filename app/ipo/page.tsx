@@ -183,7 +183,7 @@ export default function IPOServicePage() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-20 md:py-24 flex items-center" style={{ minHeight: 520 }}>
-          <div className="max-w-[560px]">
+          <div className="max-w-[560px] mx-auto md:mx-0 text-center md:text-left">
             <p className="text-[#f5e6b3] text-xs font-medium tracking-[0.3em] uppercase mb-5">
               Lumina Capital · Hong Kong
             </p>
@@ -192,11 +192,11 @@ export default function IPOServicePage() {
               Should you take your company public?
             </h1>
 
-            <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-[480px]">
+            <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-[480px] mx-auto md:mx-0">
               Most founders assume listing isn&apos;t for them. They&apos;re often wrong. I help you find out — and walk with you from restructuring to listing day.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start gap-3 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 w-full sm:w-auto">
               <BookCallButton
                 label="Book a Confidential Call"
                 className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none uppercase tracking-[0.12em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
@@ -208,7 +208,7 @@ export default function IPOServicePage() {
                 Free IPO Guide
               </a>
             </div>
-            <div className="flex items-center gap-2 mt-3">
+            <div className="flex items-center justify-center md:justify-start gap-2 mt-3">
               <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0" style={{ animation: "urgencyPulse 2s ease infinite" }} />
               <span className="text-white/60 text-xs font-medium">Accepting 4 new founders this quarter</span>
             </div>
