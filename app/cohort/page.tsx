@@ -360,10 +360,8 @@ export default function CohortPage() {
         </div>
       </section>
 
-      {/* ── 3+4+5. WHAT YOU GET + CURRICULUM + FIVE STAGES ── */}
-      <section id="what-you-get" className="scroll-anchor pt-14 md:pt-28 pb-14 md:pb-28 px-6 bg-[#1A1714]">
-
-        {/* What You Get */}
+      {/* ── 3. WHAT YOU GET ── */}
+      <section id="what-you-get" className="scroll-anchor py-14 md:py-28 px-6 bg-[#282320]">
         <div className="max-w-[1080px] mx-auto">
           <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             What You Get
@@ -386,40 +384,38 @@ export default function CohortPage() {
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Divider */}
-        <div className="max-w-[1080px] mx-auto my-14 md:my-20 border-t border-[#C4982A]/20" />
-
-        {/* Curriculum */}
+      {/* ── 4. THE CURRICULUM ── */}
+      <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
         <div className="max-w-[720px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             The Curriculum
           </p>
-          <h2 className="text-3xl md:text-4xl mb-14 text-center text-[#FAF5EF]" style={ig.headline}>
+          <h2 className="text-3xl md:text-4xl mb-14 text-center text-[#3D3530]" style={ig.headline}>
             What we cover
           </h2>
           <div className="space-y-0">
             {CURRICULUM.map((w) => (
-              <div key={w.week} className="border-t border-[#FAF5EF]/[0.07] py-7 first:border-t-0">
+              <div key={w.week} className="border-t border-[#3D3530]/10 py-7 first:border-t-0">
                 <div className="flex items-baseline gap-4 mb-2">
                   <span className="text-[#C4982A] text-sm font-medium tracking-wide flex-shrink-0" style={ig.body}>Week {w.week}</span>
-                  <span className="text-[#FAF5EF] text-base font-medium" style={ig.body}>{w.title}</span>
+                  <span className="text-[#3D3530] text-base font-medium" style={ig.body}>{w.title}</span>
                 </div>
-                <p className="text-[#A8A29E] font-light leading-[1.8] text-[14.5px] pl-[68px]" style={ig.body}>{w.body}</p>
+                <p className="text-[#57534E] font-light leading-[1.8] text-[14.5px] pl-[68px]" style={ig.body}>{w.body}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Divider */}
-        <div className="max-w-[1080px] mx-auto my-14 md:my-20 border-t border-[#C4982A]/20" />
-
-        {/* Five Stages */}
+      {/* ── 5. VISUAL JOURNEY BAR ── */}
+      <section className="py-16 md:py-32 px-6 bg-[#1A1714]">
         <div className="max-w-[960px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
             Five Stages
           </p>
-          <h2 className="text-3xl md:text-5xl text-[#FAF5EF] text-center mb-16" style={ig.headline}>
+          <h2 className="text-3xl md:text-5xl text-[#FAF5EF] text-center mb-20" style={ig.headline}>
             The Practice
           </h2>
 
@@ -437,10 +433,11 @@ export default function CohortPage() {
             ))}
           </div>
 
-          {/* Mobile: vertical */}
+          {/* Mobile: vertical — flex column avoids absolute-positioning overlap */}
           <div className="md:hidden flex flex-col max-w-xs mx-auto">
             {JOURNEY_STEPS.map((step, i) => (
               <div key={step.label} className="flex items-start gap-5">
+                {/* Circle + connector */}
                 <div className="flex flex-col items-center flex-shrink-0">
                   <div className="w-12 h-12 rounded-full border border-[#C4982A]/40 bg-[#1A1714] flex items-center justify-center shadow-[0_0_20px_rgba(196,152,42,0.08)]">
                     <span className="text-[#C4982A] text-base" style={{ fontFamily: "var(--font-playfair-display), Georgia, serif", fontStyle: "italic" }}>{i + 1}</span>
@@ -449,6 +446,7 @@ export default function CohortPage() {
                     <div className="w-px flex-1 min-h-[28px] bg-gradient-to-b from-[#C4982A]/30 to-[#C4982A]/10 my-1" />
                   )}
                 </div>
+                {/* Text */}
                 <div className="pt-3 pb-6">
                   <span className="text-[#FAF5EF] text-sm tracking-[0.14em] uppercase block mb-1" style={ig.body}>{step.label}</span>
                   <span className="text-[#A8A29E]/70 text-xs font-light" style={ig.body}>{step.sub}</span>
@@ -457,7 +455,6 @@ export default function CohortPage() {
             ))}
           </div>
         </div>
-
       </section>
 
       {/* ── 6. THE SHIFT — Before / After ── */}
