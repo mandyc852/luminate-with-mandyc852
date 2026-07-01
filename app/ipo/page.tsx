@@ -364,7 +364,7 @@ export default function IPOServicePage() {
               href="/ipo-path"
               className="flex-shrink-0 inline-flex items-center justify-center whitespace-nowrap px-6 py-3 rounded-none uppercase tracking-wide text-xs btn-gold-animated"
             >
-              See the assessment →
+              Start the assessment →
             </a>
           </div>
         </div>
@@ -383,7 +383,11 @@ export default function IPOServicePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
+            {/* Step 01 — highlighted as entry point */}
+            <div className="bg-[#f8f7f4] rounded-none p-8 border-2 border-[#c9a227] flex flex-col relative">
+              <span className="absolute -top-3 left-8 bg-[#c9a227] text-[#1a2a3a] text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1">
+                Start Here
+              </span>
               <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 01 · Free</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                 Discovery call
@@ -391,15 +395,21 @@ export default function IPOServicePage() {
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
                 Thirty minutes, video. You talk about the business. I give you an honest initial read on whether listing is worth exploring — and which structuring approach might fit. Free.
               </p>
-              <p className="text-slate-400 text-xs font-light italic">
+              <p className="text-slate-400 text-xs font-light italic mb-5">
                 Outcome: Clarity on whether it&apos;s worth the next step.
               </p>
+              <a
+                href="https://tidycal.com/mandyc852/30-minute-meeting"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center px-6 py-3 text-xs uppercase tracking-[0.18em] btn-gold-animated"
+              >
+                Book Your Free Call
+              </a>
             </div>
 
-            <div className="bg-[#f8f7f4] rounded-none p-8 border-2 border-[#c9a227] flex flex-col relative">
-              <span className="absolute -top-3 left-8 bg-[#c9a227] text-[#1a2a3a] text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1">
-                The Recommended Start
-              </span>
+            {/* Step 02 */}
+            <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
               <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 02 · US$2,500</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
                 The IPO Path Assessment
@@ -411,10 +421,11 @@ export default function IPOServicePage() {
                 Outcome: A written verdict on whether you should list, and the next move spelled out.
               </p>
               <a href="/ipo-path" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
-                See the assessment →
+                Start the assessment →
               </a>
             </div>
 
+            {/* Step 03 */}
             <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
               <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 03 · Continuation</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
@@ -427,6 +438,53 @@ export default function IPOServicePage() {
                 Outcome: Your company on the path to public markets.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* IPO RESOURCES */}
+      <section className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
+            Resources
+          </p>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+            IPO Insights
+          </h2>
+          <p className="text-center text-slate-600 font-light mb-12 max-w-3xl mx-auto">
+            Practical articles on Nasdaq listing requirements, costs, and tax strategies — updated for 2026 regulations.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <a href="/resources/nasdaq-ipo-preparation-checklist" className="group p-8 bg-[#f8f7f4] border-2 border-slate-200 hover:border-[#c9a227]/40 transition-colors flex flex-col">
+              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 group-hover:text-[#2d4156] transition-colors" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                The Ultimate Nasdaq IPO Preparation Checklist
+              </h3>
+              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
+                Listing requirements, corporate governance, due diligence, and timeline planning — including the 2026 MVUPHS increase.
+              </p>
+              <span className="text-[#a68a1f] text-sm font-medium tracking-wide group-hover:text-[#1a2a3a] transition-colors">Read →</span>
+            </a>
+
+            <a href="/resources/nasdaq-ipo-cost-breakdown" className="group p-8 bg-[#f8f7f4] border-2 border-slate-200 hover:border-[#c9a227]/40 transition-colors flex flex-col">
+              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 group-hover:text-[#2d4156] transition-colors" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                How Much Does A Nasdaq IPO Cost?
+              </h3>
+              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
+                Detailed breakdown from adviser fees to D&amp;O insurance to post-listing compliance — what to budget in 2026.
+              </p>
+              <span className="text-[#a68a1f] text-sm font-medium tracking-wide group-hover:text-[#1a2a3a] transition-colors">Read →</span>
+            </a>
+
+            <a href="/resources/pre-ipo-tax-financial-strategies" className="group p-8 bg-[#f8f7f4] border-2 border-slate-200 hover:border-[#c9a227]/40 transition-colors flex flex-col">
+              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 group-hover:text-[#2d4156] transition-colors" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                Pre-IPO Tax and Financial Strategies
+              </h3>
+              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
+                Estate planning, QSBS exclusion, capital gains strategies, and cross-jurisdiction tax considerations for founders.
+              </p>
+              <span className="text-[#a68a1f] text-sm font-medium tracking-wide group-hover:text-[#1a2a3a] transition-colors">Read →</span>
+            </a>
           </div>
         </div>
       </section>

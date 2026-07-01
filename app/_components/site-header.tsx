@@ -11,6 +11,7 @@ const WORK_LINKS = [
   { label: "IPO Advisory", href: "/ipo" },
   { label: "LPF Launch", href: "/fund" },
   { label: "Inner Game Cohort", href: "/cohort" },
+  { label: "Resources", href: "/resources" },
 ]
 
 type NavLink = { label: string; href: string }
