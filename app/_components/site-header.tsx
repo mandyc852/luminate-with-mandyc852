@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { BookCallButton } from "./home-interactions"
 
 const TIDYCAL_URL = "https://tidycal.com/mandyc852/30-minute-meeting"
@@ -49,21 +50,44 @@ function SocialIcons({ className = "" }: { className?: string }) {
 export function SiteHeader({
   links = [],
   bookHref,
+  hideGlobalLinks = false,
 }: {
   links?: NavLink[]
   bookHref?: string
+  hideGlobalLinks?: boolean
 }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [workOpen, setWorkOpen] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === "/"
 
+  const pageLabels = new Set(links.map((l) => l.label))
+  const permanentLinks: NavLink[] = hideGlobalLinks
+    ? []
+    : [
+        { label: "About", href: isHome ? "#about" : "/#about" },
+        { label: "Track Record", href: isHome ? "#track-record" : "/#track-record" },
+      ].filter((l) => !pageLabels.has(l.label))
+
+  const navFont: React.CSSProperties = { fontFamily: "var(--font-poppins), sans-serif" }
   const bookClasses = "px-6 py-2.5 rounded-none uppercase tracking-wide text-sm btn-gold-animated"
+  const linkClasses = "text-sm font-normal text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide"
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <>
+      <style jsx global>{`
+        .site-nav-bar nav,
+        .site-nav-bar nav a,
+        .site-nav-bar nav button,
+        .site-nav-bar nav span,
+        .site-nav-bar nav p {
+          font-family: var(--font-poppins), sans-serif !important;
+        }
+      `}</style>
+    <header className="site-nav-bar fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm" style={navFont}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           <a href="/" className="flex-shrink-0 group" aria-label="MandyC. home">
-            {/* Two thin gold rules frame the wordmark — letterhead/seal feel */}
             <div className="inline-block transition-opacity group-hover:opacity-80">
               <div className="px-1 leading-none">
                 <span className="text-[22px] md:text-[26px]" style={wordmarkStyle}>
@@ -76,14 +100,22 @@ export function SiteHeader({
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
             {links.map((l) => (
-              <a key={l.href} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-sm font-normal text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
+              <a key={l.href} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={linkClasses}>
                 {l.label}
               </a>
             ))}
 
-            <a href="/resources" className="text-sm font-normal text-slate-600 hover:text-[#1a2a3a] transition-colors uppercase tracking-wide">
-              Resources
-            </a>
+            {permanentLinks.map((l) => (
+              <a key={l.label} href={l.href} className={linkClasses}>
+                {l.label}
+              </a>
+            ))}
+
+            {!hideGlobalLinks && (
+              <a href="/resources" className={linkClasses}>
+                Resources
+              </a>
+            )}
 
             {/* Work With Me dropdown */}
             <div className="relative" onMouseLeave={() => setWorkOpen(false)}>
@@ -148,9 +180,16 @@ export function SiteHeader({
                 {l.label}
               </a>
             ))}
-            <a href="/resources" onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">
-              Resources
-            </a>
+            {permanentLinks.map((l) => (
+              <a key={l.label} href={l.href} onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">
+                {l.label}
+              </a>
+            ))}
+            {!hideGlobalLinks && (
+              <a href="/resources" onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">
+                Resources
+              </a>
+            )}
             <div className="w-full border-t border-slate-100 my-1" />
             <p className="text-xs uppercase tracking-[0.2em] text-[#a68a1f]">Work With Me</p>
             {WORK_LINKS.map((w) => (
@@ -160,7 +199,7 @@ export function SiteHeader({
             ))}
             <div className="w-full border-t border-slate-100 my-1" />
             <SocialIcons className="justify-center" />
-            <div className="w-full max-w-xs">
+            <div className="w-full max-w-xs flex flex-col gap-3">
               {bookHref ? (
                 <a href={bookHref} target="_blank" rel="noopener noreferrer" className={`block text-center w-full ${bookClasses}`}>
                   Book a Call
@@ -173,5 +212,6 @@ export function SiteHeader({
         </div>
       )}
     </header>
+    </>
   )
 }

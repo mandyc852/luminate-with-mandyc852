@@ -208,10 +208,10 @@ export default function CohortPage() {
         /* Social icons — gold */
         header.fixed nav a[aria-label] { color: #C4982A !important; }
         header.fixed nav a[aria-label]:hover { color: #a68a1f !important; }
-        /* Book a Call — black bold on gold */
+        /* Book a Call — dark text on gold */
         header.fixed nav .btn-gold-animated {
           color: #1A1714 !important;
-          font-weight: 700 !important;
+          font-weight: 500 !important;
         }
         /* Dropdown panel */
         header.fixed .absolute .bg-white,
@@ -285,10 +285,12 @@ export default function CohortPage() {
       <SiteHeader
         links={[
           { label: "What It Is", href: "#what-it-is" },
+          { label: "About", href: "#about" },
           { label: "Pricing", href: "#pricing" },
           { label: "FAQ", href: "#faq" },
         ]}
         bookHref={TIDYCAL_URL}
+        hideGlobalLinks
       />
 
       {/* ── 1. HERO — Full-bleed banner + CTA ── */}
@@ -341,7 +343,7 @@ export default function CohortPage() {
       </section>
 
       {/* ── 2. WHO'S RUNNING THIS ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#282320]">
+      <section id="about" className="scroll-anchor py-14 md:py-28 px-6 bg-[#282320]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-[#FAF5EF] mb-12 text-center md:text-left" style={ig.headline}>
             Who&apos;s running this

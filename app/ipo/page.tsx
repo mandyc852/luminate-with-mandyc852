@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
+import { BookCallButton } from "../_components/home-interactions"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -102,6 +103,16 @@ export default function IPOServicePage() {
           animation: shimmerGold 1.5s ease infinite;
         }
 
+        @keyframes urgencyPulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.4); }
+          70% { box-shadow: 0 0 0 8px rgba(201,162,39,0); }
+        }
+
+        @keyframes floatBob {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+
         @keyframes shimmerGold {
           0% { background-position: 200% 0%; }
           100% { background-position: -200% 0%; }
@@ -134,70 +145,86 @@ export default function IPOServicePage() {
       {/* Header */}
       <SiteHeader
         links={[
+          { label: "The Problem", href: "#the-problem" },
           { label: "What I Do", href: "#what-i-do" },
+          { label: "Who It's For", href: "#who-its-for" },
           { label: "How It Works", href: "#how-it-works" },
-          { label: "About", href: "/#about" },
-          { label: "Track Record", href: "/#track-record" },
+          { label: "Resources", href: "#resources" },
         ]}
         bookHref="https://tidycal.com/mandyc852/30-minute-meeting"
+        hideGlobalLinks
       />
 
       {/* HERO SECTION */}
-      <section className="relative w-full py-16 md:py-24 px-6 overflow-hidden bg-[#1a2a3a]">
-        <Image
-          src="/Wallstreet.jpg"
-          alt="New York Stock Exchange, Wall Street"
-          fill
-          priority
-          quality={90}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a2a3a]/80 via-[#1a2a3a]/72 to-[#1a2a3a]/88 pointer-events-none" />
+      <section className="relative w-full overflow-hidden bg-[#1a2a3a]" style={{ minHeight: 520 }}>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a2a3a]/80 via-[#1a2a3a]/72 to-[#1a2a3a]/85 md:from-[#1a2a3a]/60 md:via-[#1a2a3a]/50 md:to-[#1a2a3a]/70 pointer-events-none z-[1]" />
+        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[55%]">
+          <Image
+            src="/Wallstreet.jpg"
+            alt="New York Stock Exchange, Wall Street"
+            fill
+            priority
+            quality={90}
+            className="object-cover"
+            sizes="55vw"
+          />
+          <div className="absolute left-0 top-0 bottom-0 w-[200px] bg-gradient-to-r from-[#1a2a3a] to-transparent" />
+        </div>
+        <div className="md:hidden absolute inset-0">
+          <Image
+            src="/Wallstreet.jpg"
+            alt="New York Stock Exchange, Wall Street"
+            fill
+            priority
+            quality={90}
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
 
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-[#f5e6b3] text-xs font-medium tracking-[0.3em] uppercase mb-4" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
-            Lumina Capital · Hong Kong
-          </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-20 md:py-24 flex items-center" style={{ minHeight: 520 }}>
+          <div className="max-w-[560px]">
+            <p className="text-[#f5e6b3] text-xs font-medium tracking-[0.3em] uppercase mb-5">
+              Lumina Capital · Hong Kong
+            </p>
 
-          <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-5xl leading-[1.15] font-normal mb-5" style={{ filter: "drop-shadow(0 2px 18px rgba(0,0,0,0.5))" }}>
-            Should you take your company public?
-          </h1>
+            <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-[52px] leading-[1.12] font-normal mb-5">
+              Should you take your company public?
+            </h1>
 
-          <p className="text-base md:text-xl text-white font-light leading-relaxed mb-7 max-w-2xl mx-auto" style={{ textShadow: "0 1px 16px rgba(0,0,0,0.6)" }}>
-            Most founders assume listing isn&apos;t for them. They&apos;re often wrong. I help you find out if it&apos;s right for where your business is now — and walk with you from restructuring to listing day.
-          </p>
+            <p className="text-lg text-white/85 font-light leading-[1.7] mb-9 max-w-[480px]">
+              Most founders assume listing isn&apos;t for them. They&apos;re often wrong. I help you find out — and walk with you from restructuring to listing day.
+            </p>
 
-          <div className="flex flex-col sm:flex-row sm:justify-center gap-3">
-            <a
-              href="https://tidycal.com/mandyc852/30-minute-meeting"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
-            >
-              Book Your Strategy Call
-            </a>
-            <a
-              href="/guide"
-              className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-medium tracking-wide transition-all duration-300 hover:bg-white/10 rounded-none uppercase"
-            >
-              Get the Free Guide
-            </a>
+            <div className="flex flex-col sm:flex-row items-start gap-3 w-full sm:w-auto">
+              <BookCallButton
+                label="Book a Confidential Call"
+                className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none uppercase tracking-[0.12em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
+              />
+              <a
+                href="/guide"
+                className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none uppercase tracking-[0.12em] text-sm font-normal border border-white/40 text-white hover:border-white hover:bg-white/10 transition-colors"
+              >
+                Free IPO Guide
+              </a>
+            </div>
+            <div className="flex items-center gap-2 mt-3">
+              <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0" style={{ animation: "urgencyPulse 2s ease infinite" }} />
+              <span className="text-white/60 text-xs font-medium">Accepting 4 new founders this quarter</span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CREDENTIALS BAR - Gold */}
-      <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            SFC Type 6 Licensed · 60+ Transactions · US$500M+ in Deal Value · HKEX &amp; NASDAQ
-          </p>
-        </div>
+      <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3.5 px-6 md:px-12">
+        <p className="text-center text-[#1a2a3a] text-[13px] font-semibold tracking-[0.06em]">
+          SFC Type 6 Licensed · 60+ Transactions · US$500M+ Deal Value · <span className="underline">Now Accepting Q3 2026</span>
+        </p>
       </section>
 
       {/* THE PROBLEM */}
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section id="the-problem" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
             Most founders who dismiss going public are making that decision based on assumptions that aren&apos;t accurate
@@ -229,10 +256,8 @@ export default function IPOServicePage() {
           <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
             End-to-end IPO advisory
           </h2>
-          <p className="text-center text-slate-600 font-light mb-12 max-w-3xl mx-auto">
-            From corporate restructuring through to listing day. One advisor. Full scope.
-            <br />
-            Milestone-based fees aligned with your success.
+          <p className="text-center text-slate-600 text-sm font-light mb-12 max-w-3xl mx-auto">
+            From restructuring to listing day. One advisor. Milestone-based fees.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -315,14 +340,11 @@ export default function IPOServicePage() {
             </p>
           </div>
 
-          <p className="text-slate-500 font-light text-sm mt-6 text-center max-w-2xl mx-auto">
-            A 30-minute conversation to discuss your business, your numbers, and whether a listing path makes sense. No pitch. No pressure. Just clarity.
-          </p>
         </div>
       </section>
 
       {/* WHO THIS IS FOR */}
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section id="who-its-for" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
             Who this is for
@@ -362,11 +384,35 @@ export default function IPOServicePage() {
             </div>
             <a
               href="/ipo-path"
-              className="flex-shrink-0 inline-flex items-center justify-center whitespace-nowrap px-6 py-3 rounded-none uppercase tracking-wide text-xs btn-gold-animated"
+              className="w-full md:w-auto flex-shrink-0 inline-flex items-center justify-center whitespace-nowrap px-7 py-3 rounded-none uppercase tracking-[0.12em] text-xs font-semibold btn-gold-animated hover:-translate-y-0.5 transition-transform"
             >
-              Start the assessment →
+              Start the Assessment →
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* DARK URGENCY MID-CTA */}
+      <section className="bg-[#1a2a3a] py-16 md:py-[72px] px-6 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(201,162,39,0.05)] via-transparent to-[rgba(201,162,39,0.03)]" />
+        <div className="relative z-10 max-w-[600px] mx-auto">
+          <p className="text-white text-3xl md:text-4xl mb-1.5 leading-[1.3]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+            The founders who engage early
+          </p>
+          <p className="text-[#c9a227] text-3xl md:text-4xl mb-3 leading-[1.3]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+            get the smoothest path to listing.
+          </p>
+          <p className="text-white/50 text-sm font-light mb-9">
+            30 minutes. No pitch. Just clarity on whether listing is right for you.
+          </p>
+          <BookCallButton
+            label="Book a Confidential Call"
+            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.15em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
+          />
+          <p className="text-white/45 text-xs font-medium tracking-[0.22em] uppercase mt-5 text-center flex items-center justify-center gap-2">
+            <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0" style={{ animation: "urgencyPulse 2s ease infinite" }} />
+            Accepting 4 new founders this quarter
+          </p>
         </div>
       </section>
 
@@ -398,14 +444,10 @@ export default function IPOServicePage() {
               <p className="text-slate-400 text-xs font-light italic mb-5">
                 Outcome: Clarity on whether it&apos;s worth the next step.
               </p>
-              <a
-                href="https://tidycal.com/mandyc852/30-minute-meeting"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center px-6 py-3 text-xs uppercase tracking-[0.18em] btn-gold-animated"
-              >
-                Book Your Free Call
-              </a>
+              <BookCallButton
+                label="Book Your Free Call"
+                className="w-full flex items-center justify-center px-6 py-3 text-xs uppercase tracking-[0.12em] font-semibold btn-gold-animated hover:-translate-y-0.5 transition-transform"
+              />
             </div>
 
             {/* Step 02 */}
@@ -442,71 +484,40 @@ export default function IPOServicePage() {
         </div>
       </section>
 
-      {/* IPO RESOURCES */}
-      <section className="py-20 md:py-28 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
-            Resources
+      {/* IPO RESOURCES — compact bar */}
+      <div id="resources" className="scroll-anchor py-5 px-6 md:px-16 bg-[#f8f7f4] border-t border-black/[0.06]">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center gap-4 md:gap-10">
+          <p className="text-[#a68a1f] text-[9px] font-medium tracking-[0.25em] uppercase flex-shrink-0">
+            Further reading
           </p>
-          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            IPO Insights
-          </h2>
-          <p className="text-center text-slate-600 font-light mb-12 max-w-3xl mx-auto">
-            Practical articles on Nasdaq listing requirements, costs, and tax strategies — updated for 2026 regulations.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <a href="/resources/nasdaq-ipo-preparation-checklist" className="group p-8 bg-[#f8f7f4] border-2 border-slate-200 hover:border-[#c9a227]/40 transition-colors flex flex-col">
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 group-hover:text-[#2d4156] transition-colors" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                The Ultimate Nasdaq IPO Preparation Checklist
-              </h3>
-              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
-                Listing requirements, corporate governance, due diligence, and timeline planning — including the 2026 MVUPHS increase.
-              </p>
-              <span className="text-[#a68a1f] text-sm font-medium tracking-wide group-hover:text-[#1a2a3a] transition-colors">Read →</span>
+          <div className="flex flex-col md:flex-row flex-1 md:border-l border-black/[0.08] divide-y md:divide-y-0 md:divide-x divide-black/[0.08]">
+            <a href="/resources/nasdaq-ipo-preparation-checklist" className="flex-1 px-5 py-2.5 text-[13px] font-light text-slate-600 hover:text-[#1a2a3a] transition-colors">
+              The Ultimate Nasdaq IPO Preparation Checklist <span className="text-[#a68a1f] font-medium">→</span>
             </a>
-
-            <a href="/resources/nasdaq-ipo-cost-breakdown" className="group p-8 bg-[#f8f7f4] border-2 border-slate-200 hover:border-[#c9a227]/40 transition-colors flex flex-col">
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 group-hover:text-[#2d4156] transition-colors" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                How Much Does A Nasdaq IPO Cost?
-              </h3>
-              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
-                Detailed breakdown from adviser fees to D&amp;O insurance to post-listing compliance — what to budget in 2026.
-              </p>
-              <span className="text-[#a68a1f] text-sm font-medium tracking-wide group-hover:text-[#1a2a3a] transition-colors">Read →</span>
+            <a href="/resources/nasdaq-ipo-cost-breakdown" className="flex-1 px-5 py-2.5 text-[13px] font-light text-slate-600 hover:text-[#1a2a3a] transition-colors">
+              How Much Does A Nasdaq IPO Cost? <span className="text-[#a68a1f] font-medium">→</span>
             </a>
-
-            <a href="/resources/pre-ipo-tax-financial-strategies" className="group p-8 bg-[#f8f7f4] border-2 border-slate-200 hover:border-[#c9a227]/40 transition-colors flex flex-col">
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 group-hover:text-[#2d4156] transition-colors" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                Pre-IPO Tax and Financial Strategies
-              </h3>
-              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
-                Estate planning, QSBS exclusion, capital gains strategies, and cross-jurisdiction tax considerations for founders.
-              </p>
-              <span className="text-[#a68a1f] text-sm font-medium tracking-wide group-hover:text-[#1a2a3a] transition-colors">Read →</span>
+            <a href="/resources/pre-ipo-tax-financial-strategies" className="flex-1 px-5 py-2.5 text-[13px] font-light text-slate-600 hover:text-[#1a2a3a] transition-colors">
+              Pre-IPO Tax and Financial Strategies <span className="text-[#a68a1f] font-medium">→</span>
             </a>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* FINAL CTA */}
-      <section className="py-16 md:py-20 px-6 bg-[#1a2a3a]">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-normal mb-3 cta-title-gradient">
+      <section className="py-20 px-6 md:px-16 bg-[#1a2a3a] text-center">
+        <div className="max-w-[560px] mx-auto">
+          <h2 className="text-3xl md:text-[40px] font-normal mb-3.5 leading-[1.25] cta-title-gradient">
             Ready to have the conversation?
           </h2>
-          <p className="text-slate-300 font-light mb-6 text-base">
+          <p className="text-white/60 text-base font-light mb-10 leading-[1.7]">
             A 30-minute strategy call to discuss your business, your numbers, and whether a listing path makes sense for where you are now. No pitch. No pressure. Just clarity.
           </p>
-          <a 
-            href="https://tidycal.com/mandyc852/30-minute-meeting"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
-          >
-            Book Your Strategy Call
-          </a>
-          <p className="text-slate-400 text-xs mt-5 font-light tracking-wide">
+          <BookCallButton
+            label="Book a Confidential Call"
+            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.15em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
+          />
+          <p className="text-white/35 text-[11px] mt-5 tracking-[0.05em]">
             Type 6 Licensed · Hong Kong · Cross-Border Expertise
           </p>
         </div>
@@ -514,17 +525,19 @@ export default function IPOServicePage() {
 
       {/* Floating CTA */}
       {showFloatingButton && (
-        <a
-          href="https://tidycal.com/mandyc852/30-minute-meeting"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="floating-cta px-5 py-3.5 bg-gradient-to-br from-[#c9a227] to-[#a68a1f] text-[#1a2a3a] text-sm font-semibold tracking-wide rounded-none flex items-center gap-2 uppercase"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-          <span className="hidden sm:inline">Book a Call</span>
-        </a>
+        <div className="fixed bottom-6 right-6 z-[1000]" style={{ animation: "floatBob 3s ease-in-out infinite" }}>
+          <a
+            href="https://tidycal.com/mandyc852/30-minute-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-7 py-4 bg-gradient-to-br from-[#c9a227] to-[#d4b84a] text-[#1a2a3a] text-xs font-semibold tracking-[0.1em] uppercase rounded-none shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
+          >
+            Book a Call
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" viewBox="0 0 24 24">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
+        </div>
       )}
 
       {/* Footer */}

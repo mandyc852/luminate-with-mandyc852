@@ -132,12 +132,7 @@ export default function HomePage() {
       `}</style>
 
       {/* Header */}
-      <SiteHeader
-        links={[
-          { label: "About", href: "#about" },
-          { label: "Track Record", href: "#track-record" },
-        ]}
-      />
+      <SiteHeader />
 
       {/* HERO */}
       <section id="hero-section" className="relative w-full min-h-[540px] md:min-h-[620px] flex items-center overflow-hidden bg-[#1a2a3a]">
@@ -167,19 +162,27 @@ export default function HomePage() {
               A Hong Kong capital markets advisor to ambitious companies preparing to raise, restructure, or list.
             </p>
             <div className="flex flex-col items-center md:items-start gap-3 mt-2">
-              <BookCallButton
-                label="Book a Confidential Call"
-                className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-10 py-[18px] rounded-none uppercase tracking-[0.18em] text-xs font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
-              />
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 w-full sm:w-auto">
+                <BookCallButton
+                  label="Book a Confidential Call"
+                  className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none uppercase tracking-[0.12em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
+                />
+                <a
+                  href="/guide"
+                  className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none uppercase tracking-[0.12em] text-sm font-normal border border-white/40 text-white hover:border-white hover:bg-white/10 transition-colors"
+                >
+                  Free IPO Guide
+                </a>
+              </div>
+              <div className="flex items-center gap-2 mt-1">
                 <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0 pulse-dot" />
-                <span className="text-white/60 text-[10px] font-medium">Accepting 4 new founders this quarter</span>
+                <span className="text-white/60 text-xs font-medium">Accepting 4 new founders this quarter</span>
               </div>
               <a
                 href="https://lumen-by-mandyc.vercel.app/how-it-works"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/35 hover:text-white/60 text-[10px] underline underline-offset-2 transition-colors"
+                className="text-white/50 hover:text-white/80 text-sm underline underline-offset-2 transition-colors mt-1"
               >
                 or try Lumen free →
               </a>
@@ -267,16 +270,16 @@ export default function HomePage() {
       <section className="py-16 md:py-24 px-6 bg-[#1a2a3a]" style={{ backgroundImage: "linear-gradient(135deg, rgba(201,162,39,0.06) 0%, transparent 60%)" }}>
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl mb-8 font-normal leading-[1.12] !text-white" style={{ textWrap: "balance" }}>
-            The founders who move first{" "}
-            <span style={{ color: "#c9a227" }}>get the most from this relationship.</span>
+            The founders who move first get{" "}
+            <span style={{ color: "#c9a227" }}>the most from this relationship.</span>
           </h2>
           <BookCallButton
             label="Book a Confidential Call"
-            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.18em] text-xs font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform mb-4"
+            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.15em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
           />
-          <p className="text-white/45 text-[11px] font-medium tracking-[0.22em] uppercase mt-4 text-center flex items-center justify-center gap-2">
+          <p className="text-white/45 text-xs font-medium tracking-[0.22em] uppercase mt-5 text-center flex items-center justify-center gap-2">
             <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0 pulse-dot" />
-            2 spots remaining this month
+            Accepting 4 new founders this quarter
           </p>
         </div>
       </section>
@@ -344,7 +347,7 @@ export default function HomePage() {
             href="/ipo-path"
             className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
           >
-            See the assessment →
+            Start the assessment →
           </a>
           <p className="text-white/50 font-light text-sm mt-5">
             Only 4 founders accepted per month · ExitPro access + Listing Path Memo + follow-up support

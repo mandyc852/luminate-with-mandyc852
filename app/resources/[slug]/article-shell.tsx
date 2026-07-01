@@ -102,10 +102,6 @@ export function ArticleShell({ children }: { children: React.ReactNode }) {
       `}</style>
 
       <SiteHeader
-        links={[
-          { label: "Resources", href: "/resources" },
-          { label: "About", href: "/#about" },
-        ]}
         bookHref="https://tidycal.com/mandyc852/30-minute-meeting"
       />
 

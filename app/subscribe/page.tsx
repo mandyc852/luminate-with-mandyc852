@@ -285,12 +285,7 @@ export default function SubscribePage() {
         }
       `}</style>
 
-      <SiteHeader
-        links={[
-          { label: "About", href: "/#about" },
-          { label: "Track Record", href: "/#track-record" },
-        ]}
-      />
+      <SiteHeader />
 
       <div className="subscribe-layout">
         {/* LEFT — copy + form */}

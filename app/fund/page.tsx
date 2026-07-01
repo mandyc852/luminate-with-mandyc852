@@ -82,12 +82,15 @@ export default function FundPage() {
 
       {/* Header */}
       <SiteHeader
-        links={[
-          { label: "Talk to Me", href: "/#work" },
-          { label: "About", href: "/#about" },
-          { label: "Track Record", href: "/#track-record" },
-        ]}
         bookHref="https://tidycal.com/mandyc852/30-minute-meeting"
+        links={[
+          { label: "The Opportunity", href: "#opportunity" },
+          { label: "Market Moment", href: "#market" },
+          { label: "Structure", href: "#structure" },
+          { label: "Approach", href: "#approach" },
+          { label: "About", href: "#about" },
+        ]}
+        hideGlobalLinks
       />
 
       {/* HERO */}
@@ -119,7 +122,7 @@ export default function FundPage() {
       </section>
 
       {/* THE OPPORTUNITY */}
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section id="opportunity" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">The opportunity</p>
           <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal">Below the ticket size of the largest funds, above the reach of conventional capital</h2>
@@ -138,7 +141,7 @@ export default function FundPage() {
       </section>
 
       {/* THE MARKET MOMENT — 2025 IPO data */}
-      <section className="py-20 md:py-28 px-6 bg-[#0f1a24] relative overflow-hidden">
+      <section id="market" className="scroll-anchor py-20 md:py-28 px-6 bg-[#0f1a24] relative overflow-hidden">
         {/* Subtle skyline texture */}
         <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
           <Image
@@ -200,7 +203,7 @@ export default function FundPage() {
       </section>
 
       {/* HOW THE STRUCTURE WORKS */}
-      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      <section id="structure" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">How the structure works</p>
           <h2 className="text-3xl md:text-4xl mb-6 text-center font-normal">A three-way alignment</h2>
@@ -240,7 +243,7 @@ export default function FundPage() {
         Desktop: 3 always-open columns side-by-side (eligibility | instruments | exits).
         The duplication is intentional — clean tree per breakpoint beats CSS gymnastics.
       */}
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section id="approach" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-3">Investment approach</p>
           <h2 className="text-3xl md:text-4xl mb-14 text-center font-normal">Disciplined, structured, success-aligned</h2>
@@ -355,7 +358,7 @@ export default function FundPage() {
       </section>
 
       {/* LEADERSHIP */}
-      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      <section id="about" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
         <div className="max-w-4xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">Leadership</p>
           <h2 className="text-3xl md:text-4xl mb-12 text-center font-normal">Who runs the fund</h2>

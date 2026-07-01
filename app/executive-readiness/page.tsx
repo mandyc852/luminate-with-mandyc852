@@ -26,8 +26,6 @@ export default function ExecutiveReadinessPage() {
       <SiteHeader
         links={[
           { label: "Home", href: "/" },
-          { label: "About", href: "/#about" },
-          { label: "Track Record", href: "/#track-record" },
         ]}
       />
 
