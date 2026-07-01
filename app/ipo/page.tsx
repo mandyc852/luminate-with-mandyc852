@@ -167,7 +167,7 @@ export default function IPOServicePage() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[#1a2a3a]/60 pointer-events-none" />
+          <div className="absolute inset-0 bg-[#1a2a3a]/75 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-20 md:py-24 flex items-center" style={{ minHeight: 520 }}>
