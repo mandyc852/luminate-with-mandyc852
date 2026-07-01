@@ -266,18 +266,18 @@ export default function HomePage() {
       {/* URGENCY BAND */}
       <section className="py-16 md:py-24 px-6 bg-[#1a2a3a]" style={{ backgroundImage: "linear-gradient(135deg, rgba(201,162,39,0.06) 0%, transparent 60%)" }}>
         <div className="max-w-2xl mx-auto text-center">
-          <div className="text-3xl md:text-5xl font-normal mb-8 leading-[1.12]" style={{ fontFamily: "var(--font-cormorant-garamond), serif", letterSpacing: "-0.02em" }}>
-            <p style={{ color: "white" }}>The founders who move first</p>
-            <p style={{ color: "#c9a227" }}>get the most from this relationship.</p>
-          </div>
+          <h2 className="text-3xl md:text-5xl mb-8 font-normal leading-[1.12] !text-white" style={{ textWrap: "balance" }}>
+            The founders who move first{" "}
+            <span style={{ color: "#c9a227" }}>get the most from this relationship.</span>
+          </h2>
           <BookCallButton
             label="Book a Confidential Call"
             className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.18em] text-xs font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform mb-4"
           />
-          <div className="flex items-center justify-center gap-2 mt-4">
+          <p className="text-white/45 text-[11px] font-medium tracking-[0.22em] uppercase mt-4 text-center flex items-center justify-center gap-2">
             <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0 pulse-dot" />
-            <span className="text-white/45 text-[11px] font-medium tracking-[0.22em] uppercase">2 spots remaining this month</span>
-          </div>
+            2 spots remaining this month
+          </p>
         </div>
       </section>
 
