@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
-import { BookCallButton } from "../_components/home-interactions"
+import { BookCallButton, FloatingCTA } from "../_components/home-interactions"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -429,6 +429,8 @@ export default function FundPage() {
           </p>
         </div>
       </section>
+
+      <FloatingCTA />
 
       {/* Footer */}
       <footer className="w-full bg-[#0f1a24] border-t border-[#1a2a3a] py-8">

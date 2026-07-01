@@ -17,13 +17,19 @@ export function FloatingCTA() {
   useEffect(() => {
     setMounted(true)
     const hero = document.getElementById("hero-section")
-    if (!hero) return
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
-      { threshold: 0 }
-    )
-    observer.observe(hero)
-    return () => observer.disconnect()
+    if (hero) {
+      const observer = new IntersectionObserver(
+        ([entry]) => setVisible(!entry.isIntersecting),
+        { threshold: 0 }
+      )
+      observer.observe(hero)
+      return () => observer.disconnect()
+    } else {
+      const handleScroll = () => setVisible(window.scrollY > 400)
+      window.addEventListener("scroll", handleScroll, { passive: true })
+      handleScroll()
+      return () => window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   if (!mounted) return null
@@ -35,8 +41,8 @@ export function FloatingCTA() {
       }`}
     >
       <BookCallButton
-        label="Book a Call"
-        className="px-6 py-[14px] text-[11px] font-semibold tracking-[0.1em] uppercase cursor-pointer rounded-[40px] btn-gold-home shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
+        label="Book a Call ›"
+        className="px-6 py-[14px] text-[11px] font-semibold tracking-[0.1em] uppercase cursor-pointer rounded-none btn-gold-home shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
       />
     </div>
   )

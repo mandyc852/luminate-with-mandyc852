@@ -1,10 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
-import { BookCallButton } from "../_components/home-interactions"
+import { BookCallButton, FloatingCTA } from "../_components/home-interactions"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -19,16 +18,6 @@ const poppins = Poppins({
 })
 
 export default function IPOServicePage() {
-  const [showFloatingButton, setShowFloatingButton] = useState(false)
-
-  // Scroll listener for floating button
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowFloatingButton(window.scrollY > 400)
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   return (
     <div className={`${cormorantGaramond.variable} ${poppins.variable} min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/80`}>
@@ -522,15 +511,7 @@ export default function IPOServicePage() {
         </div>
       </section>
 
-      {/* Floating CTA */}
-      {showFloatingButton && (
-        <div className="fixed bottom-6 right-6 z-[1000]" style={{ animation: "floatBob 3s ease-in-out infinite" }}>
-          <BookCallButton
-            label="Book a Call"
-            className="px-7 py-4 text-xs font-semibold tracking-[0.1em] uppercase cursor-pointer rounded-none btn-gold-animated shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
-          />
-        </div>
-      )}
+      <FloatingCTA />
 
       {/* Footer */}
       <footer className="w-full bg-[#0f1a24] border-t border-[#1a2a3a] py-8">
