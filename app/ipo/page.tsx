@@ -157,7 +157,6 @@ export default function IPOServicePage() {
 
       {/* HERO SECTION */}
       <section className="relative w-full overflow-hidden bg-[#1a2a3a]" style={{ minHeight: 520 }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a2a3a]/80 via-[#1a2a3a]/72 to-[#1a2a3a]/85 md:from-[#1a2a3a]/60 md:via-[#1a2a3a]/50 md:to-[#1a2a3a]/70 pointer-events-none z-[1]" />
         <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[55%]">
           <Image
             src="/Wallstreet.jpg"
@@ -168,7 +167,7 @@ export default function IPOServicePage() {
             className="object-cover"
             sizes="55vw"
           />
-          <div className="absolute left-0 top-0 bottom-0 w-[200px] bg-gradient-to-r from-[#1a2a3a] to-transparent" />
+          <div className="absolute left-0 top-0 bottom-0 w-[200px] bg-gradient-to-r from-[#1a2a3a] to-transparent pointer-events-none" />
         </div>
         <div className="md:hidden absolute inset-0">
           <Image
@@ -180,6 +179,7 @@ export default function IPOServicePage() {
             className="object-cover"
             sizes="100vw"
           />
+          <div className="absolute inset-0 bg-[#1a2a3a]/60 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-20 md:py-24 flex items-center" style={{ minHeight: 520 }}>
@@ -192,7 +192,7 @@ export default function IPOServicePage() {
               Should you take your company public?
             </h1>
 
-            <p className="text-lg text-white/85 font-light leading-[1.7] mb-9 max-w-[480px]">
+            <p className="text-base md:text-xl text-white/90 font-light leading-relaxed mb-7 max-w-[480px]">
               Most founders assume listing isn&apos;t for them. They&apos;re often wrong. I help you find out — and walk with you from restructuring to listing day.
             </p>
 
