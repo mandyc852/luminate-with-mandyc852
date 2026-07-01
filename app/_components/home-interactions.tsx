@@ -49,7 +49,7 @@ export function FloatingCTA() {
             <span className="hidden sm:inline">Book a Call ›</span>
           </>
         }
-        className="p-3.5 sm:px-6 sm:py-[14px] flex items-center justify-center text-[11px] font-semibold tracking-[0.1em] uppercase cursor-pointer rounded-none btn-gold-home shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
+        className="p-3.5 sm:px-6 sm:py-[14px] flex items-center justify-center text-[14px] font-semibold tracking-[0.1em] uppercase cursor-pointer rounded-none btn-gold-home shadow-[0_6px_28px_rgba(201,162,39,0.45),0_2px_8px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform"
       />
     </div>
   )
