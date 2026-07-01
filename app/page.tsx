@@ -134,8 +134,6 @@ export default function HomePage() {
       {/* Header */}
       <SiteHeader
         links={[
-          { label: "Lumen", href: "https://lumen-by-mandyc.vercel.app/how-it-works" },
-          { label: "Talk to Me", href: "#work" },
           { label: "About", href: "#about" },
           { label: "Track Record", href: "#track-record" },
         ]}
