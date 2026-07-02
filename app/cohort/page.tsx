@@ -323,7 +323,7 @@ export default function CohortPage() {
             fill
             priority
             quality={95}
-            className="object-cover object-[40%_30%]"
+            className="object-cover object-[40%_25%]"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1A1714] via-[#1A1714]/60 to-transparent" style={{ top: '40%' }} />
