@@ -1,41 +1,33 @@
 "use client"
 
-import { useState, useEffect, Fragment } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { SiteHeader } from "../_components/site-header"
 
 const TIDYCAL_URL = "https://tidycal.com/mandyc852/15-minute-meeting"
 
-const WHAT_YOU_GET = [
-  {
-    n: "01",
-    title: "One 90-minute live group call per week",
-    body: "Small group. Real situations from your week, worked in real time. Direct access to Mandy and the cohort.",
-  },
-  {
-    n: "02",
-    title: "AI-powered daily practice between sessions",
-    body: "A set of practice files you load into whichever AI you already use — Claude, ChatGPT, or anything else. It runs your daily inner-game protocols: state regulation, loop interruption, identity-lag tracking, DAWN reflections. Personalised to you. Works anywhere.",
-  },
-  {
-    n: "03",
-    title: "6 weeks, not 6 months",
-    body: "One season. Enough time to build the practice. Short enough to stay accountable.",
-  },
-  {
-    n: "04",
-    title: "A cohort of operators working the same problem",
-    body: "8–12 seats. No audience, no lurkers. Everyone in the room is doing the real work.",
-  },
+const INCLUDED = [
+  { headline: "6", label: "Live Sessions", sub: "90 min each, weekly" },
+  { headline: "12", label: "Seats Max", sub: "A small room of women" },
+  { headline: "Daily", label: "AI Companion", sub: "Between sessions" },
+  { headline: "∞", label: "Recordings", sub: "Keep for reference" },
+]
+
+const JOURNEY_STEPS = [
+  { num: "1", label: "Awareness", sub: "Reading your system" },
+  { num: "2", label: "Identity", sub: "Closing the lag" },
+  { num: "3", label: "Standards", sub: "Internal calibration" },
+  { num: "4", label: "Action", sub: "Executing from clarity" },
+  { num: "5", label: "Outcomes", sub: "A life built from there" },
 ]
 
 const CURRICULUM = [
-  { week: 1, title: "Reading Your System", body: "The gap between where you intend to operate and where you actually do. Awareness tools. Building your baseline." },
-  { week: 2, title: "Identity Lag", body: "Why you keep reverting under pressure. How identity forms, and how it lags. Identifying the version of you that’s two levels behind." },
-  { week: 3, title: "Internal Standards", body: "The difference between performing for external validation and operating from internal calibration. Recalibrating your floor." },
-  { week: 4, title: "Regulating Under Pressure", body: "State regulation for the moments that matter. Before the meeting. In the room. After the outcome." },
-  { week: 5, title: "Execution from the Right State", body: "Decisions from clarity, not reaction. The practice applied to real situations from your week." },
-  { week: 6, title: "The Long Game", body: "Making it yours. What the practice looks like after the cohort ends — and how to keep building from here." },
+  { week: "1", title: "Reading Your System", body: "Where you intend to show up vs. where you actually do." },
+  { week: "2", title: "Identity Lag", body: "Why you keep reverting under pressure." },
+  { week: "3", title: "Internal Standards", body: "Internal calibration over external validation." },
+  { week: "4", title: "Regulating Under Pressure", body: "Before the room. In it. After." },
+  { week: "5", title: "Execution from the Right State", body: "Decisions from clarity, not reaction." },
+  { week: "6", title: "The Long Game", body: "What the practice looks like after the cohort ends." },
 ]
 
 const FAQ: Array<{ q: string; a: string }> = [
@@ -48,8 +40,8 @@ const FAQ: Array<{ q: string; a: string }> = [
     a: "A set of practice files you load into whichever AI you already use — Claude, ChatGPT, or anything else. Pre-built with the inner game protocols (state regulation, loop interruption, identity-lag tracking, DAWN reflections) and personalised to your context during onboarding week. Think of it as the daily practice layer the live calls sit on top of.",
   },
   {
-    q: "I'm not into meditation or spiritual stuff.",
-    a: "Neither is this. The practice is built for professionals who would never describe themselves that way. No jargon, no woo. Just a system for performing under pressure.",
+    q: "Is this meditation? Mindset? Spiritual?",
+    a: "The practice draws on contemplative training and neuroscience — but it's built for women who carry real consequence, not retreat schedules. No guru language, no woo. State regulation, identity work, and repetition that still holds on the Tuesday everything lands on you at once.",
   },
   {
     q: "What if I can't make a live call?",
@@ -67,31 +59,24 @@ const FAQ: Array<{ q: string; a: string }> = [
 
 const WHO_THIS_IS_FOR = [
   {
-    lead: "You’ve built the external success",
-    body: "— but something still runs underneath it.",
+    lead: "You’re the one making the calls",
+    body: "— in the business, the office, the family. Often all three. Everyone reads the room off you, and nobody asks how you’re holding it.",
   },
   {
     lead: "You know what to do",
-    body: "— but in the 10 minutes before it matters, something else takes over.",
+    body: "— but in the 10 minutes before it matters, an older pattern takes over.",
   },
   {
-    lead: "You’re growing",
-    body: "— and you’re tired of how much composure it takes to hold the standard while everyone reads the room off you.",
+    lead: "You’ve done the external work",
+    body: "— the strategy, the routines, the training. You already know the next level is internal. You’re done circling it.",
   },
-]
-
-const JOURNEY_STEPS = [
-  { label: "Awareness", sub: "Reading your system" },
-  { label: "Identity", sub: "Closing the lag" },
-  { label: "Standards", sub: "Internal calibration" },
-  { label: "Action", sub: "Executing from clarity" },
-  { label: "Outcomes", sub: "Sustainable results" },
 ]
 
 const SHIFTS = [
   { before: "Overthinking before decisions", after: "Clear in the room" },
   { before: "Reacting to pressure", after: "Regulating under it" },
-  { before: "Managing how you're perceived", after: "Operating from your own standard" },
+  { before: "Managing how you're perceived", after: "Your own standard" },
+  { before: "Deferring your own happiness", after: "A life designed from it" },
 ]
 
 const ig = {
@@ -99,10 +84,15 @@ const ig = {
   body: { fontFamily: "var(--font-poppins), sans-serif" },
 }
 
-function WaitlistForm({ placement }: { placement: string }) {
+function WaitlistForm({ placement, maxWidth = "max-w-[520px]", variant = "dark" }: { placement: string; maxWidth?: string; variant?: "dark" | "light" }) {
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle")
   const [msg, setMsg] = useState("")
+
+  const inputClass =
+    variant === "light"
+      ? "w-full px-5 py-3.5 text-sm font-light outline-none bg-white border border-[#3D3530]/15 text-[#3D3530] placeholder:text-[#A8A29E] focus:border-[#C4982A]/60 transition-colors"
+      : "w-full px-5 py-3.5 text-sm font-light outline-none bg-white/[0.05] border border-white/[0.09] text-[#FAF5EF] placeholder:text-[#78716C] focus:border-[#C4982A]/50 transition-colors"
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -125,18 +115,18 @@ function WaitlistForm({ placement }: { placement: string }) {
   }
 
   if (status === "done") {
-    return <p className="text-center text-sm font-medium tracking-wide text-[#D4A832]">{msg}</p>
+    return <p className="text-sm font-medium tracking-wide text-[#D4A832] py-3" style={{ animation: "fadeSlideUp 0.4s ease" }}>{msg}</p>
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3 max-w-[520px] mx-auto">
+    <form onSubmit={handleSubmit} className={`w-full flex flex-col gap-2.5 ${maxWidth}`}>
       <input
         type="email"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Your email"
-        className="w-full px-5 py-3.5 text-sm font-light outline-none bg-white/[0.05] border border-white/[0.08] text-[#FAF5EF] placeholder:text-[#78716C] focus:border-[#C4982A]/50 transition-colors"
+        className={inputClass}
         style={ig.body}
       />
       <button
@@ -151,31 +141,69 @@ function WaitlistForm({ placement }: { placement: string }) {
   )
 }
 
-function FAQItem({ q, a, variant = "light" }: { q: string; a: string; variant?: "light" | "dark" }) {
+function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
-  const qColor = variant === "dark" ? "text-[#FAF5EF]" : "text-[#3D3530]"
-  const aColor = variant === "dark" ? "text-[#A8A29E]" : "text-[#57534E]"
-  const borderColor = variant === "dark" ? "border-[#C4982A]/15" : "border-[#3D3530]/10"
   return (
-    <div className={`border-b ${borderColor} last:border-b-0`}>
+    <div className="border-t border-[#C4982A]/[0.12]">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-start justify-between gap-6 py-6 text-left"
+        className="w-full flex items-start justify-between gap-6 py-[18px] text-left cursor-pointer bg-transparent border-none"
         aria-expanded={open}
       >
-        <span className={`text-base md:text-lg ${qColor} font-normal`} style={ig.headline}>{q}</span>
+        <span className="text-[15px] md:text-[17px] text-[#FAF5EF] font-normal leading-[1.4]" style={ig.headline}>{q}</span>
         <svg
-          className={`flex-shrink-0 w-4 h-4 mt-2 text-[#C4982A] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+          className={`flex-shrink-0 w-4 h-4 mt-1 text-[#C4982A] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
       {open && (
-        <div className={`pb-6 pr-8 ${aColor} font-light leading-[1.85] text-[15px]`} style={ig.body}><p>{a}</p></div>
+        <div className="pb-[18px] pr-10" style={{ animation: "fadeSlideUp 0.25s ease" }}>
+          <p className="text-[#A8A29E] font-light leading-[1.8] text-sm" style={ig.body}>{a}</p>
+        </div>
       )}
     </div>
+  )
+}
+
+/* Scroll-reveal wrapper: fades + slides sections in on first view */
+function Reveal({ children, className = "", id }: { children: React.ReactNode; className?: string; id?: string }) {
+  const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            el.style.opacity = "1"
+            el.style.transform = "translateY(0)"
+            observer.disconnect()
+          }
+        })
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section
+      ref={ref}
+      id={id}
+      className={`scroll-anchor ${className}`}
+      style={{
+        opacity: 0,
+        transform: "translateY(32px)",
+        transition: "opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)",
+      }}
+    >
+      {children}
+    </section>
   )
 }
 
@@ -183,10 +211,12 @@ export default function CohortPage() {
   const [showFloatingButton, setShowFloatingButton] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setShowFloatingButton(window.scrollY > 600)
+    const handleScroll = () => setShowFloatingButton(window.scrollY > 500)
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const scrollToCta = () => document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" })
 
   return (
     <div className="min-h-screen bg-[#1A1714]">
@@ -194,6 +224,7 @@ export default function CohortPage() {
         html { scroll-behavior: smooth; }
         body { background: #1A1714; padding-top: 80px; }
         .scroll-anchor { scroll-margin-top: 96px; }
+        ::selection { background: rgba(196,152,42,0.25); color: #FAF5EF; }
 
         /* ── Dark nav override ─────────────────────────── */
         header.fixed {
@@ -205,15 +236,12 @@ export default function CohortPage() {
         header.fixed nav a:not([aria-label]):not(.btn-gold-animated):hover { color: #FAF5EF !important; }
         header.fixed nav > div > button { color: #A8A29E !important; }
         header.fixed nav > div > button:hover { color: #FAF5EF !important; }
-        /* Social icons — gold */
         header.fixed nav a[aria-label] { color: #C4982A !important; }
         header.fixed nav a[aria-label]:hover { color: #a68a1f !important; }
-        /* Book a Call — dark text on gold */
         header.fixed nav .btn-gold-animated {
           color: #1A1714 !important;
           font-weight: 500 !important;
         }
-        /* Dropdown panel */
         header.fixed .absolute .bg-white,
         header.fixed .absolute > div {
           background: #1A1714 !important;
@@ -224,7 +252,6 @@ export default function CohortPage() {
           background: rgba(196, 152, 42, 0.06) !important;
           color: #FAF5EF !important;
         }
-        /* Mobile menu */
         header.fixed .md\\:hidden.bg-white,
         header.fixed .md\\:hidden.border-t {
           background: #1A1714 !important;
@@ -240,52 +267,45 @@ export default function CohortPage() {
           background-size: 200% 200%;
           color: #1A1714;
           font-family: var(--font-poppins), sans-serif;
-          font-size: 0.85rem;
-          letter-spacing: 0.15em;
+          font-size: 14px;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
-          padding: 14px 32px;
+          padding: 16px 32px;
           border: none;
-          font-weight: 500;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          font-weight: 400;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
           cursor: pointer;
-          box-shadow: 0 4px 14px rgba(26,23,20,0.25), 0 2px 8px rgba(196,152,42,0.2);
+          box-shadow: 0 4px 14px rgba(26,23,20,0.3), 0 2px 8px rgba(196,152,42,0.2);
         }
         .ig-cta:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(26,23,20,0.35), 0 4px 15px rgba(196,152,42,0.3);
+          box-shadow: 0 8px 28px rgba(26,23,20,0.4), 0 4px 16px rgba(196,152,42,0.3);
           animation: shimmerGold 1.5s ease infinite;
         }
         @keyframes shimmerGold {
           0% { background-position: 200% 0%; }
           100% { background-position: -200% 0%; }
         }
-
-        .ig-card {
-          background: rgba(255, 248, 240, 0.03);
-          border: 1px solid rgba(250, 245, 239, 0.06);
-          padding: 36px;
-          transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        @keyframes fadeSlideUp {
+          from { opacity: 0; transform: translateY(14px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-        .ig-card:hover {
-          border-color: rgba(196, 152, 42, 0.15);
-          box-shadow: 0 0 40px rgba(196, 152, 42, 0.04);
+        @keyframes pulseGlow {
+          0%, 100% { box-shadow: 0 0 16px rgba(196,152,42,0.3), 0 0 32px rgba(196,152,42,0.12); }
+          50% { box-shadow: 0 0 28px rgba(196,152,42,0.5), 0 0 56px rgba(196,152,42,0.2); }
         }
 
         .floating-cta {
           position: fixed; bottom: 24px; right: 24px; z-index: 1000;
           animation: pulseGlow 3s ease-in-out infinite;
         }
-        @keyframes pulseGlow {
-          0%, 100% { box-shadow: 0 0 16px rgba(196,152,42,0.3), 0 0 32px rgba(196,152,42,0.15); }
-          50% { box-shadow: 0 0 24px rgba(196,152,42,0.5), 0 0 48px rgba(196,152,42,0.2); }
-        }
         @media (max-width: 768px) { .floating-cta { bottom: 16px; right: 16px; } }
       `}</style>
 
       <SiteHeader
         links={[
-          { label: "What You Get", href: "#what-you-get" },
           { label: "Who This Is For", href: "#who-its-for" },
+          { label: "What You Get", href: "#what-you-get" },
           { label: "About", href: "#about" },
           { label: "Pricing", href: "#pricing" },
           { label: "FAQ", href: "#faq" },
@@ -294,403 +314,366 @@ export default function CohortPage() {
         hideGlobalLinks
       />
 
-      {/* ── 1. HERO — Full-bleed banner + CTA ── */}
+      {/* ── 1. HERO — full-width photo on top, copy centered below ── */}
       <section className="bg-[#1A1714]">
-        <div className="relative w-full aspect-[3/2] max-h-[55vh]">
+        <div className="relative w-full aspect-[4/3] md:aspect-[2.2/1] overflow-hidden">
           <Image
-            src="/hero_2.png"
+            src="/cohort hero_2.png"
             alt="Mandy Cheung — Inner work. Real outcomes."
             fill
             priority
             quality={95}
-            className="object-cover object-[50%_30%]"
+            className="object-cover object-[40%_30%]"
             sizes="100vw"
           />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#1A1714] to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1714] via-[#1A1714]/60 to-transparent" style={{ top: '40%' }} />
         </div>
+        <div className="px-6 -mt-[60px] md:-mt-[80px] relative z-10 pb-12 md:pb-16 text-center flex flex-col items-center">
+          <p className="text-[#C4982A] text-[11px] font-medium tracking-[0.22em] uppercase mb-[14px]" style={ig.body}>
+            Inner Work. Real Outcomes.
+          </p>
+          <h1
+            className="text-[#FAF5EF] text-[clamp(32px,4.8vw,54px)] leading-[1.12] tracking-[-0.01em] mb-[18px]"
+            style={ig.headline}
+          >
+            Stronger. Calmer. Clearer.<br />Six weeks to become her.
+          </h1>
+          <p className="text-[#A8A29E] font-light text-[clamp(15px,1.6vw,17px)] leading-[1.65] mb-8 max-w-[560px]" style={ig.body}>
+            A 6-week live cohort for women who make the calls &mdash; in the business, the team, the household &mdash; and need their inner state to hold at the level their life demands.
+          </p>
 
-        <div className="relative -mt-8 pb-14 md:pb-28 px-6">
-          <div className="max-w-[720px] mx-auto text-center">
-            <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase mb-5" style={ig.body}>
-              Inner Work. Real Outcomes.
-            </p>
-            <h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1] text-[#FAF5EF] mb-6 tracking-tight"
-              style={ig.headline}
-            >
-              Your next level is not<br />a strategy problem.
-            </h1>
-            <p className="text-base md:text-lg text-[#A8A29E] font-light leading-[1.6] mb-10 max-w-lg mx-auto" style={ig.body}>
-              A 6-week live cohort for operators who already know the strategy &mdash;<br />and keep hitting the same internal wall.
-            </p>
-
-            <div className="flex flex-col items-center gap-4">
-              <WaitlistForm placement="hero" />
-              <a
-                href={TIDYCAL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#A8A29E] hover:text-[#D4A832] text-sm font-light underline decoration-[#A8A29E]/30 hover:decoration-[#D4A832] underline-offset-4 transition-colors"
-                style={ig.body}
-              >
-                Or book a call to ask me anything &rarr;
-              </a>
-              <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase mt-4" style={ig.body}>
-                Cohort 1 &middot; September 2026 &middot; Limited to 12 Seats
-              </p>
-            </div>
-          </div>
+          <WaitlistForm placement="hero" maxWidth="max-w-[460px]" />
+          <a
+            href={TIDYCAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-3.5 text-[#78716C] hover:text-[#D4A832] text-[13px] font-light underline decoration-[#78716C]/30 hover:decoration-[#D4A832] underline-offset-4 transition-colors"
+            style={ig.body}
+          >
+            Or book a call to ask me anything &rarr;
+          </a>
+          <p className="text-[#C4982A]/70 text-[11px] font-medium tracking-[0.2em] uppercase mt-[22px]" style={ig.body}>
+            Cohort 1 &middot; September 2026 &middot; Limited to 12 Seats
+          </p>
         </div>
       </section>
 
-      {/* ── 2. PROBLEM STATEMENT ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
-        <div className="max-w-[680px] mx-auto">
-          <h2 className="text-3xl md:text-[40px] mb-8 text-center text-[#3D3530] leading-[1.15]" style={ig.headline}>
-            You already know what to do.<br />That&apos;s not the problem.
-          </h2>
-          <div className="space-y-5 text-[#57534E] text-[15px] leading-[1.9] font-light text-center md:text-left" style={ig.body}>
-            <p>
-              The strategy is clear. The playbook exists. But in the 10 minutes before the meeting, the deal, the decision &mdash; something else runs. An older pattern. A version of you that hasn&apos;t caught up to where you actually are.
-            </p>
-            <p>
-              Most performance systems start with productivity. This one starts with identity &mdash; because the gap between who you are and who you&apos;re operating as is where execution breaks down.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. WHAT YOU GET ── */}
-      <section id="what-you-get" className="scroll-anchor py-14 md:py-28 px-6 bg-[#282320]">
+      {/* ── 2. PROBLEM + WHO THIS IS FOR ── */}
+      <Reveal id="who-its-for" className="bg-[#F5F0EB] py-[clamp(48px,6vw,80px)] px-6">
         <div className="max-w-[1080px] mx-auto">
-          <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
-            What You Get
-          </p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center text-[#FAF5EF]" style={ig.headline}>
-            A live cohort. Six weeks.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-5">
-            {WHAT_YOU_GET.map((c) => (
-              <div key={c.n} className="ig-card flex flex-col">
-                <span
-                  className="flex-shrink-0 w-11 h-11 rounded-full border border-[#C4982A]/40 flex items-center justify-center text-[#C4982A] text-base font-medium mb-6"
-                  style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}
-                >
-                  {c.n}
-                </span>
-                <h3 className="text-lg md:text-xl text-[#FAF5EF] mb-3 leading-snug" style={ig.headline}>{c.title}</h3>
-                <p className="text-[#A8A29E] font-light leading-[1.75] text-[14.5px] flex-grow" style={ig.body}>{c.body}</p>
-              </div>
-            ))}
+          <div className="max-w-[640px] mx-auto mb-11 text-center">
+            <h2 className="text-[#3D3530] text-[clamp(26px,3.6vw,38px)] leading-[1.14] mb-5" style={ig.headline}>
+              You already know what to do.<br />That&apos;s not the problem.
+            </h2>
+            <p className="text-[#57534E] font-light text-[15px] leading-[1.85]" style={ig.body}>
+              In the 10 minutes before the conversation, the decision, the moment everyone looks to you &mdash; an older pattern runs. This program starts with identity and state, not productivity, because your nervous system makes the call before you do.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* ── 4. THE CURRICULUM ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
-        <div className="max-w-[720px] mx-auto">
-          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
-            The Curriculum
-          </p>
-          <h2 className="text-3xl md:text-4xl mb-14 text-center text-[#3D3530]" style={ig.headline}>
-            What we cover
-          </h2>
-          <div className="space-y-0">
-            {CURRICULUM.map((w) => (
-              <div key={w.week} className="border-t border-[#3D3530]/10 py-7 first:border-t-0">
-                <div className="flex items-baseline gap-4 mb-2">
-                  <span className="text-[#C4982A] text-sm font-medium tracking-wide flex-shrink-0" style={ig.body}>Week {w.week}</span>
-                  <span className="text-[#3D3530] text-base font-medium" style={ig.body}>{w.title}</span>
-                </div>
-                <p className="text-[#57534E] font-light leading-[1.8] text-[14.5px] pl-[68px]" style={ig.body}>{w.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. VISUAL JOURNEY BAR ── */}
-      <section className="py-16 md:py-32 px-6 bg-[#1A1714]">
-        <div className="max-w-[960px] mx-auto">
-          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
-            Five Stages
-          </p>
-          <h2 className="text-3xl md:text-5xl text-[#FAF5EF] text-center mb-20" style={ig.headline}>
-            The Practice
-          </h2>
-
-          {/* Desktop: horizontal */}
-          <div className="hidden md:grid grid-cols-5 gap-6 relative">
-            <div className="absolute top-[32px] left-[10%] right-[10%] h-px bg-gradient-to-r from-[#C4982A]/5 via-[#C4982A]/30 to-[#C4982A]/5" />
-            {JOURNEY_STEPS.map((step, i) => (
-              <div key={step.label} className="relative flex flex-col items-center text-center z-10">
-                <div className="w-16 h-16 rounded-full border border-[#C4982A]/40 bg-[#1A1714] flex items-center justify-center mb-5 shadow-[0_0_24px_rgba(196,152,42,0.08)]">
-                  <span className="text-[#C4982A] text-lg" style={{ fontFamily: "var(--font-playfair-display), Georgia, serif", fontStyle: "italic" }}>{i + 1}</span>
-                </div>
-                <span className="text-[#FAF5EF] text-sm tracking-[0.14em] uppercase mb-2" style={ig.body}>{step.label}</span>
-                <span className="text-[#A8A29E]/70 text-xs font-light leading-snug" style={ig.body}>{step.sub}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile: vertical — flex column avoids absolute-positioning overlap */}
-          <div className="md:hidden flex flex-col max-w-xs mx-auto">
-            {JOURNEY_STEPS.map((step, i) => (
-              <div key={step.label} className="flex items-start gap-5">
-                {/* Circle + connector */}
-                <div className="flex flex-col items-center flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full border border-[#C4982A]/40 bg-[#1A1714] flex items-center justify-center shadow-[0_0_20px_rgba(196,152,42,0.08)]">
-                    <span className="text-[#C4982A] text-base" style={{ fontFamily: "var(--font-playfair-display), Georgia, serif", fontStyle: "italic" }}>{i + 1}</span>
-                  </div>
-                  {i < JOURNEY_STEPS.length - 1 && (
-                    <div className="w-px flex-1 min-h-[28px] bg-gradient-to-b from-[#C4982A]/30 to-[#C4982A]/10 my-1" />
-                  )}
-                </div>
-                {/* Text */}
-                <div className="pt-3 pb-6">
-                  <span className="text-[#FAF5EF] text-sm tracking-[0.14em] uppercase block mb-1" style={ig.body}>{step.label}</span>
-                  <span className="text-[#A8A29E]/70 text-xs font-light" style={ig.body}>{step.sub}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. THE SHIFT — Before / After ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#F5F0EB]">
-        <div className="max-w-[680px] mx-auto">
-          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
-            Before &amp; After
-          </p>
-          <h2 className="text-3xl md:text-4xl text-[#3D3530] text-center mb-14" style={ig.headline}>
-            The Shift
-          </h2>
-          <div className="relative">
-            <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-[#C4982A]/20" />
-            <div className="grid grid-cols-2 gap-x-8 md:gap-x-14 gap-y-8">
-              <p className="text-[#A8A29E] text-[11px] tracking-[0.15em] uppercase text-right pb-1" style={ig.body}>Before</p>
-              <p className="text-[#A8A29E] text-[11px] tracking-[0.15em] uppercase pb-1" style={ig.body}>After</p>
-              {SHIFTS.map((row) => (
-                <Fragment key={row.before}>
-                  <p className="text-[#57534E]/60 text-[15px] font-light leading-[1.6] text-right" style={ig.body}>{row.before}</p>
-                  <p className="text-[#3D3530] text-[15px] font-medium leading-[1.6]" style={ig.body}>{row.after}</p>
-                </Fragment>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 7. WHO THIS IS FOR ── */}
-      <section id="who-its-for" className="scroll-anchor py-14 md:py-28 px-6 bg-[#1A1714]">
-        <div className="max-w-[1080px] mx-auto">
-          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
-            Who This Is For
-          </p>
-          <h2 className="text-3xl md:text-4xl text-[#FAF5EF] text-center mb-12" style={ig.headline}>
-            For the operator who already knows.
-          </h2>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-3.5">
             {WHO_THIS_IS_FOR.map((card) => (
-              <div key={card.lead} className="ig-card">
-                <p className="text-[#FAF5EF] text-lg md:text-xl mb-3 leading-snug" style={ig.headline}>
+              <div key={card.lead} className="bg-white border border-[#3D3530]/[0.08] px-7 py-[26px] hover:border-[#C4982A]/30 transition-colors">
+                <p className="text-[#3D3530] text-[clamp(16px,1.5vw,19px)] leading-[1.35] mb-1.5" style={ig.headline}>
                   {card.lead}
                 </p>
-                <p className="text-[#A8A29E] font-light leading-[1.75] text-[15px]" style={ig.body}>
+                <p className="text-[#78716C] font-light text-sm leading-[1.65]" style={ig.body}>
                   {card.body}
                 </p>
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-12">
-            <button
-              onClick={() => document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" })}
-              className="ig-cta w-full md:w-[520px]"
-            >
+          <p className="max-w-[640px] mx-auto mt-9 text-center text-[#57534E]/80 font-light text-[14px] leading-[1.8]" style={{ ...ig.body, fontStyle: "italic" }}>
+            The pattern doesn&apos;t wait for a quieter season. Every month it runs, it prices itself into your decisions, your sleep, your body &mdash; and everyone who reads their calm off yours.
+          </p>
+        </div>
+      </Reveal>
+
+      {/* ── 3. WHAT YOU GET + THE PRACTICE — gradient section ── */}
+      <Reveal
+        id="what-you-get"
+        className="py-[clamp(48px,6vw,88px)] px-6 relative overflow-hidden bg-[linear-gradient(180deg,#3A3530_0%,#2E2A24_20%,#24211D_45%,#1E1B18_70%,#1A1714_100%)]"
+      >
+        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse,rgba(196,152,42,0.04)_0%,transparent_70%)] pointer-events-none" />
+
+        <div className="max-w-[1080px] mx-auto relative">
+          <div className="text-center mb-[52px]">
+            <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.24em] uppercase mb-4" style={ig.body}>
+              What You Get
+            </p>
+            <h2 className="text-[#FAF5EF] text-[clamp(28px,4vw,46px)] leading-[1.08]" style={ig.headline}>
+              A live cohort. Six weeks.
+            </h2>
+          </div>
+
+          {/* Included stats */}
+          <div className="max-w-[900px] mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
+              {INCLUDED.map((item) => (
+                <div
+                  key={item.label}
+                  className="text-center border border-[#C4982A]/15 px-[18px] py-7"
+                >
+                  <p className="text-[#D4A832] text-[clamp(26px,2.8vw,36px)] leading-none mb-1.5" style={ig.headline}>{item.headline}</p>
+                  <p className="text-[#FAF5EF] text-[11px] font-medium tracking-[0.1em] uppercase mb-[3px]" style={ig.body}>{item.label}</p>
+                  <p className="text-[#A8A29E]/70 text-xs font-light leading-[1.5]" style={ig.body}>{item.sub}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* The Practice — five stages */}
+          <div className="text-center mt-16 mb-12 pt-10 border-t border-[#C4982A]/[0.12]">
+            <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.24em] uppercase mb-4" style={ig.body}>
+              The Practice
+            </p>
+            <h2 className="text-[#FAF5EF] text-[clamp(26px,3.6vw,40px)]" style={ig.headline}>
+              Five stages to your own standard
+            </h2>
+          </div>
+          <div className="relative mb-[52px]">
+            {/* Tablet/Desktop: horizontal flow */}
+            <div className="hidden sm:block relative">
+              <div className="absolute top-9 left-[8%] right-[8%] h-px bg-[linear-gradient(to_right,rgba(196,152,42,0.02),rgba(196,152,42,0.5)_50%,rgba(196,152,42,0.02))]" />
+              <div className="grid sm:grid-cols-3 md:grid-cols-5 gap-y-7 gap-x-3.5 relative z-10">
+                {JOURNEY_STEPS.map((step) => (
+                  <div key={step.label} className="flex flex-col items-center text-center">
+                    <div className="w-[72px] h-[72px] rounded-full bg-[radial-gradient(circle_at_30%_30%,#2a2621,#1A1714)] border border-[#C4982A]/35 flex items-center justify-center mb-4 shadow-[0_0_32px_rgba(196,152,42,0.1),inset_0_1px_0_rgba(255,255,255,0.03)]">
+                      <span className="text-[#D4A832] text-[26px]" style={ig.headline}>{step.num}</span>
+                    </div>
+                    <span className="text-[#FAF5EF] text-xs font-medium tracking-[0.16em] uppercase mb-1.5" style={ig.body}>{step.label}</span>
+                    <span className="text-[#A8A29E]/75 text-[13px] leading-[1.4]" style={ig.headline}>{step.sub}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile: vertical flow with connecting line */}
+            <div className="sm:hidden flex flex-col max-w-xs mx-auto">
+              {JOURNEY_STEPS.map((step, i) => (
+                <div key={step.label} className="flex items-start gap-5">
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <div className="w-14 h-14 rounded-full bg-[radial-gradient(circle_at_30%_30%,#2a2621,#1A1714)] border border-[#C4982A]/35 flex items-center justify-center shadow-[0_0_24px_rgba(196,152,42,0.1),inset_0_1px_0_rgba(255,255,255,0.03)]">
+                      <span className="text-[#D4A832] text-xl" style={ig.headline}>{step.num}</span>
+                    </div>
+                    {i < JOURNEY_STEPS.length - 1 && (
+                      <div className="w-px flex-1 min-h-[28px] bg-gradient-to-b from-[#C4982A]/40 to-[#C4982A]/10 my-1" />
+                    )}
+                  </div>
+                  <div className="pt-3 pb-7 text-left">
+                    <span className="block text-[#FAF5EF] text-xs font-medium tracking-[0.16em] uppercase mb-1" style={ig.body}>{step.label}</span>
+                    <span className="text-[#A8A29E]/75 text-[13px] leading-[1.4]" style={ig.headline}>{step.sub}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <button onClick={scrollToCta} className="ig-cta w-full md:w-[520px]">
               Join Waitlist
             </button>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      {/* ── 8. BUILT FOR OPERATORS ── */}
-      <section className="py-14 md:py-28 px-6 bg-[#282320]">
-        <div className="max-w-[680px] mx-auto">
-          <h2 className="text-3xl md:text-[40px] mb-10 text-center text-[#FAF5EF] leading-[1.15]" style={ig.headline}>
-            Built for operators,{" "}<br className="md:hidden" />not audiences
-          </h2>
-          <div className="space-y-5 text-[#A8A29E] text-[15px] leading-[1.9] font-light text-center md:text-left" style={ig.body}>
-            <p>
-              This is not a program for people who collect frameworks. The operators who get the most from it are the ones who&apos;ve already tried everything external &mdash; and know the work is now internal.
-            </p>
-            <p>
-              The practice is sourced from Mandy&apos;s own work: what she actually runs in the 10 minutes before a deal closes, a board speaks, a decision has to be made. It&apos;s been pressure-tested, not theorised.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 9. WHO'S RUNNING THIS ── */}
-      <section id="about" className="scroll-anchor py-14 md:py-28 px-6 bg-[#1A1714]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-[#FAF5EF] mb-12 text-center md:text-left" style={ig.headline}>
-            Who&apos;s running this
-          </h2>
-          <div className="flex flex-col items-center md:flex-row md:items-start gap-10 md:gap-14">
-            <div className="flex-shrink-0">
-              <div className="relative w-40 md:w-48 aspect-[4/5] overflow-hidden">
-                <Image src="/Profile pic 4.png" alt="Mandy Cheung" fill loading="eager" className="object-cover" sizes="(max-width: 768px) 160px, 192px" />
-              </div>
-            </div>
-            <div className="space-y-5 text-[#A8A29E] text-base leading-[1.85] font-light text-center md:text-left" style={ig.body}>
-              <p>
-                Mandy Cheung. SFC Type 6 licensed capital markets advisor. 10+ years, 60+ transactions across HKEX and NASDAQ. The inner game work comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings. I built it as a woman operating in rooms that weren&apos;t built for me &mdash; but it works for anyone who carries that kind of pressure.
-              </p>
-              <p>
-                She built this cohort because the practice she developed changed how she operates under pressure — and creates opportunities from challenges.
-              </p>
-              <div className="pt-4">
-                <a href="https://mandyc.me/#about" className="text-[#A8A29E] hover:text-[#D4A832] text-sm underline decoration-[#A8A29E]/30 hover:decoration-[#D4A832] underline-offset-4 transition-colors">
-                  More about Mandy &rarr;
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 11. PRICING ── */}
-      <section id="pricing" className="scroll-anchor py-14 md:py-28 px-6 bg-[#F5F0EB]">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-[#C4982A]/80 text-xs font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>
-            Investment
+      {/* ── 4. CURRICULUM — 6-week grid + shift strip ── */}
+      <Reveal className="bg-[#F5F0EB] py-[clamp(48px,6vw,80px)] px-6">
+        <div className="max-w-[1080px] mx-auto">
+          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.22em] uppercase text-center mb-3.5" style={ig.body}>
+            The Curriculum
           </p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center text-[#3D3530]" style={ig.headline}>
+          <h2 className="text-[#3D3530] text-[clamp(26px,3.6vw,38px)] text-center mb-10" style={ig.headline}>
+            Six weeks, one practice
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-12">
+            {CURRICULUM.map((w) => (
+              <div key={w.week} className="bg-white border border-[#3D3530]/[0.08] hover:border-[#C4982A]/30 px-[26px] py-6 flex gap-[18px] items-start transition-colors">
+                <span className="text-[#C4982A] text-[30px] leading-none flex-shrink-0 min-w-[34px]" style={ig.headline}>{w.week}</span>
+                <div>
+                  <p className="text-[#3D3530] text-sm font-medium mb-1" style={ig.body}>{w.title}</p>
+                  <p className="text-[#78716C] font-light text-[13px] leading-[1.6]" style={ig.body}>{w.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* The Shift — compact strip */}
+          <div className="border-t border-[#C4982A]/25 pt-9">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-10">
+              {SHIFTS.map((shift) => (
+                <div key={shift.before} className="text-center">
+                  <p className="text-[#57534E]/50 font-light text-[13px] mb-1.5 line-through decoration-[#57534E]/25" style={ig.body}>{shift.before}</p>
+                  <p className="text-[#3D3530] text-[17px]" style={ig.headline}>
+                    <span className="text-[#C4982A] not-italic text-sm" style={{ fontStyle: "normal" }}>&rarr; </span>
+                    {shift.after}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* ── 5. ABOUT — compact horizontal band ── */}
+      <Reveal id="about" className="bg-[#1A1714] py-[clamp(48px,6vw,80px)] px-6">
+        <div className="max-w-[900px] mx-auto flex flex-col md:flex-row items-center gap-9 text-center md:text-left">
+          <div className="flex-shrink-0 w-[150px] aspect-[4/5] overflow-hidden relative">
+            <Image src="/Profile pic 4.png" alt="Mandy Cheung" fill loading="eager" className="object-cover object-top" sizes="150px" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.22em] uppercase mb-2.5" style={ig.body}>
+              Who&apos;s Running This
+            </p>
+            <h2 className="text-[#FAF5EF] text-[clamp(24px,3vw,34px)] mb-3.5" style={ig.headline}>
+              Mandy Cheung
+            </h2>
+            <p className="text-[#A8A29E] font-light text-[15px] leading-[1.8] mb-4" style={ig.body}>
+              SFC Type 6 licensed capital markets advisor. 10+ years, 60+ transactions across HKEX and NASDAQ. The inner game comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings, as a woman operating in rooms that weren&apos;t built for her. That&apos;s her standard, not the assignment. This cohort is where you set yours.
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-5 gap-y-2">
+              <span className="text-[#C4982A]/70 text-[10px] tracking-[0.16em] uppercase" style={ig.body}>SFC Type 6</span>
+              <span className="text-[#C4982A]/70 text-[10px] tracking-[0.16em] uppercase" style={ig.body}>60+ Transactions</span>
+              <span className="text-[#C4982A]/70 text-[10px] tracking-[0.16em] uppercase" style={ig.body}>HKEX &amp; NASDAQ</span>
+              <a
+                href="https://mandyc.me/#about"
+                className="text-[#78716C] hover:text-[#C4982A] text-xs underline decoration-[#78716C]/30 underline-offset-4 transition-colors"
+                style={ig.body}
+              >
+                More about Mandy &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* ── 6. PRICING ── */}
+      <Reveal id="pricing" className="bg-[#EDE7E0] py-[clamp(48px,6vw,80px)] px-6">
+        <div className="max-w-[960px] mx-auto">
+          <h2 className="text-[#3D3530] text-[clamp(26px,3.6vw,38px)] text-center mb-9" style={ig.headline}>
             Pricing
           </h2>
-
-          <div className="grid md:grid-cols-2 gap-5 mb-10">
-            <div className="bg-white border border-[#E7E5E4] p-9 flex flex-col hover:border-[#C4982A]/25 transition-colors">
-              <p className="text-[#C4982A] text-[10px] font-medium tracking-[0.25em] uppercase mb-5" style={ig.body}>Cohort Pass</p>
-              <p className="text-4xl md:text-5xl font-normal text-[#3D3530] mb-5" style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}>
+          <div className="grid md:grid-cols-2 gap-3.5 mb-7">
+            <div className="bg-white border border-[#E7E5E4] hover:border-[#C4982A]/25 p-[34px] flex flex-col transition-colors">
+              <p className="text-[#C4982A] text-[10px] font-medium tracking-[0.25em] uppercase mb-4" style={ig.body}>Cohort Pass</p>
+              <p className="text-[#3D3530] text-[clamp(34px,4vw,46px)] leading-none mb-3.5" style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}>
                 US$1,500
               </p>
-              <p className="text-[#57534E] font-light leading-[1.75] text-[14.5px] flex-grow" style={ig.body}>
-                One cohort pass. 6 weeks of live calls + AI practice companion.
+              <p className="text-[#57534E] font-light text-sm leading-[1.7] mb-6 flex-grow" style={ig.body}>
+                6 weeks of live calls + AI practice companion. One cohort.
               </p>
+              <button
+                onClick={scrollToCta}
+                className="w-full py-4 px-8 bg-transparent border border-[#C4982A]/35 text-[#C4982A] text-sm font-normal tracking-[0.14em] uppercase cursor-pointer hover:bg-[#C4982A]/[0.06] transition-colors"
+                style={ig.body}
+              >
+                Join Waitlist
+              </button>
             </div>
 
-            <div className="relative bg-[#1A1714] text-[#FAF5EF] p-9 flex flex-col overflow-hidden border border-[#C4982A]/20">
-              <span className="absolute top-0 left-7 bg-gradient-to-r from-[#B8891F] to-[#D4A832] text-[#1A1714] text-[10px] font-semibold tracking-[0.2em] uppercase px-4 py-1.5" style={ig.body}>
+            <div className="relative bg-[#1A1714] border border-[#C4982A]/20 p-[34px] flex flex-col overflow-hidden">
+              <span className="absolute top-0 left-6 bg-gradient-to-r from-[#B8891F] to-[#D4A832] text-[#1A1714] text-[10px] font-semibold tracking-[0.2em] uppercase px-3.5 py-[5px]" style={ig.body}>
                 Best Value
               </span>
-              <p className="text-[#C4982A] text-[10px] font-medium tracking-[0.25em] uppercase mb-5 mt-5" style={ig.body}>Lifetime Access</p>
-              <p className="text-4xl md:text-5xl font-normal text-[#FAF5EF] mb-5" style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}>
+              <p className="text-[#C4982A] text-[10px] font-medium tracking-[0.25em] uppercase mb-4 mt-[18px]" style={ig.body}>Lifetime Access</p>
+              <p className="text-[#FAF5EF] text-[clamp(34px,4vw,46px)] leading-none mb-3.5" style={{ fontFamily: "var(--font-playfair-display), Georgia, serif" }}>
                 US$2,200
               </p>
-              <p className="text-[#A8A29E] font-light leading-[1.75] text-[14.5px] flex-grow" style={ig.body}>
+              <p className="text-[#A8A29E] font-light text-sm leading-[1.7] mb-6 flex-grow" style={ig.body}>
                 Lifetime re-access to future cohorts + 12 months community access, included when the community opens after Cohort 1.
               </p>
+              <button onClick={scrollToCta} className="ig-cta w-full">
+                Join Waitlist
+              </button>
             </div>
           </div>
 
-          <div className="border-l-2 border-[#C4982A]/40 pl-6 py-2 text-[#57534E] font-light text-[15px] leading-[1.85] max-w-3xl mx-auto" style={{ ...ig.body, fontStyle: "italic" }}>
-            No outcome guarantees. Structural commitment instead: complete the work, or your next cohort seat is free.
-          </div>
-
-          <p className="text-center text-[#57534E] font-light text-[14px] leading-[1.8] mt-8 max-w-3xl mx-auto" style={ig.body}>
-            Want private one-on-one coaching alongside the cohort?{" "}
+          <div className="flex flex-wrap justify-between items-center gap-4 pt-5 border-t border-[#3D3530]/10">
+            <p className="text-[#57534E] font-light text-[13.5px] leading-[1.65] flex-1 basis-[320px]" style={{ ...ig.body, fontStyle: "italic" }}>
+              Complete the work, or your next cohort seat is free. Founding-cohort pricing &mdash; Cohort 1 only; waitlist members are offered seats first, in list order.
+            </p>
             <a
               href={TIDYCAL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#C4982A] hover:text-[#D4A832] underline decoration-[#C4982A]/30 hover:decoration-[#D4A832] underline-offset-4 transition-colors"
+              className="text-[#C4982A] text-[13px] underline decoration-[#C4982A]/30 hover:decoration-[#C4982A] underline-offset-4 whitespace-nowrap transition-colors"
+              style={ig.body}
             >
-              Book a call to discuss &rarr;
+              Private coaching? Book a call &rarr;
             </a>
-          </p>
+          </div>
         </div>
-      </section>
+      </Reveal>
 
-      {/* ── 12. FAQ ── */}
-      <section id="faq" className="scroll-anchor py-14 md:py-28 px-6 bg-[#282320]">
-        <div className="max-w-[680px] mx-auto">
-          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.2em] uppercase text-center mb-4" style={ig.body}>FAQ</p>
-          <h2 className="text-3xl md:text-4xl mb-12 text-center text-[#FAF5EF]" style={ig.headline}>
+      {/* ── 7. FAQ ── */}
+      <Reveal id="faq" className="bg-[#1A1714] py-[clamp(48px,6vw,80px)] px-6">
+        <div className="max-w-[700px] mx-auto">
+          <h2 className="text-[#FAF5EF] text-[clamp(26px,3.6vw,38px)] text-center mb-9" style={ig.headline}>
             Common questions
           </h2>
-          <div className="bg-white/[0.03] border border-white/[0.06] px-8 md:px-10">
+          <div>
             {FAQ.map((item) => (
-              <FAQItem key={item.q} q={item.q} a={item.a} variant="dark" />
+              <FAQItem key={item.q} q={item.q} a={item.a} />
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      {/* ── 11. BOTTOM CTA ── */}
-      <section id="final-cta" className="py-14 md:py-28 px-6 bg-[#1A1714]">
-        <div className="max-w-[680px] mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl mb-6 text-[#FAF5EF] leading-[1.12]" style={ig.headline}>
-            Cohort 1 opens{" "}<br className="md:hidden" />September 2026.
+      {/* ── 8. FINAL CTA ── */}
+      <section
+        id="final-cta"
+        className="scroll-anchor py-[clamp(56px,7vw,96px)] px-6 relative overflow-hidden bg-[#F5F0EB]"
+      >
+        <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[760px] h-[760px] bg-[radial-gradient(circle,rgba(196,152,42,0.1)_0%,transparent_70%)] pointer-events-none" />
+        <div className="max-w-[640px] mx-auto text-center relative">
+          <h2 className="text-[#3D3530] text-[clamp(28px,4.5vw,46px)] leading-[1.1] mb-3.5" style={ig.headline}>
+            Cohort 1 opens September 2026.
           </h2>
-          <p className="text-[#A8A29E] font-light mb-12 text-base md:text-lg" style={ig.body}>
-            12 seats.{" "}<br className="md:hidden" />Waitlist gets first access and early pricing.
+          <p className="text-[#57534E] font-light text-[clamp(15px,1.6vw,17px)] leading-[1.6] mb-9" style={ig.body}>
+            12 seats, offered to the waitlist first &mdash; with founding pricing that won&apos;t repeat. The weight isn&apos;t going anywhere. How you carry it can change in one season.
           </p>
 
-          <div className="flex flex-col items-center gap-4 max-w-2xl mx-auto">
-            <WaitlistForm placement="final-cta" />
+          <div className="flex flex-col items-center gap-4">
+            <WaitlistForm placement="final-cta" maxWidth="max-w-[520px] mx-auto" variant="light" />
             <a
               href={TIDYCAL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#A8A29E] hover:text-[#D4A832] text-sm font-light underline decoration-[#A8A29E]/30 hover:decoration-[#D4A832] underline-offset-4 transition-colors"
+              className="text-[#78716C] hover:text-[#C4982A] text-[13px] font-light underline decoration-[#78716C]/30 hover:decoration-[#C4982A] underline-offset-4 transition-colors"
               style={ig.body}
             >
               Questions? Book a 15-minute call &rarr;
             </a>
           </div>
-          <p className="text-[#78716C]/60 text-[10px] mt-10 font-medium tracking-[0.2em] uppercase" style={ig.body}>
-            September 2026 &middot; 12 Seats &middot; Waitlist Open
-          </p>
         </div>
       </section>
 
       {/* Floating CTA */}
       {showFloatingButton && (
         <button
-          onClick={() => document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" })}
-          className="floating-cta px-5 py-3.5 bg-gradient-to-br from-[#C4982A] to-[#B8891F] hover:from-[#D4A832] hover:to-[#C4982A] text-[#1A1714] text-sm font-light tracking-wide flex items-center gap-2 uppercase cursor-pointer border-none transition-all"
+          onClick={scrollToCta}
+          className="floating-cta px-5 py-[13px] bg-gradient-to-br from-[#C4982A] to-[#B8891F] hover:-translate-y-0.5 text-[#1A1714] text-xs font-normal tracking-[0.1em] uppercase cursor-pointer border-none transition-transform"
           style={ig.body}
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-          </svg>
-          <span className="hidden sm:inline">Join Waitlist</span>
+          Join Waitlist
         </button>
       )}
 
       {/* Footer */}
-      <footer className="w-full bg-[#15120F] border-t border-white/[0.04] py-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col items-center gap-6">
-            <div className="flex items-center justify-center gap-6">
-              <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-[#78716C] hover:text-[#C4982A] transition-colors" aria-label="YouTube">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
-              </a>
-              <a href="https://www.linkedin.com/in/mandyc852/" target="_blank" rel="noopener noreferrer" className="text-[#78716C] hover:text-[#C4982A] transition-colors" aria-label="LinkedIn">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
-              </a>
-            </div>
-            <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-1 text-center" style={ig.body}>
-              <p className="text-[#78716C]/50 text-xs leading-relaxed mb-2 md:mb-0">&copy; 2026 Lumina Consulting Limited</p>
-              <span className="hidden md:inline text-[#78716C]/30 text-xs"> | </span>
-              <div className="text-[#78716C]/50 text-xs flex items-center justify-center gap-2 md:gap-1">
-                <a href="/terms" className="hover:text-[#C4982A] transition-colors">Terms &amp; Conditions</a>
-                <span className="text-[#78716C]/30">|</span>
-                <a href="/privacy" className="hover:text-[#C4982A] transition-colors">Privacy Policy</a>
-              </div>
-            </div>
+      <footer className="w-full bg-[#15120F] border-t border-white/[0.04] py-7">
+        <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+          <div className="flex items-center gap-[18px]">
+            <a href="https://www.youtube.com/@MandyC852" target="_blank" rel="noopener noreferrer" className="text-[#78716C] hover:text-[#C4982A] transition-colors flex" aria-label="YouTube">
+              <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/mandyc852/" target="_blank" rel="noopener noreferrer" className="text-[#78716C] hover:text-[#C4982A] transition-colors flex" aria-label="LinkedIn">
+              <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+            </a>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1" style={ig.body}>
+            <span className="text-[#78716C]/50 text-[11px]">&copy; 2026 Lumina Consulting Limited</span>
+            <span className="text-[#78716C]/30 text-[11px]">|</span>
+            <a href="/terms" className="text-[#78716C]/50 hover:text-[#C4982A] text-[11px] transition-colors">Terms &amp; Conditions</a>
+            <span className="text-[#78716C]/30 text-[11px]">|</span>
+            <a href="/privacy" className="text-[#78716C]/50 hover:text-[#C4982A] text-[11px] transition-colors">Privacy Policy</a>
           </div>
         </div>
       </footer>
