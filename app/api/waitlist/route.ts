@@ -26,14 +26,17 @@ async function saveToSupabase(email: string, firstName: string | null, sourcePag
   }
 }
 
-async function addToBeehiiv(email: string) {
+async function addToBeehiiv(email: string, sourcePage?: string) {
   try {
     await fetch(
       "https://vrdeizaaunxbmbmcgtzr.supabase.co/functions/v1/beehiiv-subscribe",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.toLowerCase().trim() }),
+        body: JSON.stringify({
+          email: email.toLowerCase().trim(),
+          utm_source: sourcePage === "cohort" ? "cohort-waitlist" : (sourcePage || "mandyc.me"),
+        }),
       }
     )
   } catch (err) {
@@ -117,7 +120,7 @@ export async function POST(request: NextRequest) {
 
     // Non-blocking background tasks — failures are logged but never returned to the user
     saveToSupabase(cleanEmail, firstName || null, sourcePage, sourcePlacement)
-    addToBeehiiv(cleanEmail)
+    addToBeehiiv(cleanEmail, sourcePage)
 
     return NextResponse.json({
       message: "Success!",
