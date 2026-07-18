@@ -10,7 +10,7 @@ const baseUrl = siteUrl
 
 const title = "The Inner Game Cohort | MandyC."
 const description =
-  "6 weeks. 8–12 seats. A live cohort for operators who’ve noticed the constraint isn’t strategy — it’s internal. September 2026."
+  "6 weeks. 8–12 seats. A live cohort for high performers who’ve noticed the constraint isn’t strategy — it’s internal. September 2026."
 
 export const metadata: Metadata = {
   title,

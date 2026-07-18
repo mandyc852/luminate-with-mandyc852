@@ -8,7 +8,7 @@ const TIDYCAL_URL = "https://tidycal.com/mandyc852/15-minute-meeting"
 
 const INCLUDED = [
   { headline: "6", label: "Live Sessions", sub: "90 min each, weekly" },
-  { headline: "12", label: "Seats Max", sub: "A small room of women" },
+  { headline: "12", label: "Seats Max", sub: "A small room of high performers" },
   { headline: "Daily", label: "AI Companion", sub: "Between sessions" },
   { headline: "∞", label: "Recordings", sub: "Keep for reference" },
 ]
@@ -41,7 +41,7 @@ const FAQ: Array<{ q: string; a: string }> = [
   },
   {
     q: "Is this meditation? Mindset? Spiritual?",
-    a: "The practice draws on contemplative training and neuroscience — but it's built for women who carry real consequence, not retreat schedules. No guru language, no woo. State regulation, identity work, and repetition that still holds on the Tuesday everything lands on you at once.",
+    a: "The practice draws on contemplative training and neuroscience — but it's built for high performers who carry real consequence, not retreat schedules. No guru language, no woo. State regulation, identity work, and repetition that still holds on the Tuesday everything lands on you at once.",
   },
   {
     q: "What if I can't make a live call?",
@@ -336,10 +336,10 @@ export default function CohortPage() {
             className="text-[#FAF5EF] text-[clamp(32px,4.8vw,54px)] leading-[1.12] tracking-[-0.01em] mb-[18px]"
             style={ig.headline}
           >
-            Stronger. Calmer. Clearer.<br />Six weeks to become her.
+            Stronger. Calmer. Clearer.<br />Six weeks to become the one who makes the call.
           </h1>
           <p className="text-[#A8A29E] font-light text-[clamp(15px,1.6vw,17px)] leading-[1.65] mb-8 max-w-[560px]" style={ig.body}>
-            A 6-week live cohort for women who make the calls &mdash; in the business, the team, the household &mdash; and need their inner state to hold at the level their life demands.
+            A 6-week live cohort for high performers who make the calls &mdash; in the business, the team, the household &mdash; and need their internal state to match what their life demands.
           </p>
 
           <WaitlistForm placement="hero" maxWidth="max-w-[460px]" />
