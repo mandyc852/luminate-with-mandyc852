@@ -36,6 +36,10 @@ const FAQ: Array<{ q: string; a: string }> = [
     a: "The cohort is a live group program — weekly calls, structured curriculum, and a daily practice companion. It is not 1:1 coaching. If you want direct one-on-one access, private coaching is available separately for a limited number of cohort members.",
   },
   {
+    q: "Why is a capital markets advisor teaching inner work?",
+    a: "Because the practice was pressure-tested before it was taught. A decade of listings and late-stage deals — rooms where an unregulated reaction has a price with zeros on it — is where this method was built. The license and the deal record aren't the curriculum; they're evidence the curriculum holds when the stakes are real.",
+  },
+  {
     q: "What's the AI companion?",
     a: "A set of practice files you load into whichever AI you already use — Claude, ChatGPT, or anything else. Pre-built with the inner game protocols (state regulation, loop interruption, identity-lag tracking, DAWN reflections) and personalised to your context during onboarding week. Think of it as the daily practice layer the live calls sit on top of.",
   },
@@ -356,10 +360,9 @@ export default function CohortPage() {
           <p className="text-[#C4982A]/70 text-[11px] font-medium tracking-[0.2em] uppercase mt-[22px]" style={ig.body}>
             Cohort 1 &middot; September 2026 &middot; Limited to 12 Seats
           </p>
-          <div className="mt-7 pt-5 border-t border-white/[0.07] w-full max-w-[460px] flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
-            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>Led by Mandy Cheung</span>
-            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>SFC Type 6 Licensed</span>
-            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>US$500M Deals Completed &middot; HKEX &amp; NASDAQ</span>
+          <div className="mt-7 pt-5 border-t border-white/[0.07] w-full max-w-[520px] flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>Led by Mandy Cheung &mdash; SFC-Licensed Capital Markets Advisor</span>
+            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>US$500M in Deals &middot; HKEX &amp; NASDAQ</span>
           </div>
         </div>
       </section>
@@ -510,11 +513,11 @@ export default function CohortPage() {
               Mandy Cheung
             </h2>
             <p className="text-[#A8A29E] font-light text-[15px] leading-[1.8] mb-4" style={ig.body}>
-              SFC Type 6 licensed capital markets advisor. 10+ years, 60+ transactions across HKEX and NASDAQ. The inner game comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings, as a woman operating in rooms that weren&apos;t built for her. That&apos;s her standard, not the assignment. This cohort is where you set yours.
+              SFC-licensed capital markets advisor &mdash; a decade guiding founders and boards through listings and US$500M in completed deals on HKEX and NASDAQ. The inner game comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings, as a woman operating in rooms that weren&apos;t built for her. That&apos;s her standard, not the assignment. This cohort is where you set yours.
             </p>
             <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-5 gap-y-2">
-              <span className="text-[#C4982A]/70 text-[10px] tracking-[0.16em] uppercase" style={ig.body}>SFC Type 6</span>
-              <span className="text-[#C4982A]/70 text-[10px] tracking-[0.16em] uppercase" style={ig.body}>60+ Transactions</span>
+              <span className="text-[#C4982A]/70 text-[10px] tracking-[0.16em] uppercase" style={ig.body}>SFC Licensed</span>
+              <span className="text-[#C4982A]/70 text-[10px] tracking-[0.16em] uppercase" style={ig.body}>US$500M in Deals</span>
               <span className="text-[#C4982A]/70 text-[10px] tracking-[0.16em] uppercase" style={ig.body}>HKEX &amp; NASDAQ</span>
               <a
                 href="https://mandyc.me/#about"
