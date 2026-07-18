@@ -362,7 +362,7 @@ export default function CohortPage() {
           </p>
           <div className="mt-7 pt-5 border-t border-white/[0.07] w-full max-w-[520px] flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
             <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>Led by Mandy Cheung &mdash; SFC-Licensed Capital Markets Advisor</span>
-            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>Advising Founders Through IPOs, M&amp;A &amp; Exits &middot; US$500M Completed</span>
+            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>Advising Founders Through IPOs, M&amp;As &amp; Restructurings &middot; US$500M Completed</span>
           </div>
         </div>
       </section>
@@ -513,7 +513,7 @@ export default function CohortPage() {
               Mandy Cheung
             </h2>
             <p className="text-[#A8A29E] font-light text-[15px] leading-[1.8] mb-4" style={ig.body}>
-              SFC-licensed capital markets advisor &mdash; a decade advising founders and boards through IPOs, acquisitions, and exits &mdash; US$500M in completed deals across HKEX and NASDAQ. The inner game comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings, as a woman operating in rooms that weren&apos;t built for her. That&apos;s her standard, not the assignment. This cohort is where you set yours.
+              SFC-licensed capital markets advisor &mdash; a decade advising founders and boards through IPOs, M&amp;As, and restructurings &mdash; US$500M in completed deals across HKEX and NASDAQ. The inner game comes from her own practice &mdash; built under deal pressure, refined at 4:30am most mornings, as a woman operating in rooms that weren&apos;t built for her. That&apos;s her standard, not the assignment. This cohort is where you set yours.
             </p>
             <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-5 gap-y-2">
               <span className="text-[#C4982A]/70 text-[10px] tracking-[0.16em] uppercase" style={ig.body}>SFC Licensed</span>
