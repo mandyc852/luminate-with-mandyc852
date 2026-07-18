@@ -359,7 +359,7 @@ export default function CohortPage() {
           <div className="mt-7 pt-5 border-t border-white/[0.07] w-full max-w-[460px] flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
             <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>Led by Mandy Cheung</span>
             <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>SFC Type 6 Licensed</span>
-            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>60+ Transactions &middot; HKEX &amp; NASDAQ</span>
+            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>US$500M Deals Completed &middot; HKEX &amp; NASDAQ</span>
           </div>
         </div>
       </section>
@@ -597,7 +597,7 @@ export default function CohortPage() {
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-between items-center gap-4 pt-5 border-t border-[#3D3530]/10">
+          <div className="flex flex-wrap justify-center sm:justify-between items-center gap-4 pt-5 border-t border-[#3D3530]/10 text-center sm:text-left">
             <p className="text-[#57534E] font-light text-[13.5px] leading-[1.65] flex-1 basis-[320px]" style={{ ...ig.body, fontStyle: "italic" }}>
               Founding-cohort pricing &mdash; Cohort 1 only; waitlist members are offered seats first, in list order.
             </p>
