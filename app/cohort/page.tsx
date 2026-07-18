@@ -333,7 +333,7 @@ export default function CohortPage() {
             Inner Work. Real Outcomes.
           </p>
           <h1
-            className="text-[#FAF5EF] text-[clamp(32px,4.8vw,54px)] leading-[1.12] tracking-[-0.01em] mb-[18px]"
+            className="text-[#FAF5EF] text-[clamp(32px,4.8vw,54px)] leading-[1.12] tracking-[-0.01em] mb-[18px] max-w-[800px] mx-auto"
             style={ig.headline}
           >
             Stronger. Calmer. Clearer.<br />Six weeks to become the one who makes the call.
