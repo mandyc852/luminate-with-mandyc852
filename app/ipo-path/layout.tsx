@@ -10,7 +10,7 @@ const baseUrl = siteUrl
 
 const title = "The IPO Path Assessment | MandyC."
 const description =
-  "A 30-day sprint that delivers a written verdict on whether your company is ready to list — with the next move spelled out. US$2,500, fully creditable toward continuation. SFC Type 6 Licensed. 60+ transactions across HKEX and NASDAQ."
+  "A 30-day sprint that delivers a written verdict on whether your company is ready to list — with the next move spelled out. US$2,500, fully creditable toward continuation. SFC Type 6 Licensed. IPOs, M&As & restructurings across HKEX and NASDAQ."
 
 export const metadata: Metadata = {
   title,

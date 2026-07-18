@@ -27,7 +27,7 @@ const baseUrl = siteUrl
 
 const title = "MandyC. | IPO & Capital Markets Advisory | Hong Kong"
 const description =
-  "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions."
+  "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. IPOs, M&As & restructurings."
 
 export const metadata: Metadata = {
   title,
@@ -195,7 +195,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            SFC Type 6 Licensed · 60+ Transactions · US$500M+ in Deal Value · <u>Now Accepting Q3 2026</u>
+            SFC Type 6 Licensed · IPOs, M&amp;As &amp; Restructurings · US$500M+ in Deal Value · <u>Now Accepting Q3 2026</u>
           </p>
         </div>
       </section>

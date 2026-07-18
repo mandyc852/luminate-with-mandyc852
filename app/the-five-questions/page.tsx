@@ -69,7 +69,7 @@ export default function FiveQuestionsPage() {
           </div>
 
           <p className="text-white/50 text-xs font-medium tracking-[0.15em] uppercase mb-8">
-            Built from patterns across 60+ capital-market transactions · HKEX &amp; NASDAQ
+            Built from patterns across IPOs, M&amp;As &amp; restructurings · HKEX &amp; NASDAQ
           </p>
 
           {/* Email form */}

@@ -95,7 +95,7 @@ function LandingScreen({ onBegin }: { onBegin: () => void }) {
           A 10-minute self-assessment for the person running the deal — not the company behind it.
         </p>
         <p className="text-white/50 text-xs font-medium tracking-[0.15em] uppercase mb-8">
-          Built from patterns across 60+ capital-market transactions · HKEX &amp; NASDAQ
+          Built from patterns across IPOs, M&amp;As &amp; restructurings · HKEX &amp; NASDAQ
         </p>
 
         <div className="space-y-4 text-white/80 font-light leading-relaxed mb-10 max-w-2xl">

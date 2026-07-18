@@ -212,7 +212,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   className="text-white text-lg leading-relaxed"
                   style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
                 >
-                  10+ years in corporate finance. 60+ transactions across Hong Kong, U.S. markets, and global markets — working with founders through IPO, capital raises, and the defining moments of their business.
+                  10+ years in corporate finance. IPOs, M&As, and restructurings across Hong Kong, U.S. markets, and global markets — working with founders through the defining moments of their business.
                 </p>
                 <p
                   className="text-white text-lg leading-relaxed mt-3"
@@ -451,7 +451,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
             className="text-[#1A2A3A] text-[1.0625rem] leading-relaxed"
             style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
           >
-            10+ years in corporate finance. 60+ transactions across Hong Kong, U.S. markets, and global markets — working with founders through IPO, capital raises, and the defining moments of their business.
+            10+ years in corporate finance. IPOs, M&As, and restructurings across Hong Kong, U.S. markets, and global markets — working with founders through the defining moments of their business.
           </p>
           <p
             className="text-[#1A2A3A] text-[1.0625rem] leading-relaxed mt-4"

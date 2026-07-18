@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "MandyC. | IPO & Capital Markets Advisory | Hong Kong",
   description:
-    "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions.",
+    "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. IPOs, M&As & restructurings.",
   alternates: {
     canonical: baseUrl,
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: "MandyC. | IPO & Capital Markets Advisory | Hong Kong",
     description:
-      "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions.",
+      "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. IPOs, M&As & restructurings.",
     images: [
       {
         url: "/Wallstreet.jpg",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MandyC. | IPO & Capital Markets Advisory | Hong Kong",
     description:
-      "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions.",
+      "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. IPOs, M&As & restructurings.",
     images: ["/Wallstreet.jpg"],
   },
   icons: {
@@ -97,7 +97,7 @@ export default function RootLayout({
     logo: `${baseUrl}/Logo%202%20black.png`,
     image: `${baseUrl}/Wallstreet.jpg`,
     description:
-      "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. 60+ transactions.",
+      "Strategic IPO and capital markets advisory for founders preparing to raise, restructure, or list on HKEX or Nasdaq. SFC Type 6 licensed. IPOs, M&As & restructurings.",
     founder: {
       "@type": "Person",
       name: "Mandy Cheung",

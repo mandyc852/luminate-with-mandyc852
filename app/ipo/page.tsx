@@ -207,7 +207,7 @@ export default function IPOServicePage() {
       {/* CREDENTIALS BAR - Gold */}
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3.5 px-6 md:px-12">
         <p className="text-center text-[#1a2a3a] text-[13px] font-semibold tracking-[0.06em]">
-          SFC Type 6 Licensed · 60+ Transactions · US$500M+ Deal Value · <span className="underline">Now Accepting Q3 2026</span>
+          SFC Type 6 Licensed · IPOs, M&amp;As &amp; Restructurings · US$500M+ Deal Value · <span className="underline">Now Accepting Q3 2026</span>
         </p>
       </section>
 
