@@ -50,10 +50,12 @@ function SocialIcons({ className = "" }: { className?: string }) {
 export function SiteHeader({
   links = [],
   bookHref,
+  bookLabel = "Book a Call",
   hideGlobalLinks = false,
 }: {
   links?: NavLink[]
   bookHref?: string
+  bookLabel?: string
   hideGlobalLinks?: boolean
 }) {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -145,8 +147,8 @@ export function SiteHeader({
 
             <SocialIcons />
             {bookHref ? (
-              <a href={bookHref} target="_blank" rel="noopener noreferrer" className={bookClasses}>
-                Book a Call
+              <a href={bookHref} {...(bookHref.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={bookClasses}>
+                {bookLabel}
               </a>
             ) : (
               <BookCallButton className={bookClasses} />
@@ -201,8 +203,8 @@ export function SiteHeader({
             <SocialIcons className="justify-center" />
             <div className="w-full max-w-xs flex flex-col gap-3">
               {bookHref ? (
-                <a href={bookHref} target="_blank" rel="noopener noreferrer" className={`block text-center w-full ${bookClasses}`}>
-                  Book a Call
+                <a href={bookHref} {...(bookHref.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} onClick={() => setMobileOpen(false)} className={`block text-center w-full ${bookClasses}`}>
+                  {bookLabel}
                 </a>
               ) : (
                 <BookCallButton className={`w-full ${bookClasses}`} />

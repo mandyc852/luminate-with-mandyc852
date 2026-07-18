@@ -305,12 +305,13 @@ export default function CohortPage() {
       <SiteHeader
         links={[
           { label: "Who This Is For", href: "#who-its-for" },
-          { label: "What You Get", href: "#what-you-get" },
+          { label: "The Practice", href: "#method" },
           { label: "About", href: "#about" },
           { label: "Pricing", href: "#pricing" },
           { label: "FAQ", href: "#faq" },
         ]}
-        bookHref={TIDYCAL_URL}
+        bookHref="#final-cta"
+        bookLabel="Join Waitlist"
         hideGlobalLinks
       />
 
@@ -355,6 +356,11 @@ export default function CohortPage() {
           <p className="text-[#C4982A]/70 text-[11px] font-medium tracking-[0.2em] uppercase mt-[22px]" style={ig.body}>
             Cohort 1 &middot; September 2026 &middot; Limited to 12 Seats
           </p>
+          <div className="mt-7 pt-5 border-t border-white/[0.07] w-full max-w-[460px] flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>Led by Mandy Cheung</span>
+            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>SFC Type 6 Licensed</span>
+            <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>60+ Transactions &middot; HKEX &amp; NASDAQ</span>
+          </div>
         </div>
       </section>
 
@@ -387,41 +393,33 @@ export default function CohortPage() {
         </div>
       </Reveal>
 
-      {/* ── 3. WHAT YOU GET + THE PRACTICE — gradient section ── */}
-      <Reveal
-        id="what-you-get"
-        className="py-[clamp(48px,6vw,88px)] px-6 relative overflow-hidden bg-[linear-gradient(180deg,#3A3530_0%,#2E2A24_20%,#24211D_45%,#1E1B18_70%,#1A1714_100%)]"
-      >
-        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse,rgba(196,152,42,0.04)_0%,transparent_70%)] pointer-events-none" />
+      {/* ── 3. THE SHIFT — transformation promise ── */}
+      <Reveal className="bg-[#1A1714] py-[clamp(48px,6vw,80px)] px-6">
+        <div className="max-w-[1080px] mx-auto">
+          <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.24em] uppercase text-center mb-4" style={ig.body}>
+            The Shift
+          </p>
+          <h2 className="text-[#FAF5EF] text-[clamp(26px,3.6vw,40px)] text-center mb-11" style={ig.headline}>
+            What six weeks changes
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-7 gap-x-10">
+            {SHIFTS.map((shift) => (
+              <div key={shift.before} className="text-center">
+                <p className="text-[#78716C]/80 font-light text-[13px] mb-1.5 line-through decoration-[#78716C]/40" style={ig.body}>{shift.before}</p>
+                <p className="text-[#FAF5EF] text-[17px]" style={ig.headline}>
+                  <span className="text-[#C4982A] not-italic text-sm" style={{ fontStyle: "normal" }}>&rarr; </span>
+                  {shift.after}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
 
+      {/* ── 4. THE PRACTICE — the method, warm brown band ── */}
+      <Reveal id="method" className="py-[clamp(48px,6vw,88px)] px-6 relative overflow-hidden bg-[linear-gradient(180deg,#3A3530_0%,#332E28_55%,#2B2721_100%)]">
         <div className="max-w-[1080px] mx-auto relative">
           <div className="text-center mb-[52px]">
-            <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.24em] uppercase mb-4" style={ig.body}>
-              What You Get
-            </p>
-            <h2 className="text-[#FAF5EF] text-[clamp(28px,4vw,46px)] leading-[1.08]" style={ig.headline}>
-              A live cohort. Six weeks.
-            </h2>
-          </div>
-
-          {/* Included stats */}
-          <div className="max-w-[900px] mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
-              {INCLUDED.map((item) => (
-                <div
-                  key={item.label}
-                  className="text-center border border-[#C4982A]/15 px-[18px] py-7"
-                >
-                  <p className="text-[#D4A832] text-[clamp(26px,2.8vw,36px)] leading-none mb-1.5" style={ig.headline}>{item.headline}</p>
-                  <p className="text-[#FAF5EF] text-[11px] font-medium tracking-[0.1em] uppercase mb-[3px]" style={ig.body}>{item.label}</p>
-                  <p className="text-[#A8A29E]/70 text-xs font-light leading-[1.5]" style={ig.body}>{item.sub}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* The Practice — five stages */}
-          <div className="text-center mt-16 mb-12 pt-10 border-t border-[#C4982A]/[0.12]">
             <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.24em] uppercase mb-4" style={ig.body}>
               The Practice
             </p>
@@ -440,7 +438,7 @@ export default function CohortPage() {
                       <span className="text-[#D4A832] text-[26px]" style={ig.headline}>{step.num}</span>
                     </div>
                     <span className="text-[#FAF5EF] text-xs font-medium tracking-[0.16em] uppercase mb-1.5" style={ig.body}>{step.label}</span>
-                    <span className="text-[#A8A29E]/75 text-[13px] leading-[1.4]" style={ig.headline}>{step.sub}</span>
+                    <span className="text-[#A8A29E]/90 text-[13px] leading-[1.4]" style={ig.headline}>{step.sub}</span>
                   </div>
                 ))}
               </div>
@@ -460,7 +458,7 @@ export default function CohortPage() {
                   </div>
                   <div className="pt-3 pb-7 text-left">
                     <span className="block text-[#FAF5EF] text-xs font-medium tracking-[0.16em] uppercase mb-1" style={ig.body}>{step.label}</span>
-                    <span className="text-[#A8A29E]/75 text-[13px] leading-[1.4]" style={ig.headline}>{step.sub}</span>
+                    <span className="text-[#A8A29E]/90 text-[13px] leading-[1.4]" style={ig.headline}>{step.sub}</span>
                   </div>
                 </div>
               ))}
@@ -474,7 +472,7 @@ export default function CohortPage() {
         </div>
       </Reveal>
 
-      {/* ── 4. CURRICULUM — 6-week grid + shift strip ── */}
+      {/* ── 5. CURRICULUM — 6-week grid ── */}
       <Reveal className="bg-[#F5F0EB] py-[clamp(48px,6vw,80px)] px-6">
         <div className="max-w-[1080px] mx-auto">
           <p className="text-[#C4982A]/80 text-[11px] font-medium tracking-[0.22em] uppercase text-center mb-3.5" style={ig.body}>
@@ -484,7 +482,7 @@ export default function CohortPage() {
             Six weeks, one practice
           </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {CURRICULUM.map((w) => (
               <div key={w.week} className="bg-white border border-[#3D3530]/[0.08] hover:border-[#C4982A]/30 px-[26px] py-6 flex gap-[18px] items-start transition-colors">
                 <span className="text-[#C4982A] text-[30px] leading-none flex-shrink-0 min-w-[34px]" style={ig.headline}>{w.week}</span>
@@ -494,21 +492,6 @@ export default function CohortPage() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* The Shift — compact strip */}
-          <div className="border-t border-[#C4982A]/25 pt-9">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-10">
-              {SHIFTS.map((shift) => (
-                <div key={shift.before} className="text-center">
-                  <p className="text-[#57534E]/50 font-light text-[13px] mb-1.5 line-through decoration-[#57534E]/25" style={ig.body}>{shift.before}</p>
-                  <p className="text-[#3D3530] text-[17px]" style={ig.headline}>
-                    <span className="text-[#C4982A] not-italic text-sm" style={{ fontStyle: "normal" }}>&rarr; </span>
-                    {shift.after}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </Reveal>
@@ -548,9 +531,22 @@ export default function CohortPage() {
       {/* ── 6. PRICING ── */}
       <Reveal id="pricing" className="bg-[#EDE7E0] py-[clamp(48px,6vw,80px)] px-6">
         <div className="max-w-[960px] mx-auto">
+          <p className="text-[#C4982A]/90 text-[11px] font-medium tracking-[0.22em] uppercase text-center mb-3.5" style={ig.body}>
+            What You Get
+          </p>
           <h2 className="text-[#3D3530] text-[clamp(26px,3.6vw,38px)] text-center mb-9" style={ig.headline}>
             Pricing
           </h2>
+          {/* What's included — offer stack */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-10">
+            {INCLUDED.map((item) => (
+              <div key={item.label} className="text-center bg-white/60 border border-[#3D3530]/[0.1] px-[18px] py-6">
+                <p className="text-[#B8891F] text-[clamp(24px,2.6vw,32px)] leading-none mb-1.5" style={ig.headline}>{item.headline}</p>
+                <p className="text-[#3D3530] text-[11px] font-medium tracking-[0.1em] uppercase mb-[3px]" style={ig.body}>{item.label}</p>
+                <p className="text-[#78716C] text-xs font-light leading-[1.5]" style={ig.body}>{item.sub}</p>
+              </div>
+            ))}
+          </div>
           <div className="grid md:grid-cols-2 gap-3.5 mb-7">
             <div className="bg-white border border-[#E7E5E4] hover:border-[#C4982A]/25 p-[34px] flex flex-col transition-colors">
               <p className="text-[#C4982A] text-[10px] font-medium tracking-[0.25em] uppercase mb-4" style={ig.body}>Cohort Pass</p>
@@ -586,9 +582,24 @@ export default function CohortPage() {
             </div>
           </div>
 
+          {/* Commitment guarantee */}
+          <div className="border border-[#B8891F]/40 bg-white/70 px-7 py-6 mb-7 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-[#C4982A] to-[#B8891F] flex items-center justify-center">
+              <svg className="w-6 h-6 text-[#FAF5EF]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-[#3D3530] text-[17px] mb-1" style={ig.headline}>The commitment guarantee</p>
+              <p className="text-[#57534E] font-light text-sm leading-[1.7]" style={ig.body}>
+                Complete the work &mdash; attend the calls, use the AI companion, do the practice &mdash; and if you don&apos;t get value, your seat in the next cohort is free. No questions asked.
+              </p>
+            </div>
+          </div>
+
           <div className="flex flex-wrap justify-between items-center gap-4 pt-5 border-t border-[#3D3530]/10">
             <p className="text-[#57534E] font-light text-[13.5px] leading-[1.65] flex-1 basis-[320px]" style={{ ...ig.body, fontStyle: "italic" }}>
-              Complete the work, or your next cohort seat is free. Founding-cohort pricing &mdash; Cohort 1 only; waitlist members are offered seats first, in list order.
+              Founding-cohort pricing &mdash; Cohort 1 only; waitlist members are offered seats first, in list order.
             </p>
             <a
               href={TIDYCAL_URL}
