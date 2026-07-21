@@ -6,7 +6,7 @@ import { SiteHeader } from "../_components/site-header"
 
 const SLOTS_REMAINING = 2 // update manually as slots fill
 
-const TIDYCAL_URL = "https://tidycal.com/mandyc852/15-minute-meeting"
+const TIDYCAL_URL = "https://tidycal.com/mandyc852/30-minute-meeting"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -244,7 +244,7 @@ export default function ConsultingPage() {
             </p>
             <p className="text-[#1a2a3a] font-normal">
               If you&apos;re earlier than that — still exploring whether listing is even right for you — start with a{" "}
-              <a href="/ipo" className="underline decoration-[#c9a227] decoration-2 underline-offset-4 hover:text-[#a68a1f] transition-colors">
+              <a href={TIDYCAL_URL} target="_blank" rel="noopener noreferrer" className="underline decoration-[#c9a227] decoration-2 underline-offset-4 hover:text-[#a68a1f] transition-colors">
                 free discovery call
               </a>
               . This engagement is for companies that have decided to move and need someone in the room while they do.
@@ -323,7 +323,7 @@ export default function ConsultingPage() {
                 Confidential call
               </h3>
               <p className="text-slate-600 font-light text-[14px] leading-[1.75] flex-grow">
-                15 minutes. No pitch. I&apos;ll ask about the transaction, the timeline, and where things stand. You&apos;ll know by the end of the call whether this engagement makes sense — and so will I.
+                30 minutes. No pitch. I&apos;ll ask about the transaction, the timeline, and where things stand. You&apos;ll know by the end of the call whether this engagement makes sense — and so will I.
               </p>
             </div>
 
@@ -383,7 +383,7 @@ export default function ConsultingPage() {
               Book a confidential call
             </h2>
             <p className="text-slate-600 text-[15px] font-light max-w-2xl mx-auto leading-[1.8] mb-4">
-              15 minutes. No pitch, no deck. Here&apos;s what to expect:
+              30 minutes. No pitch, no deck. Here&apos;s what to expect:
             </p>
             <ul className="text-slate-600 text-[15px] font-light max-w-xl mx-auto text-left space-y-2.5 leading-[1.7]">
               <li className="relative pl-6">
