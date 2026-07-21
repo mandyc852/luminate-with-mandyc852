@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
+import { FloatingCTA } from "../_components/home-interactions"
 
 const SLOTS_REMAINING = 2 // update manually as slots fill
 
@@ -448,6 +449,8 @@ export default function ConsultingPage() {
           </div>
         </div>
       </footer>
+
+      <FloatingCTA />
     </div>
   )
 }

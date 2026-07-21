@@ -74,10 +74,10 @@ const REASONS: Reason[] = [
   {
     title: "Exploring a listing",
     body: "You're weighing whether NASDAQ or HKEX makes sense for where your business is now — and what it would actually take.",
-    href: "/ipo-path",
-    cta: "Start with The IPO Path Assessment →",
-    secondaryHref: "/ipo",
-    secondaryCta: "See the full advisory →",
+    href: "/consulting",
+    cta: "See Pre-IPO Consulting →",
+    secondaryHref: "/ipo-path",
+    secondaryCta: "Or start with The IPO Path Assessment →",
   },
   {
     title: "Performing under pressure",
@@ -323,7 +323,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PAID OFFER — The IPO Path Assessment */}
+      {/* FLAGSHIP OFFER — Pre-IPO Consulting */}
       <section id="download" className="relative py-20 md:py-28 px-6 bg-[#1a2a3a] scroll-mt-24 overflow-hidden">
         {/* Subtle skyline texture to distinguish from the final CTA */}
         <div className="absolute inset-0 z-0">
@@ -336,21 +336,27 @@ export default function HomePage() {
           />
         </div>
         <div className="max-w-3xl mx-auto text-center relative z-10">
-          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Paid Assessment · US$2,500</p>
+          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Corporate Advisory · Flagship Engagement</p>
           <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance" }}>
-            The IPO Path Assessment
+            Pre-IPO Strategic Consulting
           </h2>
           <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-            Thirty days. A written verdict on whether your company is ready to list — and the next move spelled out, whatever the answer. Fully creditable toward continuation engagements.
+            A raise, a restructuring, a listing timeline that won&apos;t wait. I work alongside a small number of founders as the advisor in the room — structure, governance, and story, set right before the process starts.
           </p>
           <a
-            href="/ipo-path"
-            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.15em] text-sm btn-gold-animated"
+            href="/consulting"
+            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-6 md:px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.12em] md:tracking-[0.15em] text-sm btn-gold-animated"
           >
-            Start the assessment →
+            See Pre-IPO Consulting →
           </a>
           <p className="text-white/50 font-light text-sm mt-5">
-            Only 4 founders accepted per month · ExitPro access + Listing Path Memo + follow-up support
+            Not sure you&apos;re ready?
+          </p>
+          <p className="text-white/50 font-light text-sm mt-2">
+            <a href="/ipo-path" className="underline decoration-[#c9a227] decoration-1 underline-offset-4 hover:text-white transition-colors">
+              Start with The IPO Path Assessment
+            </a>{" "}
+            — US$2,500, thirty days, a written verdict either way.
           </p>
         </div>
       </section>

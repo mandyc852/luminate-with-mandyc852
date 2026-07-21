@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
+import { FloatingCTA } from "../_components/home-interactions"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -265,6 +266,8 @@ export default function ResourcesPage() {
           </div>
         </div>
       </footer>
+
+      <FloatingCTA />
     </div>
   )
 }

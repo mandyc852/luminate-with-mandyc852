@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
+import { FloatingCTA } from "../_components/home-interactions"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -807,13 +808,17 @@ export default function IPOPathPage() {
               <h2 className="text-3xl md:text-4xl font-normal text-[#1a2a3a] mb-8 text-center md:text-left">About Mandy</h2>
               <div className="space-y-5 text-slate-600 text-base leading-relaxed font-light text-center md:text-left">
                 <p>
-                  Mandy Cheung is a Hong Kong SFC Type 6 licensed corporate finance advisor with 10+ years and 60+ transactions across HKEX and NASDAQ. IPOs, sponsor work, general offers under the Takeovers Code, convertible bonds, and privatisations. Cross-border work where regulatory complexity is the norm.
+                  I&apos;m a Hong Kong SFC Type 6 licensed corporate finance advisor — 10+ years, 60+ transactions, and US$500M+ in deal value across HKEX and NASDAQ. IPOs, general offers, convertible bonds, and restructurings. The kind of cross-border work where regulatory complexity is the norm, not the exception.
                 </p>
                 <p>
-                  Most capital markets advisors serve businesses that have already arrived. Mandy works with the builders and operators still in the climb — because she is one of them.
+                  Most capital markets advisors serve businesses that have already arrived. The builders and operators still in the climb — the ones who started with no backing and figured it out as they went — get overlooked. I work with precisely those people, because I&apos;m one of them.
                 </p>
                 <p className="text-[#1a2a3a] font-normal">
-                  SFC Type 6 Licensed · IPOs, M&amp;As &amp; Restructurings · US$500M+ in Deal Value · HKEX &amp; NASDAQ.
+                  Integrity is my core value.
+                  <br />
+                  I&apos;m in a service industry, and I act like it.
+                  <br />
+                  The client&apos;s success is the only metric that matters.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 sm:gap-5 mt-8 md:items-start">
@@ -945,6 +950,8 @@ export default function IPOPathPage() {
           </div>
         </div>
       </footer>
+
+      <FloatingCTA />
     </div>
   )
 }
