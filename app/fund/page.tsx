@@ -369,7 +369,7 @@ export default function FundPage() {
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-1">Mandy Cheung</h3>
               <p className="text-slate-500 text-sm font-light mb-4">Founder &amp; Director, Lumina Consulting Limited</p>
               <p className="text-slate-600 text-sm font-light leading-relaxed mb-4">
-                Hong Kong SFC Type 6 (corporate finance) Responsible Officer with 10+ years and 60+ capital markets transactions across HKEX and NASDAQ. As financial adviser to listed-company boards and shareholders, she has completed general offers, whitewash waivers, convertible-bond subscriptions and restructurings — the structuring and downside-protection mechanics this fund is built on.
+                Hong Kong SFC Type 6 (corporate finance) Responsible Officer with 10+ years, 60+ capital markets transactions, and US$500M+ in deal value across HKEX and NASDAQ. As financial adviser to listed-company boards and shareholders, she has completed general offers, whitewash waivers, convertible-bond subscriptions and restructurings — the structuring and downside-protection mechanics this fund is built on.
               </p>
               <ul className="space-y-1.5 text-slate-600 text-sm font-light">
                 <li className="flex items-start gap-2"><span className="text-[#c9a227] mt-0.5">✦</span> SFC Type 6 Responsible Officer</li>

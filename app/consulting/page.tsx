@@ -64,7 +64,7 @@ function StickyMobileCTA() {
   )
 }
 
-const CTA_LABEL = "Book a Confidential Call — 15 Minutes"
+const CTA_LABEL = "Book a Confidential Call"
 
 export default function ConsultingPage() {
   return (
@@ -280,26 +280,26 @@ export default function ConsultingPage() {
             <div className="space-y-6 text-slate-600 text-[15px] leading-[1.85] font-light">
               <div className="grid grid-cols-3 gap-4 pb-6 border-b border-slate-300/60">
                 <div>
-                  <p className="text-[#1a2a3a] text-3xl md:text-4xl font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>60+</p>
+                  <p className="text-[#1a2a3a] text-2xl md:text-4xl font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>60+</p>
                   <p className="text-[11px] tracking-[0.15em] uppercase text-slate-500 mt-1">Transactions</p>
                 </div>
                 <div>
-                  <p className="text-[#1a2a3a] text-3xl md:text-4xl font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>US$500M+</p>
+                  <p className="text-[#1a2a3a] text-2xl md:text-4xl font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>US$500M+</p>
                   <p className="text-[11px] tracking-[0.15em] uppercase text-slate-500 mt-1">Deal value advised</p>
                 </div>
                 <div>
-                  <p className="text-[#1a2a3a] text-3xl md:text-4xl font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>SFC</p>
+                  <p className="text-[#1a2a3a] text-2xl md:text-4xl font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>SFC</p>
                   <p className="text-[11px] tracking-[0.15em] uppercase text-slate-500 mt-1">Type 6 Licensed</p>
                 </div>
               </div>
               <p>
-                <span className="text-[#1a2a3a] font-normal">60+ transactions, US$500M+ in deal value</span> — IPOs, general offers, convertible bonds, and restructurings across HKEX and NASDAQ. The kind of cross-border work where regulatory complexity is the norm, not the exception.
+                <span className="text-[#1a2a3a] font-normal">60+ transactions, US$500M+ in deal value</span> — IPOs, general offers, convertible bonds, and restructurings across HKEX and NASDAQ. I&apos;ve seen how these processes end. That&apos;s why I know how they need to start.
               </p>
               <p>
-                Ten-plus years in capital markets. SFC Type 6 licensed. I&apos;ve advised on listings, restructurings, and investor negotiations from the inside — not from a consulting deck.
+                Whether you&apos;re two years out or six months from a milestone, the work is the same: getting the structure, the governance, and the story right — early enough that you still have room to shape them. That&apos;s what ten-plus years and an SFC Type 6 license are for.
               </p>
               <p>
-                The companies I work with range from founder-led businesses preparing their first raise to established firms navigating cross-border regulatory complexity. The common thread: they need someone who&apos;s seen what goes wrong and knows how to keep it from happening.
+                The companies I work with range from founder-led businesses preparing their first raise to established firms navigating cross-border regulatory complexity. No matter the stage, the common thread is the same: they want someone who&apos;s been through it and can see around corners.
               </p>
             </div>
           </div>
@@ -351,7 +351,7 @@ export default function ConsultingPage() {
           <div className="flex justify-center">
             <a
               href="#book"
-              className="w-full md:w-[520px] inline-flex items-center justify-center sm:whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.15em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
+              className="w-full md:w-[520px] inline-flex items-center justify-center whitespace-nowrap px-6 md:px-10 py-4 rounded-none uppercase tracking-[0.12em] md:tracking-[0.15em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
             >
               {CTA_LABEL}
             </a>

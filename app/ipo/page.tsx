@@ -506,7 +506,7 @@ export default function IPOServicePage() {
             className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.15em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
           />
           <p className="text-white/35 text-[11px] mt-5 tracking-[0.05em]">
-            Type 6 Licensed · Hong Kong · Cross-Border Expertise
+            Type 6 Licensed · 60+ Transactions · US$500M+ Deal Value
           </p>
         </div>
       </section>
