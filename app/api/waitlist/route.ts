@@ -54,17 +54,10 @@ const LEAD_MAGNETS: Record<
     description:
       "Here's the guide you requested — a practical framework for evaluating whether going public is right for your company, and what to prepare before you start the process.",
   },
-  "five-questions": {
-    file: "executive-readiness-diagnostic.pdf",
-    subject: "Your Executive Readiness Diagnostic is here",
-    description:
-      "Here's the diagnostic you requested — a structured way to assess where you stand before your next leadership chapter.",
-  },
 }
 
 const REDIRECT_MAP: Record<string, string> = {
   guide: "/guide/thank-you",
-  "five-questions": "/the-five-questions/thank-you",
 }
 
 export async function POST(request: NextRequest) {
