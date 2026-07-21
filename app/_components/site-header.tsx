@@ -9,6 +9,7 @@ const YOUTUBE_URL = "https://www.youtube.com/@MandyC852"
 const LINKEDIN_URL = "https://www.linkedin.com/in/mandyc852/"
 
 const WORK_LINKS = [
+  { label: "Pre-IPO Consulting", href: "/consulting" },
   { label: "IPO Advisory", href: "/ipo" },
   { label: "LPF Launch", href: "/fund" },
   { label: "Inner Game Cohort", href: "/cohort" },
