@@ -358,7 +358,7 @@ export default function CohortPage() {
             Or book a call to ask me anything &rarr;
           </a>
           <p className="text-[#C4982A]/70 text-[11px] font-medium tracking-[0.2em] uppercase mt-[22px]" style={ig.body}>
-            Cohort 1 &middot; September 2026 &middot; Limited to 12 Seats
+            Next Cohort &middot; Join the Waitlist &middot; Limited to 12 Seats
           </p>
           <div className="mt-7 pt-5 border-t border-white/[0.07] w-full max-w-[520px] flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
             <span className="text-[#78716C] text-[10px] tracking-[0.18em] uppercase" style={ig.body}>Led by Mandy Cheung &mdash; SFC-Licensed Capital Markets Advisor</span>
@@ -639,7 +639,7 @@ export default function CohortPage() {
         <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[760px] h-[760px] bg-[radial-gradient(circle,rgba(196,152,42,0.1)_0%,transparent_70%)] pointer-events-none" />
         <div className="max-w-[640px] mx-auto text-center relative">
           <h2 className="text-[#3D3530] text-[clamp(28px,4.5vw,46px)] leading-[1.1] mb-3.5" style={ig.headline}>
-            Cohort 1 opens September 2026.
+            The next cohort opens to the waitlist first.
           </h2>
           <p className="text-[#57534E] font-light text-[clamp(15px,1.6vw,17px)] leading-[1.6] mb-9" style={ig.body}>
             12 seats, offered to the waitlist first &mdash; with founding pricing that won&apos;t repeat. The weight isn&apos;t going anywhere. How you carry it can change in one season.

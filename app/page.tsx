@@ -310,7 +310,7 @@ export default function HomePage() {
             </div>
 
             <div className="p-6 rounded-none bg-white border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-2">Cohort 1 · September 2026</p>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-2">Next Cohort · Join the Waitlist</p>
               <h3 className="text-xl font-normal text-[#1a2a3a] mb-2">The Inner Game Cohort</h3>
               <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
                 A six-week room for operators working the same internal problem — small group, one live call a week, a daily practice in between.
