@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
+import { EligibilityChecker } from "./eligibility-checker"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -30,7 +31,6 @@ const PRODUCT_JSONLD = {
   url: "https://mandyc.me/consulting",
   offers: {
     "@type": "Offer",
-    price: "15000",
     priceCurrency: "USD",
     url: "https://mandyc.me/consulting",
   },
@@ -80,7 +80,7 @@ function StickyMobileBar() {
     >
       <div className="flex items-center justify-between gap-4">
         <p className="text-[#1a2a3a] text-[14px] font-semibold tracking-[0.02em] leading-tight">
-          US$15,000 · in thirds
+          Three milestones · pay on delivery
         </p>
         <a
           href={TIDYCAL_URL}
@@ -259,7 +259,7 @@ export default function ConsultingPage() {
           </p>
 
           <p className="text-[#f5e6b3] text-[12px] md:text-[13px] font-medium tracking-[0.22em] uppercase mb-10">
-            US$15,000, paid across three milestones · typically 90 days · contracted with the company
+            Paid in three milestones, each on delivery · typically 90 days · contracted with the company
           </p>
 
           <div className="flex flex-col items-center gap-4">
@@ -409,7 +409,7 @@ export default function ConsultingPage() {
           </h2>
 
           <p className="text-slate-400 italic font-light text-[13px] md:text-[13.5px] leading-[1.7] mb-8">
-            Rules stated as at [DATE]. Hong Kong listing rules changed materially in July 2026 and this section will be updated as they move.
+            Rules stated as at 8 August 2026, reflecting the HKEX Listing Framework Competitiveness Review consultation conclusions published July 2026, which took effect on publication. This section is updated as the rules move.
           </p>
 
           <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.8] font-light mb-12">
@@ -419,11 +419,10 @@ export default function ConsultingPage() {
           <div className="space-y-12">
             <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4" style={{ color: "#f5e6b3" }}>
-                A Gulf-listed issuer&apos;s route into Hong Kong is not the one most advisors are quoting.
+                A Gulf-listed issuer&apos;s route into Hong Kong is not the one most advisers are quoting.
               </h3>
               <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                The July 2026 conclusions cut the Criteria B secondary-listing threshold to HK$6bn with two years of compliance history — and that is the number being repeated around the region. It does not apply to ADX or DFM issuers. Criteria B is restricted to companies listed on a Qualifying Exchange: NYSE, Nasdaq, LSE premium. ADX and DFM are Recognised Stock Exchanges, which is a different list. A one-share-one-vote Gulf issuer goes via Criteria A instead — HK$3bn, but{" "}
-                <strong className="font-semibold text-white">five</strong> full financial years of compliance, and only if its business is not centred on Greater China. Companies are building timelines off the wrong threshold in both directions.
+                The July 2026 conclusions cut the Criteria B secondary-listing threshold from HK$10bn to HK$6bn against two full financial years of compliance history, and that is the number being repeated around the region. It does not apply to ADX or DFM issuers. Criteria B is available only to companies listed on a Qualifying Exchange, which the Rules define as the New York Stock Exchange, Nasdaq, or the Main Market of the London Stock Exchange. ADX and DFM sit on the Recognised Stock Exchange list — a broader list of 21 exchanges across 19 countries that includes the Qualifying Exchanges but reaches well past them. A one-share-one-vote Gulf issuer goes via Criteria A instead: HK$3bn, but five full financial years, and available on a Recognised Exchange track record only where the issuer has no centre of gravity in Greater China. Where it does, the Exchange will consider the application only in exceptional circumstances. There is also a discretionary waiver of the track-record requirement for well-established applicants listing significantly above HK$6bn — which most people quoting the headline number do not mention, and which is exactly the conversation a large Gulf issuer should be having.
               </p>
             </div>
 
@@ -432,16 +431,16 @@ export default function ConsultingPage() {
                 Under Chapter 18C, your Series B investor selection already decided your eligibility.
               </h3>
               <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                The sophisticated independent investor requirement is a history test, not a cheque written at IPO. Named investors must have been on your register for the twelve months before application, at defined aggregate thresholds. A cap table of angels, seed funds and small regional VCs is structurally ineligible regardless of valuation, and it cannot be repaired in your listing year. This is the single most common reason a deep-tech 18C conversation ends, and it ends late, after real money has been spent.
+                The rule is one sentence: an applicant must have received meaningful investment from sophisticated independent investors. Every number that actually binds — who counts as sophisticated, how much they must hold, how long they must have held it — sits in HKEX guidance rather than the rulebook, which makes it both easy to miss and amendable without a rule change. On the current guidance this is a history test, not a cheque written at IPO: the investors must already have been on your register before you apply. A cap table of angels, seed funds and small regional VCs is structurally ineligible regardless of valuation, and it cannot be repaired in your listing year. This is the most common reason a deep-tech 18C conversation ends, and it ends late, after real money has been spent.
               </p>
             </div>
 
             <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4" style={{ color: "#f5e6b3" }}>
-                The easy route does not reach the prize.
+                The lighter route does not reach the prize.
               </h3>
               <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                A secondary listing is the lighter path. It is also excluded from Southbound Stock Connect — the mainland liquidity that is usually the actual reason a company wants Hong Kong. Only primary and dual-primary foreign issuers in the HSCI qualify. Alibaba converted for exactly this reason. If Southbound access is your thesis, the cheap route is not a cheaper version of the right one; it is a different outcome.
+                A secondary listing is the easier path, and it does not carry Southbound Stock Connect access — the mainland liquidity that is usually the real reason a company wants Hong Kong. This is not a technicality nobody has noticed: respondents to the July 2026 consultation asked the Exchange to extend Southbound eligibility to secondary-listed issuers, HKEX acknowledged it would require facilitation by the Mainland authorities, and deferred the question to the second phase of the competitiveness review. The gap is real, the Exchange knows it is real, and it is not closed yet. If Southbound access is your thesis, the cheap route is not a cheaper version of the right one — it is a different outcome.
               </p>
             </div>
           </div>
@@ -452,9 +451,12 @@ export default function ConsultingPage() {
               <strong className="font-medium text-white">
                 And one that changes the cost of getting it wrong:
               </strong>{" "}
-              filing is now non-public for all new applicants, which sounds like pure downside protection. The counterweight is that when an application is returned, HKEX publishes the names and roles of the professional parties involved and the reason for the return. A badly prepared filing now carries a public cost it did not carry twelve months ago — for you and for everyone you appointed.
+              filing is now non-public for all new applicants, which sounds like pure downside protection. The counterweight is that when an application is returned, HKEX publishes the names and roles of the professional parties involved — sponsor, both sets of legal advisers, reporting accountants, industry consultant — together with the reasons for the return. The Exchange is explicit that this does not impute fault to anyone. It is still a public record that did not exist twelve months ago, for you and for everyone you appointed.
             </p>
           </div>
+
+          {/* Eligibility checker — the page's centrepiece interaction. */}
+          <EligibilityChecker bookingUrl={TIDYCAL_URL} />
 
           <div className="mt-14 flex justify-center">
             <PrimaryCTA className="w-full sm:w-[420px]" />
@@ -531,15 +533,15 @@ export default function ConsultingPage() {
           <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">Questions</h2>
 
           <div className="bg-white border border-slate-200 px-6 md:px-10">
-            <FAQItem q="Why is this US$15,000?">
+            <FAQItem q="What does it cost?">
               <p>
-                Because it is thirteen weeks of direct access plus two board-ready documents, delivered by the person you actually hired rather than an associate. A full advisory mandate costs many times this, because a mandate means I am running your process. This is the narrow version, priced for the narrow version — and you pay it in thirds, on delivery.
+                A fixed fee, paid in three equal milestones — one to start, one when the Venue Decision is delivered, one when the Remediation Plan is. I confirm the figure on the discovery call and in the engagement letter before you commit to anything, and it does not move mid-engagement. It is priced as the narrow version of what I do: a full advisory mandate costs many times more, because a mandate means I am running your process.
               </p>
             </FAQItem>
 
-            <FAQItem q="Do we pay all of it upfront?">
+            <FAQItem q="Why not just publish the number?">
               <p>
-                No. You pay US$5,000 to start, US$5,000 when the Venue Decision is in your hands, and US$5,000 when the Remediation Plan is. If the first document does not tell you something you did not know, you have spent US$10,000 and you stop. The structure exists so the risk of this being worth it sits with me, not with you.
+                Because the right conversation starts with your situation, not with a price tag — and because the structure matters more than the figure. You pay each third on delivery of a named document. If the first document does not tell you something you did not know, you stop, and most of the fee stays in your pocket. That allocation of risk is the honest signal; a number on a webpage is not.
               </p>
             </FAQItem>
 
@@ -569,7 +571,7 @@ export default function ConsultingPage() {
 
             <FAQItem q="How is this different from the IPO Path Assessment?">
               <p>
-                The Assessment is a single document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. This is a working relationship — thirteen weeks through a live decision, with the Venue Decision and the Remediation Plan produced along the way. Buy the Assessment if you want an answer. Buy this if you want someone alongside you while you reach one and then act on it. Plenty of people do the Assessment first, and US$1,000 of it comes off the first milestone here.
+                The Assessment is a single document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. This is a working relationship — thirteen weeks through a live decision, with the Venue Decision and the Remediation Plan produced along the way. Buy the Assessment if you want an answer. Buy this if you want someone alongside you while you reach one and then act on it. Plenty of people do the Assessment first, and part of it credits toward your first milestone here.
               </p>
             </FAQItem>
 
@@ -640,7 +642,7 @@ export default function ConsultingPage() {
 
           <div className="bg-[#f8f7f4] border border-slate-300 p-7 md:p-10">
             <p className="text-[#1a2a3a] text-[18px] md:text-[20px] font-medium leading-[1.6] mb-5">
-              The US$15,000 covers my time. It covers nothing else.
+              One fee. But it is not the only fee in a listing.
             </p>
 
             <p className="text-slate-600 text-[15px] leading-[1.85] font-light mb-6">
@@ -666,23 +668,16 @@ export default function ConsultingPage() {
               <p>
                 You engage and pay those parties directly. I do not sit between you and them, and I do not take a position in their fees.
               </p>
+
+              {/* Confirmed true and published as ordinary body copy — hairline rule, no callout. */}
+              <p className="border-t border-slate-300 pt-5 text-[#1a2a3a] text-[15px] md:text-[16px] leading-[1.8] font-medium">
+                I do not receive referral fees from, and do not mark up the fees of, any professional I introduce you to.
+              </p>
+
               <p>
-                Knowing that structure before you commit is part of the point. Most companies underestimate the total by an order of magnitude, and they discover it after they have already instructed someone.
+                Knowing this structure before you commit is part of the point. Most companies underestimate the total by an order of magnitude, and they discover it after they have already instructed someone.
               </p>
             </div>
-          </div>
-
-          {/* UNRESOLVED — must be visible so it cannot ship by accident. */}
-          <div
-            role="note"
-            className="mt-8 border-2 border-[#c9a227] bg-[#c9a227]/10 p-6 md:p-7"
-          >
-            <p className="text-[#7d6715] text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">
-              Unresolved — do not publish as-is
-            </p>
-            <p className="text-[#1a2a3a] text-[15px] leading-[1.85] font-light">
-              <strong className="font-semibold">[CONFIRM BEFORE PUBLISHING — Mandy]</strong> Recommended addition if unconditionally true: <em>&quot;I do not receive referral fees from, and do not mark up the fees of, any professional I introduce you to.&quot;</em> Strong signal to a CFO and a clean position to hold. Publish only if it holds across every introduction you make, without exception.
-            </p>
           </div>
         </div>
       </section>
@@ -698,14 +693,14 @@ export default function ConsultingPage() {
                 className="text-[#1a2a3a] text-3xl md:text-[40px] font-normal leading-[1.2] mb-7"
                 style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
               >
-                US$15,000, paid across three milestones.
+                Paid in three milestones. Each falls due on delivery, not in advance.
               </p>
 
               <ul className="space-y-4 mb-7">
                 {[
-                  <>US$5,000 on engagement — contract signed, intake received, first working call held</>,
-                  <>US$5,000 on delivery of the Venue Decision — typically week four or five</>,
-                  <>US$5,000 on delivery of the Remediation Plan — typically week twelve, or day 120, whichever comes first</>,
+                  <>First milestone on engagement — contract signed, intake received, first working call held</>,
+                  <>Second on delivery of the Venue Decision — typically week four or five</>,
+                  <>Third on delivery of the Remediation Plan — typically week twelve, or day 120, whichever comes first</>,
                 ].map((node, i) => (
                   <li
                     key={i}
@@ -723,6 +718,10 @@ export default function ConsultingPage() {
                 You do not pay a milestone until the document that triggers it is in your hands. If the first stage does not earn the second, you do not buy the second.
               </p>
 
+              <p className="text-slate-600 text-[15px] leading-[1.85] font-light mb-7">
+                The figure is fixed and confirmed on the discovery call — before you commit to anything, in writing, with no negotiation theatre. It does not change mid-engagement.
+              </p>
+
               <ul className="space-y-4">
                 {[
                   <>
@@ -730,11 +729,11 @@ export default function ConsultingPage() {
                       Contracted with and billed to the company. Not to individuals.
                     </strong>
                   </>,
-                  <>Typically ninety days. The milestones govern, not the calendar — if the work runs faster you pay sooner; if it runs longer the final milestone still falls due at day 120</>,
+                  <>Typically ninety days. The milestones govern, not the calendar</>,
                   <>Mutual NDA signed before intake, as standard</>,
-                  <>US$1,000 comes off the first milestone if you booked an IPO Path Assessment in the last 60 days</>,
+                  <>An IPO Path Assessment booked in the last 60 days credits toward your first milestone</>,
                   <>Everything you have paid credits toward an advisory mandate booked within 60 days of the engagement ending</>,
-                  <>Third-party professional fees are not included. See below — they are substantially larger than this engagement and you pay them directly</>,
+                  <>Third-party professional fees are not included — see the section above</>,
                 ].map((node, i) => (
                   <li
                     key={i}

@@ -19,6 +19,26 @@
 > §4's ladder table *has* been updated, because it is a factual price table rather than a
 > narrative record.
 
+> ### ⚠️ v4 amendment — figures withdrawn from the page; Section 4 corrected
+>
+> **The fee figures no longer appear on the page.** The milestone *structure* stays fully
+> visible; the amount is confirmed on the discovery call and in the engagement letter. The
+> §2 copy below reflects this — every dollar amount for the engagement has been removed,
+> including from the JSON-LD offer block (the `price` property was deleted outright rather
+> than zeroed). The v3 figures above are retained as history only.
+>
+> **The referral-fee line is confirmed true and now publishes** as ordinary body copy at
+> the end of Section 9. The amber CONFIRM callout is gone.
+>
+> **Section 4 has been replaced** with the verified copy from `Section4-verification-report.md`,
+> which corrects "LSE premium" to the LSE Main Market, restates the Criteria A limbs, and
+> re-sources the 18C investor test to HKEX guidance rather than the rulebook. Its dated line
+> now reads 8 August 2026, which resolves the `[DATE]` placeholder on `/consulting`. The
+> `[DATE]` on `/terms` is untouched and still needs your date.
+>
+> **New:** an eligibility checker is embedded at the end of Section 4. Its copy is recorded
+> below under "SECTION 4a".
+
 **Supersedes v1.** Same price (US$5,000 / 90 days), same scope (weekly call + email). What changed is the *frame*: v1 sold thirteen hours, v2 sells a decision. Full change log at §4.
 
 ---
@@ -71,7 +91,7 @@ Source PDFs are already in `CPT Academy/reference-data/hkex/`. Add a visible "Ru
 **Subhead:**
 Not a readiness report. Not a mandate. A standing working relationship with a licensed capital markets advisor who has no economic interest in you doing the deal — long enough to get the venue question closed, the blockers named, and the sequence right.
 
-**Price line:** US$15,000, paid across three milestones · typically 90 days · contracted with the company
+**Price line:** Paid in three milestones, each on delivery · typically 90 days · contracted with the company
 
 **[Book a Confidential Call]** — 30 minutes, no charge
 
@@ -126,20 +146,49 @@ That is the engagement. There is deliberately nothing else in it.
 
 ### SECTION 4 — Three things companies are getting wrong right now
 
-*Rules stated as at [DATE]. Hong Kong listing rules changed materially in July 2026 and this section will be updated as they move.*
+*Rules stated as at 8 August 2026, reflecting the HKEX Listing Framework Competitiveness Review consultation conclusions published July 2026, which took effect on publication. This section is updated as the rules move.*
 
 Not a teaser. If you already knew all three, you probably do not need me.
 
-**A Gulf-listed issuer's route into Hong Kong is not the one most advisors are quoting.**
-The July 2026 conclusions cut the Criteria B secondary-listing threshold to HK$6bn with two years of compliance history — and that is the number being repeated around the region. It does not apply to ADX or DFM issuers. Criteria B is restricted to companies listed on a Qualifying Exchange: NYSE, Nasdaq, LSE premium. ADX and DFM are Recognised Stock Exchanges, which is a different list. A one-share-one-vote Gulf issuer goes via Criteria A instead — HK$3bn, but **five** full financial years of compliance, and only if its business is not centred on Greater China. Companies are building timelines off the wrong threshold in both directions.
+**A Gulf-listed issuer's route into Hong Kong is not the one most advisers are quoting.**
+The July 2026 conclusions cut the Criteria B secondary-listing threshold from HK$10bn to HK$6bn against two full financial years of compliance history, and that is the number being repeated around the region. It does not apply to ADX or DFM issuers. Criteria B is available only to companies listed on a Qualifying Exchange, which the Rules define as the New York Stock Exchange, Nasdaq, or the Main Market of the London Stock Exchange. ADX and DFM sit on the Recognised Stock Exchange list — a broader list of 21 exchanges across 19 countries that includes the Qualifying Exchanges but reaches well past them. A one-share-one-vote Gulf issuer goes via Criteria A instead: HK$3bn, but five full financial years, and available on a Recognised Exchange track record only where the issuer has no centre of gravity in Greater China. Where it does, the Exchange will consider the application only in exceptional circumstances. There is also a discretionary waiver of the track-record requirement for well-established applicants listing significantly above HK$6bn — which most people quoting the headline number do not mention, and which is exactly the conversation a large Gulf issuer should be having.
 
 **Under Chapter 18C, your Series B investor selection already decided your eligibility.**
-The sophisticated independent investor requirement is a history test, not a cheque written at IPO. Named investors must have been on your register for the twelve months before application, at defined aggregate thresholds. A cap table of angels, seed funds and small regional VCs is structurally ineligible regardless of valuation, and it cannot be repaired in your listing year. This is the single most common reason a deep-tech 18C conversation ends, and it ends late, after real money has been spent.
+The rule is one sentence: an applicant must have received meaningful investment from sophisticated independent investors. Every number that actually binds — who counts as sophisticated, how much they must hold, how long they must have held it — sits in HKEX guidance rather than the rulebook, which makes it both easy to miss and amendable without a rule change. On the current guidance this is a history test, not a cheque written at IPO: the investors must already have been on your register before you apply. A cap table of angels, seed funds and small regional VCs is structurally ineligible regardless of valuation, and it cannot be repaired in your listing year. This is the most common reason a deep-tech 18C conversation ends, and it ends late, after real money has been spent.
 
-**The easy route does not reach the prize.**
-A secondary listing is the lighter path. It is also excluded from Southbound Stock Connect — the mainland liquidity that is usually the actual reason a company wants Hong Kong. Only primary and dual-primary foreign issuers in the HSCI qualify. Alibaba converted for exactly this reason. If Southbound access is your thesis, the cheap route is not a cheaper version of the right one; it is a different outcome.
+**The lighter route does not reach the prize.**
+A secondary listing is the easier path, and it does not carry Southbound Stock Connect access — the mainland liquidity that is usually the real reason a company wants Hong Kong. This is not a technicality nobody has noticed: respondents to the July 2026 consultation asked the Exchange to extend Southbound eligibility to secondary-listed issuers, HKEX acknowledged it would require facilitation by the Mainland authorities, and deferred the question to the second phase of the competitiveness review. The gap is real, the Exchange knows it is real, and it is not closed yet. If Southbound access is your thesis, the cheap route is not a cheaper version of the right one — it is a different outcome.
 
-**And one that changes the cost of getting it wrong:** filing is now non-public for all new applicants, which sounds like pure downside protection. The counterweight is that when an application is returned, HKEX publishes the names and roles of the professional parties involved and the reason for the return. A badly prepared filing now carries a public cost it did not carry twelve months ago — for you and for everyone you appointed.
+**And one that changes the cost of getting it wrong:** filing is now non-public for all new applicants, which sounds like pure downside protection. The counterweight is that when an application is returned, HKEX publishes the names and roles of the professional parties involved — sponsor, both sets of legal advisers, reporting accountants, industry consultant — together with the reasons for the return. The Exchange is explicit that this does not impute fault to anyone. It is still a public record that did not exist twelve months ago, for you and for everyone you appointed.
+
+---
+
+### SECTION 4a — Eligibility checker ("Where could you list?")
+
+Embedded at the end of the Section 4 band, inside the same tinted band. Client-side only.
+
+**Heading:** Run your own numbers against the routes.
+**Subhead:** Five questions, thirty seconds, nothing leaves your browser.
+
+**Above the first question:** Runs entirely in your browser. Nothing you select is sent or stored anywhere.
+
+**Questions:** 1. Where is the company listed today? · 2. Weighted voting rights? · 3. Market capitalisation (HK$) · 4. Is the business centred on Greater China? · 5. Years of good compliance history on your exchange.
+
+**Verdict cards:** Criteria B — secondary listing, no WVR (Rule 19C.05A) · Criteria A — secondary listing, no WVR (Rule 19C.05A) · WVR secondary listing (Rules 19C.04–19C.05), rendered only where a WVR structure is selected. States are OPEN, CLOSED (every failed condition named) and DISCRETIONARY.
+
+**Waiver flag**, shown where a track-record condition was the only failure and market capitalisation is HK$6bn or above:
+One thing worth knowing: the Rules allow a waiver of the track-record requirement for a well-established issuer listing significantly above HK$6bn. Most people quoting the headline thresholds miss it. If that is your situation, it is exactly what the call is for.
+
+**Primary-listing card** (not listed yet):
+Secondary-listing routes compare where you are listed with where you want to be — they do not apply yet. A first listing in Hong Kong runs through different chapters of the Rules entirely, including the specialist technology route for deep-tech companies. That is a call, not a form.
+
+**Fallback card** (uncovered combination):
+Your situation does not map cleanly onto the standard routes — which usually makes the conversation more interesting, not less. Bring the specifics to the call.
+
+**Below the results:** A summary of published HKEX rules as at 8 August 2026 — not advice, and no advisory relationship is created by using it. Rules change; your facts decide the outcome.
+
+**CTA line:** Whatever the cards say, the verdict that matters is the one with your actual numbers behind it.
+**[Bring this to the call]**
 
 ---
 
@@ -175,11 +224,11 @@ A secondary listing is the lighter path. It is also excluded from Southbound Sto
 
 ### SECTION 7 — Questions
 
-**Why is this US$15,000?**
-Because it is thirteen weeks of direct access plus two board-ready documents, delivered by the person you actually hired rather than an associate. A full advisory mandate costs many times this, because a mandate means I am running your process. This is the narrow version, priced for the narrow version — and you pay it in thirds, on delivery.
+**What does it cost?**
+A fixed fee, paid in three equal milestones — one to start, one when the Venue Decision is delivered, one when the Remediation Plan is. I confirm the figure on the discovery call and in the engagement letter before you commit to anything, and it does not move mid-engagement. It is priced as the narrow version of what I do: a full advisory mandate costs many times more, because a mandate means I am running your process.
 
-**Do we pay all of it upfront?**
-No. You pay US$5,000 to start, US$5,000 when the Venue Decision is in your hands, and US$5,000 when the Remediation Plan is. If the first document does not tell you something you did not know, you have spent US$10,000 and you stop. The structure exists so the risk of this being worth it sits with me, not with you.
+**Why not just publish the number?**
+Because the right conversation starts with your situation, not with a price tag — and because the structure matters more than the figure. You pay each third on delivery of a named document. If the first document does not tell you something you did not know, you stop, and most of the fee stays in your pocket. That allocation of risk is the honest signal; a number on a webpage is not.
 
 **Who am I actually working with?**
 Me. Every call, every email. No associate, no handoff. It is also why I take a small number of these at once.
@@ -194,7 +243,7 @@ No. It covers my time only. Third parties bill you directly and those fees are s
 It has to be. The engagement is contracted with the company entity, not an individual. This is corporate advisory work and belongs on the company's books.
 
 **How is this different from the IPO Path Assessment?**
-The Assessment is a single document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. This is a working relationship — thirteen weeks through a live decision, with the Venue Decision and the Remediation Plan produced along the way. Buy the Assessment if you want an answer. Buy this if you want someone alongside you while you reach one and then act on it. Plenty of people do the Assessment first, and US$1,000 of it comes off the first milestone here.
+The Assessment is a single document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. This is a working relationship — thirteen weeks through a live decision, with the Venue Decision and the Remediation Plan produced along the way. Buy the Assessment if you want an answer. Buy this if you want someone alongside you while you reach one and then act on it. Plenty of people do the Assessment first, and part of it credits toward your first milestone here.
 
 **What if we decide not to list?**
 Then it worked. Roughly a third of these end in "not yet, and here is precisely what changes that" — which is worth considerably more than the fee, because the alternative is finding out in month nine with a professional fee bill already run up.
@@ -234,7 +283,7 @@ Who you instruct, in what order, and what you should be paying them for. Ends wi
 
 ### SECTION 9 — What the fee covers, and what it does not
 
-**The US$15,000 covers my time. It covers nothing else.**
+**One fee. But it is not the only fee in a listing.**
 
 A listing is a multi-party process and every other party bills you directly. Budget separately for:
 
@@ -248,28 +297,30 @@ A listing is a multi-party process and every other party bills you directly. Bud
 
 You engage and pay those parties directly. I do not sit between you and them, and I do not take a position in their fees.
 
-Knowing that structure before you commit is part of the point. Most companies underestimate the total by an order of magnitude, and they discover it after they have already instructed someone.
+**I do not receive referral fees from, and do not mark up the fees of, any professional I introduce you to.**
 
-> **[CONFIRM BEFORE PUBLISHING — Mandy]** Recommended addition if unconditionally true: *"I do not receive referral fees from, and do not mark up the fees of, any professional I introduce you to."* Strong signal to a CFO and a clean position to hold. Publish only if it holds across every introduction you make, without exception.
+Knowing this structure before you commit is part of the point. Most companies underestimate the total by an order of magnitude, and they discover it after they have already instructed someone.
 
 ---
 
 ### SECTION 10 — Terms
 
-**US$15,000, paid across three milestones.**
+**Paid in three milestones. Each falls due on delivery, not in advance.**
 
-- US$5,000 on engagement — contract signed, intake received, first working call held
-- US$5,000 on delivery of the Venue Decision — typically week four or five
-- US$5,000 on delivery of the Remediation Plan — typically week twelve, or day 120, whichever comes first
+- First milestone on engagement — contract signed, intake received, first working call held
+- Second on delivery of the Venue Decision — typically week four or five
+- Third on delivery of the Remediation Plan — typically week twelve, or day 120, whichever comes first
 
 You do not pay a milestone until the document that triggers it is in your hands. If the first stage does not earn the second, you do not buy the second.
 
+The figure is fixed and confirmed on the discovery call — before you commit to anything, in writing, with no negotiation theatre. It does not change mid-engagement.
+
 - **Contracted with and billed to the company. Not to individuals.**
-- Typically ninety days. The milestones govern, not the calendar — if the work runs faster you pay sooner; if it runs longer the final milestone still falls due at day 120
+- Typically ninety days. The milestones govern, not the calendar
 - Mutual NDA signed before intake, as standard
-- US$1,000 comes off the first milestone if you booked an IPO Path Assessment in the last 60 days
+- An IPO Path Assessment booked in the last 60 days credits toward your first milestone
 - Everything you have paid credits toward an advisory mandate booked within 60 days of the engagement ending
-- Third-party professional fees are not included. See below — they are substantially larger than this engagement and you pay them directly
+- Third-party professional fees are not included — see the section above
 
 **On availability:** I run a small number of these at once, because every call and every email is mine. I will tell you on the discovery call exactly where that stands and give you a real start date rather than a waitlist.
 
