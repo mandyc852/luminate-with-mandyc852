@@ -10,7 +10,7 @@ const baseUrl = siteUrl
 
 const title = "The 90-Day Listing Decision | MandyC."
 const description =
-  "Not a readiness report. Not a mandate. A standing working relationship with a licensed capital markets advisor who has no economic interest in you doing the deal — long enough to get the venue question closed, the blockers named, and the sequence right."
+  "A working relationship with a licensed capital markets advisor, for founder-led companies going public for the first time — mostly on Nasdaq. Long enough to close the venue question, name what is actually blocking you, and get the order of operations right."
 
 export const metadata: Metadata = {
   title,

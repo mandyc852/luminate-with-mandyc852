@@ -1,3 +1,5 @@
+> **Superseded by consulting-page-v3-copy.md (8 August 2026). Retained for its §0 change log.**
+
 # /consulting — The 90-Day Listing Decision
 ## Page copy v2 — 7 Aug 2026
 
