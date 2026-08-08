@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
 import { EligibilityChecker } from "./eligibility-checker"
+import { CorridorDealBook } from "./corridor-deal-book"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -457,6 +458,9 @@ export default function ConsultingPage() {
 
           {/* Eligibility checker — the page's centrepiece interaction. */}
           <EligibilityChecker bookingUrl={TIDYCAL_URL} />
+
+          {/* Corridor Deal Book — verified record, rendered after the checker. */}
+          <CorridorDealBook bookingUrl={TIDYCAL_URL} />
 
           <div className="mt-14 flex justify-center">
             <PrimaryCTA className="w-full sm:w-[420px]" />

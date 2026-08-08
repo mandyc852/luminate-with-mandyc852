@@ -39,6 +39,23 @@
 > **New:** an eligibility checker is embedded at the end of Section 4. Its copy is recorded
 > below under "SECTION 4a".
 
+> ### ⚠️ v5 amendment — Corridor Deal Book added
+>
+> A filterable, client-side table of six verified corridor listings now sits at the end of
+> the Section 4 band, after the eligibility checker. Its copy is recorded below under
+> "SECTION 4b".
+>
+> **The dataset is fixed.** Every value records a fact settled at pricing or debut — nothing
+> that goes stale, and nothing to refresh. No current prices, no valuation multiples, no
+> performance-since-listing, no projections. It grows only by approved batches; do not add
+> deals to it.
+>
+> **Correction to the brief:** the brief stated that filtering to an empty set is impossible
+> with these two dimensions. It is not. Five venue/year combinations return zero from this
+> dataset — HKEX+2024, HKEX+2023, ADX+2025, DFM+2025 and DFM+2023 — so the empty state is
+> reachable in normal use, not just theoretically. It is implemented, and the filter chips
+> carry cross-filtered counts so a zero result is visible before it is clicked.
+
 **Supersedes v1.** Same price (US$5,000 / 90 days), same scope (weekly call + email). What changed is the *frame*: v1 sold thirteen hours, v2 sells a decision. Full change log at §4.
 
 ---
@@ -188,6 +205,42 @@ Your situation does not map cleanly onto the standard routes — which usually m
 **Below the results:** A summary of published HKEX rules as at 8 August 2026 — not advice, and no advisory relationship is created by using it. Rules change; your facts decide the outcome.
 
 **CTA line:** Whatever the cards say, the verdict that matters is the one with your actual numbers behind it.
+**[Bring this to the call]**
+
+---
+
+### SECTION 4b — Corridor Deal Book
+
+Filterable client-side table at the end of the Section 4 band, after the eligibility checker.
+
+**Heading:** What the corridor actually did.
+**Subhead:** Verified at pricing and debut — no projections, and deliberately no cherry-picking. The ones that fell on debut are in here too.
+
+**Context line, above the table:** For scale: Hong Kong raised HK$286.8bn in IPO funds in 2025, per HKEX's official funds-raised statistics.
+
+**Filters:** chip toggles with cross-filtered counts — Venue (All / HKEX / ADX / DFM) and Year (All / 2025 / 2024 / 2023). Empty state: "No deals match — clear filters."
+
+**The six deals** (facts, then the italic note beneath):
+
+| Company | Venue | Type | Date | Size |
+|---|---|---|---|---|
+| WeRide | HKEX | Dual-primary (Ch. 18C) | Nov 2025 | HK$2.39bn (~US$306M) |
+| CATL | HKEX | Listing | May 2025 | ~US$4.6bn |
+| Talabat | DFM | IPO | Dec 2024 | US$2.0bn |
+| Lulu Retail | ADX | IPO | Nov 2024 | ~US$1.72bn |
+| Alef Education | ADX | IPO | Jun 2024 | AED 1.89bn (~US$515M) |
+| Presight AI | ADX | IPO | Mar 2023 | US$496M |
+
+- **WeRide** — Priced at HK$27.10. First Chapter 18C dual-primary with a WVR structure — a Nasdaq-listed company adding a Hong Kong primary listing. *The route this page describes, actually driven.*
+- **CATL** — The world's largest listing of 2025 at pricing; rose over 16% on debut. *The proof of Hong Kong's depth.*
+- **Talabat** — Largest global tech IPO of 2024; priced at the top of the range; fell around 7% on debut. *Priced for the issuer, not the aftermarket — the tension every IPO has to resolve.*
+- **Lulu Retail** — The UAE's biggest IPO of 2024; the 100th company listed on ADX; closed flat on debut. *Size alone does not price a deal.*
+- **Alef Education** — Around 39× oversubscribed, drawing roughly US$20bn in orders. *Gulf demand for a technology story, measured in orders.*
+- **Presight AI** — Around 136× oversubscribed — nearly US$25.8bn in orders for a US$496M offering. *The most oversubscribed deal in this table.*
+
+**Footer:** Facts as recorded at pricing and debut; sourced from exchange and press coverage, verified 8 August 2026. This table is a record, not a recommendation — and no two deals price alike.
+
+**CTA line:** The question is not what these companies did. It is which of these paths your numbers support.
 **[Bring this to the call]**
 
 ---
