@@ -222,13 +222,13 @@ Then this is the wrong product and I will say so on the discovery call rather th
 Financials, cap table, structure chart, and a short note on what you think the deal is. I read it before call one. Call one is not spent on background.
 
 **Weeks 1–4 · Route**
-Where you can list, where you cannot, and what the gap is. By the end of week four the venue question is closed and we are working a real path rather than an aspiration.
+Where you can list, where you cannot, and what the gap is. Ends with the Venue Decision in your hands — the venue question closed, in writing. The second milestone falls due here.
 
 **Weeks 5–9 · Blockers**
 The specific things standing between you and a viable filing, in priority order. This is where the value lands and it is usually less comfortable than weeks one to four.
 
 **Weeks 10–13 · Sequence**
-Who you instruct, in what order, what you should be paying them for. Ends with the Decision Note and a clear next twelve months.
+Who you instruct, in what order, and what you should be paying them for. Ends with the Remediation Plan and a clear next twelve months.
 
 ---
 

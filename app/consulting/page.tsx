@@ -154,7 +154,7 @@ const TIMELINE = [
   {
     title: "Weeks 1–4 · Route",
     body:
-      "Where you can list, where you cannot, and what the gap is. By the end of week four the venue question is closed and we are working a real path rather than an aspiration.",
+      "Where you can list, where you cannot, and what the gap is. Ends with the Venue Decision in your hands — the venue question closed, in writing. The second milestone falls due here.",
   },
   {
     title: "Weeks 5–9 · Blockers",
@@ -164,7 +164,7 @@ const TIMELINE = [
   {
     title: "Weeks 10–13 · Sequence",
     body:
-      "Who you instruct, in what order, what you should be paying them for. Ends with the Decision Note and a clear next twelve months.",
+      "Who you instruct, in what order, and what you should be paying them for. Ends with the Remediation Plan and a clear next twelve months.",
   },
 ]
 

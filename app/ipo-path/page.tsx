@@ -52,42 +52,37 @@ function trackCallClick() {
 // (2) the bonus PDFs.
 // Suggested stack: Stripe webhook → Vercel serverless route → Resend/Postmark email.
 
-const VALUE_STACK_TOP = [
+const STACK_TOP = [
   {
     n: "01",
     title: "Eligibility analysis — financials & cap table",
-    value: "US$1,500",
     body:
       "A full analysis of your financials and cap table against current HKEX Main Board, GEM, Nasdaq and NYSE American eligibility thresholds — run by me, not a tool.",
   },
   {
     n: "02",
     title: "Two-week deep review by Mandy",
-    value: "US$5,000",
     body:
       "Pressure-tests the equity story. Maps the listing routes that actually fit. Surfaces what will come up in due diligence — before it does.",
   },
   {
     n: "03",
     title: "90-minute strategic working call",
-    value: "US$1,500",
     body:
       "One session, video. Together we walk through every finding. CFO, co-founder, or board chair welcome in the room.",
   },
 ]
 
-const VALUE_STACK_BOTTOM = [
+const STACK_BOTTOM = [
   {
     n: "05",
     title: "Two 30-minute follow-up calls in the 30 days after delivery",
-    value: "US$1,000",
     body:
       "For clarifying questions and tactical decisions as you start moving on the memo. Booked at your pace, on your schedule.",
   },
   {
     n: "06",
     title: "Direct email access for 30 days",
-    value: "US$500",
     body:
       "48-hour response window. For the questions that come up between calls.",
   },
@@ -140,10 +135,10 @@ const FAQ: Array<{ q: string; a: React.ReactNode }> = [
     ),
   },
   {
-    q: "How is this different from the 90-Day Strategic Engagement?",
+    q: "How is this different from the 90-Day Listing Decision?",
     a: (
       <p>
-        The Assessment answers “should we list, and if so how.” The 90-Day Engagement structures the company so the listing can actually happen — sequenced fixes, weekly working sessions, monthly strategic reports. The Assessment is the input; the Engagement is the execution. US$1,000 creditable off the first milestone of the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.
+        This is a single document. Thirty days, one deep working call, an 8-12 page Listing Path Memo you can hand to your board. The 90-Day Listing Decision is a working relationship — thirteen weeks of weekly calls and email access, with the Venue Decision and the Remediation Plan produced along the way. Buy this if you want an answer. Buy that if you want someone alongside you while you act on it. US$1,000 of this credits off its first milestone.
       </p>
     ),
   },
@@ -169,25 +164,16 @@ const FAQ: Array<{ q: string; a: React.ReactNode }> = [
   },
 ]
 
-function ValueBadge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center border border-[#c9a227] text-[#a68a1f] px-2.5 py-1 text-[11px] font-medium tracking-[0.18em] uppercase whitespace-nowrap">
-      Value · {children}
-    </span>
-  )
-}
-
-function StackCard({ n, title, body, value }: { n: string; title: string; body: string; value: string }) {
+function StackCard({ n, title, body }: { n: string; title: string; body: string }) {
   return (
     <div className="bg-white border border-slate-200 p-7 md:p-8 flex flex-col h-full hover:border-[#c9a227]/40 transition-colors">
-      <div className="flex items-start justify-between gap-4 mb-5">
+      <div className="mb-5">
         <span
-          className="flex-shrink-0 w-11 h-11 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#a68a1f] text-base font-medium"
+          className="inline-flex flex-shrink-0 w-11 h-11 rounded-full border-2 border-[#c9a227] items-center justify-center text-[#a68a1f] text-base font-medium"
           style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
         >
           {n}
         </span>
-        <ValueBadge>{value}</ValueBadge>
       </div>
       <h3 className="text-lg md:text-xl font-normal text-[#1a2a3a] mb-3 leading-snug">{title}</h3>
       <p className="text-slate-600 font-light leading-[1.75] text-[14.5px] flex-grow">{body}</p>
@@ -540,7 +526,7 @@ export default function IPOPathPage() {
 
           {/* Top row: cards 1, 2, 3 */}
           <div className="grid md:grid-cols-3 gap-4 md:gap-5 mb-4 md:mb-5">
-            {VALUE_STACK_TOP.map((c) => (
+            {STACK_TOP.map((c) => (
               <StackCard key={c.n} {...c} />
             ))}
           </div>
@@ -552,15 +538,12 @@ export default function IPOPathPage() {
             </span>
             <div className="grid md:grid-cols-[1fr_1.6fr] gap-8 md:gap-12 mt-6 md:mt-4">
               <div>
-                <div className="flex items-start justify-between gap-4 mb-5">
+                <div className="mb-5">
                   <span
-                    className="flex-shrink-0 w-11 h-11 rounded-full border-2 border-[#f5e6b3] flex items-center justify-center text-[#f5e6b3] text-base font-medium"
+                    className="inline-flex flex-shrink-0 w-11 h-11 rounded-full border-2 border-[#f5e6b3] items-center justify-center text-[#f5e6b3] text-base font-medium"
                     style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
                   >
                     04
-                  </span>
-                  <span className="inline-flex items-center border border-[#f5e6b3]/60 text-[#f5e6b3] px-2.5 py-1 text-[11px] font-medium tracking-[0.18em] uppercase whitespace-nowrap">
-                    Value · US$5,000
                   </span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-normal mb-3 leading-snug" style={{ fontFamily: "var(--font-cormorant-garamond), serif", color: "#ffffff" }}>
@@ -583,12 +566,12 @@ export default function IPOPathPage() {
 
           {/* Bottom row: cards 5, 6 */}
           <div className="grid md:grid-cols-2 gap-4 md:gap-5 mb-5 md:mb-6">
-            {VALUE_STACK_BOTTOM.map((c) => (
+            {STACK_BOTTOM.map((c) => (
               <StackCard key={c.n} {...c} />
             ))}
           </div>
 
-          {/* Value-math summary — clean navy gradient, gold accents only in text */}
+          {/* Price + credit summary */}
           <div
             className="relative overflow-hidden p-8 md:p-12"
             style={{
