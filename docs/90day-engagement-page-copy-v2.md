@@ -78,7 +78,31 @@
 > **Outstanding:** Section 2 card 01 still reads "Chapter 18C, a secondary listing under
 > 19C" — approved copy from v2 that this round did not supply a replacement for. It is the
 > only remaining rules-jargon string on the page and sits oddly beside the new
-> first-time-lister framing. Flagged, not edited.
+> first-time-lister framing. Flagged, not edited. **Resolved in v7 below.**
+
+> ### ⚠️ v7 amendment — Nasdaq-first positioning stated explicitly
+>
+> The buyer is a first-time lister, usually a smaller founder-led company, and mostly
+> heading for the US markets. This pass removes the remaining Hong-Kong-advisor
+> assumptions and says the positioning out loud:
+>
+> - **Section 1**'s conflicted-sources list is in US terms — investment bankers and
+>   securities counsel, not sponsors and lawyers.
+> - **Section 2 card 01** drops GEM / Chapter 18C / 19C and now reads "Hong Kong, Nasdaq,
+>   NYSE American — or not yet." This closes the v6 outstanding item above.
+> - **Section 4's coda** is replaced. The non-public-filing point is gone; the closing
+>   point is now the aftermarket — listing without research coverage, investor access and
+>   a story institutions can keep buying leaves a smaller company public and orphaned.
+> - **Section 5** and the **FAQ** reframe the conflict disclosure around underwriting
+>   rather than sponsorship: no underwriting, no placing, no selling securities, with the
+>   Hong Kong sponsor point kept as a subordinate clause.
+> - **Section 11** leads with Nasdaq, states that most listings advised on are US ones for
+>   first-time founder-led companies, and that Hong Kong enters only when the investor base
+>   fits.
+>
+> Also in this commit: the hero gains the Nasdaq MarketSite photograph as a background,
+> behind the same navy scrim `/ipo-path` uses. `Section4-verification-report.md` moves into
+> `docs/`.
 
 **Supersedes v1.** Same price (US$5,000 / 90 days), same scope (weekly call + email). What changed is the *frame*: v1 sold thirteen hours, v2 sells a decision. Full change log at §4.
 
@@ -144,11 +168,11 @@ You are somewhere between "we should think about listing" and "we have a banker.
 
 The problem is not that you lack information. It is that every source of it is conflicted:
 
-- Your sponsor wants the mandate, so everything is feasible.
+- Your investment bankers want the mandate, so everything is feasible.
 - Your auditor answers the question you asked, not the one you should have asked.
-- Your lawyers will tell you whether it is legal, never whether it is a good idea.
+- Your securities counsel will tell you whether it is legal, never whether it is a good idea.
 - Your board has opinions but not reps.
-- Everyone who has actually done this is on the sell side and is not spending an hour a week with you for free.
+- Everyone who has actually done this is on the sell side, and is not spending an hour a week with you for free.
 
 What is missing is not a document. It is someone who has sat on the other side of the table sixty-plus times and is not trying to win anything from you.
 
@@ -159,7 +183,7 @@ What is missing is not a document. It is someone who has sat on the other side o
 Three things. Nothing else is promised.
 
 **01 · A venue decision, closed**
-HKEX Main Board, GEM, Chapter 18C, a secondary listing under 19C, Nasdaq, NYSE American, or not yet. Not a list of options — a decision, with the reasoning written down, and a clear statement of what specifically disqualifies you from the routes you did not take.
+Hong Kong, Nasdaq, NYSE American — or not yet. Not a list of options: a decision, with the reasoning written down, and a clear statement of what specifically rules out the routes you did not take.
 
 **02 · Your blockers, named and sequenced**
 Not everything that could ever matter. The three or four things that will actually stop your deal — structure, cap table, related-party exposure, track record, jurisdictional centre of gravity — in the order they must be fixed, with a realistic view of who fixes them and how long it takes.
@@ -198,7 +222,7 @@ Boards regularly rule out Nasdaq on compliance fear. A foreign private issuer fi
 **They discover their real blockers in the listing year — the most expensive year to fix them.**
 Cap table, group structure, related-party exposure, the state of the audit trail: these are set years before an IPO, and they decide which routes are open long before any banker is hired. Fixed early, they are housekeeping. Fixed under a filing deadline, they are seven figures and a delay. Naming them now is most of what these ninety days are for.
 
-**And one recent change worth knowing:** Hong Kong now lets every new applicant file non-publicly — but if an application is returned, the exchange publishes the names of the professional parties involved and the reasons. A badly prepared filing carries a public cost it did not carry a year ago. Preparation quality is no longer private.
+**And one thing the banks will not lead with:** the listing is the start, not the finish. A smaller company that lists without an aftermarket plan — research coverage, investor access, a story institutions can keep buying — ends up public and orphaned. Venue, structure and timing decide that outcome long before the bell-ringing photo.
 
 ---
 
@@ -242,7 +266,7 @@ Filterable client-side table at the end of the Section 4 band, after the eligibi
 
 **Not a document service.** Beyond the two deliverables above, nothing is produced for you — no prospectus drafting, no model build, no board deck production, no data room. Those belong to a mandate.
 
-**Not a sponsor engagement.** I am not your sponsor and this is not sponsor work under the Listing Rules.
+**Not an underwriting.** I do not underwrite, place or sell securities — I advise the company, which is exactly why the advice is clean. And if your route is Hong Kong, this is not sponsor work under the Listing Rules either; the sponsor is a separate appointment I help you make.
 
 **Not on-demand.** One hour a week is one hour a week. If your deal needs someone on it daily, this is the wrong product and I will say so on the call rather than sell it to you.
 
@@ -279,8 +303,8 @@ Because the right conversation starts with your situation, not with a price tag 
 **Who am I actually working with?**
 Me. Every call, every email. No associate, no handoff. It is also why I take a small number of these at once.
 
-**Is this a sponsor engagement?**
-No. I am not acting as your sponsor and this is not sponsor work under the Listing Rules. If you need a sponsor I can tell you what to look for and how to structure the appointment.
+**Are you an underwriter or a broker?**
+No. I do not underwrite, place shares or sell securities. I advise the company — which means I have no economic interest in whether you do the deal, only in whether it is the right one. When you need underwriters, I help you choose them, negotiate them, and manage them. (And if your route is Hong Kong, this is not sponsor work under the Listing Rules — that is a separate appointment I help you make.)
 
 **Does the fee include lawyers, auditors or sponsor fees?**
 No. It covers my time only. Third parties bill you directly and those fees are substantially larger than this one. Section 9 sets out what to budget for.
@@ -376,9 +400,9 @@ The figure is fixed and confirmed on the discovery call — before you commit to
 
 ### SECTION 11 — About Mandy
 
-SFC Type 6 licensed. Ten-plus years across HKEX, Nasdaq and global markets. Sixty-plus transactions in IPOs, M&A and cross-border deals across Hong Kong, mainland China and the UAE.
+Ten-plus years across Nasdaq, HKEX and global markets. Sixty-plus transactions in IPOs, M&A and cross-border deals. SFC Type 6 licensed (advising on corporate finance).
 
-I have sat on the sell side. I know what your sponsor is optimising for, what your auditor will and will not sign, and which of the things you are currently worried about actually matter. Section 4 is a fair sample of how I think.
+Most of the listings I work on are US ones — Nasdaq and NYSE American — for founder-led companies listing for the first time. Hong Kong enters the conversation when the investor base genuinely fits, not as a default. I have sat on the sell side; I know what your bankers are optimising for, what your auditor will and will not sign, and which of the things you are currently worried about actually matter. Section 4 is a fair sample of how I think.
 
 ---
 

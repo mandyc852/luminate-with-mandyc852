@@ -129,7 +129,7 @@ const OUTCOMES = [
     n: "01",
     title: "A venue decision, closed",
     body:
-      "HKEX Main Board, GEM, Chapter 18C, a secondary listing under 19C, Nasdaq, NYSE American, or not yet. Not a list of options — a decision, with the reasoning written down, and a clear statement of what specifically disqualifies you from the routes you did not take.",
+      "Hong Kong, Nasdaq, NYSE American — or not yet. Not a list of options: a decision, with the reasoning written down, and a clear statement of what specifically rules out the routes you did not take.",
   },
   {
     n: "02",
@@ -239,6 +239,22 @@ export default function ConsultingPage() {
         id="hero-section"
         className="relative w-full bg-[#1a2a3a] px-6 py-20 md:py-32 overflow-hidden"
       >
+        <Image
+          src="/Nasdaq.png"
+          alt="Nasdaq MarketSite, Times Square, New York"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: "50% 38%" }}
+        />
+        {/* Navy scrim — same treatment as the /ipo-path hero. The LED tower is very
+            bright, so this carries the text contrast; do not lighten it. */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#1a2a3a]/88 via-[#1a2a3a]/82 to-[#1a2a3a]/92 pointer-events-none"
+          aria-hidden="true"
+        />
         <div
           className="absolute inset-0 bg-gradient-to-br from-[rgba(201,162,39,0.07)] via-transparent to-[rgba(201,162,39,0.04)] pointer-events-none"
           aria-hidden="true"
@@ -285,11 +301,11 @@ export default function ConsultingPage() {
 
           <ul className="my-7 space-y-3.5">
             {[
-              "Your sponsor wants the mandate, so everything is feasible.",
+              "Your investment bankers want the mandate, so everything is feasible.",
               "Your auditor answers the question you asked, not the one you should have asked.",
-              "Your lawyers will tell you whether it is legal, never whether it is a good idea.",
+              "Your securities counsel will tell you whether it is legal, never whether it is a good idea.",
               "Your board has opinions but not reps.",
-              "Everyone who has actually done this is on the sell side and is not spending an hour a week with you for free.",
+              "Everyone who has actually done this is on the sell side, and is not spending an hour a week with you for free.",
             ].map((item) => (
               <li key={item} className="relative pl-6 text-slate-600 text-[15px] leading-[1.8] font-light">
                 <span className="absolute left-0 top-0 text-[#c9a227]" aria-hidden="true">
@@ -445,9 +461,9 @@ export default function ConsultingPage() {
           <div className="mt-12 pt-8 border-t border-white/20">
             <p className="text-slate-300 text-[15px] md:text-[15.5px] leading-[1.85] font-light">
               <strong className="font-medium text-white">
-                And one recent change worth knowing:
+                And one thing the banks will not lead with:
               </strong>{" "}
-              Hong Kong now lets every new applicant file non-publicly — but if an application is returned, the exchange publishes the names of the professional parties involved and the reasons. A badly prepared filing carries a public cost it did not carry a year ago. Preparation quality is no longer private.
+              the listing is the start, not the finish. A smaller company that lists without an aftermarket plan — research coverage, investor access, a story institutions can keep buying — ends up public and orphaned. Venue, structure and timing decide that outcome long before the bell-ringing photo.
             </p>
           </div>
 
@@ -470,7 +486,7 @@ export default function ConsultingPage() {
               <strong className="text-[#1a2a3a] font-medium">Not a document service.</strong> Beyond the two deliverables above, nothing is produced for you — no prospectus drafting, no model build, no board deck production, no data room. Those belong to a mandate.
             </p>
             <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
-              <strong className="text-[#1a2a3a] font-medium">Not a sponsor engagement.</strong> I am not your sponsor and this is not sponsor work under the Listing Rules.
+              <strong className="text-[#1a2a3a] font-medium">Not an underwriting.</strong> I do not underwrite, place or sell securities — I advise the company, which is exactly why the advice is clean. And if your route is Hong Kong, this is not sponsor work under the Listing Rules either; the sponsor is a separate appointment I help you make.
             </p>
             <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
               <strong className="text-[#1a2a3a] font-medium">Not on-demand.</strong> One hour a week is one hour a week. If your deal needs someone on it daily, this is the wrong product and I will say so on the call rather than sell it to you.
@@ -547,9 +563,9 @@ export default function ConsultingPage() {
               </p>
             </FAQItem>
 
-            <FAQItem q="Is this a sponsor engagement?">
+            <FAQItem q="Are you an underwriter or a broker?">
               <p>
-                No. I am not acting as your sponsor and this is not sponsor work under the Listing Rules. If you need a sponsor I can tell you what to look for and how to structure the appointment.
+                No. I do not underwrite, place shares or sell securities. I advise the company — which means I have no economic interest in whether you do the deal, only in whether it is the right one. When you need underwriters, I help you choose them, negotiate them, and manage them. (And if your route is Hong Kong, this is not sponsor work under the Listing Rules — that is a separate appointment I help you make.)
               </p>
             </FAQItem>
 
@@ -784,10 +800,10 @@ export default function ConsultingPage() {
               <h2 className="text-3xl md:text-4xl font-normal mb-7 text-center md:text-left">About Mandy</h2>
               <div className="space-y-5 text-slate-600 text-[15px] leading-[1.85] font-light">
                 <p>
-                  SFC Type 6 licensed. Ten-plus years across HKEX, Nasdaq and global markets. Sixty-plus transactions in IPOs, M&amp;A and cross-border deals across Hong Kong, mainland China and the UAE.
+                  Ten-plus years across Nasdaq, HKEX and global markets. Sixty-plus transactions in IPOs, M&amp;A and cross-border deals. SFC Type 6 licensed (advising on corporate finance).
                 </p>
                 <p>
-                  I have sat on the sell side. I know what your sponsor is optimising for, what your auditor will and will not sign, and which of the things you are currently worried about actually matter. Section 4 is a fair sample of how I think.
+                  Most of the listings I work on are US ones — Nasdaq and NYSE American — for founder-led companies listing for the first time. Hong Kong enters the conversation when the investor base genuinely fits, not as a default. I have sat on the sell side; I know what your bankers are optimising for, what your auditor will and will not sign, and which of the things you are currently worried about actually matter. Section 4 is a fair sample of how I think.
                 </p>
               </div>
             </div>
