@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
-import { EligibilityChecker } from "./eligibility-checker"
 import { CorridorDealBook } from "./corridor-deal-book"
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -406,42 +405,38 @@ export default function ConsultingPage() {
             className="text-3xl md:text-[42px] font-normal mb-4 leading-[1.15]"
             style={{ color: "#ffffff", textWrap: "balance" }}
           >
-            Three things companies are getting wrong right now
+            Three things first-time listers get wrong
           </h2>
 
-          <p className="text-slate-400 italic font-light text-[13px] md:text-[13.5px] leading-[1.7] mb-8">
-            Rules stated as at 8 August 2026, reflecting the HKEX Listing Framework Competitiveness Review consultation conclusions published July 2026, which took effect on publication. This section is updated as the rules move.
-          </p>
-
-          <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.8] font-light mb-12">
-            Not a teaser. If you already knew all three, you probably do not need me.
+          <p className="text-slate-400 italic font-light text-[13px] md:text-[13.5px] leading-[1.7] mb-12">
+            Stated as at 8 August 2026. Rules and market practice move; this section moves with them.
           </p>
 
           <div className="space-y-12">
             <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4" style={{ color: "#f5e6b3" }}>
-                A Gulf-listed issuer&apos;s route into Hong Kong is not the one most advisers are quoting.
+                They pick the exchange by prestige. It is an investor-access decision.
               </h3>
               <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                The July 2026 conclusions cut the Criteria B secondary-listing threshold from HK$10bn to HK$6bn against two full financial years of compliance history, and that is the number being repeated around the region. It does not apply to ADX or DFM issuers. Criteria B is available only to companies listed on a Qualifying Exchange, which the Rules define as the New York Stock Exchange, Nasdaq, or the Main Market of the London Stock Exchange. ADX and DFM sit on the Recognised Stock Exchange list — a broader list of 21 exchanges across 19 countries that includes the Qualifying Exchanges but reaches well past them. A one-share-one-vote Gulf issuer goes via Criteria A instead: HK$3bn, but five full financial years, and available on a Recognised Exchange track record only where the issuer has no centre of gravity in Greater China. Where it does, the Exchange will consider the application only in exceptional circumstances. There is also a discretionary waiver of the track-record requirement for well-established applicants listing significantly above HK$6bn — which most people quoting the headline number do not mention, and which is exactly the conversation a large Gulf issuer should be having.
+                The venue question is not &quot;Hong Kong or Nasdaq&quot; as brands — it is who actually buys your story, and at what multiple. US sector-specialist capital lives on Nasdaq; Greater China and pan-Asian money trades in Hong Kong. Pick the wrong room and you get the worst outcome in this business: listed, and ignored.
               </p>
             </div>
 
             <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4" style={{ color: "#f5e6b3" }}>
-                Under Chapter 18C, your Series B investor selection already decided your eligibility.
+                They overestimate the burden of a US listing.
               </h3>
               <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                The rule is one sentence: an applicant must have received meaningful investment from sophisticated independent investors. Every number that actually binds — who counts as sophisticated, how much they must hold, how long they must have held it — sits in HKEX guidance rather than the rulebook, which makes it both easy to miss and amendable without a rule change. On the current guidance this is a history test, not a cheque written at IPO: the investors must already have been on your register before you apply. A cap table of angels, seed funds and small regional VCs is structurally ineligible regardless of valuation, and it cannot be repaired in your listing year. This is the most common reason a deep-tech 18C conversation ends, and it ends late, after real money has been spent.
+                Boards regularly rule out Nasdaq on compliance fear. A foreign private issuer files an annual report and material-event updates — not the quarterly cycle US domestic companies run — and can keep many home-country governance practices. The US route is often lighter than the board assumed, and the decision deserves real numbers, not folklore.
               </p>
             </div>
 
             <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4" style={{ color: "#f5e6b3" }}>
-                The lighter route does not reach the prize.
+                They discover their real blockers in the listing year — the most expensive year to fix them.
               </h3>
               <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                A secondary listing is the easier path, and it does not carry Southbound Stock Connect access — the mainland liquidity that is usually the real reason a company wants Hong Kong. This is not a technicality nobody has noticed: respondents to the July 2026 consultation asked the Exchange to extend Southbound eligibility to secondary-listed issuers, HKEX acknowledged it would require facilitation by the Mainland authorities, and deferred the question to the second phase of the competitiveness review. The gap is real, the Exchange knows it is real, and it is not closed yet. If Southbound access is your thesis, the cheap route is not a cheaper version of the right one — it is a different outcome.
+                Cap table, group structure, related-party exposure, the state of the audit trail: these are set years before an IPO, and they decide which routes are open long before any banker is hired. Fixed early, they are housekeeping. Fixed under a filing deadline, they are seven figures and a delay. Naming them now is most of what these ninety days are for.
               </p>
             </div>
           </div>
@@ -450,16 +445,13 @@ export default function ConsultingPage() {
           <div className="mt-12 pt-8 border-t border-white/20">
             <p className="text-slate-300 text-[15px] md:text-[15.5px] leading-[1.85] font-light">
               <strong className="font-medium text-white">
-                And one that changes the cost of getting it wrong:
+                And one recent change worth knowing:
               </strong>{" "}
-              filing is now non-public for all new applicants, which sounds like pure downside protection. The counterweight is that when an application is returned, HKEX publishes the names and roles of the professional parties involved — sponsor, both sets of legal advisers, reporting accountants, industry consultant — together with the reasons for the return. The Exchange is explicit that this does not impute fault to anyone. It is still a public record that did not exist twelve months ago, for you and for everyone you appointed.
+              Hong Kong now lets every new applicant file non-publicly — but if an application is returned, the exchange publishes the names of the professional parties involved and the reasons. A badly prepared filing carries a public cost it did not carry a year ago. Preparation quality is no longer private.
             </p>
           </div>
 
-          {/* Eligibility checker — the page's centrepiece interaction. */}
-          <EligibilityChecker bookingUrl={TIDYCAL_URL} />
-
-          {/* Corridor Deal Book — verified record, rendered after the checker. */}
+          {/* Corridor Deal Book — verified record, rendered after the coda. */}
           <CorridorDealBook bookingUrl={TIDYCAL_URL} />
 
           <div className="mt-14 flex justify-center">

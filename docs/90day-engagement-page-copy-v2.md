@@ -56,6 +56,30 @@
 > reachable in normal use, not just theoretically. It is implemented, and the filter chips
 > carry cross-filtered counts so a zero result is visible before it is clicked.
 
+> ### ⚠️ v6 amendment — Section 4 rewritten for first-time listers; checker removed
+>
+> **Section 4 is replaced and is now roughly half its previous length.** The audience is
+> companies that have never listed anywhere, so the secondary-listing material is gone:
+> the Gulf/Criteria A–B routing paragraph and the Chapter 18C investor-history paragraph
+> are both cut. The three points are now venue-as-investor-access, the overestimated
+> burden of a US listing, and blockers discovered in the listing year. The dated line
+> reads 8 August 2026. **Do not pad it back out.**
+>
+> **The eligibility checker is deleted** — component, data and imports. It was built
+> entirely around Hong Kong secondary-listing routes (Criteria A/B, WVR, Qualifying
+> Exchange), which is the material this rewrite removes. "SECTION 4a" is struck from this
+> doc accordingly.
+>
+> **Deal Book copy changes:** heading is now "What the market actually did."; the CTA line
+> is "It is what your numbers support."; the WeRide note becomes "A US listing first, Hong
+> Kong added when the time was right."; the Alef note drops "Gulf". The dataset itself is
+> unchanged and still must not be added to or refreshed.
+>
+> **Outstanding:** Section 2 card 01 still reads "Chapter 18C, a secondary listing under
+> 19C" — approved copy from v2 that this round did not supply a replacement for. It is the
+> only remaining rules-jargon string on the page and sits oddly beside the new
+> first-time-lister framing. Flagged, not edited.
+
 **Supersedes v1.** Same price (US$5,000 / 90 days), same scope (weekly call + email). What changed is the *frame*: v1 sold thirteen hours, v2 sells a decision. Full change log at §4.
 
 ---
@@ -161,51 +185,20 @@ That is the engagement. There is deliberately nothing else in it.
 
 ---
 
-### SECTION 4 — Three things companies are getting wrong right now
+### SECTION 4 — Three things first-time listers get wrong
 
-*Rules stated as at 8 August 2026, reflecting the HKEX Listing Framework Competitiveness Review consultation conclusions published July 2026, which took effect on publication. This section is updated as the rules move.*
+*Stated as at 8 August 2026. Rules and market practice move; this section moves with them.*
 
-Not a teaser. If you already knew all three, you probably do not need me.
+**They pick the exchange by prestige. It is an investor-access decision.**
+The venue question is not "Hong Kong or Nasdaq" as brands — it is who actually buys your story, and at what multiple. US sector-specialist capital lives on Nasdaq; Greater China and pan-Asian money trades in Hong Kong. Pick the wrong room and you get the worst outcome in this business: listed, and ignored.
 
-**A Gulf-listed issuer's route into Hong Kong is not the one most advisers are quoting.**
-The July 2026 conclusions cut the Criteria B secondary-listing threshold from HK$10bn to HK$6bn against two full financial years of compliance history, and that is the number being repeated around the region. It does not apply to ADX or DFM issuers. Criteria B is available only to companies listed on a Qualifying Exchange, which the Rules define as the New York Stock Exchange, Nasdaq, or the Main Market of the London Stock Exchange. ADX and DFM sit on the Recognised Stock Exchange list — a broader list of 21 exchanges across 19 countries that includes the Qualifying Exchanges but reaches well past them. A one-share-one-vote Gulf issuer goes via Criteria A instead: HK$3bn, but five full financial years, and available on a Recognised Exchange track record only where the issuer has no centre of gravity in Greater China. Where it does, the Exchange will consider the application only in exceptional circumstances. There is also a discretionary waiver of the track-record requirement for well-established applicants listing significantly above HK$6bn — which most people quoting the headline number do not mention, and which is exactly the conversation a large Gulf issuer should be having.
+**They overestimate the burden of a US listing.**
+Boards regularly rule out Nasdaq on compliance fear. A foreign private issuer files an annual report and material-event updates — not the quarterly cycle US domestic companies run — and can keep many home-country governance practices. The US route is often lighter than the board assumed, and the decision deserves real numbers, not folklore.
 
-**Under Chapter 18C, your Series B investor selection already decided your eligibility.**
-The rule is one sentence: an applicant must have received meaningful investment from sophisticated independent investors. Every number that actually binds — who counts as sophisticated, how much they must hold, how long they must have held it — sits in HKEX guidance rather than the rulebook, which makes it both easy to miss and amendable without a rule change. On the current guidance this is a history test, not a cheque written at IPO: the investors must already have been on your register before you apply. A cap table of angels, seed funds and small regional VCs is structurally ineligible regardless of valuation, and it cannot be repaired in your listing year. This is the most common reason a deep-tech 18C conversation ends, and it ends late, after real money has been spent.
+**They discover their real blockers in the listing year — the most expensive year to fix them.**
+Cap table, group structure, related-party exposure, the state of the audit trail: these are set years before an IPO, and they decide which routes are open long before any banker is hired. Fixed early, they are housekeeping. Fixed under a filing deadline, they are seven figures and a delay. Naming them now is most of what these ninety days are for.
 
-**The lighter route does not reach the prize.**
-A secondary listing is the easier path, and it does not carry Southbound Stock Connect access — the mainland liquidity that is usually the real reason a company wants Hong Kong. This is not a technicality nobody has noticed: respondents to the July 2026 consultation asked the Exchange to extend Southbound eligibility to secondary-listed issuers, HKEX acknowledged it would require facilitation by the Mainland authorities, and deferred the question to the second phase of the competitiveness review. The gap is real, the Exchange knows it is real, and it is not closed yet. If Southbound access is your thesis, the cheap route is not a cheaper version of the right one — it is a different outcome.
-
-**And one that changes the cost of getting it wrong:** filing is now non-public for all new applicants, which sounds like pure downside protection. The counterweight is that when an application is returned, HKEX publishes the names and roles of the professional parties involved — sponsor, both sets of legal advisers, reporting accountants, industry consultant — together with the reasons for the return. The Exchange is explicit that this does not impute fault to anyone. It is still a public record that did not exist twelve months ago, for you and for everyone you appointed.
-
----
-
-### SECTION 4a — Eligibility checker ("Where could you list?")
-
-Embedded at the end of the Section 4 band, inside the same tinted band. Client-side only.
-
-**Heading:** Run your own numbers against the routes.
-**Subhead:** Five questions, thirty seconds, nothing leaves your browser.
-
-**Above the first question:** Runs entirely in your browser. Nothing you select is sent or stored anywhere.
-
-**Questions:** 1. Where is the company listed today? · 2. Weighted voting rights? · 3. Market capitalisation (HK$) · 4. Is the business centred on Greater China? · 5. Years of good compliance history on your exchange.
-
-**Verdict cards:** Criteria B — secondary listing, no WVR (Rule 19C.05A) · Criteria A — secondary listing, no WVR (Rule 19C.05A) · WVR secondary listing (Rules 19C.04–19C.05), rendered only where a WVR structure is selected. States are OPEN, CLOSED (every failed condition named) and DISCRETIONARY.
-
-**Waiver flag**, shown where a track-record condition was the only failure and market capitalisation is HK$6bn or above:
-One thing worth knowing: the Rules allow a waiver of the track-record requirement for a well-established issuer listing significantly above HK$6bn. Most people quoting the headline thresholds miss it. If that is your situation, it is exactly what the call is for.
-
-**Primary-listing card** (not listed yet):
-Secondary-listing routes compare where you are listed with where you want to be — they do not apply yet. A first listing in Hong Kong runs through different chapters of the Rules entirely, including the specialist technology route for deep-tech companies. That is a call, not a form.
-
-**Fallback card** (uncovered combination):
-Your situation does not map cleanly onto the standard routes — which usually makes the conversation more interesting, not less. Bring the specifics to the call.
-
-**Below the results:** A summary of published HKEX rules as at 8 August 2026 — not advice, and no advisory relationship is created by using it. Rules change; your facts decide the outcome.
-
-**CTA line:** Whatever the cards say, the verdict that matters is the one with your actual numbers behind it.
-**[Bring this to the call]**
+**And one recent change worth knowing:** Hong Kong now lets every new applicant file non-publicly — but if an application is returned, the exchange publishes the names of the professional parties involved and the reasons. A badly prepared filing carries a public cost it did not carry a year ago. Preparation quality is no longer private.
 
 ---
 
@@ -213,7 +206,7 @@ Your situation does not map cleanly onto the standard routes — which usually m
 
 Filterable client-side table at the end of the Section 4 band, after the eligibility checker.
 
-**Heading:** What the corridor actually did.
+**Heading:** What the market actually did.
 **Subhead:** Verified at pricing and debut — no projections, and deliberately no cherry-picking. The ones that fell on debut are in here too.
 
 **Context line, above the table:** For scale: Hong Kong raised HK$286.8bn in IPO funds in 2025, per HKEX's official funds-raised statistics.
@@ -231,16 +224,16 @@ Filterable client-side table at the end of the Section 4 band, after the eligibi
 | Alef Education | ADX | IPO | Jun 2024 | AED 1.89bn (~US$515M) |
 | Presight AI | ADX | IPO | Mar 2023 | US$496M |
 
-- **WeRide** — Priced at HK$27.10. First Chapter 18C dual-primary with a WVR structure — a Nasdaq-listed company adding a Hong Kong primary listing. *The route this page describes, actually driven.*
+- **WeRide** — Priced at HK$27.10. First Chapter 18C dual-primary with a WVR structure — a Nasdaq-listed company adding a Hong Kong primary listing. *A US listing first, Hong Kong added when the time was right.*
 - **CATL** — The world's largest listing of 2025 at pricing; rose over 16% on debut. *The proof of Hong Kong's depth.*
 - **Talabat** — Largest global tech IPO of 2024; priced at the top of the range; fell around 7% on debut. *Priced for the issuer, not the aftermarket — the tension every IPO has to resolve.*
 - **Lulu Retail** — The UAE's biggest IPO of 2024; the 100th company listed on ADX; closed flat on debut. *Size alone does not price a deal.*
-- **Alef Education** — Around 39× oversubscribed, drawing roughly US$20bn in orders. *Gulf demand for a technology story, measured in orders.*
+- **Alef Education** — Around 39× oversubscribed, drawing roughly US$20bn in orders. *Demand for a technology story, measured in orders.*
 - **Presight AI** — Around 136× oversubscribed — nearly US$25.8bn in orders for a US$496M offering. *The most oversubscribed deal in this table.*
 
 **Footer:** Facts as recorded at pricing and debut; sourced from exchange and press coverage, verified 8 August 2026. This table is a record, not a recommendation — and no two deals price alike.
 
-**CTA line:** The question is not what these companies did. It is which of these paths your numbers support.
+**CTA line:** The question is not what these companies did. It is what your numbers support.
 **[Bring this to the call]**
 
 ---

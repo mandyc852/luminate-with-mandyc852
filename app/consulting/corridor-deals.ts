@@ -42,7 +42,7 @@ export const CORRIDOR_DEALS: CorridorDeal[] = [
     size: "HK$2.39bn (~US$306M)",
     facts:
       "Priced at HK$27.10. First Chapter 18C dual-primary with a WVR structure — a Nasdaq-listed company adding a Hong Kong primary listing.",
-    note: "The route this page describes, actually driven.",
+    note: "A US listing first, Hong Kong added when the time was right.",
     source: ["Cooley", "WeRide IR", "Investing.com"],
   },
   {
@@ -92,7 +92,7 @@ export const CORRIDOR_DEALS: CorridorDeal[] = [
     year: 2024,
     size: "AED 1.89bn (~US$515M)",
     facts: "Around 39× oversubscribed, drawing roughly US$20bn in orders.",
-    note: "Gulf demand for a technology story, measured in orders.",
+    note: "Demand for a technology story, measured in orders.",
     source: ["Zawya", "AGBI"],
   },
   {

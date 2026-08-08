@@ -84,7 +84,7 @@ export function CorridorDealBook({ bookingUrl }: { bookingUrl: string }) {
         className="text-[24px] md:text-[30px] font-normal leading-[1.25] mb-3"
         style={{ color: "#ffffff" }}
       >
-        What the corridor actually did.
+        What the market actually did.
       </h3>
       <p className="text-slate-300 text-[15px] md:text-[16px] leading-[1.8] font-light mb-8">
         Verified at pricing and debut — no projections, and deliberately no cherry-picking. The ones
@@ -178,7 +178,7 @@ export function CorridorDealBook({ bookingUrl }: { bookingUrl: string }) {
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full border-collapse text-left">
               <caption className="sr-only">
-                Verified corridor listings, showing {visible.length} of {CORRIDOR_DEALS.length} deals
+                Verified listings, showing {visible.length} of {CORRIDOR_DEALS.length} deals
                 — {filterDescription}. Facts recorded at pricing and debut.
               </caption>
               <thead>
@@ -252,8 +252,7 @@ export function CorridorDealBook({ bookingUrl }: { bookingUrl: string }) {
 
       <div className="mt-9 text-center">
         <p className="text-slate-200 text-[15px] md:text-[16px] leading-[1.8] font-light mb-5 max-w-[54ch] mx-auto">
-          The question is not what these companies did. It is which of these paths your numbers
-          support.
+          The question is not what these companies did. It is what your numbers support.
         </p>
         <a
           href={bookingUrl}
