@@ -8,9 +8,9 @@ const baseUrl = siteUrl
     : `https://${siteUrl}`
   : "https://mandyc.me"
 
-const title = "Strategic Consulting — Mandy Cheung"
+const title = "The 90-Day Listing Decision | MandyC."
 const description =
-  "A raise. A restructuring. A listing timeline that won't wait. You need an advisor who's done this before — not a firm that assigns you to a junior."
+  "Not a readiness report. Not a mandate. A standing working relationship with a licensed capital markets advisor who has no economic interest in you doing the deal — long enough to get the venue question closed, the blockers named, and the sequence right."
 
 export const metadata: Metadata = {
   title,
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/Wallstreet.jpg",
         width: 1200,
         height: 630,
-        alt: "Strategic Consulting — Mandy Cheung",
+        alt: "The 90-Day Listing Decision — MandyC.",
       },
     ],
   },

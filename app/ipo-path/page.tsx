@@ -48,25 +48,24 @@ function trackCallClick() {
 }
 
 // TODO(fulfillment): after the Stripe Payment Link is live, wire a Stripe
-// webhook → email automation so paid customers receive (1) ExitPro access at
-// https://exitproai.vercel.app/, (2) the intake link, and (3) the bonus PDFs.
-// Suggested stack: Stripe webhook → Vercel serverless route → Resend/Postmark
-// email + ExitPro account-provisioning API call.
+// webhook → email automation so paid customers receive (1) the intake link and
+// (2) the bonus PDFs.
+// Suggested stack: Stripe webhook → Vercel serverless route → Resend/Postmark email.
 
 const VALUE_STACK_TOP = [
   {
     n: "01",
-    title: "ExitPro access — intake & comp research",
+    title: "Eligibility analysis — financials & cap table",
     value: "US$1,500",
     body:
-      "Private access to ExitPro, Mandy’s IPO-readiness platform. Upload your financials and cap table; within 24 hours you receive a first-cut readiness scan against NASDAQ, NYSE American, and HKEX thresholds — plus P/E and P/S comps for your sector.",
+      "A full analysis of your financials and cap table against current HKEX Main Board, GEM, Nasdaq and NYSE American eligibility thresholds — run by me, not a tool.",
   },
   {
     n: "02",
     title: "Two-week deep review by Mandy",
     value: "US$5,000",
     body:
-      "Mandy goes deeper than ExitPro. Pressure-tests the equity story. Maps the listing routes that actually fit. Surfaces what will come up in due diligence — before it does.",
+      "Pressure-tests the equity story. Maps the listing routes that actually fit. Surfaces what will come up in due diligence — before it does.",
   },
   {
     n: "03",
@@ -105,8 +104,8 @@ const MEMO_BULLETS: Array<[string, string]> = [
 ]
 
 const TIMELINE = [
-  { num: "01", tag: "Day 0", title: "Book & receive ExitPro access", body: "You book and pay. ExitPro access and intake link arrive within 24 hours." },
-  { num: "02", tag: "Days 1 – 7", title: "Intake & uploads", body: "You complete ExitPro intake; upload financials and cap table. We schedule the 90-minute call." },
+  { num: "01", tag: "Day 0", title: "Book & receive your intake link", body: "You book and pay. Your intake link arrives within 24 hours." },
+  { num: "02", tag: "Days 1 – 7", title: "Intake & uploads", body: "You complete intake; upload financials and cap table. We schedule the 90-minute call." },
   { num: "03", tag: "Days 7 – 14", title: "Call & memo drafted", body: "The working call. Then Mandy writes your Listing Path Memo." },
   { num: "04", tag: "Day 14", title: "Memo delivered", body: "Yours regardless of whether we continue together." },
   { num: "05", tag: "Days 15 – 30", title: "Follow-up support", body: "Two 30-minute follow-up calls and direct email access as you start moving." },
@@ -114,9 +113,10 @@ const TIMELINE = [
 
 const RISK_REVERSAL = [
   {
-    title: "100% creditable toward continuation",
+    title:
+      "US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.",
     body:
-      "If the memo identifies a continuation path — a 90-Day Strategic Engagement (US$15,000) or a full advisory mandate — the entire US$2,500 is credited toward it, provided you book within 60 days of memo delivery. For a continuing client, the Assessment is effectively free.",
+      "If the memo identifies a continuation path, the Assessment fee credits against it: US$1,000 against the 90-Day Listing Decision, or the full US$2,500 against an advisory mandate. The 60 days run from memo delivery.",
   },
   {
     title: "14-day delivery guarantee",
@@ -143,7 +143,7 @@ const FAQ: Array<{ q: string; a: React.ReactNode }> = [
     q: "How is this different from the 90-Day Strategic Engagement?",
     a: (
       <p>
-        The Assessment answers “should we list, and if so how.” The 90-Day Engagement structures the company so the listing can actually happen — sequenced fixes, weekly working sessions, monthly strategic reports. The Assessment is the input; the Engagement is the execution. The US$2,500 Assessment fee credits in full toward the Engagement if you continue.
+        The Assessment answers “should we list, and if so how.” The 90-Day Engagement structures the company so the listing can actually happen — sequenced fixes, weekly working sessions, monthly strategic reports. The Assessment is the input; the Engagement is the execution. US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.
       </p>
     ),
   },
@@ -151,21 +151,13 @@ const FAQ: Array<{ q: string; a: React.ReactNode }> = [
     q: "Is this a sales call dressed as an assessment?",
     a: (
       <p>
-        No. The memo is the product. You receive it whether or not we work together after. The credit-back structure means there is no upsell pressure during the call — if you continue, the Assessment is free; if you don&apos;t, you&apos;ve already received what you paid for.
+        No. The memo is the product. You receive it whether or not we work together after. The credit-back structure means there is no upsell pressure during the call — if you continue, the fee comes back off what you pay next; if you don&apos;t, you&apos;ve already received what you paid for.
       </p>
     ),
   },
   {
     q: "Can my CFO or co-founder join the 90-minute call?",
     a: <p>Yes. The call works better with the operator and one financial decision-maker in the room.</p>,
-  },
-  {
-    q: "What is ExitPro and why is it included?",
-    a: (
-      <p>
-        ExitPro is an IPO-readiness research platform Mandy built. For this Assessment it serves two roles: structured intake (you upload financials and cap table; it surfaces structural gaps against listing thresholds), and comp research (P/E and P/S benchmarking for comparable listed companies in your sector). It does some of the first-pass analysis that would otherwise eat the working call.
-      </p>
-    ),
   },
   {
     q: "Refund policy and confidentiality?",
@@ -278,7 +270,7 @@ const PRODUCT_JSONLD = {
   "@type": "Product",
   name: "The IPO Path Assessment",
   description:
-    "A 30-day assessment that delivers a written verdict on whether your company is ready to list — with the next move spelled out. Fully creditable toward continuation engagements within 60 days.",
+    "A 30-day assessment that delivers a written verdict on whether your company is ready to list — with the next move spelled out. US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.",
   brand: { "@type": "Brand", name: "MandyC." },
   category: "Capital Markets Advisory",
   offers: {
@@ -438,7 +430,7 @@ export default function IPOPathPage() {
               Or talk first — book a free 30-minute call →
             </a>
             <p className="text-[#f5e6b3]/90 text-[11px] font-medium tracking-[0.22em] uppercase mt-3" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}>
-              US$2,500 · 30-Day Assessment · Fully Creditable · 4 Spots Per Month
+              US$2,500 · 30-Day Assessment · Fee Credits Toward Continuation · 4 Spots Per Month
             </p>
           </div>
         </div>
@@ -490,15 +482,15 @@ export default function IPOPathPage() {
           <div className="mt-8 grid grid-cols-2 overflow-hidden">
             <div className="bg-[#1a2a3a] p-4 md:p-8">
               <p className="text-[9px] md:text-[10px] font-medium tracking-[0.15em] md:tracking-[0.22em] uppercase text-[#a68a1f] mb-3 md:mb-4">Finding out during due diligence</p>
-              <p className="text-xl md:text-4xl font-normal text-white line-through decoration-1 mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>~US$1M+</p>
+              <p className="text-xl md:text-4xl font-normal text-white mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>~US$1M+</p>
               <p className="text-slate-400 font-light text-xs md:text-sm mb-4 md:mb-5">in sunk costs</p>
-              <p className="text-lg md:text-3xl font-normal text-white line-through decoration-1 mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>18+ months</p>
+              <p className="text-lg md:text-3xl font-normal text-white mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>18+ months</p>
               <p className="text-slate-400 font-light text-xs md:text-sm">lost, deal team committed</p>
             </div>
             <div className="bg-white p-4 md:p-8 border-l-2 border-[#c9a227]">
               <p className="text-[9px] md:text-[10px] font-medium tracking-[0.15em] md:tracking-[0.22em] uppercase text-[#a68a1f] mb-3 md:mb-4">Finding out now</p>
               <p className="text-xl md:text-4xl font-normal text-[#1a2a3a] mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>US$2,500</p>
-              <p className="text-slate-500 font-light text-xs md:text-sm mb-4 md:mb-5">fully creditable</p>
+              <p className="text-slate-500 font-light text-xs md:text-sm mb-4 md:mb-5">fee credits toward continuation</p>
               <p className="text-lg md:text-3xl font-normal text-[#1a2a3a] mb-1" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>30 days</p>
               <p className="text-slate-500 font-light text-xs md:text-sm">written verdict, no commitment</p>
             </div>
@@ -604,47 +596,27 @@ export default function IPOPathPage() {
                 "linear-gradient(135deg, #1a2a3a 0%, #2d4156 50%, #1a2a3a 100%)",
             }}
           >
-            <div className="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 items-center">
-              <div className="text-center md:text-right">
-                <p className="text-[#f5e6b3]/75 font-medium text-[11px] tracking-[0.22em] uppercase mb-2">
-                  Total Stacked Value
-                </p>
-                <p
-                  className="text-3xl md:text-4xl font-normal text-white/45 line-through decoration-1"
-                  style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
-                >
-                  ~US$14,500
-                </p>
-              </div>
-
-              <div className="hidden md:flex items-center justify-center">
-                <svg className="w-8 h-8 text-[#c9a227]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
-
-              <div className="text-center md:text-left">
-                <p className="text-[#f5e6b3] font-medium text-[11px] tracking-[0.22em] uppercase mb-2">
-                  Your Investment
-                </p>
-                <p
-                  className="text-5xl md:text-6xl font-normal"
-                  style={{
-                    fontFamily: "var(--font-cormorant-garamond), serif",
-                    background:
-                      "linear-gradient(135deg, #f5e6b3 0%, #d4b84a 50%, #c9a227 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  US$2,500
-                </p>
-              </div>
+            <div className="text-center">
+              <p className="text-[#f5e6b3] font-medium text-[11px] tracking-[0.22em] uppercase mb-2">
+                Your Investment
+              </p>
+              <p
+                className="text-5xl md:text-6xl font-normal"
+                style={{
+                  fontFamily: "var(--font-cormorant-garamond), serif",
+                  background:
+                    "linear-gradient(135deg, #f5e6b3 0%, #d4b84a 50%, #c9a227 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                US$2,500
+              </p>
             </div>
 
             <p className="text-white/80 font-light leading-[1.7] max-w-2xl mx-auto text-[14.5px] text-center mt-6 mb-5 pt-5 border-t border-white/15">
-              Credited in full if you continue with a 90-Day Strategic Engagement or full advisory mandate within 60 days. For a continuing client, the assessment is effectively free.
+              US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.
             </p>
 
             <div className="flex flex-col items-center gap-3">
@@ -863,14 +835,8 @@ export default function IPOPathPage() {
             Whatever the verdict, you leave with a defensible answer and a plan.
           </p>
 
-          {/* Value math repeated for the close */}
-          <div className="inline-flex items-baseline gap-4 md:gap-5 mb-10">
-            <span className="text-lg md:text-xl text-slate-400 line-through decoration-1 font-light" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-              ~US$14,500
-            </span>
-            <svg className="w-5 h-5 text-[#c9a227] self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+          {/* Price repeated for the close */}
+          <div className="inline-flex items-baseline mb-10">
             <span className="text-4xl md:text-5xl font-normal" style={{
               fontFamily: "var(--font-cormorant-garamond), serif",
               background: "linear-gradient(135deg, #d4b84a 0%, #c9a227 50%, #f5e6b3 100%)",
@@ -901,7 +867,7 @@ export default function IPOPathPage() {
             </a>
           </div>
           <p className="text-slate-400 text-[10px] mt-8 font-medium tracking-[0.2em] uppercase">
-            Fully creditable toward continuation · Only 4 companies per month
+            Fee credits toward continuation · Only 4 companies per month
           </p>
         </div>
       </section>

@@ -9,7 +9,7 @@ const YOUTUBE_URL = "https://www.youtube.com/@MandyC852"
 const LINKEDIN_URL = "https://www.linkedin.com/in/mandyc852/"
 
 const WORK_LINKS = [
-  { label: "Pre-IPO Consulting", href: "/consulting" },
+  { label: "Consulting", href: "/consulting" },
   { label: "IPO Advisory", href: "/ipo" },
   { label: "LPF Launch", href: "/fund" },
   { label: "Inner Game Cohort", href: "/cohort" },
@@ -101,7 +101,7 @@ export function SiteHeader({
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden xl:flex items-center gap-6">
             {links.map((l) => (
               <a key={l.href} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={linkClasses}>
                 {l.label}
@@ -160,7 +160,7 @@ export function SiteHeader({
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            className="md:hidden p-2 hover:bg-slate-100 rounded-none transition-colors"
+            className="xl:hidden p-2 hover:bg-slate-100 rounded-none transition-colors"
             aria-label="Menu"
           >
             <svg className="w-6 h-6 text-[#1a2a3a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -176,7 +176,7 @@ export function SiteHeader({
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-slate-200 shadow-lg">
+        <div className="xl:hidden bg-white border-t border-slate-200 shadow-lg">
           <nav className="px-6 py-5 flex flex-col items-center gap-3 text-center">
             {links.map((l) => (
               <a key={l.href} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">

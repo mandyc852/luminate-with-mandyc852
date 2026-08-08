@@ -11,7 +11,6 @@ function getResend() {
   return new Resend(process.env.RESEND_API_KEY)
 }
 
-const EXITPRO_URL = "https://exitproai.vercel.app/join?beta=EXITPRO2026"
 const TIDYCAL_URL = "https://tidycal.com/mandyc852/30-minute-meeting"
 const ADMIN_EMAIL = "mandy@lumina-consults.com"
 
@@ -76,33 +75,18 @@ export async function POST(request: NextRequest) {
                 Thank you for booking The IPO Path Assessment. Here's everything you need to get started.
               </p>
 
-              <h2 style="font-size: 18px; margin: 28px 0 12px; color: #1a2a3a;">1. ExitPro access</h2>
+              <h2 style="font-size: 18px; margin: 28px 0 12px; color: #1a2a3a;">What happens next</h2>
               <p style="font-size: 16px; line-height: 1.6;">
-                Use the link below to access ExitPro, where you'll complete the structured intake and upload your financials and cap table:
-              </p>
-              <p style="margin: 16px 0;">
-                <a href="${EXITPRO_URL}" style="display: inline-block; background: #c9a227; color: #1a2a3a; padding: 12px 28px; text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.05em;">
-                  Open ExitPro →
-                </a>
-              </p>
-
-              <h2 style="font-size: 18px; margin: 28px 0 12px; color: #1a2a3a;">2. Schedule the 90-minute working call</h2>
-              <p style="font-size: 16px; line-height: 1.6;">
-                Once your intake is submitted, book the working call at a time that works for you (CFO or co-founder welcome):
+                I'll email you within one business day with a short intake list &mdash; financials, cap table, structure chart, and a note on what you think the deal is. Send those over and we'll book your 90-minute working call. Your Listing Path Memo follows within 14 days of that call.
               </p>
               <p style="margin: 16px 0;">
                 <a href="${TIDYCAL_URL}" style="display: inline-block; border: 1px solid #c9a227; color: #1a2a3a; padding: 12px 28px; text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.05em;">
-                  Book the Call →
+                  Book the Call &rarr;
                 </a>
               </p>
-
-              <h2 style="font-size: 18px; margin: 28px 0 12px; color: #1a2a3a;">3. What happens next</h2>
-              <ul style="font-size: 15px; line-height: 1.8; color: #3d4f5f; padding-left: 20px;">
-                <li>You complete the ExitPro intake (Days 1–7)</li>
-                <li>We hold the 90-minute working call (Day 7–14)</li>
-                <li>Your Listing Path Memo is delivered within 14 days of the call</li>
-                <li>Two 30-minute follow-up calls + direct email access for 30 days after delivery</li>
-              </ul>
+              <p style="font-size: 15px; line-height: 1.8; color: #3d4f5f;">
+                After the memo is delivered you also have two 30-minute follow-up calls and direct email access for 30 days.
+              </p>
 
               <p style="font-size: 16px; line-height: 1.6; margin-top: 28px;">
                 If you have any questions before the intake, just reply to this email.
@@ -137,7 +121,7 @@ export async function POST(request: NextRequest) {
                 <tr><td style="padding-right: 16px; font-weight: 600;">Stripe session</td><td style="font-size: 12px; color: #888;">${session.id}</td></tr>
               </table>
               <p style="font-size: 14px; color: #888; margin-top: 24px;">
-                Buyer has received the welcome email with ExitPro access and booking link.
+                Buyer has received the welcome email with next steps and the booking link.
               </p>
             </div>
           `,

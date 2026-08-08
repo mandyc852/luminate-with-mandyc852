@@ -75,7 +75,7 @@ const REASONS: Reason[] = [
     title: "Exploring a listing",
     body: "You're weighing whether NASDAQ or HKEX makes sense for where your business is now — and what it would actually take.",
     href: "/consulting",
-    cta: "See Pre-IPO Consulting →",
+    cta: "See the 90-Day Listing Decision →",
     secondaryHref: "/ipo-path",
     secondaryCta: "Or start with The IPO Path Assessment →",
   },
@@ -338,16 +338,16 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Corporate Advisory · Flagship Engagement</p>
           <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance" }}>
-            Pre-IPO Strategic Consulting
+            The 90-Day Listing Decision
           </h2>
           <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-            A raise, a restructuring, a listing timeline that won&apos;t wait. I work alongside a small number of founders as the advisor in the room — structure, governance, and story, set right before the process starts.
+            Ninety days with a licensed capital markets advisor to close the venue question, name what is actually blocking your deal, and get the instruction order right. One working call a week, email in between. US$5,000, contracted with the company.
           </p>
           <a
             href="/consulting"
             className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-6 md:px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.12em] md:tracking-[0.15em] text-sm btn-gold-animated"
           >
-            See Pre-IPO Consulting →
+            See the 90-Day Listing Decision →
           </a>
           <p className="text-white/50 font-light text-sm mt-5">
             Not sure you&apos;re ready?

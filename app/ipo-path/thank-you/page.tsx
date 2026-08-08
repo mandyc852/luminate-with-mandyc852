@@ -15,7 +15,6 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-const EXITPRO_URL = "https://exitproai.vercel.app/join?beta=EXITPRO2026"
 const TIDYCAL_URL = "https://tidycal.com/mandyc852/30-minute-meeting"
 
 export default function ThankYouPage() {
@@ -70,54 +69,16 @@ export default function ThankYouPage() {
           </h1>
 
           <p className="text-slate-600 font-light text-lg leading-[1.7] mb-12 max-w-xl mx-auto">
-            A confirmation email is on its way with your ExitPro access and next steps. Check your inbox (and spam, just in case).
+            A confirmation email is on its way with your receipt and next steps. Check your inbox (and spam, just in case).
           </p>
 
           <div className="bg-[#f8f7f4] border border-slate-200 p-8 md:p-10 text-left max-w-lg mx-auto mb-12">
-            <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-5">
-              Your next two steps
+            <p className="text-slate-600 font-light text-[15px] leading-[1.8]">
+              <strong className="text-[#1a2a3a] font-medium">What happens next.</strong> I&apos;ll email you within one business day with a short intake list — financials, cap table, structure chart, and a note on what you think the deal is. Send those over and we&apos;ll book your 90-minute working call. Your Listing Path Memo follows within 14 days of that call.
             </p>
-
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <span
-                  className="flex-shrink-0 w-9 h-9 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#a68a1f] text-sm font-medium"
-                  style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
-                >
-                  1
-                </span>
-                <div>
-                  <h3 className="text-lg font-normal text-[#1a2a3a] mb-1">Complete the ExitPro intake</h3>
-                  <p className="text-slate-600 font-light text-sm leading-[1.7]">
-                    Upload your financials and cap table. The structured intake takes 15–20 minutes.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <span
-                  className="flex-shrink-0 w-9 h-9 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#a68a1f] text-sm font-medium"
-                  style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
-                >
-                  2
-                </span>
-                <div>
-                  <h3 className="text-lg font-normal text-[#1a2a3a] mb-1">Book the 90-minute working call</h3>
-                  <p className="text-slate-600 font-light text-sm leading-[1.7]">
-                    Pick a time that works for you. CFO or co-founder welcome in the room.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="flex flex-col items-center gap-4">
-            <a
-              href={EXITPRO_URL}
-              className="w-full md:w-[520px] inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none shadow-lg uppercase tracking-wide text-sm btn-gold-animated"
-            >
-              Open ExitPro — Start Intake
-            </a>
             <a
               href={TIDYCAL_URL}
               target="_blank"

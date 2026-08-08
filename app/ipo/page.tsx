@@ -367,7 +367,7 @@ export default function IPOServicePage() {
                 The IPO Path Assessment
               </h3>
               <p className="text-slate-600 font-light text-sm leading-[1.7]">
-                Thirty days. A written verdict on whether your company is ready to list — and the next move spelled out. US$2,500, fully creditable toward continuation.
+                Thirty days. A written verdict on whether your company is ready to list — and the next move spelled out. US$2,500 — US$1,000 creditable toward the 90-Day Listing Decision, or 100% toward a full advisory mandate.
               </p>
             </div>
             <a
@@ -445,7 +445,7 @@ export default function IPOServicePage() {
                 The IPO Path Assessment
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                A 30-day paid sprint. ExitPro access, a two-week deep review, a 90-minute working call, then your Listing Path Memo — 8 to 12 pages within 14 days. Fully creditable.
+                A 30-day paid sprint. A two-week deep review and a full analysis of your financials and cap table against current HKEX Main Board, GEM, Nasdaq and NYSE American eligibility thresholds — run by me, not a tool. Then a 90-minute working call, and your Listing Path Memo: 8 to 12 pages within 14 days. US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate.
               </p>
               <p className="text-slate-400 text-xs font-light italic mb-4">
                 Outcome: A written verdict on whether you should list, and the next move spelled out.
@@ -462,7 +462,7 @@ export default function IPOServicePage() {
                 Advisory mandate
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                If the memo points to a path, we structure the work — a 90-Day Engagement or a full mandate. Milestone-based fees. Your US$2,500 credits in full toward either, within 60 days.
+                If the memo points to a path, we structure the work — a 90-Day Engagement or a full mandate. Milestone-based fees. Your US$2,500 credits 100% toward a full advisory mandate, or US$1,000 toward the 90-Day Listing Decision — either booked within 60 days.
               </p>
               <p className="text-slate-400 text-xs font-light italic">
                 Outcome: Your company on the path to public markets.

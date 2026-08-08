@@ -42,7 +42,7 @@ export default function TermsPage() {
             className="text-stone-400 text-sm mb-10"
             style={{ fontFamily: "var(--font-poppins), sans-serif" }}
           >
-            Last Updated: February 4, 2026
+            Last Updated: [DATE]
           </p>
 
           <div
@@ -82,11 +82,6 @@ export default function TermsPage() {
               <h3 className="font-semibold text-[#1a2a3a] mt-6 mb-2">b) Free Resources &amp; Content</h3>
               <p className="leading-relaxed">
                 We offer free educational content, including a neuroscience-backed audio resource (The 5-Minute Founder&apos;s Reset), articles, videos, and other materials relating to IPO readiness, corporate finance, and founder leadership. These resources are provided for general informational and educational purposes only.
-              </p>
-
-              <h3 className="font-semibold text-[#1a2a3a] mt-6 mb-2">c) ExitPro Tool</h3>
-              <p className="leading-relaxed">
-                We provide access to ExitPro, an IPO benchmarking and research tool. Use of ExitPro is subject to any additional terms displayed within the tool itself. ExitPro outputs are for informational purposes only and do not constitute financial or investment advice.
               </p>
             </section>
 
