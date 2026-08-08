@@ -1,6 +1,24 @@
 # /consulting — The 90-Day Listing Decision
 ## Page copy v2 — 7 Aug 2026
 
+> ### ⚠️ v3 pricing and scope amendment — supersedes the price and scope stated below
+>
+> The engagement is now **US$15,000, paid across three milestones**, typically ninety days,
+> with **two named written deliverables** — the Venue Decision and the Remediation Plan —
+> each of which triggers a payment. The name is unchanged.
+>
+> **The §2 page copy below has been updated in full and matches the live page.** The
+> historical sections have deliberately *not* been rewritten, because they are a record of
+> a past decision rather than current copy. Specifically, these are now superseded and
+> should be read as history only:
+> - the "Same price (US$5,000 / 90 days), same scope" line immediately below
+> - §0 row 6 and the "Mandy — one call to make" note, which name **the Decision Note** as
+>   the single artifact. That artifact no longer exists; it was replaced by the two
+>   deliverables above.
+>
+> §4's ladder table *has* been updated, because it is a factual price table rather than a
+> narrative record.
+
 **Supersedes v1.** Same price (US$5,000 / 90 days), same scope (weekly call + email). What changed is the *frame*: v1 sold thirteen hours, v2 sells a decision. Full change log at §4.
 
 ---
@@ -53,7 +71,7 @@ Source PDFs are already in `CPT Academy/reference-data/hkex/`. Add a visible "Ru
 **Subhead:**
 Not a readiness report. Not a mandate. A standing working relationship with a licensed capital markets advisor who has no economic interest in you doing the deal — long enough to get the venue question closed, the blockers named, and the sequence right.
 
-**Price line:** US$5,000 · 90 days · contracted with the company
+**Price line:** US$15,000, paid across three milestones · typically 90 days · contracted with the company
 
 **[Book a Confidential Call]** — 30 minutes, no charge
 
@@ -96,9 +114,11 @@ Who you appoint, in what order, and what you should be paying them for. The larg
 
 **Email between calls.** Send the document, the term sheet, the question at 11pm. Response within 48 hours, Monday to Friday. No volume cap, no ticketing system.
 
-**A short written recap after each call**, by email — what was decided, what you are doing before next week, what I am checking. Forwardable to your board without translation.
+**A short written recap after each call.** Sent by email — what was decided, what you are doing before next week, what I am checking. Forwardable to your board without translation.
 
-**The Decision Note at day 90.** One page. The venue verdict, the reasoning, the blocker sequence. It is the thing you put in front of your board, and it is the record of what these ninety days concluded.
+**The Venue Decision.** Typically week four or five. Written, board-ready: which route your numbers actually support, the reasoning behind it, and exactly what disqualifies you from the routes you are not taking. This is the document that closes the venue question.
+
+**The Remediation Plan.** Typically week twelve. The three or four things standing between you and a viable filing, in the order they must be fixed, with who fixes each one and roughly how long it takes — followed by your instruction sequence for the next twelve months.
 
 That is the engagement. There is deliberately nothing else in it.
 
@@ -125,7 +145,7 @@ A secondary listing is the lighter path. It is also excluded from Southbound Sto
 
 ### SECTION 5 — What this is not
 
-**Not a document service.** No prospectus drafting, no model build, no board deck production, no data room. Those belong to a mandate.
+**Not a document service.** Beyond the two deliverables above, nothing is produced for you — no prospectus drafting, no model build, no board deck production, no data room. Those belong to a mandate.
 
 **Not a sponsor engagement.** I am not your sponsor and this is not sponsor work under the Listing Rules.
 
@@ -155,8 +175,11 @@ A secondary listing is the lighter path. It is also excluded from Southbound Sto
 
 ### SECTION 7 — Questions
 
-**Why is this US$5,000 and not US$50,000?**
-Because you are buying judgment and access, not production. No team to carry, no documents built, no deliverables beyond the weekly hour, the email and the Decision Note. A full advisory mandate costs what a mandate costs. This is deliberately the narrow version, priced for the narrow version.
+**Why is this US$15,000?**
+Because it is thirteen weeks of direct access plus two board-ready documents, delivered by the person you actually hired rather than an associate. A full advisory mandate costs many times this, because a mandate means I am running your process. This is the narrow version, priced for the narrow version — and you pay it in thirds, on delivery.
+
+**Do we pay all of it upfront?**
+No. You pay US$5,000 to start, US$5,000 when the Venue Decision is in your hands, and US$5,000 when the Remediation Plan is. If the first document does not tell you something you did not know, you have spent US$10,000 and you stop. The structure exists so the risk of this being worth it sits with me, not with you.
 
 **Who am I actually working with?**
 Me. Every call, every email. No associate, no handoff. It is also why I take a small number of these at once.
@@ -171,7 +194,7 @@ No. It covers my time only. Third parties bill you directly and those fees are s
 It has to be. The engagement is contracted with the company entity, not an individual. This is corporate advisory work and belongs on the company's books.
 
 **How is this different from the IPO Path Assessment?**
-The Assessment is a document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. This is a working relationship — thirteen weeks through a live decision, ending in a one-page Decision Note. Buy the Assessment if you want an answer. Buy this if you want someone alongside you while you reach one. Plenty of people do the Assessment first, and US$1,000 of it comes off this.
+The Assessment is a single document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. This is a working relationship — thirteen weeks through a live decision, with the Venue Decision and the Remediation Plan produced along the way. Buy the Assessment if you want an answer. Buy this if you want someone alongside you while you reach one and then act on it. Plenty of people do the Assessment first, and US$1,000 of it comes off the first milestone here.
 
 **What if we decide not to list?**
 Then it worked. Roughly a third of these end in "not yet, and here is precisely what changes that" — which is worth considerably more than the fee, because the alternative is finding out in month nine with a professional fee bill already run up.
@@ -180,7 +203,7 @@ Then it worked. Roughly a third of these end in "not yet, and here is precisely 
 Calls can move within the same fortnight. They do not bank indefinitely — the value is in the rhythm. If your side goes quiet for a month, the engagement still ends on day ninety.
 
 **What happens if we want to go further?**
-We talk about a mandate. The full US$5,000 credits against one booked within sixty days of the engagement ending. No obligation either way — if I do not think your deal is one I should be on, I will tell you.
+We talk about a mandate. Everything you have paid credits against one booked within sixty days of the engagement ending. No obligation either way — if I do not think your deal is one I should be on, I will tell you.
 
 **Do you sign an NDA?**
 Yes, mutual, before intake. Nothing about your business, numbers or intentions appears anywhere.
@@ -211,7 +234,7 @@ Who you instruct, in what order, what you should be paying them for. Ends with t
 
 ### SECTION 9 — What the fee covers, and what it does not
 
-**The US$5,000 covers my time. It covers nothing else.**
+**The US$15,000 covers my time. It covers nothing else.**
 
 A listing is a multi-party process and every other party bills you directly. Budget separately for:
 
@@ -233,17 +256,24 @@ Knowing that structure before you commit is part of the point. Most companies un
 
 ### SECTION 10 — Terms
 
-**US$5,000, covering ninety days.**
+**US$15,000, paid across three milestones.**
 
-- Payable in full at engagement, or US$2,500 at start and US$2,500 at day 45
+- US$5,000 on engagement — contract signed, intake received, first working call held
+- US$5,000 on delivery of the Venue Decision — typically week four or five
+- US$5,000 on delivery of the Remediation Plan — typically week twelve, or day 120, whichever comes first
+
+You do not pay a milestone until the document that triggers it is in your hands. If the first stage does not earn the second, you do not buy the second.
+
 - **Contracted with and billed to the company. Not to individuals.**
+- Typically ninety days. The milestones govern, not the calendar — if the work runs faster you pay sooner; if it runs longer the final milestone still falls due at day 120
 - Mutual NDA signed before intake, as standard
-- US$1,000 comes off this if you booked an IPO Path Assessment in the last 60 days
-- The full fee credits toward an advisory mandate booked within 60 days of the engagement ending
+- US$1,000 comes off the first milestone if you booked an IPO Path Assessment in the last 60 days
+- Everything you have paid credits toward an advisory mandate booked within 60 days of the engagement ending
+- Third-party professional fees are not included. See below — they are substantially larger than this engagement and you pay them directly
 
 **On availability:** I run a small number of these at once, because every call and every email is mine. I will tell you on the discovery call exactly where that stands and give you a real start date rather than a waitlist.
 
-**Delivery guarantee:** if I miss a scheduled call and cannot offer a replacement slot within seven days, that week is credited and the engagement extends by a week. That is a guarantee about my delivery. There is no guarantee about your outcome, and you should be wary of anyone in this market who offers one.
+**What is guaranteed, and what is not:** the milestone structure is the guarantee — you pay on delivery, not in advance. If I miss a scheduled call and cannot offer a replacement slot within seven days, that week is credited and the engagement extends by a week. There is no guarantee about your outcome, and you should be wary of anyone in this market who offers one.
 
 ---
 
@@ -279,6 +309,6 @@ I have sat on the sell side. I know what your sponsor is optimising for, what yo
 
 | Rung | Offer | Price | Credit |
 |---|---|---|---|
-| 1 | IPO Path Assessment | US$2,500 / 30 days | US$1,000 → 90-Day Engagement; 100% → Advisory Mandate |
-| 2 | 90-Day Listing Decision | US$5,000 / 90 days | 100% → Advisory Mandate (booked within 60 days) |
+| 1 | IPO Path Assessment | US$2,500 / 30 days | US$1,000 → first milestone of the 90-Day Listing Decision; 100% → Advisory Mandate |
+| 2 | 90-Day Listing Decision | US$15,000 / 3 milestones / typically 90 days | Everything paid → Advisory Mandate (booked within 60 days) |
 | 3 | Advisory Mandate | Milestone-based | — |

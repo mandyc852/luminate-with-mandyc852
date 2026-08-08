@@ -341,7 +341,7 @@ export default function HomePage() {
             The 90-Day Listing Decision
           </h2>
           <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-            Ninety days with a licensed capital markets advisor to close the venue question, name what is actually blocking your deal, and get the instruction order right. One working call a week, email in between. US$5,000, contracted with the company.
+            Ninety days with a licensed capital markets advisor to close the venue question, name what is actually blocking your deal, and get the instruction order right. One working call a week, email in between, and two board-ready documents along the way. US$15,000, paid across three milestones — you pay each one on delivery.
           </p>
           <a
             href="/consulting"

@@ -30,7 +30,7 @@ const PRODUCT_JSONLD = {
   url: "https://mandyc.me/consulting",
   offers: {
     "@type": "Offer",
-    price: "5000",
+    price: "15000",
     priceCurrency: "USD",
     url: "https://mandyc.me/consulting",
   },
@@ -80,7 +80,7 @@ function StickyMobileBar() {
     >
       <div className="flex items-center justify-between gap-4">
         <p className="text-[#1a2a3a] text-[14px] font-semibold tracking-[0.02em] leading-tight">
-          US$5,000 · 90 days
+          US$15,000 · in thirds
         </p>
         <a
           href={TIDYCAL_URL}
@@ -259,7 +259,7 @@ export default function ConsultingPage() {
           </p>
 
           <p className="text-[#f5e6b3] text-[12px] md:text-[13px] font-medium tracking-[0.22em] uppercase mb-10">
-            US$5,000 · 90 days · contracted with the company
+            US$15,000, paid across three milestones · typically 90 days · contracted with the company
           </p>
 
           <div className="flex flex-col items-center gap-4">
@@ -365,16 +365,29 @@ export default function ConsultingPage() {
               </p>
             </div>
 
-            {/* The Decision Note — the named artifact. Accent rule, deliberately not a card. */}
+            {/* The two named deliverables. Each triggers a milestone payment, so both
+                carry the accent rule — deliberately not cards. */}
             <div className="pt-7 border-t-2 border-[#c9a227]">
               <p className="text-[#7d6715] text-[10px] font-medium tracking-[0.28em] uppercase mb-3">
-                The named artifact
+                Named deliverable · triggers a milestone
               </p>
               <p className="text-[#1a2a3a] text-[17px] md:text-[19px] font-medium leading-[1.6] mb-2">
-                The Decision Note at day 90.
+                The Venue Decision.
               </p>
               <p className="text-slate-600 text-[15px] md:text-[15.5px] leading-[1.85] font-light">
-                One page. The venue verdict, the reasoning, the blocker sequence. It is the thing you put in front of your board, and it is the record of what these ninety days concluded.
+                Typically week four or five. Written, board-ready: which route your numbers actually support, the reasoning behind it, and exactly what disqualifies you from the routes you are not taking. This is the document that closes the venue question.
+              </p>
+            </div>
+
+            <div className="pt-7 border-t-2 border-[#c9a227]">
+              <p className="text-[#7d6715] text-[10px] font-medium tracking-[0.28em] uppercase mb-3">
+                Named deliverable · triggers a milestone
+              </p>
+              <p className="text-[#1a2a3a] text-[17px] md:text-[19px] font-medium leading-[1.6] mb-2">
+                The Remediation Plan.
+              </p>
+              <p className="text-slate-600 text-[15px] md:text-[15.5px] leading-[1.85] font-light">
+                Typically week twelve. The three or four things standing between you and a viable filing, in the order they must be fixed, with who fixes each one and roughly how long it takes — followed by your instruction sequence for the next twelve months.
               </p>
             </div>
           </div>
@@ -456,7 +469,7 @@ export default function ConsultingPage() {
 
           <div className="space-y-6">
             <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
-              <strong className="text-[#1a2a3a] font-medium">Not a document service.</strong> No prospectus drafting, no model build, no board deck production, no data room. Those belong to a mandate.
+              <strong className="text-[#1a2a3a] font-medium">Not a document service.</strong> Beyond the two deliverables above, nothing is produced for you — no prospectus drafting, no model build, no board deck production, no data room. Those belong to a mandate.
             </p>
             <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
               <strong className="text-[#1a2a3a] font-medium">Not a sponsor engagement.</strong> I am not your sponsor and this is not sponsor work under the Listing Rules.
@@ -518,9 +531,15 @@ export default function ConsultingPage() {
           <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">Questions</h2>
 
           <div className="bg-white border border-slate-200 px-6 md:px-10">
-            <FAQItem q="Why is this US$5,000 and not US$50,000?">
+            <FAQItem q="Why is this US$15,000?">
               <p>
-                Because you are buying judgment and access, not production. No team to carry, no documents built, no deliverables beyond the weekly hour, the email and the Decision Note. A full advisory mandate costs what a mandate costs. This is deliberately the narrow version, priced for the narrow version.
+                Because it is thirteen weeks of direct access plus two board-ready documents, delivered by the person you actually hired rather than an associate. A full advisory mandate costs many times this, because a mandate means I am running your process. This is the narrow version, priced for the narrow version — and you pay it in thirds, on delivery.
+              </p>
+            </FAQItem>
+
+            <FAQItem q="Do we pay all of it upfront?">
+              <p>
+                No. You pay US$5,000 to start, US$5,000 when the Venue Decision is in your hands, and US$5,000 when the Remediation Plan is. If the first document does not tell you something you did not know, you have spent US$10,000 and you stop. The structure exists so the risk of this being worth it sits with me, not with you.
               </p>
             </FAQItem>
 
@@ -550,7 +569,7 @@ export default function ConsultingPage() {
 
             <FAQItem q="How is this different from the IPO Path Assessment?">
               <p>
-                The Assessment is a document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. This is a working relationship — thirteen weeks through a live decision, ending in a one-page Decision Note. Buy the Assessment if you want an answer. Buy this if you want someone alongside you while you reach one. Plenty of people do the Assessment first, and US$1,000 of it comes off this.
+                The Assessment is a single document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. This is a working relationship — thirteen weeks through a live decision, with the Venue Decision and the Remediation Plan produced along the way. Buy the Assessment if you want an answer. Buy this if you want someone alongside you while you reach one and then act on it. Plenty of people do the Assessment first, and US$1,000 of it comes off the first milestone here.
               </p>
             </FAQItem>
 
@@ -568,7 +587,7 @@ export default function ConsultingPage() {
 
             <FAQItem q="What happens if we want to go further?">
               <p>
-                We talk about a mandate. The full US$5,000 credits against one booked within sixty days of the engagement ending. No obligation either way — if I do not think your deal is one I should be on, I will tell you.
+                We talk about a mandate. Everything you have paid credits against one booked within sixty days of the engagement ending. No obligation either way — if I do not think your deal is one I should be on, I will tell you.
               </p>
             </FAQItem>
 
@@ -621,7 +640,7 @@ export default function ConsultingPage() {
 
           <div className="bg-[#f8f7f4] border border-slate-300 p-7 md:p-10">
             <p className="text-[#1a2a3a] text-[18px] md:text-[20px] font-medium leading-[1.6] mb-5">
-              The US$5,000 covers my time. It covers nothing else.
+              The US$15,000 covers my time. It covers nothing else.
             </p>
 
             <p className="text-slate-600 text-[15px] leading-[1.85] font-light mb-6">
@@ -679,20 +698,43 @@ export default function ConsultingPage() {
                 className="text-[#1a2a3a] text-3xl md:text-[40px] font-normal leading-[1.2] mb-7"
                 style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
               >
-                US$5,000, covering ninety days.
+                US$15,000, paid across three milestones.
+              </p>
+
+              <ul className="space-y-4 mb-7">
+                {[
+                  <>US$5,000 on engagement — contract signed, intake received, first working call held</>,
+                  <>US$5,000 on delivery of the Venue Decision — typically week four or five</>,
+                  <>US$5,000 on delivery of the Remediation Plan — typically week twelve, or day 120, whichever comes first</>,
+                ].map((node, i) => (
+                  <li
+                    key={i}
+                    className="relative pl-6 text-slate-600 text-[15px] leading-[1.8] font-light"
+                  >
+                    <span className="absolute left-0 top-0 text-[#c9a227]" aria-hidden="true">
+                      •
+                    </span>
+                    {node}
+                  </li>
+                ))}
+              </ul>
+
+              <p className="text-[#1a2a3a] text-[15px] md:text-[16px] leading-[1.8] font-medium mb-7">
+                You do not pay a milestone until the document that triggers it is in your hands. If the first stage does not earn the second, you do not buy the second.
               </p>
 
               <ul className="space-y-4">
                 {[
-                  <>Payable in full at engagement, or US$2,500 at start and US$2,500 at day 45</>,
                   <>
                     <strong className="text-[#1a2a3a] font-medium">
                       Contracted with and billed to the company. Not to individuals.
                     </strong>
                   </>,
+                  <>Typically ninety days. The milestones govern, not the calendar — if the work runs faster you pay sooner; if it runs longer the final milestone still falls due at day 120</>,
                   <>Mutual NDA signed before intake, as standard</>,
-                  <>US$1,000 comes off this if you booked an IPO Path Assessment in the last 60 days</>,
-                  <>The full fee credits toward an advisory mandate booked within 60 days of the engagement ending</>,
+                  <>US$1,000 comes off the first milestone if you booked an IPO Path Assessment in the last 60 days</>,
+                  <>Everything you have paid credits toward an advisory mandate booked within 60 days of the engagement ending</>,
+                  <>Third-party professional fees are not included. See below — they are substantially larger than this engagement and you pay them directly</>,
                 ].map((node, i) => (
                   <li
                     key={i}
@@ -715,7 +757,7 @@ export default function ConsultingPage() {
 
             <div className="border-t border-slate-200 p-7 md:p-10">
               <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
-                <strong className="text-[#1a2a3a] font-medium">Delivery guarantee:</strong> if I miss a scheduled call and cannot offer a replacement slot within seven days, that week is credited and the engagement extends by a week. That is a guarantee about my delivery. There is no guarantee about your outcome, and you should be wary of anyone in this market who offers one.
+                <strong className="text-[#1a2a3a] font-medium">What is guaranteed, and what is not:</strong> the milestone structure is the guarantee — you pay on delivery, not in advance. If I miss a scheduled call and cannot offer a replacement slot within seven days, that week is credited and the engagement extends by a week. There is no guarantee about your outcome, and you should be wary of anyone in this market who offers one.
               </p>
             </div>
           </div>

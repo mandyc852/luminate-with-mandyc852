@@ -10,7 +10,7 @@ const baseUrl = siteUrl
 
 const title = "The IPO Path Assessment | MandyC."
 const description =
-  "A 30-day sprint that delivers a written verdict on whether your company is ready to list — with the next move spelled out. US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days. SFC Type 6 Licensed. IPOs, M&As & restructurings across HKEX and NASDAQ."
+  "A 30-day sprint that delivers a written verdict on whether your company is ready to list — with the next move spelled out. US$1,000 creditable off the first milestone of the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days. SFC Type 6 Licensed. IPOs, M&As & restructurings across HKEX and NASDAQ."
 
 export const metadata: Metadata = {
   title,

@@ -114,9 +114,9 @@ const TIMELINE = [
 const RISK_REVERSAL = [
   {
     title:
-      "US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.",
+      "US$1,000 creditable off the first milestone of the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.",
     body:
-      "If the memo identifies a continuation path, the Assessment fee credits against it: US$1,000 against the 90-Day Listing Decision, or the full US$2,500 against an advisory mandate. The 60 days run from memo delivery.",
+      "If the memo identifies a continuation path, the Assessment fee credits against it: US$1,000 off the first milestone of the 90-Day Listing Decision, or the full US$2,500 against an advisory mandate. The 60 days run from memo delivery.",
   },
   {
     title: "14-day delivery guarantee",
@@ -143,7 +143,7 @@ const FAQ: Array<{ q: string; a: React.ReactNode }> = [
     q: "How is this different from the 90-Day Strategic Engagement?",
     a: (
       <p>
-        The Assessment answers “should we list, and if so how.” The 90-Day Engagement structures the company so the listing can actually happen — sequenced fixes, weekly working sessions, monthly strategic reports. The Assessment is the input; the Engagement is the execution. US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.
+        The Assessment answers “should we list, and if so how.” The 90-Day Engagement structures the company so the listing can actually happen — sequenced fixes, weekly working sessions, monthly strategic reports. The Assessment is the input; the Engagement is the execution. US$1,000 creditable off the first milestone of the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.
       </p>
     ),
   },
@@ -270,7 +270,7 @@ const PRODUCT_JSONLD = {
   "@type": "Product",
   name: "The IPO Path Assessment",
   description:
-    "A 30-day assessment that delivers a written verdict on whether your company is ready to list — with the next move spelled out. US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.",
+    "A 30-day assessment that delivers a written verdict on whether your company is ready to list — with the next move spelled out. US$1,000 creditable off the first milestone of the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.",
   brand: { "@type": "Brand", name: "MandyC." },
   category: "Capital Markets Advisory",
   offers: {
@@ -616,7 +616,7 @@ export default function IPOPathPage() {
             </div>
 
             <p className="text-white/80 font-light leading-[1.7] max-w-2xl mx-auto text-[14.5px] text-center mt-6 mb-5 pt-5 border-t border-white/15">
-              US$1,000 creditable toward the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.
+              US$1,000 creditable off the first milestone of the 90-Day Listing Decision, or 100% creditable toward a full advisory mandate — either booked within 60 days.
             </p>
 
             <div className="flex flex-col items-center gap-3">
