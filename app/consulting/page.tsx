@@ -230,7 +230,7 @@ export default function ConsultingPage() {
           </p>
 
           <p className="text-[#f5e6b3] text-[12px] md:text-[13px] font-medium tracking-[0.22em] uppercase mb-10">
-            Paid in three milestones, each on delivery · typically 90 days · contracted with the company
+            Paid in three milestones, each on delivery
           </p>
 
           <div className="flex flex-col items-center gap-4">
