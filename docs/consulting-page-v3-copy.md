@@ -1,3 +1,5 @@
+> **Superseded by consulting-page-v4-copy.md (8 August 2026).**
+
 # /consulting — page copy v3
 ### For hand-off to Claude Design. 8 August 2026.
 

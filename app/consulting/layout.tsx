@@ -8,9 +8,9 @@ const baseUrl = siteUrl
     : `https://${siteUrl}`
   : "https://mandyc.me"
 
-const title = "The 90-Day Listing Decision | MandyC."
+const title = "The 90-Day Readiness Engagement | MandyC."
 const description =
-  "A working relationship with a licensed capital markets advisor, for founder-led companies going public for the first time — mostly on Nasdaq. Long enough to close the venue question, name what is actually blocking you, and get the order of operations right."
+  "You have decided to list. What stands between you and a filing is rarely the decision — it is how your group is owned and what your financial records will survive. I spend ninety days fixing both."
 
 export const metadata: Metadata = {
   title,
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/Wallstreet.jpg",
         width: 1200,
         height: 630,
-        alt: "The 90-Day Listing Decision — MandyC.",
+        alt: "The 90-Day Readiness Engagement — MandyC.",
       },
     ],
   },

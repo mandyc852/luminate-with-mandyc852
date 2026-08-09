@@ -25,7 +25,7 @@ const CTA_LABEL = "Book a Confidential Call"
 const PRODUCT_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "The 90-Day Listing Decision",
+  name: "The 90-Day Readiness Engagement",
   serviceType: "Capital Markets Advisory",
   provider: { "@type": "Organization", name: "MandyC." },
   url: "https://mandyc.me/consulting",
@@ -80,7 +80,7 @@ function StickyMobileBar() {
     >
       <div className="flex items-center justify-between gap-4">
         <p className="text-[#1a2a3a] text-[14px] font-semibold tracking-[0.02em] leading-tight">
-          Three milestones · pay on delivery
+          Ninety days to filing-ready
         </p>
         <a
           href={TIDYCAL_URL}
@@ -97,39 +97,32 @@ function StickyMobileBar() {
   )
 }
 
-const CONFLICTS = [
-  "Your bankers want the mandate, so everything sounds feasible.",
-  "Your auditor answers the question you asked, not the one you should have asked.",
-  "Your securities counsel will tell you whether it is legal, never whether it is a good idea.",
-  "Everyone who has actually done this before is on the sell side.",
-]
-
 const WORKS_IF = [
-  "You are 6 to 36 months from a listing decision, or deciding whether to make one",
-  "The business generates real profit — roughly US$750K+ net",
-  "Someone senior can hold an hour a week and act between calls",
-  "You want a second opinion from someone not trying to win a mandate",
+  "You have decided to list, most likely on Nasdaq",
+  "The business is genuinely profitable — roughly US$750K+ net",
+  "You can give me straight answers about how the group is owned",
+  "Someone senior can act on the plan between calls",
 ]
 
 const DOES_NOT_WORK_IF = [
   "You need capital in the next ninety days",
-  "You want documents built rather than directed",
-  "Nobody on your side can decide between calls",
-  "You are looking for assurance that you will list",
+  "Nobody on your side can make structural decisions",
+  "You want to be told listing is a good idea when it is not",
+  "You are looking for a guarantee that you will list",
 ]
 
 const NEXT_STEPS: Array<{ lead: string; rest: string }> = [
   {
     lead: "Book a confidential call.",
-    rest: " Thirty minutes, no charge, no deck. You describe the business and the timeline.",
+    rest: " Thirty minutes, no charge, no deck. You describe the business; I tell you what I would want to look at first.",
   },
   {
-    lead: "I tell you which of my offers fits",
-    rest: " — or that none of them do. That happens, and it is fine.",
+    lead: "I tell you whether I can help",
+    rest: " — or that I cannot. That happens, and it is fine.",
   },
   {
-    lead: "If it is this one:",
-    rest: " contract and NDA, intake pack, first call within ten working days.",
+    lead: "If we proceed:",
+    rest: " NDA, intake pack, and week one starts.",
   },
 ]
 
@@ -162,7 +155,7 @@ export default function ConsultingPage() {
           padding-top: 80px;
         }
         .scroll-anchor { scroll-margin-top: 96px; }
-        h1, h2, h3, h4 {
+        h1, h2, h3 {
           font-family: var(--font-cormorant-garamond), serif;
           font-weight: 400;
           color: var(--navy-deep);
@@ -181,34 +174,18 @@ export default function ConsultingPage() {
 
       <SiteHeader
         links={[
-          { label: "What You Get", href: "#what-you-get" },
+          { label: "How It Runs", href: "#how-it-runs" },
           { label: "Is This You?", href: "#is-this-you" },
-          { label: "Details", href: "#the-details" },
+          { label: "Questions", href: "#common-questions" },
         ]}
         bookHref={TIDYCAL_URL}
       />
 
-      {/* ─────────────────────────── HERO ─────────────────────────── */}
+      {/* ───────────────────── HERO — typographic, no image ───────────────────── */}
       <section
         id="hero-section"
-        className="relative w-full bg-[#1a2a3a] px-6 py-20 md:py-32 overflow-hidden"
+        className="relative w-full bg-[#1a2a3a] px-6 py-24 md:py-36 overflow-hidden"
       >
-        <Image
-          src="/Nasdaq.webp"
-          alt="Nasdaq MarketSite, Times Square, New York"
-          fill
-          priority
-          quality={85}
-          sizes="100vw"
-          className="object-cover"
-          style={{ objectPosition: "50% 38%" }}
-        />
-        {/* Navy scrim — same treatment as the /ipo-path hero. The LED tower is very
-            bright, so this carries the text contrast; do not lighten it. */}
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-[#1a2a3a]/88 via-[#1a2a3a]/82 to-[#1a2a3a]/92 pointer-events-none"
-          aria-hidden="true"
-        />
         <div
           className="absolute inset-0 bg-gradient-to-br from-[rgba(201,162,39,0.07)] via-transparent to-[rgba(201,162,39,0.04)] pointer-events-none"
           aria-hidden="true"
@@ -222,15 +199,15 @@ export default function ConsultingPage() {
           </p>
 
           <h1 className="gradient-text-hero text-4xl sm:text-5xl md:text-6xl leading-[1.08] font-normal mb-8 tracking-tight">
-            Ninety days to a listing decision you can defend to your board.
+            Ninety days from where you are to filing-ready.
           </h1>
 
           <p className="text-base md:text-lg text-white/90 font-light leading-[1.75] mb-8 max-w-2xl mx-auto">
-            A working relationship with a licensed capital markets advisor, for founder-led companies going public for the first time — mostly on Nasdaq. Long enough to close the venue question, name what is actually blocking you, and get the order of operations right.
+            You have decided to list. What stands between you and a filing is rarely the decision — it is how your group is owned and what your financial records will survive. I spend ninety days fixing both.
           </p>
 
           <p className="text-[#f5e6b3] text-[12px] md:text-[13px] font-medium tracking-[0.22em] uppercase mb-10">
-            Paid in three milestones, each on delivery
+            Fixed fee, agreed before we start · typically 90 days · contracted with the company
           </p>
 
           <div className="flex flex-col items-center gap-4">
@@ -240,117 +217,77 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ───────────────── 1 · The position you are probably in ───────────────── */}
-      <section className="py-14 md:py-20 px-6 bg-white">
-        <div className="max-w-[65ch] mx-auto">
-          <h2 className="text-3xl md:text-4xl font-normal mb-8 leading-[1.2]" style={{ textWrap: "balance" }}>
-            The position you are probably in
-          </h2>
-
-          <div className="space-y-5 text-slate-600 text-[15px] leading-[1.85] font-light">
-            <p>
-              You are somewhere between &quot;we should think about going public&quot; and &quot;we have a banker.&quot; That gap is where companies lose eighteen months.
-            </p>
-            <p>Not for lack of information — for lack of anyone unconflicted:</p>
-          </div>
-
-          <ul className="my-7 space-y-3.5">
-            {CONFLICTS.map((item) => (
-              <li key={item} className="relative pl-6 text-slate-600 text-[15px] leading-[1.8] font-light">
-                <span className="absolute left-0 top-0 text-[#c9a227]" aria-hidden="true">
-                  —
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
-            What is missing is not a document. It is someone who has sat on the other side of the table sixty-plus times and is not trying to win anything from you.
-          </p>
-        </div>
-      </section>
-
-      {/* ══════════ 2 · The centrepiece — tinted full-bleed band ══════════ */}
+      {/* ══════════ 1 · Centrepiece — tinted full-bleed band ══════════ */}
       <section className="py-16 md:py-24 px-6 bg-[#1a2a3a]">
         <div className="max-w-[68ch] mx-auto">
           <h2
-            className="text-3xl md:text-[42px] font-normal mb-4 leading-[1.15]"
+            className="text-3xl md:text-[42px] font-normal mb-12 leading-[1.15]"
             style={{ color: "#ffffff", textWrap: "balance" }}
           >
-            Three things first-time listers get wrong
+            Three things that actually stop a first listing
           </h2>
-
-          <p className="text-slate-400 italic font-light text-[13px] md:text-[13.5px] leading-[1.7] mb-12">
-            Stated as at 8 August 2026.
-          </p>
 
           <div className="space-y-12">
             <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4" style={{ color: "#f5e6b3" }}>
-                They pick the exchange by prestige. It is an investor-access decision.
+                The blocker is almost never the decision. It is the structure.
               </h3>
               <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                The venue question is not &quot;Nasdaq or Hong Kong&quot; as brands. It is who actually buys your story, and at what multiple. US sector-specialist capital lives on Nasdaq; Greater China and pan-Asian money trades in Hong Kong. Pick the wrong room and you get the worst outcome in this business: listed, and ignored.
+                By the time we speak you have usually settled on Nasdaq, and for a company at your size it is often the only route whose thresholds you clear. What delays a first listing is what sits underneath the decision: how the group is owned. Most first-time issuers need a holding company established above their operating entities before they can list at all — and that reorganisation carries tax, regulatory and shareholder consequences that have to be worked through in the right order. Rebuilding the structure is the work, and it has to happen before anyone drafts a document.
               </p>
             </div>
 
             <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4" style={{ color: "#f5e6b3" }}>
-                They overestimate the burden of a US listing.
+                Profitable is not the same as auditable.
               </h3>
               <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                Boards routinely rule out Nasdaq on compliance fear. A foreign private issuer files an annual report and material-event updates — not the quarterly cycle US domestic companies run — and can keep many home-country governance practices. The US route is often lighter than the board assumed. That decision deserves real numbers, not folklore.
+                Founders who know their numbers are usually right about the business and wrong about the records. Dealings with family and connected companies that were never at arm&apos;s length. Money moving between group entities on handshake terms. Revenue recognised the way your market does it rather than the way a US audit requires. Books that simply do not reach back far enough to cover the audit period. None of it looks like a problem until an auditor asks — and by then it is on your timeline, not theirs.
               </p>
             </div>
 
             <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4" style={{ color: "#f5e6b3" }}>
-                They treat the listing as the finish line.
+                Left late, this costs multiples.
               </h3>
               <p className="text-slate-200 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                It is the start. A smaller company that lists without an aftermarket plan — research coverage, investor access, a story institutions can keep buying — ends up public and orphaned, trading at a fraction of where it opened. Venue, structure and timing decide that outcome long before the bell-ringing photo.
+                Restructuring a group and repairing historical financials takes months, and it does not compress. Done early it is planning. Done under a filing deadline it becomes emergency work at emergency prices, with a delay attached — and often a structure you would not have chosen if you had been given time to choose.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────── 3 · What you get ─────────────────────── */}
-      <section id="what-you-get" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
+      {/* ─────────────────── 2 · How the ninety days run ─────────────────── */}
+      <section id="how-it-runs" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-normal mb-8 text-center">What you get</h2>
-
-          <p className="text-[#1a2a3a] text-[18px] md:text-[20px] font-medium leading-[1.6] mb-10 text-center">
-            Ninety days. One standing conversation. Two documents.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">How the ninety days run</h2>
 
           <div className="space-y-8">
             <div>
-              <p className="text-[#1a2a3a] text-[16px] md:text-[17px] font-medium leading-[1.65] mb-2">
-                A weekly working call, direct with me.
+              <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
+                Week one — I take everything in.
               </p>
               <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
-                Sixty minutes, same slot, thirteen weeks. No associate, no handoff. Email between calls, answered within 48 hours.
+                Financials, cap table, group structure, and the arrangements nobody wrote down. My job in week one is to understand your company more precisely than you have ever had to explain it.
               </p>
             </div>
 
-            {/* The two named documents — hairline accent, deliberately not cards. */}
-            <div className="pt-7 border-t-2 border-[#c9a227]">
-              <p className="text-[#1a2a3a] text-[17px] md:text-[19px] font-medium leading-[1.6] mb-2">
-                The Venue Decision
+            <div>
+              <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
+                Week two — you get the plan.
               </p>
-              <p className="text-slate-600 text-[15px] md:text-[15.5px] leading-[1.85] font-light">
-                — typically week four or five. Written, board-ready: which route your numbers actually support, the reasoning, and what specifically rules out the routes you are not taking.
+              <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
+                A written proposal: what has to change in your structure and your financials, in what order, who does each piece, and how long each takes. You will know the shape of the entire ninety days before we are two weeks in.
               </p>
             </div>
 
-            <div className="pt-7 border-t-2 border-[#c9a227]">
-              <p className="text-[#1a2a3a] text-[17px] md:text-[19px] font-medium leading-[1.6] mb-2">
-                The Remediation Plan
+            <div>
+              <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
+                Weeks three to thirteen — we do it.
               </p>
-              <p className="text-slate-600 text-[15px] md:text-[15.5px] leading-[1.85] font-light">
-                — typically week twelve. The three or four things standing between you and a viable filing — cap table, structure, related-party exposure, the state of your audit trail — in the order they must be fixed, with who fixes each and roughly how long it takes. Those things are set years before an IPO and decide which routes are open. Fixed early they are housekeeping; fixed under a filing deadline they are seven figures and a delay.
+              <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
+                The restructuring itself, worked week by week. A standing call every week, email in between, and me directing the lawyers and accountants you appoint so the sequence holds. At the end, your company is in a shape that can carry a filing.
               </p>
             </div>
           </div>
@@ -361,7 +298,7 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────── 4 · Is this you? ─────────────────────── */}
+      {/* ─────────────────────── 3 · Is this you? ─────────────────────── */}
       <section id="is-this-you" className="scroll-anchor py-14 md:py-20 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">Is this you?</h2>
@@ -394,7 +331,7 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────── 5 · About Mandy ─────────────────────── */}
+      {/* ─────────────────────── 4 · About Mandy ─────────────────────── */}
       <section className="py-14 md:py-20 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-[280px_1fr] gap-8 md:gap-14 items-start">
@@ -420,10 +357,7 @@ export default function ConsultingPage() {
                   Ten-plus years across Nasdaq, HKEX and global markets. Sixty-plus transactions in IPOs, M&amp;A and cross-border deals. SFC Type 6 licensed — advising on corporate finance.
                 </p>
                 <p>
-                  Most of the listings I work on are US ones, Nasdaq and NYSE American, for founder-led companies listing for the first time. Hong Kong enters the conversation when the investor base genuinely fits, not as a default.
-                </p>
-                <p>
-                  I have sat on the sell side. I know what your bankers are optimising for, what your auditor will and will not sign, and which of the things you are currently worried about actually matter.
+                  Most of the listings I work on are US ones, for founder-led companies listing for the first time. I have sat on the sell side, which is why I can tell you what your auditor will and will not sign before you find out the expensive way.
                 </p>
               </div>
             </div>
@@ -431,7 +365,7 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ─────────────────── 6 · What happens next ─────────────────── */}
+      {/* ─────────────────── 5 · What happens next ─────────────────── */}
       <section className="py-16 md:py-24 px-6 bg-[#1a2a3a]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center" style={{ color: "#ffffff" }}>
@@ -462,14 +396,10 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────── THE DETAILS DRAWER ─────────────────────── */}
-      <section id="the-details" className="scroll-anchor py-14 md:py-20 px-6 bg-[#f8f7f4]">
+      {/* ─────────────────────── COMMON QUESTIONS ─────────────────────── */}
+      <section id="common-questions" className="scroll-anchor py-14 md:py-20 px-6 bg-[#f8f7f4]">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-normal mb-4 text-center">The details</h2>
-          <p className="text-slate-600 text-[15px] leading-[1.85] font-light italic text-center mb-10">
-            Everything below matters before you sign. None of it matters before we talk.
-          </p>
-
+          <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">Common questions</h2>
           <DetailsDrawer />
         </div>
       </section>
