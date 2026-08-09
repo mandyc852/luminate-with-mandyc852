@@ -232,7 +232,7 @@ export default function ResourcesPage() {
                 Advisory mandate
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed font-light mb-6 flex-grow">
-                If the memo points to a path, we structure the work — a 90-Day Engagement or a full mandate. Milestone-based fees. Your US$2,500 credits 100% toward a full advisory mandate, or US$1,000 toward the 90-Day Readiness Engagement — either booked within 60 days.
+                Continue into the 90-Day Readiness Engagement — a fixed fee, agreed before we start — or into a full advisory mandate, where fees are milestone-based. Your US$2,500 credits 100% toward a mandate, or US$1,000 toward the Readiness Engagement.
               </p>
               <p className="text-slate-400 text-xs font-light italic">
                 Outcome: Your company on the path to public markets.

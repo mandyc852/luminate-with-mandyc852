@@ -138,7 +138,7 @@ const FAQ: Array<{ q: string; a: React.ReactNode }> = [
     q: "How is this different from the 90-Day Readiness Engagement?",
     a: (
       <p>
-        This is a single document. Thirty days, one deep working call, an 8-12 page Listing Path Memo you can hand to your board. The 90-Day Readiness Engagement is a working relationship — thirteen weeks of weekly calls and email access, with a written plan by week two and the restructuring worked through week by week. Buy this if you want an answer. Buy that if you want someone alongside you while you act on it. US$1,000 of this credits toward it.
+        The Assessment is a single document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. The Readiness Engagement is the work itself: thirteen weeks of weekly calls and email access, a written plan by week two, and the restructuring of your group and your financials worked through week by week. Buy the Assessment if you want an answer. Buy the Engagement if you already have your answer and need the company made ready. Part of the Assessment fee credits toward it.
       </p>
     ),
   },
