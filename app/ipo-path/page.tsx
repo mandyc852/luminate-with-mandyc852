@@ -109,9 +109,9 @@ const TIMELINE = [
 const RISK_REVERSAL = [
   {
     title:
-      "US$1,000 creditable toward the 90-Day Readiness Engagement, or 100% creditable toward a full advisory mandate — either booked within 60 days.",
+      "The full US$2,500 credits toward the 90-Day Readiness Engagement or a full advisory mandate — either booked within 60 days.",
     body:
-      "If the memo identifies a continuation path, the Assessment fee credits against it: US$1,000 toward the 90-Day Readiness Engagement, or the full US$2,500 against an advisory mandate. The 60 days run from memo delivery.",
+      "If the memo identifies a continuation path, the full US$2,500 credits against it — the 90-Day Readiness Engagement or an advisory mandate. The 60 days run from memo delivery.",
   },
   {
     title: "14-day delivery guarantee",
@@ -138,7 +138,7 @@ const FAQ: Array<{ q: string; a: React.ReactNode }> = [
     q: "How is this different from the 90-Day Readiness Engagement?",
     a: (
       <p>
-        The Assessment is a single document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. The Readiness Engagement is the work itself: thirteen weeks of weekly calls and email access, a written plan by week two, and the restructuring of your group and your financials worked through week by week. Buy the Assessment if you want an answer. Buy the Engagement if you already have your answer and need the company made ready. Part of the Assessment fee credits toward it.
+        The Assessment is a single document — thirty days, one deep call, an 8-12 page Listing Path Memo for your board. The Readiness Engagement is the work itself: thirteen weeks of weekly calls and email access, a written plan by week two, and the restructuring of your group and your financials worked through week by week. Buy the Assessment if you want an answer. Buy the Engagement if you already have your answer and need the company made ready. The full Assessment fee credits toward it.
       </p>
     ),
   },
@@ -256,7 +256,7 @@ const PRODUCT_JSONLD = {
   "@type": "Product",
   name: "The IPO Path Assessment",
   description:
-    "A 30-day assessment that delivers a written verdict on whether your company is ready to list — with the next move spelled out. US$1,000 creditable toward the 90-Day Readiness Engagement, or 100% creditable toward a full advisory mandate — either booked within 60 days.",
+    "A 30-day assessment that delivers a written verdict on whether your company is ready to list — with the next move spelled out. The full US$2,500 credits toward the 90-Day Readiness Engagement or a full advisory mandate — either booked within 60 days.",
   brand: { "@type": "Brand", name: "MandyC." },
   category: "Capital Markets Advisory",
   offers: {
@@ -599,7 +599,7 @@ export default function IPOPathPage() {
             </div>
 
             <p className="text-white/80 font-light leading-[1.7] max-w-2xl mx-auto text-[14.5px] text-center mt-6 mb-5 pt-5 border-t border-white/15">
-              US$1,000 creditable toward the 90-Day Readiness Engagement, or 100% creditable toward a full advisory mandate — either booked within 60 days.
+              The full US$2,500 credits toward the 90-Day Readiness Engagement or a full advisory mandate — either booked within 60 days.
             </p>
 
             <div className="flex flex-col items-center gap-3">

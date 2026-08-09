@@ -42,3 +42,6 @@ next-env.d.ts
 
 # editor / temp
 Untitled
+
+# Mandy's internal records — never commit or deploy
+docs/*.docx
