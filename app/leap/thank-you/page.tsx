@@ -53,7 +53,7 @@ export default function LeapThankYou() {
           </p>
 
           <a
-            href="/downloads/Founders-reset-audio.mp3"
+            href="/downloads/identity-reset.mp3"
             download
             className="inline-flex items-center justify-center w-full max-w-sm px-8 py-4 text-sm font-medium tracking-[0.12em] uppercase transition-all duration-300"
             style={{
