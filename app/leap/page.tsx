@@ -317,7 +317,7 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
                   style={{ border: `2px solid ${VOID}` }}
                 >
                   <Image
-                    src="/mandycsub-profile.png"
+                    src="/mandycsub-profile.jpg"
                     alt="Mandy Cheung"
                     fill
                     className="object-cover"
@@ -609,7 +609,7 @@ function MobileView({ firstName, setFirstName, email, setEmail, onSubmit, isSubm
               style={{ border: `2px solid ${MIDNIGHT}` }}
             >
               <Image
-                src="/mandycsub-profile.png"
+                src="/mandycsub-profile.jpg"
                 alt="Mandy Cheung"
                 fill
                 className="object-cover"
