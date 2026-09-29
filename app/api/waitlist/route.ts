@@ -58,6 +58,7 @@ const LEAD_MAGNETS: Record<
 
 const REDIRECT_MAP: Record<string, string> = {
   guide: "/guide/thank-you",
+  leap: "/leap/thank-you",
 }
 
 export async function POST(request: NextRequest) {

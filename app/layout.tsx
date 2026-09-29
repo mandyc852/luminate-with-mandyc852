@@ -1,11 +1,17 @@
 import type { Metadata } from "next"
-import { Cormorant_Garamond, Playfair_Display, Poppins } from "next/font/google"
+import { Cormorant_Garamond, Montserrat, Playfair_Display, Poppins } from "next/font/google"
 import "./globals.css"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-cormorant-garamond",
+})
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-montserrat",
 })
 
 const playfairDisplay = Playfair_Display({
@@ -128,7 +134,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" className={`${cormorantGaramond.variable} ${playfairDisplay.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${cormorantGaramond.variable} ${montserrat.variable} ${playfairDisplay.variable} ${poppins.variable}`}>
       <body className="antialiased">
         <script
           type="application/ld+json"
