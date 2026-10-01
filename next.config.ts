@@ -34,11 +34,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/leap",
-        destination: "/",
-        permanent: true,
-      },
-      {
         source: "/executive-readiness",
         destination: "/guide",
         permanent: true,
