@@ -152,7 +152,7 @@ const SERVICES = [
   {
     title: "Investor sourcing",
     body: "For founders who need it: sourcing pre-IPO and listing investors through relationships built over a decade of cross-border deal work.",
-    icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 11-8 0 4 4 0 018 0z",
+    icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
   },
   {
     title: "Professional party coordination",
@@ -218,38 +218,66 @@ export default function IPOAdvisoryPage() {
         hideGlobalLinks
       />
 
-      {/* ── 1 · HERO — navy ─────────────────────────────────────────────── */}
+      {/* ── 1 · HERO — navy with Wall Street backdrop ───────────────────── */}
       <section
         id="hero-section"
-        className="relative w-full bg-[#1a2a3a] px-6 py-20 md:py-28 overflow-hidden"
+        className="relative w-full overflow-hidden bg-[#1a2a3a]"
+        style={{ minHeight: 560 }}
       >
+        {/* Desktop: image on the right, dissolving into the navy */}
+        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[55%]">
+          <Image
+            src="/Wallstreet.jpg"
+            alt="New York Stock Exchange, Wall Street"
+            fill
+            priority
+            quality={90}
+            className="object-cover"
+            sizes="55vw"
+          />
+          <div className="absolute left-0 top-0 bottom-0 w-[240px] bg-gradient-to-r from-[#1a2a3a] via-[#1a2a3a]/70 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-[#1a2a3a]/20 pointer-events-none" />
+        </div>
+        {/* Mobile: full-bleed image under a navy overlay */}
+        <div className="md:hidden absolute inset-0">
+          <Image
+            src="/Wallstreet.jpg"
+            alt="New York Stock Exchange, Wall Street"
+            fill
+            priority
+            quality={90}
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[#1a2a3a]/80 pointer-events-none" />
+        </div>
         <div
           className="absolute inset-0 bg-gradient-to-br from-[rgba(201,162,39,0.07)] via-transparent to-[rgba(201,162,39,0.04)] pointer-events-none"
           aria-hidden="true"
         />
 
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-[#f5e6b3] text-[11px] font-medium tracking-[0.32em] uppercase mb-6">
-            <span className="inline-block w-8 h-px bg-[#f5e6b3]/60 align-middle mr-3" aria-hidden="true" />
-            IPO Advisory · 90-Day Engagement
-            <span className="inline-block w-8 h-px bg-[#f5e6b3]/60 align-middle ml-3" aria-hidden="true" />
-          </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 flex items-center" style={{ minHeight: 560 }}>
+          <div className="max-w-[560px] mx-auto md:mx-0 text-center md:text-left py-20 md:py-24">
+            <p className="text-[#f5e6b3] text-[11px] font-medium tracking-[0.32em] uppercase mb-6">
+              IPO Advisory · 90-Day Engagement
+            </p>
 
-          <h1 className="gradient-text-hero text-4xl sm:text-5xl md:text-6xl leading-[1.08] font-normal mb-8 tracking-tight">
-            Ninety days from where you are to filing-ready.
-          </h1>
+            <h1 className="gradient-text-hero text-4xl sm:text-5xl md:text-6xl leading-[1.08] font-normal mb-8 tracking-tight">
+              Ninety days from where you are to filing-ready.
+            </h1>
 
-          <p className="text-base md:text-lg text-white/90 font-light leading-[1.75] mb-8 max-w-2xl mx-auto">
-            You have decided to list. What stands between you and a filing is rarely the decision — it is how your group is owned and what your financial records will survive. I spend ninety days fixing both.
-          </p>
+            <p className="text-base md:text-lg text-white/90 font-light leading-[1.75] mb-8">
+              You have decided to list. What stands between you and a filing is rarely the decision — it is how your group is owned and what your financial records will survive. I spend ninety days fixing both.
+            </p>
 
-          <p className="text-[#f5e6b3] text-[12px] md:text-[13px] font-medium tracking-[0.22em] uppercase mb-10">
-            Fixed fee US$15,000 · typically 90 days · contracted with the company
-          </p>
+            <p className="text-[#f5e6b3] text-[12px] md:text-[13px] font-medium tracking-[0.22em] uppercase mb-10">
+              Fixed fee US$15,000 · typically 90 days · contracted with the company
+            </p>
 
-          <div className="flex flex-col items-center gap-4">
-            <PrimaryCTA className="w-full sm:w-[420px]" />
-            <p className="text-white/70 font-light text-sm">30 minutes, no charge</p>
+            <div className="flex flex-col items-center md:items-start gap-4">
+              <PrimaryCTA className="w-full sm:w-[420px]" />
+              <p className="text-white/70 font-light text-sm">30 minutes, no charge</p>
+            </div>
           </div>
         </div>
       </section>
@@ -257,6 +285,9 @@ export default function IPOAdvisoryPage() {
       {/* ── 2 · THE PROBLEM — white ─────────────────────────────────────── */}
       <section id="the-problem" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
+            The Problem
+          </p>
           <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal" style={{ textWrap: "balance" }}>
             Most founders who dismiss going public are making that decision on assumptions that aren&apos;t accurate
           </h2>
@@ -281,6 +312,9 @@ export default function IPOAdvisoryPage() {
       {/* ── 3 · THREE THINGS — cream ────────────────────────────────────── */}
       <section className="py-16 md:py-24 px-6 bg-[#f8f7f4]">
         <div className="max-w-[68ch] mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">
+            What Goes Wrong
+          </p>
           <h2
             className="text-3xl md:text-[42px] font-normal mb-12 leading-[1.15] text-[#1a2a3a]"
             style={{ textWrap: "balance" }}
@@ -289,31 +323,40 @@ export default function IPOAdvisoryPage() {
           </h2>
 
           <div className="space-y-12">
-            <div>
+            <div className="flex gap-6 md:gap-8">
+              <span className="flex-shrink-0 text-4xl md:text-5xl leading-none text-[#c9a227]/40 font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">01</span>
+              <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
                 The blocker is almost never the decision. It is the structure.
               </h3>
               <p className="text-slate-600 text-[17px] md:text-[18px] leading-[1.85] font-light">
                 By the time we speak you have usually settled on Nasdaq, and for a company at your size it is often the only route whose thresholds you clear. What delays a first listing is what sits underneath the decision: how the group is owned. Most first-time issuers need a holding company established above their operating entities before they can list at all — and that reorganisation carries tax, regulatory and shareholder consequences that have to be worked through in the right order. Rebuilding the structure is the work, and it has to happen before anyone drafts a document.
               </p>
+              </div>
             </div>
 
-            <div>
+            <div className="flex gap-6 md:gap-8">
+              <span className="flex-shrink-0 text-4xl md:text-5xl leading-none text-[#c9a227]/40 font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">02</span>
+              <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
                 Profitable is not the same as auditable.
               </h3>
               <p className="text-slate-600 text-[17px] md:text-[18px] leading-[1.85] font-light">
                 Founders who know their numbers are usually right about the business and wrong about the records. Dealings with family and connected companies that were never at arm&apos;s length. Money moving between group entities on handshake terms. Revenue recognised the way your market does it rather than the way a US audit requires. Books that simply do not reach back far enough to cover the audit period. None of it looks like a problem until an auditor asks — and by then it is on your timeline, not theirs.
               </p>
+              </div>
             </div>
 
-            <div>
+            <div className="flex gap-6 md:gap-8">
+              <span className="flex-shrink-0 text-4xl md:text-5xl leading-none text-[#c9a227]/40 font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">03</span>
+              <div>
               <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
                 Left late, this costs multiples.
               </h3>
               <p className="text-slate-600 text-[17px] md:text-[18px] leading-[1.85] font-light">
                 Restructuring a group and repairing historical financials takes months, and it does not compress. Done early it is planning. Done under a filing deadline it becomes emergency work at emergency prices, with a delay attached — and often a structure you would not have chosen if you had been given time to choose.
               </p>
+              </div>
             </div>
           </div>
         </div>
@@ -322,34 +365,46 @@ export default function IPOAdvisoryPage() {
       {/* ── 4 · HOW THE NINETY DAYS RUN — white ─────────────────────────── */}
       <section id="how-it-runs" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
+            The Process
+          </p>
           <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">How the ninety days run</h2>
 
           <div className="space-y-8">
-            <div>
+            <div className="flex gap-5">
+              <span className="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#a68a1f] text-base" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">1</span>
+              <div>
               <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
                 Week one — I take everything in.
               </p>
               <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
                 Financials, cap table, group structure, and the arrangements nobody wrote down. My job in week one is to understand your company more precisely than you have ever had to explain it.
               </p>
+              </div>
             </div>
 
-            <div>
+            <div className="flex gap-5">
+              <span className="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#a68a1f] text-base" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">2</span>
+              <div>
               <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
                 Week two — you get the plan.
               </p>
               <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
                 A written proposal: what has to change in your structure and your financials, in what order, who does each piece, and how long each takes. You will know the shape of the entire ninety days before we are two weeks in.
               </p>
+              </div>
             </div>
 
-            <div>
+            <div className="flex gap-5">
+              <span className="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#a68a1f] text-base" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">3</span>
+              <div>
               <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
                 Weeks three to thirteen — we do it.
               </p>
               <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
                 The restructuring itself, worked week by week. A standing call every week, email in between, and me directing the lawyers and accountants you appoint so the sequence holds. At the end, your company is in a shape that can carry a filing.
               </p>
+              </div>
             </div>
           </div>
         </div>
@@ -389,6 +444,9 @@ export default function IPOAdvisoryPage() {
       {/* ── 6 · IS THIS YOU — white ─────────────────────────────────────── */}
       <section id="is-this-you" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
+            The Fit
+          </p>
           <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">Is this you?</h2>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-10">
@@ -437,6 +495,9 @@ export default function IPOAdvisoryPage() {
             </div>
 
             <div>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3 md:hidden text-center">
+                The Advisor
+              </p>
               <h2 className="text-3xl md:text-4xl font-normal mb-7 text-center md:text-left">
                 About Mandy
               </h2>
@@ -498,6 +559,9 @@ export default function IPOAdvisoryPage() {
       {/* ── 9 · COMMON QUESTIONS — white ────────────────────────────────── */}
       <section id="common-questions" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
+            Questions
+          </p>
           <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">Common questions</h2>
           <DetailsDrawer />
         </div>
