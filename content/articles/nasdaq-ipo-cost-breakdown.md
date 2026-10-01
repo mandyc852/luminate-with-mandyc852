@@ -4,7 +4,7 @@ slug: "nasdaq-ipo-cost-breakdown"
 description: "Detailed breakdown of IPO costs from adviser fees to D&O insurance to post-listing compliance — what to budget for a Nasdaq Capital Market listing in 2026."
 category: "ipo"
 publishedAt: "2024-06-15"
-updatedAt: "2026-07-01"
+updatedAt: "2026-10-01"
 ---
 
 Going public through an Initial Public Offering (IPO) is a transformative milestone that offers companies access to capital markets, increased visibility, and new growth opportunities. One of the first questions I often receive from prospective clients is, **"How much will it cost?"**
@@ -38,7 +38,7 @@ A typical Nasdaq Capital Market IPO targets a market cap of **USD 30–80 millio
 ### 6. Registration and Listing Fees
 - **Fee Range: USD 75,000 – 150,000**
 - Includes:
-  - SEC filing fees (**USD 138.10 per $1 million** of the aggregate offering amount — the FY2026 rate effective October 1, 2025. This rate is adjusted annually by the SEC.)
+  - SEC filing fees (**USD 87.00 per $1 million** of the aggregate offering amount — the FY2027 rate effective October 1, 2026, down from $138.10. This rate is adjusted annually by the SEC.)
   - Nasdaq listing fees (USD 50,000 – 75,000)
   - FINRA filing fees (up to a maximum of **USD 1,125,000** following a 400% cap increase in July 2025, though small-cap IPOs will fall well below this cap)
   - DTC Eligibility Application Fee (USD 10,000 – 20,000)

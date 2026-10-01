@@ -4,7 +4,7 @@ slug: "pre-ipo-tax-financial-strategies"
 description: "Estate planning, QSBS exclusion (expanded under OBBBA 2025), capital gains strategies, and cross-jurisdiction tax considerations for founders preparing to go public."
 category: "ipo"
 publishedAt: "2024-07-01"
-updatedAt: "2026-07-01"
+updatedAt: "2026-10-01"
 ---
 
 Taking your company public is a major milestone that can significantly increase your wealth. However, without careful planning, an IPO can also create substantial tax liabilities and financial challenges.
@@ -27,14 +27,14 @@ An IPO can significantly increase the value of your company's stock, potentially
 
 - **Set Up Trusts for Beneficiaries**: Establishing a **Grantor Retained Annuity Trust (GRAT)** remains an effective way to transfer stock. You transfer shares into the trust in exchange for an annuity, and any appreciation in stock value beyond the annuity payments passes to your beneficiaries tax-free. Proposals to restrict "zeroed-out" GRATs (such as the GRATS Act) have not been enacted.
 
-- **Family Limited Partnership (FLP)**: Creating an FLP with company stock allows you to gift partnership interests to beneficiaries while maintaining control over the assets. This structure can reduce the taxable value of your estate through valuation discounts for lack of control and marketability. FLPs remain viable following favorable case law, including *Sirius Solutions v. Commissioner* (5th Circuit, January 2026).
+- **Family Limited Partnership (FLP)**: Creating an FLP with company stock allows you to gift partnership interests to beneficiaries while maintaining control over the assets. This structure can reduce the taxable value of your estate through valuation discounts for lack of control and marketability. FLPs remain a recognized planning structure, though the IRS continues to challenge aggressive valuation discounts — proper structuring and documentation are essential.
 
 ### Global Insight: Estate Tax Considerations Across Jurisdictions
 
 - **Hong Kong**: Does **not have estate or inheritance taxes** (abolished in 2006). Stamp duties may apply to property transfers, though demand-side stamp duties were abolished in February 2024, simplifying the landscape.
-- **Singapore**: Abolished its estate tax in 2008. No estate or inheritance taxes currently. Government proposals to reintroduce them were explicitly rejected by the Finance Minister during Budget 2026.
+- **Singapore**: Abolished its estate tax in 2008. No estate or inheritance taxes currently apply. Proposals to bring estate duty back — most recently raised by opposition MPs during the Budget 2026 debate — have been rejected by the government, which cites Singapore's competitiveness as a wealth management hub.
 - **China**: Currently does **not have an estate or inheritance tax**, though discussions about future implementation have occurred periodically. No draft legislation is on the current legislative agenda. Transfers may be subject to individual income tax rules depending on circumstances.
-- **United Arab Emirates (Dubai)**: No estate or inheritance taxes. For Muslim residents, asset distribution follows **Sharia law**, now codified under Federal Decree-Law No. 41 of 2024 (effective April 2025). Non-Muslim residents can register a will through the **DIFC Wills Service Centre** (which now has exclusive jurisdiction over enforcement of registered non-Muslim wills under Dubai Law No. 2 of 2025) or **Dubai Courts**. **Important new rule (January 2026):** If a person dies without a registered will and no identifiable heirs, UAE-based assets may be frozen and transferred to a state-managed charitable endowment — making will registration more critical than ever.
+- **United Arab Emirates (Dubai)**: No estate or inheritance taxes. For Muslim residents, asset distribution follows **Sharia law**, now codified under Federal Decree-Law No. 41 of 2024 (effective April 2025); non-Muslim residents fall under the federal civil personal status framework and can register a will through the **DIFC Wills Service Centre** or **Dubai Courts**. Where no will is registered, assets are distributed under the default statutory rules rather than your home-country wishes — making will registration essential for expatriates.
 
 **Key Takeaway**: Estate planning rules differ greatly across jurisdictions. Local advice is essential to navigate specific regulations and optimize wealth transfer.
 
@@ -54,7 +54,7 @@ An IPO can lead to substantial capital gains, resulting in high tax liabilities.
 
 - **Offset Gains with Capital Losses**: Selling underperforming investments to generate capital losses can offset gains from your IPO stock sale — known as **tax-loss harvesting**. The wash sale rule (61-day window) remains unchanged.
 
-- **Maximize Tax-Deferral Vehicles**: Contributing to qualified retirement plans (401(k) limits: **$24,500** employee deferral for 2026, with a **$11,250 super catch-up** for ages 60–63), nonqualified deferred compensation plans, annuities, and life insurance products can defer taxes and allow investments to grow tax-free or tax-deferred. Note that earners above $150,000 in FICA wages must now make catch-up contributions as **Roth** (not traditional) starting 2026.
+- **Maximize Tax-Deferral Vehicles**: Contributing to qualified retirement plans (401(k) limits: **$24,500** employee deferral for 2026, with a **$11,250 super catch-up** for ages 60–63), nonqualified deferred compensation plans, annuities, and life insurance products can defer taxes and allow investments to grow tax-free or tax-deferred. Note that earners above $145,000 in prior-year FICA wages from the plan sponsor must now make catch-up contributions as **Roth** (not traditional) starting 2026.
 
 - **Family Gifting**: Gifting stock to family members in lower tax brackets can reduce overall tax exposure. Take advantage of the **$19,000 annual gift tax exclusion** (2025–2026) and the $15 million lifetime exemption.
 

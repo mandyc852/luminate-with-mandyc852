@@ -4,7 +4,7 @@ slug: "nasdaq-ipo-preparation-checklist"
 description: "A step-by-step checklist covering Nasdaq Capital Market requirements — including the 2026 MVUPHS increase and IPO proceeds-only rule — corporate governance, due diligence, and timeline planning."
 category: "ipo"
 publishedAt: "2024-06-01"
-updatedAt: "2026-07-01"
+updatedAt: "2026-10-01"
 ---
 
 For many growth-stage companies, listing on the **Nasdaq Capital Market** is a key milestone that can elevate brand visibility, enhance credibility, and provide access to a broader pool of investors. As one of the most sought-after U.S. exchanges for smaller and mid-sized companies, the Nasdaq Capital Market offers an ideal platform for businesses aiming to go public. However, achieving a successful IPO on Nasdaq requires thorough preparation and compliance with specific requirements — requirements that tightened significantly in 2025–2026. Here's your ultimate checklist to determine if your business is ready for a Nasdaq Capital Market listing.
@@ -29,7 +29,7 @@ Most companies opt for the **Net Income Standard**, which requires:
 
 - **IPO Proceeds-Only Rule (April 2025):** The MVUPHS requirement must now be met **solely from IPO offering proceeds**. Pre-existing freely tradeable shares no longer count. This effectively sets a minimum viable IPO raise of approximately USD 15 million for non-profitable companies.
 - **China-Based Companies (June 2026):** Companies primarily operating in China, Hong Kong, or Macau must raise at least **USD 25 million** in a firm commitment underwritten IPO and are prohibited from direct listings on the Capital Market and Global Market tiers.
-- **Accelerated Delisting:** Companies with market value of listed securities below $5 million that violate any quantitative listing requirement now face immediate suspension with no compliance period. Securities trading at $0.10 or below for 10 consecutive days trigger automatic delisting.
+- **Accelerated Delisting (January 2026):** Securities with a closing bid price of $0.10 or below for 10 consecutive trading days now face immediate suspension, with no compliance period. (A related proposal to suspend companies immediately when market value of listed securities falls below $5 million was removed before the rule was approved and did not take effect.)
 
 Review your financials against these updated metrics to confirm eligibility before proceeding.
 
@@ -94,7 +94,7 @@ Key documents include:
 - **Prospectus**: Core component of both S-1 and F-1 filings, presented to potential investors
 - **Corporate Restructuring Documents**: May include redomiciling, forming a holding company, or adjusting the equity structure
 
-**New since 2025:** All issuers — not just Emerging Growth Companies — can now submit draft registration statements for **confidential SEC review** before going public. Public filing is required at least 15 days before the road show.
+**Confidential review:** All issuers — not just Emerging Growth Companies — can submit draft registration statements for **confidential SEC review** before going public (available to all IPO issuers since 2017; in March 2025 the SEC expanded this to follow-on offerings regardless of how long ago the IPO occurred, initial Section 12(g) registrations, and de-SPAC transactions, and now permits omitting underwriter names from initial submissions). Public filing is required at least 15 days before the road show.
 
 ## 8. Create a Detailed IPO Timeline
 
