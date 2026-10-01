@@ -74,18 +74,14 @@ const REASONS: Reason[] = [
   {
     title: "Exploring a listing",
     body: "You're weighing whether NASDAQ or HKEX makes sense for where your business is now — and what it would actually take.",
-    href: "/consulting",
-    cta: "See the 90-Day Readiness Engagement →",
-    secondaryHref: "/ipo-path",
-    secondaryCta: "Or start with The IPO Path Assessment →",
+    href: "/ipo",
+    cta: "See how the advisory works →",
   },
   {
-    title: "Performing under pressure",
-    body: "The business is working, but the pressure is landing on you. Heavier decisions. Louder inputs. If the videos brought you here and you want to work on the inner game directly — that's a call.",
-    href: null,
-    cta: "Book a call →",
-    secondaryHref: "/cohort",
-    secondaryCta: "Or see the cohort →",
+    title: "Decided to list",
+    body: "You've made the call. What stands between you and a filing is structure and records — ninety days of focused work.",
+    href: "/consulting",
+    cta: "See the 90-Day Readiness Engagement →",
   },
   {
     title: "Just want to connect",
@@ -95,14 +91,14 @@ const REASONS: Reason[] = [
   },
 ]
 
-// Deal sizes from CV. Curated to lead with the largest transactions.
+// Situations, not sizes — grouped by the problem each deal required solving.
 const TRACK_RECORD = [
-  { value: "US$125M", name: "NASDAQ IPO — US consumer company", detail: "Full advisory · approaching listing" },
-  { value: "US$64M", name: "Sincere Co. (00244.HK)", detail: "Privatisation — voluntary general cash offer" },
-  { value: "US$38M", name: "Century Sunshine (00509.HK)", detail: "Convertible bond + whitewash" },
-  { value: "US$27M", name: "Alpha Professional (00948.HK)", detail: "Share acquisition → mandatory cash offer" },
-  { value: "US$12M", name: "Alpha Professional (00948.HK)", detail: "Unwinding / disposal / off-market buy-backs" },
-  { value: "3 listings", name: "HKEX IPOs (sponsor)", detail: "TL Natural Gas · Vision Int'l · Sunlight" },
+  { name: "First-time NASDAQ listing — US consumer company", detail: "Full advisory · approaching listing" },
+  { name: "Privatisation — Sincere Co. (00244.HK)", detail: "Voluntary general cash offer taking a listed company private" },
+  { name: "Convertible bond + whitewash — Century Sunshine (00509.HK)", detail: "Financing structured around Takeovers Code whitewash requirements" },
+  { name: "Mandatory general offer — Alpha Professional (00948.HK)", detail: "Offer obligations worked through after a change in control" },
+  { name: "Group unwind — Alpha Professional (00948.HK)", detail: "Disposals and off-market buy-backs to untangle a structure" },
+  { name: "HKEX IPOs as named sponsor", detail: "TL Natural Gas · Vision Int'l · Sunlight" },
 ]
 
 export default function HomePage() {
@@ -178,14 +174,6 @@ export default function HomePage() {
                 <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0 pulse-dot" />
                 <span className="text-white/60 text-xs font-medium">Accepting 4 new founders this quarter</span>
               </div>
-              <a
-                href="https://lumen-by-mandyc.vercel.app/how-it-works"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/50 hover:text-white/80 text-sm underline underline-offset-2 transition-colors mt-1"
-              >
-                or try Lumen free →
-              </a>
             </div>
           </div>
         </div>
@@ -195,16 +183,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[#1a2a3a] text-sm font-medium tracking-wide">
-            SFC Type 6 Licensed · IPOs, M&amp;As &amp; Restructurings · US$500M+ in Deal Value · <u>Now Accepting Q3 2026</u>
-          </p>
-        </div>
-      </section>
-
-      {/* YOUTUBE BRIDGE LINE */}
-      <section className="bg-white pt-5 px-6">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-center text-slate-400 text-xs font-light tracking-wide md:whitespace-nowrap">
-            <a href="#from-the-channel" className="hover:text-[#a68a1f] transition-colors">Here from YouTube?</a> Same person, same work. The inner game runs underneath every deal on this page.
+            SFC Type 6 Licensed · IPOs, M&amp;As &amp; Restructurings · US$500M+ in Deal Value · <u>Now Accepting Q4 2026</u>
           </p>
         </div>
       </section>
@@ -284,45 +263,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FROM THE CHANNEL */}
-      <section id="from-the-channel" className="scroll-anchor py-12 md:py-20 px-6 bg-[#f8f7f4]">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
-            From the channel
-          </p>
-          <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
-            If the videos brought you here
-          </h2>
-          <p className="text-center text-slate-600 font-light mb-8 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            The channel is where I work through the part nobody trains you for — staying clear-headed when the decision is real and the room is watching. Two things run off it. One is free. One is a room you join.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <div className="p-6 rounded-none bg-white border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-2">Free</p>
-              <h3 className="text-xl font-normal text-[#1a2a3a] mb-2">Lumen</h3>
-              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
-                The 12-week execution system I built for my own use and now share. It starts with who you&apos;re becoming, not your task list. Free, always.
-              </p>
-              <a href="https://lumen-by-mandyc.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
-                Open Lumen →
-              </a>
-            </div>
-
-            <div className="p-6 rounded-none bg-white border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-2">Next Cohort · Join the Waitlist</p>
-              <h3 className="text-xl font-normal text-[#1a2a3a] mb-2">The Inner Game Cohort</h3>
-              <p className="text-slate-600 font-light text-sm leading-relaxed flex-grow mb-4">
-                A six-week room for operators working the same internal problem — small group, one live call a week, a daily practice in between.
-              </p>
-              <a href="/cohort" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
-                See the cohort →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FLAGSHIP OFFER — Pre-IPO Consulting */}
       <section id="download" className="relative py-20 md:py-28 px-6 bg-[#1a2a3a] scroll-mt-24 overflow-hidden">
         {/* Subtle skyline texture to distinguish from the final CTA */}
@@ -350,13 +290,7 @@ export default function HomePage() {
             See the 90-Day Readiness Engagement →
           </a>
           <p className="text-white/50 font-light text-sm mt-5">
-            Not sure you&apos;re ready?
-          </p>
-          <p className="text-white/50 font-light text-sm mt-2">
-            <a href="/ipo-path" className="underline decoration-[#c9a227] decoration-1 underline-offset-4 hover:text-white transition-colors">
-              Start with The IPO Path Assessment
-            </a>{" "}
-            — US$2,500, thirty days, a written verdict either way.
+            Fixed fee, agreed before we start · typically 90 days · contracted with the company
           </p>
         </div>
       </section>
@@ -408,22 +342,23 @@ export default function HomePage() {
       <section id="track-record" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">Track record</p>
-          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal">60+ transactions · US$500M+ in deal value</h2>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal">The situations behind the numbers</h2>
           <p className="text-center text-slate-600 font-light mb-12 max-w-2xl mx-auto">
-            A selection of the deals I&apos;ve advised across IPOs, privatisations, restructurings, and the Takeovers Code.
+            10+ years · 60+ transactions · US$500M+ in deal value advised · HKEX sponsor track record.
+            <br />
+            A selection of the situations I&apos;ve worked across IPOs, privatisations, restructurings, and the Takeovers Code.
           </p>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
             {TRACK_RECORD.map((t, i) => (
               <div key={i} className="bg-white border border-slate-200 p-4 sm:p-7 flex flex-col">
-                <p className="text-xl sm:text-2xl md:text-3xl font-normal text-[#1a2a3a] mb-2 sm:mb-3" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>{t.value}</p>
-                <p className="text-[#1a2a3a] font-medium text-xs sm:text-sm mb-1">{t.name}</p>
+                <p className="text-[#1a2a3a] font-normal text-sm sm:text-base mb-2 sm:mb-3" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>{t.name}</p>
                 <p className="text-slate-500 font-light text-xs sm:text-sm">{t.detail}</p>
               </div>
             ))}
           </div>
           <p className="text-slate-400 text-xs font-light text-center mt-8 max-w-2xl mx-auto">
-            Selected transactions. Figures reflect total deal value advised across the engagement.
+            Selected transactions across the engagement history.
           </p>
         </div>
       </section>

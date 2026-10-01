@@ -179,10 +179,10 @@ export default function ResourcesPage() {
             Ready to explore listing?
           </h2>
           <p className="text-center text-slate-400 font-light mb-12 max-w-2xl mx-auto">
-            A free conversation, a written verdict, then the work. No elaborate funnel.
+            A free conversation, then the work. No elaborate funnel.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Step 01 — highlighted as the entry point */}
             <div className="bg-[#243447] rounded-none p-8 border-2 border-[#c9a227] flex flex-col relative">
               <span className="absolute -top-3 left-8 bg-[#c9a227] text-[#1a2a3a] text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1">
@@ -210,33 +210,19 @@ export default function ResourcesPage() {
 
             {/* Step 02 */}
             <div className="bg-[#243447] rounded-none p-8 border border-white/15 flex flex-col">
-              <p className="text-[#c9a227] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 02 · US$2,500</p>
+              <p className="text-[#c9a227] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 02 · Fixed Fee</p>
               <h3 className="text-2xl font-normal text-white mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif", color: "white" }}>
-                The IPO Path Assessment
+                The 90-Day Readiness Engagement
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed font-light mb-6 flex-grow">
-                A 30-day paid sprint. A two-week deep review and a full analysis of your financials and cap table against current HKEX Main Board, GEM, Nasdaq and NYSE American eligibility thresholds — run by me, not a tool. Then a 90-minute working call, and your Listing Path Memo: 8 to 12 pages within 14 days. Fully creditable toward the 90-Day Readiness Engagement or a full advisory mandate.
+                Ninety days from where you are to filing-ready. A written plan by week two, then the restructuring and financial repair directed week by week. Fixed fee of US$15,000, agreed before we start.
               </p>
               <p className="text-slate-400 text-xs font-light italic mb-4">
-                Outcome: A written verdict on whether you should list, and the next move spelled out.
+                Outcome: A company that can survive an audit and carry a filing.
               </p>
-              <a href="/ipo-path" className="text-[#c9a227] hover:text-[#f5e6b3] text-sm font-medium tracking-wide transition-colors">
-                Start the assessment →
+              <a href="/consulting" className="text-[#c9a227] hover:text-[#f5e6b3] text-sm font-medium tracking-wide transition-colors">
+                See the engagement →
               </a>
-            </div>
-
-            {/* Step 03 */}
-            <div className="bg-[#243447] rounded-none p-8 border border-white/15 flex flex-col">
-              <p className="text-[#c9a227] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 03 · Continuation</p>
-              <h3 className="text-2xl font-normal text-white mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif", color: "white" }}>
-                Advisory mandate
-              </h3>
-              <p className="text-slate-300 text-sm leading-relaxed font-light mb-6 flex-grow">
-                Continue into the 90-Day Readiness Engagement — a fixed fee, agreed before we start — or into a full advisory mandate, where fees are milestone-based. Your US$2,500 credits 100% toward either — booked within 60 days.
-              </p>
-              <p className="text-slate-400 text-xs font-light italic">
-                Outcome: Your company on the path to public markets.
-              </p>
             </div>
           </div>
         </div>

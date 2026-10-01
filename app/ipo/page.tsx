@@ -207,7 +207,7 @@ export default function IPOServicePage() {
       {/* CREDENTIALS BAR - Gold */}
       <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3.5 px-6 md:px-12">
         <p className="text-center text-[#1a2a3a] text-[13px] font-semibold tracking-[0.06em]">
-          SFC Type 6 Licensed · IPOs, M&amp;As &amp; Restructurings · US$500M+ Deal Value · <span className="underline">Now Accepting Q3 2026</span>
+          SFC Type 6 Licensed · IPOs, M&amp;As &amp; Restructurings · US$500M+ Deal Value · <span className="underline">Now Accepting Q4 2026</span>
         </p>
       </section>
 
@@ -355,28 +355,6 @@ export default function IPOServicePage() {
               <strong className="text-[#1a2a3a] font-medium">Businesses that may qualify through a carve-out or roll-up</strong> — Your parent company might seem too small for an IPO. But a single profitable business unit generating $750K+ in net income could qualify on its own. That&apos;s the conversation most founders have never had.
             </p>
           </div>
-
-          {/* PAID DIAGNOSTIC CALLOUT — link to /ipo-path. Sits inside the same
-              section as the bullets so it reads as a follow-on, not a new band. */}
-          <div className="mt-8 md:mt-10 border-l-2 border-[#c9a227] bg-[#f8f7f4] p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-            <div className="md:max-w-xl">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-2">
-                Start with a paid diagnostic
-              </p>
-              <h3 className="text-xl md:text-2xl font-normal text-[#1a2a3a] mb-2" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                The IPO Path Assessment
-              </h3>
-              <p className="text-slate-600 font-light text-sm leading-[1.7]">
-                Thirty days. A written verdict on whether your company is ready to list — and the next move spelled out. US$2,500 — fully creditable toward the 90-Day Readiness Engagement or a full advisory mandate.
-              </p>
-            </div>
-            <a
-              href="/ipo-path"
-              className="w-full md:w-auto flex-shrink-0 inline-flex items-center justify-center whitespace-nowrap px-7 py-3 rounded-none uppercase tracking-[0.12em] text-xs font-semibold btn-gold-animated hover:-translate-y-0.5 transition-transform"
-            >
-              Start the Assessment →
-            </a>
-          </div>
         </div>
       </section>
 
@@ -412,11 +390,11 @@ export default function IPOServicePage() {
               How it works
             </h2>
             <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
-              A free conversation, a written verdict, then the work. No elaborate funnel.
+              A free conversation, then the work. No elaborate funnel.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Step 01 — highlighted as entry point */}
             <div className="bg-[#f8f7f4] rounded-none p-8 border-2 border-[#c9a227] flex flex-col relative">
               <span className="absolute -top-3 left-8 bg-[#c9a227] text-[#1a2a3a] text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1">
@@ -440,33 +418,19 @@ export default function IPOServicePage() {
 
             {/* Step 02 */}
             <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 02 · US$2,500</p>
+              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 02 · Fixed Fee</p>
               <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                The IPO Path Assessment
+                The 90-Day Readiness Engagement
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                A 30-day paid sprint. A two-week deep review and a full analysis of your financials and cap table against current HKEX Main Board, GEM, Nasdaq and NYSE American eligibility thresholds — run by me, not a tool. Then a 90-minute working call, and your Listing Path Memo: 8 to 12 pages within 14 days. Fully creditable toward the 90-Day Readiness Engagement or a full advisory mandate.
+                Ninety days from where you are to filing-ready. I take in your financials, cap table and group structure in week one, deliver a written plan in week two, then direct the restructuring and financial repair week by week — your company in a shape that can carry a filing. Fixed fee of US$15,000, agreed before we start, contracted with the company.
               </p>
               <p className="text-slate-400 text-xs font-light italic mb-4">
-                Outcome: A written verdict on whether you should list, and the next move spelled out.
+                Outcome: A company that can survive an audit and carry a filing.
               </p>
-              <a href="/ipo-path" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
-                Start the assessment →
+              <a href="/consulting" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
+                See the engagement →
               </a>
-            </div>
-
-            {/* Step 03 */}
-            <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 03 · Continuation</p>
-              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                Advisory mandate
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                Continue into the 90-Day Readiness Engagement — a fixed fee, agreed before we start — or into a full advisory mandate, where fees are milestone-based. Your US$2,500 credits 100% toward either — booked within 60 days.
-              </p>
-              <p className="text-slate-400 text-xs font-light italic">
-                Outcome: Your company on the path to public markets.
-              </p>
             </div>
           </div>
         </div>

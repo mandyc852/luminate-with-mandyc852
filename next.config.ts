@@ -5,13 +5,33 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/readiness",
-        destination: "/ipo-path",
+        destination: "/consulting",
         permanent: true,
       },
       {
-        source: "/lumen",
-        destination: "https://lumen-by-mandyc.vercel.app/how-it-works",
-        permanent: false,
+        source: "/ipo-path",
+        destination: "/consulting",
+        permanent: true,
+      },
+      {
+        source: "/ipo-path/:path*",
+        destination: "/consulting",
+        permanent: true,
+      },
+      {
+        source: "/fund",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/cohort",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/leap",
+        destination: "/",
+        permanent: true,
       },
       {
         source: "/executive-readiness",

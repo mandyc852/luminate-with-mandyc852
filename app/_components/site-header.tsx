@@ -11,8 +11,6 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/mandyc852/"
 const WORK_LINKS = [
   { label: "Consulting", href: "/consulting" },
   { label: "IPO Advisory", href: "/ipo" },
-  { label: "LPF Launch", href: "/fund" },
-  { label: "Inner Game Cohort", href: "/cohort" },
 ]
 
 type NavLink = { label: string; href: string }

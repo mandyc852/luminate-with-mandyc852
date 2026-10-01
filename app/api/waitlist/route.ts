@@ -35,7 +35,7 @@ async function addToBeehiiv(email: string, sourcePage?: string) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: email.toLowerCase().trim(),
-          utm_source: sourcePage === "cohort" ? "cohort-waitlist" : (sourcePage || "mandyc.me"),
+          utm_source: sourcePage || "mandyc.me",
         }),
       }
     )
@@ -58,7 +58,6 @@ const LEAD_MAGNETS: Record<
 
 const REDIRECT_MAP: Record<string, string> = {
   guide: "/guide/thank-you",
-  leap: "/leap/thank-you",
 }
 
 export async function POST(request: NextRequest) {

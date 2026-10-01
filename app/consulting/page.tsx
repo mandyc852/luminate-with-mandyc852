@@ -31,6 +31,7 @@ const PRODUCT_JSONLD = {
   url: "https://mandyc.me/consulting",
   offers: {
     "@type": "Offer",
+    price: "15000",
     priceCurrency: "USD",
     url: "https://mandyc.me/consulting",
   },
@@ -207,7 +208,7 @@ export default function ConsultingPage() {
           </p>
 
           <p className="text-[#f5e6b3] text-[12px] md:text-[13px] font-medium tracking-[0.22em] uppercase mb-10">
-            Fixed fee, agreed before we start · typically 90 days · contracted with the company
+            Fixed fee US$15,000 · typically 90 days · contracted with the company
           </p>
 
           <div className="flex flex-col items-center gap-4">
