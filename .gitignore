@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# automation reports — never commit or deploy
+/_reports/
+gsc-report-*.md
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
