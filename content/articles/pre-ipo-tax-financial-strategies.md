@@ -54,7 +54,7 @@ An IPO can lead to substantial capital gains, resulting in high tax liabilities.
 
 - **Offset Gains with Capital Losses**: Selling underperforming investments to generate capital losses can offset gains from your IPO stock sale — known as **tax-loss harvesting**. The wash sale rule (61-day window) remains unchanged.
 
-- **Maximize Tax-Deferral Vehicles**: Contributing to qualified retirement plans (401(k) limits: **$24,500** employee deferral for 2026, with a **$11,250 super catch-up** for ages 60–63), nonqualified deferred compensation plans, annuities, and life insurance products can defer taxes and allow investments to grow tax-free or tax-deferred. Note that earners above $145,000 in prior-year FICA wages from the plan sponsor must now make catch-up contributions as **Roth** (not traditional) starting 2026.
+- **Maximize Tax-Deferral Vehicles**: Contributing to qualified retirement plans (401(k) limits: **$24,500** employee deferral for 2026, with a **$11,250 super catch-up** for ages 60–63), nonqualified deferred compensation plans, annuities, and life insurance products can defer taxes and allow investments to grow tax-free or tax-deferred. Note that earners above **$150,000** in prior-year FICA wages from the plan sponsor (2025 wages, for 2026 contributions; the statutory $145,000 threshold is inflation-indexed) must now make catch-up contributions as **Roth** (not traditional) starting 2026.
 
 - **Family Gifting**: Gifting stock to family members in lower tax brackets can reduce overall tax exposure. Take advantage of the **$19,000 annual gift tax exclusion** (2025–2026) and the $15 million lifetime exemption.
 

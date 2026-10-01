@@ -29,7 +29,7 @@ Most companies opt for the **Net Income Standard**, which requires:
 
 - **IPO Proceeds-Only Rule (April 2025):** The MVUPHS requirement must now be met **solely from IPO offering proceeds**. Pre-existing freely tradeable shares no longer count. This effectively sets a minimum viable IPO raise of approximately USD 15 million for non-profitable companies.
 - **China-Based Companies (June 2026):** Companies primarily operating in China, Hong Kong, or Macau must raise at least **USD 25 million** in a firm commitment underwritten IPO and are prohibited from direct listings on the Capital Market and Global Market tiers.
-- **Accelerated Delisting (January 2026):** Securities with a closing bid price of $0.10 or below for 10 consecutive trading days now face immediate suspension, with no compliance period. (A related proposal to suspend companies immediately when market value of listed securities falls below $5 million was removed before the rule was approved and did not take effect.)
+- **Accelerated Delisting (January 2026):** Securities with a closing bid price of $0.10 or below for 10 consecutive trading days now face immediate suspension, with no compliance period. (A related proposal to immediately suspend companies whose market value of listed securities falls below $5 million was removed from that rule filing before approval. Nasdaq refiled it separately (SR-NASDAQ-2026-004); the SEC approved it on July 22, 2026, but the approval was automatically stayed on July 29, 2026 pending full Commission review, so the $5 million MVLS accelerated-delisting rule is not in effect as of October 2026.)
 
 Review your financials against these updated metrics to confirm eligibility before proceeding.
 
