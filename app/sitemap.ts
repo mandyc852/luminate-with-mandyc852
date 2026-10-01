@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next"
+import { getAllArticles } from "@/lib/articles"
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -6,6 +7,13 @@ const siteUrl =
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
+  const articles = getAllArticles().map((a) => ({
+    url: `${siteUrl}/resources/${a.slug}`,
+    lastModified: new Date(a.updatedAt || a.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }))
+
   return [
     {
       url: siteUrl,
@@ -25,6 +33,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${siteUrl}/resources`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...articles,
     {
       url: `${siteUrl}/subscribe`,
       lastModified: now,
