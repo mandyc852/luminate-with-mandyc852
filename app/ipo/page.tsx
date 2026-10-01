@@ -1,9 +1,11 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
-import { BookCallButton, FloatingCTA } from "../_components/home-interactions"
+import { BookCallButton } from "../_components/home-interactions"
+import { DetailsDrawer } from "../_components/details-drawer"
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -17,205 +19,246 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-export default function IPOServicePage() {
+/* Same booking URL the site has always used. */
+const TIDYCAL_URL = "https://tidycal.com/mandyc852/30-minute-meeting"
+const CTA_LABEL = "Book a Confidential Call"
+
+const PRODUCT_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "The 90-Day Readiness Engagement",
+  serviceType: "IPO & Capital Markets Advisory",
+  provider: { "@type": "Organization", name: "MandyC." },
+  url: "https://mandyc.me/ipo",
+  offers: {
+    "@type": "Offer",
+    price: "15000",
+    priceCurrency: "USD",
+    url: "https://mandyc.me/ipo",
+  },
+}
+
+function PrimaryCTA({ className = "" }: { className?: string }) {
+  return (
+    <a
+      href={TIDYCAL_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none uppercase tracking-[0.12em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated ${className}`}
+      style={{ minHeight: 48 }}
+    >
+      {CTA_LABEL}
+    </a>
+  )
+}
+
+/* Mobile-only sticky bottom bar (<768px). Appears once the hero has scrolled away. */
+function StickyMobileBar() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const hero = document.getElementById("hero-section")
+    const update = () => {
+      const past = hero
+        ? window.scrollY >= hero.offsetTop + hero.offsetHeight
+        : window.scrollY > 400
+      setVisible(past)
+    }
+    update()
+    window.addEventListener("scroll", update, { passive: true })
+    window.addEventListener("resize", update)
+    return () => {
+      window.removeEventListener("scroll", update)
+      window.removeEventListener("resize", update)
+    }
+  }, [])
 
   return (
-    <div className={`${cormorantGaramond.variable} ${poppins.variable} min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/80`}>
+    <div
+      className={`md:hidden fixed bottom-0 left-0 right-0 z-[900] bg-white border-t border-slate-200 shadow-[0_-6px_20px_rgba(15,26,36,0.08)] px-4 py-3 transition-transform duration-300 ${
+        visible ? "translate-y-0" : "translate-y-full"
+      }`}
+      aria-hidden={!visible}
+    >
+      <div className="flex items-center justify-between gap-4">
+        <p className="text-[#1a2a3a] text-[14px] font-semibold tracking-[0.02em] leading-tight">
+          Ninety days to filing-ready
+        </p>
+        <a
+          href={TIDYCAL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          tabIndex={visible ? undefined : -1}
+          className="flex-shrink-0 inline-flex items-center justify-center whitespace-nowrap px-5 py-3 rounded-none uppercase tracking-[0.1em] text-[12px] font-semibold btn-gold-animated"
+          style={{ minHeight: 44 }}
+        >
+          Book a call
+        </a>
+      </div>
+    </div>
+  )
+}
+
+const WORKS_IF = [
+  "You have decided to list, most likely on Nasdaq",
+  "The business is genuinely profitable — roughly US$750K+ net",
+  "You can give me straight answers about how the group is owned",
+  "Someone senior can act on the plan between calls",
+]
+
+const DOES_NOT_WORK_IF = [
+  "You need capital in the next ninety days",
+  "Nobody on your side can make structural decisions",
+  "You want to be told listing is a good idea when it is not",
+  "You are looking for a guarantee that you will list",
+]
+
+const NEXT_STEPS: Array<{ lead: string; rest: string }> = [
+  {
+    lead: "Book a confidential call.",
+    rest: " Thirty minutes, no charge, no deck. You describe the business; I tell you what I would want to look at first.",
+  },
+  {
+    lead: "I tell you whether I can help",
+    rest: " — or that I cannot. That happens, and it is fine.",
+  },
+  {
+    lead: "If we proceed:",
+    rest: " NDA, intake pack, and week one starts.",
+  },
+]
+
+const SERVICES = [
+  {
+    title: "Listing strategy",
+    body: "Full listing, carve-out, or roll-up — identifying the right path based on your business structure, financials, and goals.",
+    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+  },
+  {
+    title: "Corporate restructuring",
+    body: "Building the shareholding structure, deciding what stays in the parent vs. the listing vehicle, and ensuring regulatory compliance across jurisdictions.",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+  },
+  {
+    title: "Financial engineering",
+    body: "Ensuring the carved-out or consolidated entity meets target exchange financial thresholds — audit-ready, compliant, and positioned for approval.",
+    icon: "M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z",
+  },
+  {
+    title: "Investable narrative",
+    body: "Making the business story compelling to public market investors. The factor that goes beyond meeting minimum requirements.",
+    icon: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z",
+  },
+  {
+    title: "Investor sourcing",
+    body: "For founders who need it: sourcing pre-IPO and listing investors through relationships built over a decade of cross-border deal work.",
+    icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 11-8 0 4 4 0 018 0z",
+  },
+  {
+    title: "Professional party coordination",
+    body: "Sourcing and managing the full team: lawyers, auditors, sponsors, underwriters. One point of coordination through to listing.",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01",
+  },
+]
+
+export default function IPOAdvisoryPage() {
+  return (
+    <div
+      className={`${cormorantGaramond.variable} ${poppins.variable} min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/80`}
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PRODUCT_JSONLD) }}
+      />
+
       <style jsx global>{`
         :root {
-          /* Professional Navy + Gold Palette */
           --navy-deep: #1a2a3a;
           --navy-medium: #2d4156;
-          --navy-light: #3d5a73;
           --gold-primary: #c9a227;
           --gold-light: #d4b84a;
           --gold-dark: #a68a1f;
-          --cream: #fafaf9;
-          --charcoal: #1c1917;
+          /* Darker step of the same gold, for small-caps labels that must clear 4.5:1 */
+          --gold-deep: #7d6715;
           --text-primary: #3d4f5f;
           --text-secondary: #5a6d7d;
         }
-
         html { scroll-behavior: smooth; }
         body {
-          background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, rgba(248, 250, 252, 0.8) 100%);
+          background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, rgba(248,250,252,0.8) 100%);
           color: var(--text-primary);
           padding-top: 80px;
         }
         .scroll-anchor { scroll-margin-top: 96px; }
-
         h1, h2, h3 {
           font-family: var(--font-cormorant-garamond), serif;
           font-weight: 400;
           color: var(--navy-deep);
           letter-spacing: -0.02em;
         }
-
-        p, label, input, button {
-          font-family: var(--font-poppins), sans-serif;
-        }
-
-        /* Hero gradient text - Gold on dark */
+        p, li, label, input, button, summary { font-family: var(--font-poppins), sans-serif; }
         .gradient-text-hero {
           background: linear-gradient(135deg, #FFFFFF 0%, #f5e6b3 40%, #c9a227 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
-
-        /* CTA title gradient - Gold on dark background */
-        .cta-title-gradient {
-          background: linear-gradient(135deg, #d4b84a 0%, #c9a227 50%, #f5e6b3 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        /* ============================================
-           ANIMATED GRADIENT BUTTONS
-           ============================================ */
-
-        /* Gold button with animated shimmer */
-        .btn-gold-animated {
-          position: relative;
-          background: linear-gradient(135deg, #a68a1f 0%, #c9a227 25%, #d4b84a 50%, #c9a227 75%, #a68a1f 100%);
-          background-size: 200% 200%;
-          color: #1a2a3a;
-          box-shadow: 0 4px 14px rgba(26, 42, 58, 0.25), 0 2px 8px rgba(201, 162, 39, 0.2);
-          font-weight: 500;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          overflow: hidden;
-        }
-        .btn-gold-animated:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(26, 42, 58, 0.35), 0 4px 15px rgba(201, 162, 39, 0.3);
-          animation: shimmerGold 1.5s ease infinite;
-        }
-
-        @keyframes urgencyPulse {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.4); }
-          70% { box-shadow: 0 0 0 8px rgba(201,162,39,0); }
-        }
-
-        @keyframes floatBob {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-4px); }
-        }
-
-        @keyframes shimmerGold {
-          0% { background-position: 200% 0%; }
-          100% { background-position: -200% 0%; }
-        }
-
-        /* Floating CTA */
-        .floating-cta {
-          position: fixed;
-          bottom: 24px;
-          right: 24px;
-          z-index: 1000;
-          animation: pulseGlow 2.5s ease-in-out infinite;
-        }
-
-        @keyframes pulseGlow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(201, 162, 39, 0.4), 0 0 40px rgba(201, 162, 39, 0.2);
-          }
-          50% {
-            box-shadow: 0 0 30px rgba(201, 162, 39, 0.6), 0 0 60px rgba(201, 162, 39, 0.3);
-          }
-        }
-
-        @media (max-width: 768px) {
-          .floating-cta { bottom: 16px; right: 16px; }
-          .desktop-nav { display: none; }
-        }
+        /* Bottom room so the mobile sticky bar never covers footer content */
+        @media (max-width: 767px) { .mobile-cta-spacer { height: 84px; } }
       `}</style>
 
-      {/* Header */}
       <SiteHeader
         links={[
           { label: "The Problem", href: "#the-problem" },
-          { label: "What I Do", href: "#what-i-do" },
-          { label: "Who It's For", href: "#who-its-for" },
-          { label: "How It Works", href: "#how-it-works" },
-          { label: "Resources", href: "#resources" },
+          { label: "How It Runs", href: "#how-it-runs" },
+          { label: "Is This You?", href: "#is-this-you" },
+          { label: "Questions", href: "#common-questions" },
         ]}
+        bookHref={TIDYCAL_URL}
         hideGlobalLinks
       />
 
-      {/* HERO SECTION */}
-      <section className="relative w-full overflow-hidden bg-[#1a2a3a]" style={{ minHeight: 520 }}>
-        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[55%]">
-          <Image
-            src="/Wallstreet.jpg"
-            alt="New York Stock Exchange, Wall Street"
-            fill
-            priority
-            quality={90}
-            className="object-cover"
-            sizes="55vw"
-          />
-          <div className="absolute left-0 top-0 bottom-0 w-[200px] bg-gradient-to-r from-[#1a2a3a] to-transparent pointer-events-none" />
-        </div>
-        <div className="md:hidden absolute inset-0">
-          <Image
-            src="/Wallstreet.jpg"
-            alt="New York Stock Exchange, Wall Street"
-            fill
-            priority
-            quality={90}
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-[#1a2a3a]/75 pointer-events-none" />
-        </div>
+      {/* ── 1 · HERO — navy ─────────────────────────────────────────────── */}
+      <section
+        id="hero-section"
+        className="relative w-full bg-[#1a2a3a] px-6 py-20 md:py-28 overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-[rgba(201,162,39,0.07)] via-transparent to-[rgba(201,162,39,0.04)] pointer-events-none"
+          aria-hidden="true"
+        />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-20 md:py-24 flex items-center" style={{ minHeight: 520 }}>
-          <div className="max-w-[560px] mx-auto md:mx-0 text-center md:text-left">
-            <p className="text-[#f5e6b3] text-xs font-medium tracking-[0.3em] uppercase mb-5">
-              Lumina Capital · Hong Kong
-            </p>
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <p className="text-[#f5e6b3] text-[11px] font-medium tracking-[0.32em] uppercase mb-6">
+            <span className="inline-block w-8 h-px bg-[#f5e6b3]/60 align-middle mr-3" aria-hidden="true" />
+            IPO Advisory · 90-Day Engagement
+            <span className="inline-block w-8 h-px bg-[#f5e6b3]/60 align-middle ml-3" aria-hidden="true" />
+          </p>
 
-            <h1 className="gradient-text-hero text-3xl sm:text-4xl md:text-[52px] leading-[1.12] font-normal mb-5">
-              Should you take your company public?
-            </h1>
+          <h1 className="gradient-text-hero text-4xl sm:text-5xl md:text-6xl leading-[1.08] font-normal mb-8 tracking-tight">
+            Ninety days from where you are to filing-ready.
+          </h1>
 
-            <p className="text-base md:text-lg text-white/90 font-light leading-relaxed mb-7 max-w-[480px] mx-auto md:mx-0">
-              Most founders assume listing isn&apos;t for them. They&apos;re often wrong. I help you find out — and walk with you from restructuring to listing day.
-            </p>
+          <p className="text-base md:text-lg text-white/90 font-light leading-[1.75] mb-8 max-w-2xl mx-auto">
+            You have decided to list. What stands between you and a filing is rarely the decision — it is how your group is owned and what your financial records will survive. I spend ninety days fixing both.
+          </p>
 
-            <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 w-full sm:w-auto">
-              <BookCallButton
-                label="Book a Confidential Call"
-                className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none uppercase tracking-[0.12em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
-              />
-              <a
-                href="/guide"
-                className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none uppercase tracking-[0.12em] text-sm font-normal border border-white/40 text-white hover:border-white hover:bg-white/10 transition-colors"
-              >
-                Free IPO Guide
-              </a>
-            </div>
-            <div className="flex items-center justify-center md:justify-start gap-2 mt-3">
-              <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0" style={{ animation: "urgencyPulse 2s ease infinite" }} />
-              <span className="text-white/60 text-xs font-medium">Accepting 4 new founders this quarter</span>
-            </div>
+          <p className="text-[#f5e6b3] text-[12px] md:text-[13px] font-medium tracking-[0.22em] uppercase mb-10">
+            Fixed fee US$15,000 · typically 90 days · contracted with the company
+          </p>
+
+          <div className="flex flex-col items-center gap-4">
+            <PrimaryCTA className="w-full sm:w-[420px]" />
+            <p className="text-white/70 font-light text-sm">30 minutes, no charge</p>
           </div>
         </div>
       </section>
 
-      {/* CREDENTIALS BAR - Gold */}
-      <section className="bg-gradient-to-r from-[#c9a227] via-[#d4b84a] to-[#c9a227] py-3.5 px-6 md:px-12">
-        <p className="text-center text-[#1a2a3a] text-[13px] font-semibold tracking-[0.06em]">
-          SFC Type 6 Licensed · IPOs, M&amp;As &amp; Restructurings · US$500M+ Deal Value · <span className="underline">Now Accepting Q4 2026</span>
-        </p>
-      </section>
-
-      {/* THE PROBLEM */}
+      {/* ── 2 · THE PROBLEM — white ─────────────────────────────────────── */}
       <section id="the-problem" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            Most founders who dismiss going public are making that decision based on assumptions that aren&apos;t accurate
+          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal" style={{ textWrap: "balance" }}>
+            Most founders who dismiss going public are making that decision on assumptions that aren&apos;t accurate
           </h2>
 
           <div className="space-y-5 text-slate-600 text-[15px] leading-[1.8] font-light">
@@ -229,268 +272,249 @@ export default function IPOServicePage() {
               What most founders don&apos;t know: you don&apos;t have to list your entire company. A carve-out takes one business unit and structures it as a standalone listing vehicle. A roll-up consolidates multiple smaller businesses into one. Both strategies change who qualifies — and how.
             </p>
             <p className="text-[#1a2a3a] font-normal">
-              The question isn&apos;t whether listing is good or bad. It&apos;s whether it&apos;s right for where your business is now and where you want it to go. That&apos;s what the strategy call is for.
+              The question isn&apos;t whether listing is good or bad. It&apos;s whether it&apos;s right for where your business is now and where you want it to go. That&apos;s what the first call is for.
             </p>
           </div>
         </div>
       </section>
 
-      {/* WHAT I DO */}
-      <section id="what-i-do" className="scroll-anchor py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      {/* ── 3 · THREE THINGS — cream ────────────────────────────────────── */}
+      <section className="py-16 md:py-24 px-6 bg-[#f8f7f4]">
+        <div className="max-w-[68ch] mx-auto">
+          <h2
+            className="text-3xl md:text-[42px] font-normal mb-12 leading-[1.15] text-[#1a2a3a]"
+            style={{ textWrap: "balance" }}
+          >
+            Three things that actually stop a first listing
+          </h2>
+
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
+                The blocker is almost never the decision. It is the structure.
+              </h3>
+              <p className="text-slate-600 text-[17px] md:text-[18px] leading-[1.85] font-light">
+                By the time we speak you have usually settled on Nasdaq, and for a company at your size it is often the only route whose thresholds you clear. What delays a first listing is what sits underneath the decision: how the group is owned. Most first-time issuers need a holding company established above their operating entities before they can list at all — and that reorganisation carries tax, regulatory and shareholder consequences that have to be worked through in the right order. Rebuilding the structure is the work, and it has to happen before anyone drafts a document.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
+                Profitable is not the same as auditable.
+              </h3>
+              <p className="text-slate-600 text-[17px] md:text-[18px] leading-[1.85] font-light">
+                Founders who know their numbers are usually right about the business and wrong about the records. Dealings with family and connected companies that were never at arm&apos;s length. Money moving between group entities on handshake terms. Revenue recognised the way your market does it rather than the way a US audit requires. Books that simply do not reach back far enough to cover the audit period. None of it looks like a problem until an auditor asks — and by then it is on your timeline, not theirs.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
+                Left late, this costs multiples.
+              </h3>
+              <p className="text-slate-600 text-[17px] md:text-[18px] leading-[1.85] font-light">
+                Restructuring a group and repairing historical financials takes months, and it does not compress. Done early it is planning. Done under a filing deadline it becomes emergency work at emergency prices, with a delay attached — and often a structure you would not have chosen if you had been given time to choose.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4 · HOW THE NINETY DAYS RUN — white ─────────────────────────── */}
+      <section id="how-it-runs" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">How the ninety days run</h2>
+
+          <div className="space-y-8">
+            <div>
+              <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
+                Week one — I take everything in.
+              </p>
+              <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
+                Financials, cap table, group structure, and the arrangements nobody wrote down. My job in week one is to understand your company more precisely than you have ever had to explain it.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
+                Week two — you get the plan.
+              </p>
+              <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
+                A written proposal: what has to change in your structure and your financials, in what order, who does each piece, and how long each takes. You will know the shape of the entire ninety days before we are two weeks in.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
+                Weeks three to thirteen — we do it.
+              </p>
+              <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
+                The restructuring itself, worked week by week. A standing call every week, email in between, and me directing the lawyers and accountants you appoint so the sequence holds. At the end, your company is in a shape that can carry a filing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5 · WHAT I DO — cream ───────────────────────────────────────── */}
+      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             Advisory Services
           </p>
-          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+          <h2 className="text-3xl md:text-4xl mb-4 text-center font-normal">
             End-to-end IPO advisory
           </h2>
           <p className="text-center text-slate-600 text-sm font-light mb-12 max-w-3xl mx-auto">
-            From restructuring to listing day. One advisor. Milestone-based fees.
+            From restructuring to listing day. One advisor, covering the ground a deal team would.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
+            {SERVICES.map((s) => (
+              <div key={s.title} className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
+                <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={s.icon} />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 text-center">{s.title}</h3>
+                <p className="text-slate-600 font-light text-sm text-center flex-grow">
+                  {s.body}
+                </p>
               </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 text-center">Listing strategy</h3>
-              <p className="text-slate-600 font-light text-sm text-center flex-grow">
-                Full listing, carve-out, or roll-up — identifying the right path based on your business structure, financials, and goals.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 text-center">Corporate restructuring</h3>
-              <p className="text-slate-600 font-light text-sm text-center flex-grow">
-                Building the shareholding structure, deciding what stays in the parent vs. the listing vehicle, and ensuring regulatory compliance across jurisdictions.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 text-center">Financial engineering</h3>
-              <p className="text-slate-600 font-light text-sm text-center flex-grow">
-                Ensuring the carved-out or consolidated entity meets target exchange financial thresholds — audit-ready, compliant, and positioned for approval.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 text-center">Investable narrative</h3>
-              <p className="text-slate-600 font-light text-sm text-center flex-grow">
-                Making the business story compelling to public market investors. The &quot;sexy factor&quot; that goes beyond meeting minimum requirements.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 text-center">Investor sourcing</h3>
-              <p className="text-slate-600 font-light text-sm text-center flex-grow">
-                For founders who need it: sourcing pre-IPO and listing investors through relationships built over a decade of cross-border deal work.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
-              <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-normal text-[#1a2a3a] mb-3 text-center">Professional party coordination</h3>
-              <p className="text-slate-600 font-light text-sm text-center flex-grow">
-                Sourcing and managing the full team: lawyers, auditors, sponsors, underwriters. One point of coordination through to listing.
-              </p>
-            </div>
+            ))}
           </div>
-
-          <div className="mt-10 bg-[#1a2a3a] rounded-none p-6 md:p-7">
-            <p className="text-center text-white/90 font-light max-w-3xl mx-auto">
-              Milestone-based fees aligned with deal progression. You pay as the deal moves forward, not upfront. Specific terms discussed during the assessment call.
-            </p>
-          </div>
-
         </div>
       </section>
 
-      {/* WHO THIS IS FOR */}
-      <section id="who-its-for" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
+      {/* ── 6 · IS THIS YOU — white ─────────────────────────────────────── */}
+      <section id="is-this-you" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">Is this you?</h2>
+
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+            <div className="border-l-2 border-[#c9a227] pl-6 md:pl-7">
+              <h3 className="text-[#1a2a3a] text-lg md:text-xl font-normal mb-5">This works if</h3>
+              <ul className="space-y-4">
+                {WORKS_IF.map((item) => (
+                  <li key={item} className="text-slate-600 text-[15px] leading-[1.8] font-light">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border-l-2 border-slate-300 pl-6 md:pl-7">
+              <h3 className="text-[#1a2a3a] text-lg md:text-xl font-normal mb-5">
+                This does not work if
+              </h3>
+              <ul className="space-y-4">
+                {DOES_NOT_WORK_IF.map((item) => (
+                  <li key={item} className="text-slate-600 text-[15px] leading-[1.8] font-light">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7 · ABOUT — cream ───────────────────────────────────────────── */}
+      <section className="py-14 md:py-20 px-6 bg-[#f8f7f4]">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-[280px_1fr] gap-8 md:gap-14 items-start">
+            <div className="mx-auto md:mx-0 w-full max-w-[240px] md:max-w-[280px]">
+              <div className="relative aspect-[4/5] w-full bg-slate-200 overflow-hidden">
+                <Image
+                  src="/Profile pic 4.png"
+                  alt="Mandy Cheung"
+                  fill
+                  quality={90}
+                  className="object-cover"
+                  sizes="(max-width: 768px) 240px, 280px"
+                />
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-3xl md:text-4xl font-normal mb-7 text-center md:text-left">
+                About Mandy
+              </h2>
+              <div className="space-y-5 text-slate-600 text-[15px] leading-[1.85] font-light">
+                <p>
+                  Ten-plus years across Nasdaq, HKEX and global markets. Sixty-plus transactions in IPOs, M&amp;A and cross-border deals. SFC Type 6 licensed — advising on corporate finance.
+                </p>
+                <p>
+                  Most of the listings I work on are US ones, for founder-led companies listing for the first time. I have sat on the sell side, which is why I can tell you what your auditor will and will not sign before you find out the expensive way.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 8 · THE ENGAGEMENT — navy (the one dark CTA moment) ─────────── */}
+      <section className="py-16 md:py-24 px-6 bg-[#1a2a3a]" style={{ backgroundImage: "linear-gradient(135deg, rgba(201,162,39,0.06) 0%, transparent 60%)" }}>
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-10 text-center font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            Who this is for
+          <h2 className="text-3xl md:text-4xl font-normal mb-3 text-center" style={{ color: "#ffffff" }}>
+            The 90-Day Readiness Engagement
           </h2>
-          <div className="space-y-5">
-            <p className="text-base leading-[1.8] text-slate-600 font-light relative pl-8">
-              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              <strong className="text-[#1a2a3a] font-medium">Founder-operators with profitable businesses ($2M+ net profit)</strong> — You built this yourself. No silver spoon, no corporate backing. Capital markets might feel far from where you started, but the ambition is there — and the numbers might be closer to qualifying than you think.
-            </p>
-            <p className="text-base leading-[1.8] text-slate-600 font-light relative pl-8">
-              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              <strong className="text-[#1a2a3a] font-medium">Self-made founders exploring whether listing is right</strong> — You haven&apos;t decided yet. You&apos;re exploring. You want an honest conversation about what&apos;s possible, not a sales pitch from someone who needs your mandate fee.
-            </p>
-            <p className="text-base leading-[1.8] text-slate-600 font-light relative pl-8">
-              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              <strong className="text-[#1a2a3a] font-medium">Companies considering NASDAQ or HKEX listing in the next 12–36 months</strong> — You&apos;re thinking ahead, not scrambling. The founders who engage an advisor early — before they think they&apos;re ready — almost always have a smoother, faster, and less expensive process.
-            </p>
-            <p className="text-base leading-[1.8] text-slate-600 font-light relative pl-8">
-              <span className="absolute left-0 text-[#c9a227] text-xl font-bold">→</span>
-              <strong className="text-[#1a2a3a] font-medium">Businesses that may qualify through a carve-out or roll-up</strong> — Your parent company might seem too small for an IPO. But a single profitable business unit generating $750K+ in net income could qualify on its own. That&apos;s the conversation most founders have never had.
-            </p>
-          </div>
-        </div>
-      </section>
+          <p className="text-center text-white/60 font-light mb-12 max-w-2xl mx-auto">
+            Fixed fee US$15,000 · typically 90 days · contracted with the company
+          </p>
 
-      {/* DARK URGENCY MID-CTA */}
-      <section className="bg-[#1a2a3a] py-16 md:py-[72px] px-6 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(201,162,39,0.05)] via-transparent to-[rgba(201,162,39,0.03)]" />
-        <div className="relative z-10 max-w-[600px] mx-auto">
-          <p className="text-white text-3xl md:text-4xl mb-1.5 leading-[1.3]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            The founders who engage early
-          </p>
-          <p className="text-[#c9a227] text-3xl md:text-4xl mb-3 leading-[1.3]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-            get the smoothest path to listing.
-          </p>
-          <p className="text-white/50 text-sm font-light mb-9">
-            30 minutes. No pitch. Just clarity on whether listing is right for you.
-          </p>
-          <BookCallButton
-            label="Book a Confidential Call"
-            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.15em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
-          />
-          <p className="text-white/45 text-xs font-medium tracking-[0.22em] uppercase mt-5 text-center flex items-center justify-center gap-2">
-            <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0" style={{ animation: "urgencyPulse 2s ease infinite" }} />
+          <h3 className="text-xl md:text-2xl font-normal mb-10 text-center" style={{ color: "#f5e6b3" }}>
+            What happens next
+          </h3>
+
+          <ol className="space-y-7 mb-12">
+            {NEXT_STEPS.map((s, i) => (
+              <li key={s.lead} className="flex gap-5">
+                <span
+                  className="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#f5e6b3] text-base"
+                  style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <p className="pt-1.5 text-slate-200 text-[15px] md:text-[16px] leading-[1.8] font-light">
+                  <strong className="font-medium text-white">{s.lead}</strong>
+                  {s.rest}
+                </p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="flex justify-center">
+            <PrimaryCTA className="w-full sm:w-[420px]" />
+          </div>
+          <p className="text-white/45 text-xs font-medium tracking-[0.22em] uppercase mt-6 text-center flex items-center justify-center gap-2">
+            <span className="w-[7px] h-[7px] rounded-full bg-[#c9a227] flex-shrink-0 pulse-dot" />
             Accepting 4 new founders this quarter
           </p>
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section id="how-it-works" className="scroll-anchor py-20 md:py-28 px-6 bg-slate-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="">
-            <h2 className="text-3xl md:text-4xl mb-3 text-center font-normal">
-              How it works
-            </h2>
-            <p className="text-center text-slate-500 font-light mb-10 max-w-2xl mx-auto">
-              A free conversation, then the work. No elaborate funnel.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Step 01 — highlighted as entry point */}
-            <div className="bg-[#f8f7f4] rounded-none p-8 border-2 border-[#c9a227] flex flex-col relative">
-              <span className="absolute -top-3 left-8 bg-[#c9a227] text-[#1a2a3a] text-[10px] font-semibold tracking-[0.2em] uppercase px-2.5 py-1">
-                Start Here
-              </span>
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 01 · Free</p>
-              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                Discovery call
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                Thirty minutes, video. You talk about the business. I give you an honest initial read on whether listing is worth exploring — and which structuring approach might fit. Free.
-              </p>
-              <p className="text-slate-400 text-xs font-light italic mb-5">
-                Outcome: Clarity on whether it&apos;s worth the next step.
-              </p>
-              <BookCallButton
-                label="Book Your Free Call"
-                className="w-full flex items-center justify-center px-6 py-3 text-xs uppercase tracking-[0.12em] font-semibold btn-gold-animated hover:-translate-y-0.5 transition-transform"
-              />
-            </div>
-
-            {/* Step 02 */}
-            <div className="bg-[#f8f7f4] rounded-none p-8 border border-slate-200/60 flex flex-col">
-              <p className="text-[#a68a1f] text-xs font-medium tracking-[0.2em] uppercase mb-3">Step 02 · Fixed Fee</p>
-              <h3 className="text-2xl font-normal text-[#1a2a3a] mb-4" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
-                The 90-Day Readiness Engagement
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed font-light mb-6 flex-grow">
-                Ninety days from where you are to filing-ready. I take in your financials, cap table and group structure in week one, deliver a written plan in week two, then direct the restructuring and financial repair week by week — your company in a shape that can carry a filing. Fixed fee of US$15,000, agreed before we start, contracted with the company.
-              </p>
-              <p className="text-slate-400 text-xs font-light italic mb-4">
-                Outcome: A company that can survive an audit and carry a filing.
-              </p>
-              <a href="/consulting" className="text-[#a68a1f] hover:text-[#1a2a3a] text-sm font-medium tracking-wide transition-colors">
-                See the engagement →
-              </a>
-            </div>
-          </div>
+      {/* ── 9 · COMMON QUESTIONS — white ────────────────────────────────── */}
+      <section id="common-questions" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">Common questions</h2>
+          <DetailsDrawer />
         </div>
       </section>
 
-      {/* IPO RESOURCES — compact bar */}
-      <div id="resources" className="scroll-anchor py-5 px-6 md:px-16 bg-[#f8f7f4] border-t border-black/[0.06]">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center gap-4 md:gap-10">
-          <p className="text-[#a68a1f] text-[9px] font-medium tracking-[0.25em] uppercase flex-shrink-0">
-            Further reading
-          </p>
-          <div className="flex flex-col md:flex-row flex-1 md:border-l border-black/[0.08] divide-y md:divide-y-0 md:divide-x divide-black/[0.08]">
-            <a href="/resources/nasdaq-ipo-preparation-checklist" className="flex-1 px-5 py-2.5 text-[13px] font-light text-slate-600 hover:text-[#1a2a3a] transition-colors">
-              The Ultimate Nasdaq IPO Preparation Checklist <span className="text-[#a68a1f] font-medium">→</span>
-            </a>
-            <a href="/resources/nasdaq-ipo-cost-breakdown" className="flex-1 px-5 py-2.5 text-[13px] font-light text-slate-600 hover:text-[#1a2a3a] transition-colors">
-              How Much Does A Nasdaq IPO Cost? <span className="text-[#a68a1f] font-medium">→</span>
-            </a>
-            <a href="/resources/pre-ipo-tax-financial-strategies" className="flex-1 px-5 py-2.5 text-[13px] font-light text-slate-600 hover:text-[#1a2a3a] transition-colors">
-              Pre-IPO Tax and Financial Strategies <span className="text-[#a68a1f] font-medium">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* FINAL CTA */}
-      <section className="py-20 px-6 md:px-16 bg-[#1a2a3a] text-center">
-        <div className="max-w-[560px] mx-auto">
-          <h2 className="text-3xl md:text-[40px] font-normal mb-3.5 leading-[1.25] cta-title-gradient">
-            Ready to have the conversation?
-          </h2>
-          <p className="text-white/60 text-base font-light mb-10 leading-[1.7]">
-            A 30-minute strategy call to discuss your business, your numbers, and whether a listing path makes sense for where you are now. No pitch. No pressure. Just clarity.
-          </p>
-          <BookCallButton
-            label="Book a Confidential Call"
-            className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-10 py-4 rounded-none uppercase tracking-[0.15em] text-sm font-semibold shadow-[0_4px_24px_rgba(201,162,39,0.45)] btn-gold-animated hover:-translate-y-0.5 transition-transform"
-          />
-          <p className="text-white/35 text-[11px] mt-5 tracking-[0.05em]">
-            Type 6 Licensed · 60+ Transactions · US$500M+ Deal Value
-          </p>
-        </div>
-      </section>
-
-      <FloatingCTA />
+      <div className="mobile-cta-spacer" />
+      <StickyMobileBar />
 
       {/* Footer */}
       <footer className="w-full bg-[#0f1a24] border-t border-[#1a2a3a] py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col items-center gap-5">
-            {/* Social Links */}
             <div className="flex items-center justify-center gap-6">
               <a href="https://www.linkedin.com/in/mandyc852/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#c9a227] transition-colors" aria-label="LinkedIn">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               </a>
             </div>
-
-            {/* Copyright + Links */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-1 text-center" style={{ fontFamily: "var(--font-poppins)" }}>
               <p className="text-slate-500 text-xs leading-relaxed mb-2 md:mb-0">
                 © 2026 Lumina Consulting Limited

@@ -80,7 +80,7 @@ const REASONS: Reason[] = [
   {
     title: "Decided to list",
     body: "You've made the call. What stands between you and a filing is structure and records — ninety days of focused work.",
-    href: "/consulting",
+    href: "/ipo",
     cta: "See the 90-Day Readiness Engagement →",
   },
   {
@@ -264,33 +264,33 @@ export default function HomePage() {
       </section>
 
       {/* FLAGSHIP OFFER — Pre-IPO Consulting */}
-      <section id="download" className="relative py-20 md:py-28 px-6 bg-[#1a2a3a] scroll-mt-24 overflow-hidden">
+      <section id="download" className="relative py-20 md:py-28 px-6 bg-[#f8f7f4] scroll-mt-24 overflow-hidden">
         {/* Subtle skyline texture to distinguish from the final CTA */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/Hong Kong 1.jpg"
             alt=""
             fill
-            className="object-cover opacity-[0.06]"
+            className="object-cover opacity-[0.05]"
             sizes="100vw"
           />
         </div>
         <div className="max-w-3xl mx-auto text-center relative z-10">
-          <p className="text-[#c9a227] text-xs font-medium tracking-[0.25em] uppercase mb-3">Corporate Advisory · Flagship Engagement</p>
-          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15] !text-white" style={{ textWrap: "balance" }}>
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">Corporate Advisory · Flagship Engagement</p>
+          <h2 className="text-3xl md:text-4xl mb-5 font-normal leading-[1.15]" style={{ textWrap: "balance" }}>
             The 90-Day Readiness Engagement
           </h2>
-          <p className="text-white/80 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+          <p className="text-slate-600 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
             You have decided to list. What stands between you and a filing is rarely the decision — it is how your group is owned and what your financial records will survive. I spend ninety days fixing both.
           </p>
           <a
-            href="/consulting"
+            href="/ipo"
             className="w-full md:w-[520px] mx-auto flex items-center justify-center whitespace-nowrap px-6 md:px-10 py-4 rounded-none shadow-lg uppercase tracking-[0.12em] md:tracking-[0.15em] text-sm btn-gold-animated"
           >
             See the 90-Day Readiness Engagement →
           </a>
-          <p className="text-white/50 font-light text-sm mt-5">
-            Fixed fee, agreed before we start · typically 90 days · contracted with the company
+          <p className="text-slate-500 font-light text-sm mt-5">
+            Fixed fee US$15,000 · typically 90 days · contracted with the company
           </p>
         </div>
       </section>

@@ -220,7 +220,7 @@ export default function ResourcesPage() {
               <p className="text-slate-400 text-xs font-light italic mb-4">
                 Outcome: A company that can survive an audit and carry a filing.
               </p>
-              <a href="/consulting" className="text-[#c9a227] hover:text-[#f5e6b3] text-sm font-medium tracking-wide transition-colors">
+              <a href="/ipo" className="text-[#c9a227] hover:text-[#f5e6b3] text-sm font-medium tracking-wide transition-colors">
                 See the engagement →
               </a>
             </div>

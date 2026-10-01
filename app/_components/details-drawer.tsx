@@ -43,10 +43,12 @@ export function DetailsDrawer() {
     <div className="bg-white border border-slate-200 px-6 md:px-10">
       <Q q="What does it cost?">
         <p>
-          A fixed fee, agreed in writing before anything starts, staged so that payments fall due as
-          work is delivered rather than in advance. I will give you the figure on the call once I
-          know what your structure actually requires — quoting it blind would be guessing, and you
-          would be right not to trust the number.
+          The 90-Day Readiness Engagement is a fixed fee of US$15,000, agreed in
+          writing before anything starts, staged so that payments fall due as
+          work is delivered rather than in advance. If your structure turns out
+          to need something different, I will tell you on the call — quoting
+          blind would be guessing, and you would be right not to trust the
+          number.
         </p>
       </Q>
 

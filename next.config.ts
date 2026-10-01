@@ -5,17 +5,22 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/readiness",
-        destination: "/consulting",
+        destination: "/ipo",
+        permanent: true,
+      },
+      {
+        source: "/consulting",
+        destination: "/ipo",
         permanent: true,
       },
       {
         source: "/ipo-path",
-        destination: "/consulting",
+        destination: "/ipo",
         permanent: true,
       },
       {
         source: "/ipo-path/:path*",
-        destination: "/consulting",
+        destination: "/ipo",
         permanent: true,
       },
       {

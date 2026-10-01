@@ -8,7 +8,6 @@ const TIDYCAL_URL = "https://tidycal.com/mandyc852/30-minute-meeting"
 const LINKEDIN_URL = "https://www.linkedin.com/in/mandyc852/"
 
 const WORK_LINKS = [
-  { label: "Consulting", href: "/consulting" },
   { label: "IPO Advisory", href: "/ipo" },
 ]
 
@@ -112,7 +111,12 @@ export function SiteHeader({
               </a>
             )}
 
-            {/* Work With Me dropdown */}
+            {/* Work With Me — single link when there's one offer, dropdown otherwise */}
+            {WORK_LINKS.length === 1 ? (
+              <a href={WORK_LINKS[0].href} className={linkClasses}>
+                {WORK_LINKS[0].label}
+              </a>
+            ) : (
             <div className="relative" onMouseLeave={() => setWorkOpen(false)}>
               <button
                 type="button"
@@ -137,6 +141,7 @@ export function SiteHeader({
                 </div>
               )}
             </div>
+            )}
 
             <SocialIcons />
             {bookHref ? (
@@ -186,12 +191,20 @@ export function SiteHeader({
               </a>
             )}
             <div className="w-full border-t border-slate-100 my-1" />
-            <p className="text-xs uppercase tracking-[0.2em] text-[#a68a1f]">Work With Me</p>
-            {WORK_LINKS.map((w) => (
-              <a key={w.href} href={w.href} onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">
-                {w.label}
+            {WORK_LINKS.length === 1 ? (
+              <a href={WORK_LINKS[0].href} onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">
+                {WORK_LINKS[0].label}
               </a>
-            ))}
+            ) : (
+              <>
+                <p className="text-xs uppercase tracking-[0.2em] text-[#a68a1f]">Work With Me</p>
+                {WORK_LINKS.map((w) => (
+                  <a key={w.href} href={w.href} onClick={() => setMobileOpen(false)} className="block text-base text-slate-600 hover:text-[#1a2a3a] py-1 uppercase tracking-wide">
+                    {w.label}
+                  </a>
+                ))}
+              </>
+            )}
             <div className="w-full border-t border-slate-100 my-1" />
             <SocialIcons className="justify-center" />
             <div className="w-full max-w-xs flex flex-col gap-3">
