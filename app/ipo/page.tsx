@@ -379,25 +379,6 @@ export default function IPOAdvisoryPage() {
         </div>
       </section>
 
-      {/* ── Skyline band: the Hong Kong half of the pitch ───────────────── */}
-      <div className="relative w-full h-[260px] md:h-[380px] overflow-hidden">
-        <Image
-          src="/Hong Kong 1.jpg"
-          alt="Hong Kong skyline across Victoria Harbour"
-          fill
-          quality={80}
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a2a3a]/70 via-[#1a2a3a]/10 to-transparent pointer-events-none" />
-        <p
-          className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center text-white/95 text-lg md:text-2xl font-light px-6"
-          style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
-        >
-          The US and Hong Kong — the world&apos;s top two IPO markets.
-        </p>
-      </div>
-
       {/* ── 4 · HOW THE NINETY DAYS RUN — white, horizontal roadmap ─────── */}
       <section id="how-it-runs" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
@@ -599,9 +580,23 @@ export default function IPOAdvisoryPage() {
         </div>
       </section>
 
-      {/* ── 8 · THE ENGAGEMENT — navy (the one dark CTA moment) ─────────── */}
-      <section className="py-14 md:py-20 px-6 bg-[#1a2a3a]" style={{ backgroundImage: "linear-gradient(135deg, rgba(201,162,39,0.06) 0%, transparent 60%)" }}>
-        <div className="max-w-3xl mx-auto">
+      {/* ── 8 · THE ENGAGEMENT — navy, Hong Kong skyline behind the CTA ─── */}
+      <section className="relative py-14 md:py-20 px-6 bg-[#1a2a3a] overflow-hidden">
+        {/* Hong Kong skyline backdrop, heavily veiled in navy */}
+        <div className="absolute inset-0" aria-hidden="true">
+          <Image
+            src="/Hong Kong 1.jpg"
+            alt=""
+            fill
+            quality={70}
+            className="object-cover opacity-30"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[#1a2a3a]/85" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[rgba(201,162,39,0.07)] via-transparent to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-normal mb-3 text-center" style={{ color: "#ffffff" }}>
             The 90-Day Readiness Engagement
           </h2>
