@@ -282,8 +282,8 @@ export default function IPOAdvisoryPage() {
         </div>
       </section>
 
-      {/* ── 2 · THE PROBLEM — white ─────────────────────────────────────── */}
-      <section id="the-problem" className="scroll-anchor py-20 md:py-24 px-6 bg-white">
+      {/* ── 2 · THE PROBLEM + THREE THINGS — one flowing white section ───── */}
+      <section id="the-problem" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             The Problem
@@ -332,23 +332,21 @@ export default function IPOAdvisoryPage() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* ── 3 · THREE THINGS — cream, three columns ─────────────────────── */}
-      <section className="py-16 md:py-24 px-6 bg-[#f8f7f4]">
-        <div className="max-w-6xl mx-auto">
+        {/* What goes wrong — three blockers, side by side */}
+        <div className="max-w-6xl mx-auto mt-14 md:mt-20">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3 text-center">
             What Goes Wrong
           </p>
           <h2
-            className="text-3xl md:text-[42px] font-normal mb-12 leading-[1.15] text-[#1a2a3a] text-center"
+            className="text-2xl md:text-4xl font-normal mb-10 leading-[1.15] text-[#1a2a3a] text-center"
             style={{ textWrap: "balance" }}
           >
             Three things that actually stop a first listing
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 bg-white border-2 border-slate-200 flex flex-col">
+            <div className="p-6 md:p-8 bg-[#f8f7f4] border border-slate-200 flex flex-col">
               <span className="text-4xl leading-none text-[#c9a227]/50 font-normal mb-5" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">01</span>
               <h3 className="text-[19px] md:text-[21px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
                 The blocker is almost never the decision. It is the structure.
@@ -358,7 +356,7 @@ export default function IPOAdvisoryPage() {
               </p>
             </div>
 
-            <div className="p-8 bg-white border-2 border-slate-200 flex flex-col">
+            <div className="p-6 md:p-8 bg-[#f8f7f4] border border-slate-200 flex flex-col">
               <span className="text-4xl leading-none text-[#c9a227]/50 font-normal mb-5" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">02</span>
               <h3 className="text-[19px] md:text-[21px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
                 Profitable is not the same as auditable.
@@ -368,7 +366,7 @@ export default function IPOAdvisoryPage() {
               </p>
             </div>
 
-            <div className="p-8 bg-white border-2 border-slate-200 flex flex-col">
+            <div className="p-6 md:p-8 bg-[#f8f7f4] border border-slate-200 flex flex-col">
               <span className="text-4xl leading-none text-[#c9a227]/50 font-normal mb-5" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">03</span>
               <h3 className="text-[19px] md:text-[21px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
                 Left late, this costs multiples.
@@ -498,7 +496,7 @@ export default function IPOAdvisoryPage() {
       </section>
 
       {/* ── 5 · WHAT I DO — cream ───────────────────────────────────────── */}
-      <section className="py-20 md:py-28 px-6 bg-[#f8f7f4]">
+      <section className="py-14 md:py-20 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             Advisory Services
@@ -510,9 +508,9 @@ export default function IPOAdvisoryPage() {
             From restructuring to listing day. One advisor, covering the ground a deal team would.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             {SERVICES.map((s) => (
-              <div key={s.title} className="p-8 rounded-none bg-white border-2 border-slate-200 flex flex-col">
+              <div key={s.title} className="p-6 md:p-7 rounded-none bg-white border-2 border-slate-200 flex flex-col">
                 <div className="w-11 h-11 mx-auto rounded-full bg-gradient-to-br from-[#2d4156] to-[#1a2a3a] flex items-center justify-center mb-4">
                   <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={s.icon} />
@@ -565,7 +563,7 @@ export default function IPOAdvisoryPage() {
       </section>
 
       {/* ── 7 · ABOUT — cream ───────────────────────────────────────────── */}
-      <section className="py-14 md:py-20 px-6 bg-[#f8f7f4]">
+      <section className="py-12 md:py-16 px-6 bg-[#f8f7f4]">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-[280px_1fr] gap-8 md:gap-14 items-start">
             <div className="mx-auto md:mx-0 w-full max-w-[240px] md:max-w-[280px]">
@@ -593,7 +591,7 @@ export default function IPOAdvisoryPage() {
                   Ten-plus years across Nasdaq, HKEX and global markets. Sixty-plus transactions in IPOs, M&amp;A and cross-border deals. SFC Type 6 licensed — advising on corporate finance.
                 </p>
                 <p>
-                  Most of the listings I work on are US ones, for founder-led companies listing for the first time. I have sat on the sell side, which is why I can tell you what your auditor will and will not sign before you find out the expensive way.
+                  Most listings I work on are US ones, for founder-led companies going public for the first time. I have sat on the sell side — I can tell you what your auditor will and will not sign before you find out the expensive way.
                 </p>
               </div>
             </div>
@@ -602,7 +600,7 @@ export default function IPOAdvisoryPage() {
       </section>
 
       {/* ── 8 · THE ENGAGEMENT — navy (the one dark CTA moment) ─────────── */}
-      <section className="py-16 md:py-24 px-6 bg-[#1a2a3a]" style={{ backgroundImage: "linear-gradient(135deg, rgba(201,162,39,0.06) 0%, transparent 60%)" }}>
+      <section className="py-14 md:py-20 px-6 bg-[#1a2a3a]" style={{ backgroundImage: "linear-gradient(135deg, rgba(201,162,39,0.06) 0%, transparent 60%)" }}>
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-normal mb-3 text-center" style={{ color: "#ffffff" }}>
             The 90-Day Readiness Engagement
@@ -644,7 +642,7 @@ export default function IPOAdvisoryPage() {
       </section>
 
       {/* ── 9 · COMMON QUESTIONS — white ────────────────────────────────── */}
-      <section id="common-questions" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
+      <section id="common-questions" className="scroll-anchor py-12 md:py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             Questions
