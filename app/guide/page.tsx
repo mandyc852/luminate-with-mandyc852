@@ -40,10 +40,10 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
       <div className="flex flex-1 min-h-0">
         {/* Left Panel - Warm White / Form Side */}
         <div
-          className="w-1/2 flex flex-col justify-center items-center px-14 py-8"
+          className="w-1/2 flex flex-col items-center px-14 py-8 min-h-0 overflow-y-auto"
           style={{ backgroundColor: "#FAF7F3" }}
         >
-          <div className="max-w-lg w-full">
+          <div className="max-w-lg w-full m-auto">
             <div className="mb-4 text-center">
               <span
                 className="text-[32px] tracking-[0.18em]"
@@ -140,12 +140,12 @@ function DesktopView({ firstName, setFirstName, email, setEmail, onSubmit, isSub
 
         {/* Right Panel - Navy / Content Side */}
         <div
-          className="w-1/2 relative flex flex-col items-center justify-center px-12 py-8 min-h-0 overflow-y-auto"
+          className="w-1/2 relative flex flex-col items-center px-12 py-8 min-h-0 overflow-y-auto"
           style={{
             background: "linear-gradient(135deg, #1A2A3A 0%, #0F1A24 50%, #1A2A3A 100%)",
           }}
         >
-          <div className="max-w-xl w-full flex flex-col justify-center">
+          <div className="max-w-xl w-full m-auto flex flex-col justify-center">
             {/* WHAT'S INSIDE Section */}
             <h2
               className="text-3xl font-medium tracking-[0.15em] mb-7 text-center bg-clip-text text-transparent"
