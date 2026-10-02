@@ -354,7 +354,7 @@ export default function IPOAdvisoryPage() {
                 The blocker is almost never the decision. It is the structure.
               </h3>
               <p className="text-slate-600 text-[15px] leading-[1.8] font-light">
-                By the time we speak you have usually settled on Nasdaq — for a company at your size it is often the only route whose thresholds you clear. What delays a listing is what sits underneath: how the group is owned. Most first-time issuers need a holding company built above their operating entities before they can list at all, and that reorganisation carries tax, regulatory and shareholder consequences that must be worked through in the right order — before anyone drafts a document.
+                By the time we speak, you have usually settled on Nasdaq. What delays the listing sits underneath that decision: how the group is owned. Most first-time issuers need a holding company built above their operating entities before they can list at all — with tax, regulatory and shareholder consequences worked through in the right order, before anyone drafts a document.
               </p>
             </div>
 
@@ -364,7 +364,7 @@ export default function IPOAdvisoryPage() {
                 Profitable is not the same as auditable.
               </h3>
               <p className="text-slate-600 text-[15px] leading-[1.8] font-light">
-                Founders who know their numbers are usually right about the business and wrong about the records: dealings with connected companies never at arm&apos;s length, money moving between entities on handshake terms, revenue recognised the way your market does it rather than the way a US audit requires, books that don&apos;t reach back far enough to cover the audit period. None of it looks like a problem until an auditor asks — and by then it is on your timeline, not theirs.
+                Dealings with connected companies never at arm&apos;s length. Money moving between entities on handshake terms. Revenue recognised the way your market does it, not the way a US audit requires. Books that don&apos;t reach back far enough to cover the audit period. None of it looks like a problem until an auditor asks — and then it is on your timeline, not theirs.
               </p>
             </div>
 
@@ -374,7 +374,7 @@ export default function IPOAdvisoryPage() {
                 Left late, this costs multiples.
               </h3>
               <p className="text-slate-600 text-[15px] leading-[1.8] font-light">
-                Restructuring a group and repairing historical financials takes months, and it does not compress. Done early it is planning. Done under a filing deadline it becomes emergency work at emergency prices — with a delay attached, and often a structure you would not have chosen if you had been given time to choose.
+                Restructuring a group and repairing historical financials takes months, and it does not compress. Done early, it is planning. Done under a filing deadline, it is emergency work at emergency prices — with a delay attached.
               </p>
             </div>
           </div>
