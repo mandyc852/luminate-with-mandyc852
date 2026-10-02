@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Fragment } from "react"
 import Image from "next/image"
 import { Cormorant_Garamond, Poppins } from "next/font/google"
 import { SiteHeader } from "../_components/site-header"
@@ -283,7 +283,7 @@ export default function IPOAdvisoryPage() {
       </section>
 
       {/* ── 2 · THE PROBLEM — white ─────────────────────────────────────── */}
-      <section id="the-problem" className="scroll-anchor py-20 md:py-28 px-6 bg-white">
+      <section id="the-problem" className="scroll-anchor py-20 md:py-24 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             The Problem
@@ -297,84 +297,171 @@ export default function IPOAdvisoryPage() {
               They assume their company is too small. They assume it costs more than it does. They assume the whole company has to be listed. Most of the time, they&apos;re wrong on all three counts.
             </p>
             <p>
-              The US and Hong Kong are the world&apos;s top two IPO markets — and the entry points are more accessible than most founders realize. NASDAQ&apos;s Capital Market tier requires approximately US$750K in net income. That&apos;s a single profitable business unit, not a billion-dollar enterprise.
-            </p>
-            <p>
-              What most founders don&apos;t know: you don&apos;t have to list your entire company. A carve-out takes one business unit and structures it as a standalone listing vehicle. A roll-up consolidates multiple smaller businesses into one. Both strategies change who qualifies — and how.
+              And you don&apos;t have to list your entire company. A carve-out takes one business unit and structures it as a standalone listing vehicle. A roll-up consolidates multiple smaller businesses into one. Both strategies change who qualifies — and how.
             </p>
             <p className="text-[#1a2a3a] font-normal">
               The question isn&apos;t whether listing is good or bad. It&apos;s whether it&apos;s right for where your business is now and where you want it to go. That&apos;s what the first call is for.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* ── 3 · THREE THINGS — cream ────────────────────────────────────── */}
-      <section className="py-16 md:py-24 px-6 bg-[#f8f7f4]">
-        <div className="max-w-[68ch] mx-auto">
-          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3">
-            What Goes Wrong
-          </p>
-          <h2
-            className="text-3xl md:text-[42px] font-normal mb-12 leading-[1.15] text-[#1a2a3a]"
-            style={{ textWrap: "balance" }}
-          >
-            Three things that actually stop a first listing
-          </h2>
-
-          <div className="space-y-12">
-            <div className="flex gap-6 md:gap-8">
-              <span className="flex-shrink-0 text-4xl md:text-5xl leading-none text-[#c9a227]/40 font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">01</span>
-              <div>
-              <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
-                The blocker is almost never the decision. It is the structure.
-              </h3>
-              <p className="text-slate-600 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                By the time we speak you have usually settled on Nasdaq, and for a company at your size it is often the only route whose thresholds you clear. What delays a first listing is what sits underneath the decision: how the group is owned. Most first-time issuers need a holding company established above their operating entities before they can list at all — and that reorganisation carries tax, regulatory and shareholder consequences that have to be worked through in the right order. Rebuilding the structure is the work, and it has to happen before anyone drafts a document.
+          {/* Stat strip */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 md:gap-8 mt-12 pt-10 border-t border-slate-200 max-w-md sm:max-w-none mx-auto">
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl text-[#1a2a3a]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                US$750K
               </p>
-              </div>
+              <p className="text-slate-500 text-xs md:text-[13px] font-light mt-2 leading-snug">
+                Approximate net income for Nasdaq&apos;s Capital Market tier — one profitable unit, not a billion-dollar group
+              </p>
             </div>
-
-            <div className="flex gap-6 md:gap-8">
-              <span className="flex-shrink-0 text-4xl md:text-5xl leading-none text-[#c9a227]/40 font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">02</span>
-              <div>
-              <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
-                Profitable is not the same as auditable.
-              </h3>
-              <p className="text-slate-600 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                Founders who know their numbers are usually right about the business and wrong about the records. Dealings with family and connected companies that were never at arm&apos;s length. Money moving between group entities on handshake terms. Revenue recognised the way your market does it rather than the way a US audit requires. Books that simply do not reach back far enough to cover the audit period. None of it looks like a problem until an auditor asks — and by then it is on your timeline, not theirs.
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl text-[#1a2a3a]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                3 ways in
               </p>
-              </div>
+              <p className="text-slate-500 text-xs md:text-[13px] font-light mt-2 leading-snug">
+                Full listing, carve-out, or roll-up — the structure changes who qualifies
+              </p>
             </div>
-
-            <div className="flex gap-6 md:gap-8">
-              <span className="flex-shrink-0 text-4xl md:text-5xl leading-none text-[#c9a227]/40 font-normal" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">03</span>
-              <div>
-              <h3 className="text-[21px] md:text-[25px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
-                Left late, this costs multiples.
-              </h3>
-              <p className="text-slate-600 text-[17px] md:text-[18px] leading-[1.85] font-light">
-                Restructuring a group and repairing historical financials takes months, and it does not compress. Done early it is planning. Done under a filing deadline it becomes emergency work at emergency prices, with a delay attached — and often a structure you would not have chosen if you had been given time to choose.
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl text-[#1a2a3a]" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}>
+                90 days
               </p>
-              </div>
+              <p className="text-slate-500 text-xs md:text-[13px] font-light mt-2 leading-snug">
+                From first call to filing-ready, typically — at a fixed fee
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 4 · HOW THE NINETY DAYS RUN — white ─────────────────────────── */}
+      {/* ── 3 · THREE THINGS — cream, three columns ─────────────────────── */}
+      <section className="py-16 md:py-24 px-6 bg-[#f8f7f4]">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase mb-3 text-center">
+            What Goes Wrong
+          </p>
+          <h2
+            className="text-3xl md:text-[42px] font-normal mb-12 leading-[1.15] text-[#1a2a3a] text-center"
+            style={{ textWrap: "balance" }}
+          >
+            Three things that actually stop a first listing
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-8 bg-white border-2 border-slate-200 flex flex-col">
+              <span className="text-4xl leading-none text-[#c9a227]/50 font-normal mb-5" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">01</span>
+              <h3 className="text-[19px] md:text-[21px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
+                The blocker is almost never the decision. It is the structure.
+              </h3>
+              <p className="text-slate-600 text-[15px] leading-[1.8] font-light">
+                By the time we speak you have usually settled on Nasdaq — for a company at your size it is often the only route whose thresholds you clear. What delays a listing is what sits underneath: how the group is owned. Most first-time issuers need a holding company built above their operating entities before they can list at all, and that reorganisation carries tax, regulatory and shareholder consequences that must be worked through in the right order — before anyone drafts a document.
+              </p>
+            </div>
+
+            <div className="p-8 bg-white border-2 border-slate-200 flex flex-col">
+              <span className="text-4xl leading-none text-[#c9a227]/50 font-normal mb-5" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">02</span>
+              <h3 className="text-[19px] md:text-[21px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
+                Profitable is not the same as auditable.
+              </h3>
+              <p className="text-slate-600 text-[15px] leading-[1.8] font-light">
+                Founders who know their numbers are usually right about the business and wrong about the records: dealings with connected companies never at arm&apos;s length, money moving between entities on handshake terms, revenue recognised the way your market does it rather than the way a US audit requires, books that don&apos;t reach back far enough to cover the audit period. None of it looks like a problem until an auditor asks — and by then it is on your timeline, not theirs.
+              </p>
+            </div>
+
+            <div className="p-8 bg-white border-2 border-slate-200 flex flex-col">
+              <span className="text-4xl leading-none text-[#c9a227]/50 font-normal mb-5" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">03</span>
+              <h3 className="text-[19px] md:text-[21px] font-normal leading-[1.35] mb-4 text-[#a68a1f]">
+                Left late, this costs multiples.
+              </h3>
+              <p className="text-slate-600 text-[15px] leading-[1.8] font-light">
+                Restructuring a group and repairing historical financials takes months, and it does not compress. Done early it is planning. Done under a filing deadline it becomes emergency work at emergency prices — with a delay attached, and often a structure you would not have chosen if you had been given time to choose.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Skyline band: the Hong Kong half of the pitch ───────────────── */}
+      <div className="relative w-full h-[260px] md:h-[380px] overflow-hidden">
+        <Image
+          src="/Hong Kong 1.jpg"
+          alt="Hong Kong skyline across Victoria Harbour"
+          fill
+          quality={80}
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a2a3a]/70 via-[#1a2a3a]/10 to-transparent pointer-events-none" />
+        <p
+          className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center text-white/95 text-lg md:text-2xl font-light px-6"
+          style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
+        >
+          The US and Hong Kong — the world&apos;s top two IPO markets.
+        </p>
+      </div>
+
+      {/* ── 4 · HOW THE NINETY DAYS RUN — white, horizontal roadmap ─────── */}
       <section id="how-it-runs" className="scroll-anchor py-14 md:py-20 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <p className="text-[#a68a1f] text-xs font-medium tracking-[0.25em] uppercase text-center mb-3">
             The Process
           </p>
-          <h2 className="text-3xl md:text-4xl font-normal mb-10 text-center">How the ninety days run</h2>
+          <h2 className="text-3xl md:text-4xl font-normal mb-12 md:mb-16 text-center">How the ninety days run</h2>
 
-          <div className="space-y-8">
+          {/* Desktop: horizontal roadmap */}
+          <div className="hidden md:flex items-start">
+            {[
+              {
+                n: "1",
+                label: "Week one",
+                title: "I take everything in.",
+                body: "Financials, cap table, group structure, and the arrangements nobody wrote down.",
+              },
+              {
+                n: "2",
+                label: "Week two",
+                title: "You get the plan.",
+                body: "What has to change, in what order, who does each piece, and how long each takes.",
+              },
+              {
+                n: "3",
+                label: "Weeks 3–13",
+                title: "We do it.",
+                body: "A standing call every week, and me directing the lawyers and accountants you appoint so the sequence holds.",
+              },
+              {
+                n: "4",
+                label: "Day 90",
+                title: "Filing-ready.",
+                body: "Your company in a shape that can carry a filing.",
+              },
+            ].map((s, i) => (
+              <Fragment key={s.n}>
+                {i > 0 && <div className="flex-1 h-px bg-[#c9a227]/40 mt-6" aria-hidden="true" />}
+                <div className="flex flex-col items-center text-center w-56 flex-shrink-0">
+                  <div
+                    className="w-12 h-12 rounded-full border-2 border-[#c9a227] bg-white flex items-center justify-center text-[#a68a1f] text-lg"
+                    style={{ fontFamily: "var(--font-cormorant-garamond), serif" }}
+                    aria-hidden="true"
+                  >
+                    {s.n}
+                  </div>
+                  <p className="text-[#a68a1f] text-[11px] font-medium tracking-[0.22em] uppercase mt-5 mb-1.5">
+                    {s.label}
+                  </p>
+                  <p className="text-[#1a2a3a] text-[16px] font-medium mb-1.5">{s.title}</p>
+                  <p className="text-slate-600 text-[13.5px] leading-[1.7] font-light">{s.body}</p>
+                </div>
+              </Fragment>
+            ))}
+          </div>
+
+          {/* Mobile: vertical steps */}
+          <div className="md:hidden space-y-8">
             <div className="flex gap-5">
               <span className="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#a68a1f] text-base" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">1</span>
               <div>
-              <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
+              <p className="text-[#1a2a3a] text-[17px] font-medium leading-[1.6] mb-2">
                 Week one — I take everything in.
               </p>
               <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
@@ -386,7 +473,7 @@ export default function IPOAdvisoryPage() {
             <div className="flex gap-5">
               <span className="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#a68a1f] text-base" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">2</span>
               <div>
-              <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
+              <p className="text-[#1a2a3a] text-[17px] font-medium leading-[1.6] mb-2">
                 Week two — you get the plan.
               </p>
               <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
@@ -398,7 +485,7 @@ export default function IPOAdvisoryPage() {
             <div className="flex gap-5">
               <span className="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[#c9a227] flex items-center justify-center text-[#a68a1f] text-base" style={{ fontFamily: "var(--font-cormorant-garamond), serif" }} aria-hidden="true">3</span>
               <div>
-              <p className="text-[#1a2a3a] text-[17px] md:text-[18px] font-medium leading-[1.6] mb-2">
+              <p className="text-[#1a2a3a] text-[17px] font-medium leading-[1.6] mb-2">
                 Weeks three to thirteen — we do it.
               </p>
               <p className="text-slate-600 text-[15px] leading-[1.85] font-light">
